@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "Дабравесце",
+    "slug": "dabravesce",
+    "version": "11",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon-adaptive-smaller.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "by.dabravesce",
+      "versionCode": 11
+    },
+    "web": {
+      "favicon": "./assets/images/icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9ed2d8a4-b203-4b54-8fc8-4ece25041f0b"
+      }
+    }
+  }
+}
