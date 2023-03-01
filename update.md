@@ -1,3 +1,5 @@
+npm run web
+
 > Web Build and Android App version upgrade:  
 * see Expo Conspect on the Drive
 

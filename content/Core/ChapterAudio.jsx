@@ -2,7 +2,7 @@
 // https://docs.expo.dev/versions/latest/sdk/keep-awake/
 
 import { useEffect, useState } from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 
 import { Audio } from "expo-av";
 import { useKeepAwake } from "expo-keep-awake";
@@ -23,12 +23,14 @@ export default function ChapterAudio({ chapterAudio }) {
   const LoadAudio = async () => {
     try {
       UnloadAudio();
-      RequireAudio();
+
+      /*Platform.OS == "web" ? RequireAudio() :*/ CreateAudio();
 
       setActive(true);
+
       sound.setOnPlaybackStatusUpdate(UpdateAudio);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   };
 
@@ -41,7 +43,7 @@ export default function ChapterAudio({ chapterAudio }) {
         sound.playAsync();
       }
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   };
 
@@ -55,7 +57,7 @@ export default function ChapterAudio({ chapterAudio }) {
         }
       }
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   };
 
@@ -69,7 +71,7 @@ export default function ChapterAudio({ chapterAudio }) {
         sound.setPositionAsync(0);
       }
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   };
 
@@ -77,7 +79,7 @@ export default function ChapterAudio({ chapterAudio }) {
     try {
       await sound.unloadAsync();
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   };
 
@@ -360,10 +362,15 @@ export default function ChapterAudio({ chapterAudio }) {
         await sound.loadAsync(require("../../assets/audio/john/21.mp3"));
         break;
 
-
       default:
         await sound.loadAsync(require("../../assets/audio/matt/01.mp3"));
     }
+  };
+
+  const CreateAudio = async () => {
+    const uri = "https://vorvule.com" + chapterAudio;
+
+    await sound.loadAsync({ uri: uri }, {}, true);
   };
 
   return (
