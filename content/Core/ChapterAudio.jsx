@@ -88,7 +88,7 @@ export default function ChapterAudio({ chapterAudio }) {
       LoadAudio(); // to replay on natives
     }
   };
-
+/*
   const RequireAudio = async () => {
     switch (chapterAudio) {
       case "/audio/matt/01.mp3":
@@ -366,7 +366,7 @@ export default function ChapterAudio({ chapterAudio }) {
         await sound.loadAsync(require("../../assets/audio/matt/01.mp3"));
     }
   };
-
+*/
   const CreateAudio = async () => {
     const uri = "https://vorvule.com" + chapterAudio;
 
