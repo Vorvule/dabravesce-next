@@ -3,8 +3,8 @@ import { AntDesign } from "@expo/vector-icons";
 
 import Block from "../components/Block";
 
-import { styles } from "../../styles/styles";
-import { DeviceSpecific } from "../../functions/DeviceSpecific";
+import { styles } from "../../constants/styles";
+import { DeviceSpecific } from "../../library/DeviceSpecific";
 
 export function IconLink({ iconUrl, iconName, children }) {
   const { fontSize } = DeviceSpecific.sizedFont(24, 22);

@@ -6,11 +6,11 @@ import { CoreScreen } from "./Core/CoreScreen";
 import { MenuScreen } from "./Menu/MenuScreen";
 import { InfoScreen } from "./Info/InfoScreen";
 
-import { DailyKeys } from "../functions/DailyKeys";
-import { DeviceSpecific } from "../functions/DeviceSpecific";
+import { DailyKeys } from "../library/DailyKeys";
+import { DeviceSpecific } from "../library/DeviceSpecific";
 import { ChainContext } from "./contexts/ChainContext";
 
-import { styles } from "../styles/styles";
+import { styles } from "../constants/styles";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -18,7 +18,7 @@ export default function AppNavigation() {
   const [chain, setChain] = useState(DailyKeys.getDailyKeys());
 
   return (
-    <ChainContext.Provider value={{chain: chain, setChain: setChain}}>
+    <ChainContext.Provider value={{ chain: chain, setChain: setChain }}>
       <BottomTab.Navigator
         initialRouteName="Меню"
         screenOptions={{

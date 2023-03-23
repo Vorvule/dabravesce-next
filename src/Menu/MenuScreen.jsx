@@ -5,7 +5,7 @@ import Albums from "./Albums";
 import Screen from "../components/Screen";
 
 import { allAlbums } from "../../assets/albums/AllAlbums";
-import { DeviceSpecific } from "../../functions/DeviceSpecific";
+import { DeviceSpecific } from "../../library/DeviceSpecific";
 
 const NavigationContext = createContext();
 const logoSource = require("../../assets/images/banner/dabravesce-banner.png");

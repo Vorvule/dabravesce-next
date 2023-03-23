@@ -1,7 +1,7 @@
 import { TouchableOpacity, View } from "react-native";
 
 import Block from "./Block";
-import { styles } from "../../styles/styles";
+import { styles } from "../../constants/styles";
 
 export default function MenuItem({ children, styler, onPress }) {
   return (

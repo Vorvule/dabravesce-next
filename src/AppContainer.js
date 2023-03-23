@@ -4,7 +4,7 @@ import { StatusBar } from "expo-status-bar";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 
 import AppNavigation from "./AppNavigation";
-import { styles } from "../styles/styles";
+import { styles } from "../constants/styles";
 
 export default function AppContainer() {
   const theme = {

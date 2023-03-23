@@ -8,7 +8,7 @@ import { Audio } from "expo-av";
 import KeepAwake from "expo-keep-awake";
 
 import AudioTouchable from "./AudioTouchable";
-import { styles } from "../../styles/styles";
+import { styles } from "../../constants/styles";
 
 export default function ChapterAudio({ chapterAudio }) {
   const [active, setActive] = useState(false);

@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Font from "expo-font";
 
-import AppContainer from "./content/AppContainer";
+import AppContainer from "./src/AppContainer";
 
 const getFonts = () => {
   return Font.loadAsync({

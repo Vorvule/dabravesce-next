@@ -1,7 +1,7 @@
 import { Text } from "react-native";
 
-import { DeviceSpecific } from "../../functions/DeviceSpecific";
-import { styles } from "../../styles/styles";
+import { DeviceSpecific } from "../../library/DeviceSpecific";
+import { styles } from "../../constants/styles";
 
 export default function Block({ children, styler }) {
   return (

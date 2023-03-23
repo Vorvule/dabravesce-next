@@ -1,4 +1,4 @@
-export const Constants = {
+export const constants = {
   urls: {
     market:
       "https://play.google.com/store/apps/details?id=by.dabravesce&hl=en&gl=US",

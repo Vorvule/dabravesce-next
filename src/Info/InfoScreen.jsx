@@ -6,8 +6,8 @@ import Screen from "../components/Screen";
 import SubTitle from "../components/SubTitle";
 import Title from "../components/Title";
 
-import { Constants } from "../../functions/Constants";
-import { styles } from "../../styles/styles";
+import { constants } from "../../constants/constants";
+import { styles } from "../../constants/styles";
 import { IconLink } from "./IconLink";
 
 export function InfoScreen() {
@@ -43,16 +43,16 @@ export function InfoScreen() {
       </Block>
 
       <SubTitle>Спасылкі</SubTitle>
-      <IconLink iconUrl={Constants.urls.market} iconName="android">
+      <IconLink iconUrl={constants.urls.market} iconName="android">
         Дачыненне для Android
       </IconLink>
-      <IconLink iconUrl={Constants.urls.github} iconName="github">
+      <IconLink iconUrl={constants.urls.github} iconName="github">
         Рэпазіторый на Github
       </IconLink>
-      <IconLink iconUrl={Constants.urls.devMail} iconName="customerservice">
+      <IconLink iconUrl={constants.urls.devMail} iconName="customerservice">
         Ліст распрацоўшчыкам
       </IconLink>
-      <IconLink iconUrl={Constants.urls.frateryMail} iconName="mail">
+      <IconLink iconUrl={constants.urls.frateryMail} iconName="mail">
         Ліст сябрам Брацтва
       </IconLink>
     </Screen>

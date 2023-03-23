@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { NavigationContext } from "@react-navigation/native";
 
 import { ChainContext } from "../contexts/ChainContext";
-import { MenuPage } from "../../functions/MenuPage";
+import { MenuPage } from "../../library/MenuPage";
 
 import MenuItem from "../components/MenuItem";
 

@@ -8,7 +8,7 @@ import { Audio } from "expo-av";
 import { useKeepAwake } from "expo-keep-awake";
 
 import AudioTouchable from "./AudioTouchable";
-import { styles } from "../../styles/styles";
+import { styles } from "../../constants/styles";
 
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, setSound] = useState(new Audio.Sound());
@@ -88,7 +88,7 @@ export default function ChapterAudio({ chapterAudio }) {
       LoadAudio(); // to replay on natives
     }
   };
-/*
+  /*
   const RequireAudio = async () => {
     switch (chapterAudio) {
       case "/audio/matt/01.mp3":
