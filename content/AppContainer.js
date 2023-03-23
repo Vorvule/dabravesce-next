@@ -7,7 +7,7 @@ import AppNavigation from "./AppNavigation";
 import { styles } from "../styles/styles";
 
 export default function AppContainer() {
-  const whiteTheme = {
+  const theme = {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
@@ -20,7 +20,7 @@ export default function AppContainer() {
     <View style={styles.appContainer}>
       <StatusBar backgroundColor="teal" style="light" />
 
-      <NavigationContainer theme={whiteTheme}>
+      <NavigationContainer theme={theme}>
         <AppNavigation />
       </NavigationContainer>
     </View>
