@@ -4,6 +4,9 @@
 import { useEffect, useState } from "react";
 import { Platform, View } from "react-native";
 
+import { firebaseApp } from "../../firebaseConfig";
+import { getDownloadURL, getStorage, getStream, ref } from "firebase/storage";
+
 import { Audio } from "expo-av";
 import { useKeepAwake } from "expo-keep-awake";
 
@@ -20,12 +23,22 @@ export default function ChapterAudio({ chapterAudio }) {
     LoadAudio();
   }, [chapterAudio]);
 
+  
   const LoadAudio = async () => {
     try {
       UnloadAudio();
+      
+      /*Platform.OS == "web" ? RequireAudio() :*/
+      // CreateAudio();
 
-      /*Platform.OS == "web" ? RequireAudio() :*/ CreateAudio();
-
+      // Firebase storage
+      const firebaseStorage = getStorage();
+      const audioRef = ref(firebaseStorage, chapterAudio);
+      console.log("Audio ref", audioRef);
+      console.log("Chapter audio", chapterAudio);
+      const uri = await getDownloadURL(audioRef);
+      await sound.loadAsync({ uri: uri }, {}, true);
+      
       setActive(true);
 
       sound.setOnPlaybackStatusUpdate(UpdateAudio);
