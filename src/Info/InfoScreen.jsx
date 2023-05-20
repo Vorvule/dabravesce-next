@@ -15,6 +15,23 @@ export function InfoScreen() {
     <Screen>
       <Title>Дабравесце</Title>
 
+      <SubTitle>Спасылкі</SubTitle>
+      <IconLink iconUrl={constants.urls.webLink} iconName="link">
+        Веб-старонка
+      </IconLink>
+      <IconLink iconUrl={constants.urls.market} iconName="android">
+        Дачыненне для Android
+      </IconLink>
+      <IconLink iconUrl={constants.urls.github} iconName="github">
+        Рэпазіторый на Github
+      </IconLink>
+      <IconLink iconUrl={constants.urls.devMail} iconName="customerservice">
+        Ліст распрацоўшчыкам
+      </IconLink>
+      <IconLink iconUrl={constants.urls.frateryMail} iconName="mail">
+        Ліст сябрам Брацтва
+      </IconLink>
+
       <SubTitle>Пра праект</SubTitle>
       <Block>"Дабравесце" — гэта:</Block>
       <View style={styles.listPadding}>
@@ -41,20 +58,6 @@ export function InfoScreen() {
         Малітоўнік — у перакладзе протаіерэя Сергія Гардуна. Чытае малітвы аўтар
         перакладу.
       </Block>
-
-      <SubTitle>Спасылкі</SubTitle>
-      <IconLink iconUrl={constants.urls.market} iconName="android">
-        Дачыненне для Android
-      </IconLink>
-      <IconLink iconUrl={constants.urls.github} iconName="github">
-        Рэпазіторый на Github
-      </IconLink>
-      <IconLink iconUrl={constants.urls.devMail} iconName="customerservice">
-        Ліст распрацоўшчыкам
-      </IconLink>
-      <IconLink iconUrl={constants.urls.frateryMail} iconName="mail">
-        Ліст сябрам Брацтва
-      </IconLink>
     </Screen>
   );
 }
