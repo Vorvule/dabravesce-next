@@ -1,26 +1,20 @@
 import * as React from "react";
-import { View } from "react-native";
+import { useColorScheme, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+
 import { StatusBar } from "expo-status-bar";
-import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 
 import AppNavigation from "./AppNavigation";
+
 import { styles } from "../constants/styles";
+import { ColorTheme } from "../library/ColorTheme";
 
 export default function AppContainer() {
-  const theme = {
-    ...DefaultTheme,
-    colors: {
-      ...DefaultTheme.colors,
-      background: "white",
-      border: "teal",
-    },
-  };
-
   return (
     <View style={styles.appContainer}>
-      <StatusBar backgroundColor="teal" style="light" />
+      <StatusBar style={useColorScheme()} hidden={true} />
 
-      <NavigationContainer theme={theme}>
+      <NavigationContainer theme={ColorTheme.navigationTheme()}>
         <AppNavigation />
       </NavigationContainer>
     </View>

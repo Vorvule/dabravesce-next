@@ -1,4 +1,4 @@
-import { useWindowDimensions } from "react-native";
+import { Dimensions, useWindowDimensions } from "react-native";
 
 export class DeviceSpecific {
   static deviceIsMobile() {
@@ -7,21 +7,20 @@ export class DeviceSpecific {
     return width < 900 || height < 900;
   }
 
-  static sizedFont(mobileFontSize, desktopFontSize) {
-    const sizedFont = this.deviceIsMobile()
-      ? { fontSize: mobileFontSize }
-      : { fontSize: desktopFontSize };
-
-    return sizedFont;
+  static fontSize(mobileFontSize, desktopFontSize) {
+    return this.deviceIsMobile() ? mobileFontSize : desktopFontSize;
   }
 
   static logoStyle() {
     const { width } = useWindowDimensions();
-    
     const screenPadding = 14 * 2;
-
     const logoWidth = Math.min(width, 600) - screenPadding;
 
     return { width: logoWidth, height: logoWidth / 4, alignSelf: "center" };
+  }
+
+  static windowHeight() {
+    // const screenHeight = Dimensions.get("screen").height; // web mobile
+    return Dimensions.get("window").height;
   }
 }

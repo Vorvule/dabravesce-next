@@ -27,8 +27,7 @@ export default function AppNavigation() {
           tabBarLabelStyle: styles.fontStyle,
           headerTitleStyle: [
             styles.fontStyle,
-            { color: "teal" },
-            DeviceSpecific.sizedFont(17, 19),
+            { color: "teal", fontSize: DeviceSpecific.fontSize(17, 19) },
           ],
           headerTitleAlign: "center",
         }}
@@ -53,11 +52,11 @@ export default function AppNavigation() {
           }}
         />
         <BottomTab.Screen
-          name="Больш"
+          name="Інфо"
           component={InfoScreen}
           options={{
             tabBarIcon: ({ color, size }) => (
-              <Entypo name="cog" color={color} size={size} />
+              <Entypo name="info" color={color} size={size} />
             ),
           }}
         />

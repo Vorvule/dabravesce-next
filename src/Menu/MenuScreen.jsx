@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { Image } from "react-native";
+import { Image, useColorScheme } from "react-native";
 
 import Albums from "./Albums";
 import Screen from "../components/Screen";
@@ -8,9 +8,13 @@ import { allAlbums } from "../../assets/albums/AllAlbums";
 import { DeviceSpecific } from "../../library/DeviceSpecific";
 
 const NavigationContext = createContext();
-const logoSource = require("../../assets/images/banner/dabravesce-banner.png");
 
 export function MenuScreen({ navigation }) {
+  const logoSource =
+    useColorScheme() == "light"
+      ? require("../../assets/images/banner/dabravesce-banner.png")
+      : require("../../assets/images/banner/dabravesce-banner-dark.png");
+
   return (
     <NavigationContext.Provider value={navigation}>
       <Screen>

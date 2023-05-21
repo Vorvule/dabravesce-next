@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import { DeviceSpecific } from "../library/DeviceSpecific";
+
 export const styles = StyleSheet.create({
   fontStyle: {
     fontFamily: "comfortaa-bold",
@@ -30,7 +32,8 @@ export const styles = StyleSheet.create({
 
   appContainer: {
     flex: 1,
-    margin: 2,
+    height: DeviceSpecific.windowHeight() - 2,
+    // marginBottom: 2,
   },
 
   audioPlayer: {
