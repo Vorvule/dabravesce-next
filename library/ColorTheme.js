@@ -10,4 +10,8 @@ export class ColorTheme {
   static iconColor() {
     return useColorScheme() == "light" ? Colors.darkColor : Colors.lightColor;
   }
+
+  static value() {
+    return useColorScheme();
+  }
 }
