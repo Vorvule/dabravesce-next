@@ -1,6 +1,10 @@
-import { Dimensions, useWindowDimensions } from "react-native";
+import { Dimensions, Platform, useWindowDimensions } from "react-native";
 
-export class DeviceSpecific {
+export class DeviceData {
+  static isWeb() {
+    return Platform.OS === "web";
+  }
+
   static deviceIsMobile() {
     const { width, height } = useWindowDimensions();
 

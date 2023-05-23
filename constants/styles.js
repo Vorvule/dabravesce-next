@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { DeviceSpecific } from "../library/DeviceSpecific";
+import { DeviceData } from "../library/DeviceData";
 
 export const styles = StyleSheet.create({
   fontStyle: {
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
 
   appContainer: {
     flex: 1,
-    height: DeviceSpecific.windowHeight() - 2,
+    height: DeviceData.windowHeight() - 2,
     // marginBottom: 2,
   },
 

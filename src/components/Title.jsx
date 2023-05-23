@@ -1,10 +1,10 @@
 import Block from "./Block";
 
-import { DeviceSpecific } from "../../library/DeviceSpecific";
+import { DeviceData } from "../../library/DeviceData";
 import { styles } from "../../constants/styles";
 
 export default function Title({ children, styler }) {
-  const style = { fontSize: DeviceSpecific.fontSize(16, 18) };
-  
+  const style = { fontSize: DeviceData.fontSize(16, 18) };
+
   return <Block styler={[styles.textTitle, style, styler]}>{children}</Block>;
 }

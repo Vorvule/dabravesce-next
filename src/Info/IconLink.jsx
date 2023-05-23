@@ -4,11 +4,11 @@ import { AntDesign } from "@expo/vector-icons";
 import Block from "../components/Block";
 
 import { styles } from "../../constants/styles";
-import { DeviceSpecific } from "../../library/DeviceSpecific";
+import { DeviceData } from "../../library/DeviceData";
 import { ColorTheme } from "../../library/ColorTheme";
 
 export function IconLink({ iconUrl, iconName, children }) {
-  const fontSize = DeviceSpecific.fontSize(24, 22)
+  const fontSize = DeviceData.fontSize(24, 22);
 
   return (
     <TouchableOpacity onPress={() => Linking.openURL(iconUrl)}>

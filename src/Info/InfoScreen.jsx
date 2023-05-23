@@ -9,19 +9,26 @@ import Title from "../components/Title";
 import { constants } from "../../constants/constants";
 import { styles } from "../../constants/styles";
 import { IconLink } from "./IconLink";
+import { DeviceData } from "../../library/DeviceData";
 
 export function InfoScreen() {
+  const isWeb = DeviceData.isWeb();
+
   return (
     <Screen>
       <Title>Дабравесце</Title>
 
       <SubTitle>Спасылкі</SubTitle>
-      <IconLink iconUrl={constants.urls.webLink} iconName="link">
-        Веб-старонка
-      </IconLink>
-      <IconLink iconUrl={constants.urls.market} iconName="android">
-        Дачыненне для Android
-      </IconLink>
+
+      {isWeb ? (
+        <IconLink iconUrl={constants.urls.market} iconName="android">
+          Дачыненне для Android
+        </IconLink>
+      ) : (
+        <IconLink iconUrl={constants.urls.webLink} iconName="link">
+          Веб-старонка
+        </IconLink>
+      )}
       <IconLink iconUrl={constants.urls.github} iconName="github">
         Рэпазіторый на Github
       </IconLink>

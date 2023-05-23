@@ -3,7 +3,7 @@ import { ScrollView } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
 
 import { CorePage } from "../../library/CorePage";
-import { DeviceSpecific } from "../../library/DeviceSpecific";
+import { DeviceData } from "../../library/DeviceData";
 import { styles } from "../../constants/styles";
 
 import CoreContent from "./CoreContent";
@@ -29,7 +29,7 @@ export function CoreScreen({ navigation, route }) {
 
   return (
     <ScrollView
-      showsVerticalScrollIndicator={DeviceSpecific.deviceIsMobile()}
+      showsVerticalScrollIndicator={DeviceData.deviceIsMobile()}
       style={styles.screenContainer}
       ref={scrollRef}
     >

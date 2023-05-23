@@ -7,7 +7,7 @@ import { MenuScreen } from "./Menu/MenuScreen";
 import { InfoScreen } from "./Info/InfoScreen";
 
 import { DailyKeys } from "../library/DailyKeys";
-import { DeviceSpecific } from "../library/DeviceSpecific";
+import { DeviceData } from "../library/DeviceData";
 import { ChainContext } from "./contexts/ChainContext";
 
 import { styles } from "../constants/styles";
@@ -25,9 +25,11 @@ export default function AppNavigation() {
           tabBarActiveTintColor: "#008080",
           tabBarInactiveTintColor: "#666666",
           tabBarLabelStyle: styles.fontStyle,
+
+          // headerShown: false,
           headerTitleStyle: [
             styles.fontStyle,
-            { color: "teal", fontSize: DeviceSpecific.fontSize(17, 19) },
+            { color: "teal", fontSize: DeviceData.fontSize(17, 19) },
           ],
           headerTitleAlign: "center",
         }}

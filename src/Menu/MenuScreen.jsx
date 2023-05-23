@@ -5,7 +5,7 @@ import Albums from "./Albums";
 import Screen from "../components/Screen";
 
 import { allAlbums } from "../../assets/albums/AllAlbums";
-import { DeviceSpecific } from "../../library/DeviceSpecific";
+import { DeviceData } from "../../library/DeviceData";
 
 const NavigationContext = createContext();
 
@@ -18,7 +18,7 @@ export function MenuScreen({ navigation }) {
   return (
     <NavigationContext.Provider value={navigation}>
       <Screen>
-        <Image source={logoSource} style={DeviceSpecific.logoStyle()} />
+        <Image source={logoSource} style={DeviceData.logoStyle()} />
 
         <Albums albums={allAlbums} />
       </Screen>
