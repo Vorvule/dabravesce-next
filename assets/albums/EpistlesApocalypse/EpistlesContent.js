@@ -1,8 +1,6 @@
 export const EpistlesContent = [
     {
       name: "Саборнае Пасланне святога Апостала Іакава",
-      idBe: "Іак.",
-      idEn: "James",
       text: [
         {
           name: "Раздзел 1",
@@ -141,8 +139,6 @@ export const EpistlesContent = [
     },
     {
       name: "Першае Саборнае Пасланне святога Апостала Пятра",
-      idBe: "1 Пт.",
-      idEn: "1Pet",
       text: [
         {
           name: "Раздзел 1",
@@ -278,8 +274,6 @@ export const EpistlesContent = [
     },
     {
       name: "Другое Саборнае Пасланне святога Апостала Пятра",
-      idBe: "2 Пт.",
-      idEn: "2Pet",
       text: [
         {
           name: "Раздзел 1",
@@ -361,8 +355,6 @@ export const EpistlesContent = [
     },
     {
       name: "Першае Саборнае Пасланне святога Апостала Іаана Багаслова",
-      idBe: "1 Ін.",
-      idEn: "1John",
       text: [
         {
           name: "Раздзел 1",
@@ -498,8 +490,6 @@ export const EpistlesContent = [
     },
     {
       name: "Друго́е Саборнае Пасланне святога Апостала Іаана Багаслова",
-      idBe: "2 Ін.",
-      idEn: "2John",
       text: [
         {
           name: "Раздзел 1",
@@ -523,8 +513,6 @@ export const EpistlesContent = [
     },
     {
       name: "Трэцяе Саборнае Пасланне святога Апостала Іаана Багаслова",
-      idBe: "3 Ін.",
-      idEn: "3John",
       text: [
         {
           name: "Раздзел 1",
@@ -550,8 +538,6 @@ export const EpistlesContent = [
     },
     {
       name: "Саборнае Пасланне святога Апостала Іуды",
-      idBe: "Іуд.",
-      idEn: "Jude",
       text: [
         {
           name: "Раздзел 1",
@@ -587,8 +573,6 @@ export const EpistlesContent = [
     },
     {
       name: "Да Ры́млян Пасланне святога Апостала Паўла",
-      idBe: "Рым.",
-      idEn: "Rome",
       text: [
         {
           name: "Раздзел 1",
@@ -1107,8 +1091,6 @@ export const EpistlesContent = [
     },
     {
       name: "Да Кары́нфян першае Пасланне святога Апостала Паўла",
-      idBe: "1 Кар.",
-      idEn: "1Cor",
       text: [
         {
           name: "Раздзел 1",
@@ -1631,8 +1613,6 @@ export const EpistlesContent = [
     },
     {
       name: "Да Кары́нфян другое Пасланне святога Апостала Паўла",
-      idBe: "2 Кар.",
-      idEn: "2Cor",
       text: [
         {
           name: "Раздзел 1",
@@ -1958,8 +1938,6 @@ export const EpistlesContent = [
     },
     {
       name: "Да Гала́таў Пасланне святога Апостала Паўла",
-      idBe: "Гал.",
-      idEn: "Gal",
       text: [
         {
           name: "Раздзел 1",
@@ -2144,8 +2122,6 @@ export const EpistlesContent = [
     },
     {
       name: "Да Эфе́сян Пасланне святога Апостала Паўла",
-      idBe: "Еф.",
-      idEn: "Eph",
       text: [
         {
           name: "Раздзел 1",
@@ -2336,8 +2312,6 @@ export const EpistlesContent = [
     },
     {
       name: "Да Філіпійцаў Пасланне святога Апостала Паўла",
-      idBe: "Флп.",
-      idEn: "Phlp",
       text: [
         {
           name: "Раздзел 1",
@@ -2467,8 +2441,6 @@ export const EpistlesContent = [
     },
     {
       name: "Да Кало́сян Пасланне святога Апостала Паўла",
-      idBe: "Кол.",
-      idEn: "Col",
       text: [
         {
           name: "Раздзел 1",
@@ -2589,8 +2561,6 @@ export const EpistlesContent = [
     },
     {
       name: "Да Фесаланікійцаў (Салу́нян) першае Пасланне святога Апостала Паўла",
-      idBe: "1 Фес.",
-      idEn: "1Thes",
       text: [
         {
           name: "Раздзел 1",
@@ -2710,8 +2680,6 @@ export const EpistlesContent = [
     },
     {
       name: "Да Фесаланікійцаў (Салу́нян) другое Пасланне святога Апостала Паўла",
-      idBe: "2 Фес.",
-      idEn: "2Thes",
       text: [
         {
           name: "Раздзел 1",
@@ -2779,8 +2747,6 @@ export const EpistlesContent = [
     },
     {
       name: "Да Цімафея першае Пасланне святога Апостала Паўла",
-      idBe: "1 Цім.",
-      idEn: "1Tim",
       text: [
         {
           name: "Раздзел 1",
@@ -2929,8 +2895,6 @@ export const EpistlesContent = [
     },
     {
       name: "Да Цімафея другое Пасланне святога Апостала Паўла",
-      idBe: "2 Цім.",
-      idEn: "2Tim",
       text: [
         {
           name: "Раздзел 1",
@@ -3039,8 +3003,6 @@ export const EpistlesContent = [
     },
     {
       name: "Да Ціта Пасланне святога Апостала Паўла",
-      idBe: "Ціт.",
-      idEn: "Tit",
       text: [
         {
           name: "Раздзел 1",
@@ -3107,8 +3069,6 @@ export const EpistlesContent = [
     },
     {
       name: "Да Філімона Пасланне святога Апостала Паўла",
-      idBe: "Флм.",
-      idEn: "Phlm",
       text: [
         {
           name: "Раздзел 1",
@@ -3144,8 +3104,6 @@ export const EpistlesContent = [
     },
     {
       name: "Да Яўрэяў Пасланне святога Апостала Паўла",
-      idBe: "Яўр.",
-      idEn: "Heb",
       text: [
         {
           name: "Раздзел 1",

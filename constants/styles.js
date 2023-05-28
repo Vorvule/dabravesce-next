@@ -33,7 +33,6 @@ export const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
     height: DeviceData.windowHeight() - 2,
-    // marginBottom: 2,
   },
 
   audioPlayer: {

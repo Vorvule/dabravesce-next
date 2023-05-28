@@ -2,12 +2,9 @@ import { policy } from "./Contacts/privacy-policy";
 
 export const contacts = {
   name: "Пра нас",
-  idEn: "Cont",
   text: [
     {
       name: "Сувязь",
-      idBe: "Сувязь",
-      idEn: "Connection",
       text: [
         {
           name: "Стваральнікі",
@@ -39,17 +36,8 @@ export const contacts = {
 
     {
       name: "Умовы спажывання",
-      idBe: "Умовы",
-      idEn: "Policies",
       text: [
         { name: "Privacy Policy", text: policy },
-        // [
-        //   "Падзякі",
-        //   [
-        //     "<p>Стылі <span className='w3-text-dark-gray' style='cursor:pointer' onclick='location.href=\"https://www.w3schools.com/w3css/\"'>w3.css</span>",
-        //     "Іконкі <span className='w3-text-dark-gray' style='cursor:pointer' onclick='location.href=\"https://fontawesome.com/v4.7.0/icons/\"'>Fontawesome</span></p>",
-        //   ],
-        // ],
       ],
     },
   ],

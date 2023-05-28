@@ -1,8 +1,6 @@
 export const ApostlesContent = [
   {
     name: "Дзеянні Святых Апосталаў",
-    idBe: "Дзеян.",
-    idEn: "Acts",
     text: [
       {
         audio: "/audio/acts/01.mp3",
