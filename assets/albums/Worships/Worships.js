@@ -2,7 +2,8 @@ import { GreatCanon } from "./GreatCanon";
 import { Acathisti } from "./Acathisti";
 import { Canons } from "./Canons";
 import { Liturgy } from "./Liturgy";
-import { Troparions as TroparionsSuday } from "./TroparionsSunday";
+import { TroparionsSunday } from "./TroparionsSunday";
+import { TroparionsFestive } from "./TroparionsFestive";
 
 export const worships = {
   name: "Богаслужэнні",
@@ -25,7 +26,11 @@ export const worships = {
     },
     {
       name: "Трапары і кандакі нядзельныя",
-      text: TroparionsSuday,
+      text: TroparionsSunday,
+    },
+    {
+      name: "Трапары і кандакі святаў",
+      text: TroparionsFestive,
     },
   ],
 };

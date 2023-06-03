@@ -66,7 +66,7 @@ export const styles = StyleSheet.create({
   },
 
   menuItemBlock: {
-    paddingVertical: 12,
+    paddingVertical: 16,
   },
 
   listPadding: {

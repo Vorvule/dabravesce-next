@@ -1,4 +1,4 @@
-export const Troparions = [
+export const TroparionsSunday = [
   {
     name: "Глас 1",
     text: [
