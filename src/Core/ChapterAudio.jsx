@@ -15,7 +15,12 @@ import { styles } from "../../constants/styles";
 
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, setSound] = useState(new Audio.Sound());
-  const [active, setActive] = useState(false);
+
+  const [active, setActive] = useState({
+    play: false,
+    pause: false,
+    stop: false,
+  });
 
   useKeepAwake();
 
@@ -26,8 +31,9 @@ export default function ChapterAudio({ chapterAudio }) {
   const SetAudio = async () => {
     try {
       UnloadAudio();
-      LoadAudio();
-      setActive(true);
+      LoadAudio().then(() => {
+        setActive({ play: true, pause: false, stop: false });
+      });
 
       sound.setOnPlaybackStatusUpdate(UpdateAudio);
     } catch (error) {
@@ -49,6 +55,8 @@ export default function ChapterAudio({ chapterAudio }) {
 
       if (audioStatus.isLoaded && !audioStatus.isPlaying) {
         sound.playAsync();
+
+        setActive({ play: false, pause: true, stop: true });
       }
     } catch (error) {
       console.error(error);
@@ -59,10 +67,10 @@ export default function ChapterAudio({ chapterAudio }) {
     try {
       const audioStatus = await sound.getStatusAsync();
 
-      if (audioStatus.isLoaded) {
-        if (audioStatus.isPlaying) {
-          sound.pauseAsync();
-        }
+      if (audioStatus.isLoaded && audioStatus.isPlaying) {
+        sound.pauseAsync();
+
+        setActive({ play: true, pause: false, stop: true });
       }
     } catch (error) {
       console.error(error);
@@ -74,7 +82,9 @@ export default function ChapterAudio({ chapterAudio }) {
       const audioStatus = await sound.getStatusAsync();
 
       if (audioStatus.isLoaded) {
-        PauseAudio();
+        PauseAudio().then(() => {
+          setActive({ play: true, pause: false, stop: false });
+        });
 
         sound.setPositionAsync(0);
       }
@@ -100,9 +110,9 @@ export default function ChapterAudio({ chapterAudio }) {
 
   return (
     <View style={styles.audioPlayer}>
-      <AudioTouchable name="play" onPress={PlayAudio} active={active} />
-      <AudioTouchable name="pause" onPress={PauseAudio} active={active} />
-      <AudioTouchable name="stop" onPress={StopAudio} active={active} />
+      <AudioTouchable name="play" onPress={PlayAudio} active={active.play} />
+      <AudioTouchable name="pause" onPress={PauseAudio} active={active.pause} />
+      <AudioTouchable name="stop" onPress={StopAudio} active={active.stop} />
     </View>
   );
 }
