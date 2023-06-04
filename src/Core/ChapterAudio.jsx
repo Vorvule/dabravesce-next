@@ -14,7 +14,7 @@ import AudioTouchable from "./AudioTouchable";
 import { styles } from "../../constants/styles";
 
 export default function ChapterAudio({ chapterAudio }) {
-  const [sound, setSound] = useState(new Audio.Sound());
+  const [sound, _] = useState(new Audio.Sound());
 
   const [active, setActive] = useState({
     play: false,
@@ -31,6 +31,7 @@ export default function ChapterAudio({ chapterAudio }) {
   const SetAudio = async () => {
     try {
       UnloadAudio();
+
       LoadAudio().then(() => {
         setActive({ play: true, pause: false, stop: false });
       });
@@ -102,7 +103,7 @@ export default function ChapterAudio({ chapterAudio }) {
   };
 
   const UpdateAudio = async (playbackStatus) => {
-    // to replay on native platforms
+    // to replay on native platforms and to highlight icons correctly
     if (playbackStatus.didJustFinish) {
       SetAudio();
     }
