@@ -1,4 +1,5 @@
 import { apostles } from "./Apostles/Apostles";
+import { children } from "./Children/Children";
 // import { contacts } from "./Contacts";
 import { epistlesApocalypse } from "./EpistlesApocalypse/EpistlesApocalypse";
 import { gospels } from "./Gospels/Gospels";
@@ -15,5 +16,6 @@ export const allAlbums = [
   prayers,
   worships,
   songs,
+  children,
   // contacts,
 ];
