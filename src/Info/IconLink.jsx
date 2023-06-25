@@ -1,7 +1,7 @@
 import { Linking, TouchableOpacity, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-import Block from "../components/Block";
+import Text from "../components/basic/Text";
 
 import { styles } from "../../constants/styles";
 import { DeviceData } from "../../library/DeviceData";
@@ -19,7 +19,7 @@ export function IconLink({ iconUrl, iconName, children }) {
           style={styles.linkIcon}
           color={ColorTheme.iconColor()}
         />
-        <Block styler={styles.highlight}>{children}</Block>
+        <Text styling={styles.highlight}>{children}</Text>
       </View>
     </TouchableOpacity>
   );

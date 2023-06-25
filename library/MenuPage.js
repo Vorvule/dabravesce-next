@@ -5,7 +5,7 @@ import { ChainContext } from "../src/contexts/ChainContext";
 import { styles } from "../constants/styles";
 
 export class MenuPage {
-  static styler(keys) {
+  static getStyling(keys) {
     return this.active(keys) ? styles.highlight : {};
   }
 

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 
 import Chapters from "./Chapters";
-import MenuItem from "../components/MenuItem";
+import MenuItem from "../components/basic/MenuItem";
 
 import { MenuPage } from "../../library/MenuPage";
 
@@ -19,7 +19,7 @@ export default function Book({ book, keys, folding }) {
 
   return (
     <>
-      <MenuItem onPress={onPress} styler={MenuPage.styler(keys)}>
+      <MenuItem onPress={onPress} styling={MenuPage.getStyling(keys)}>
         {book.name}
       </MenuItem>
 

@@ -1,4 +1,4 @@
-import SubTitle from "../components/SubTitle";
+import SubTitle from "../components/basic/SubTitle";
 
 export default function ChapterName({ children }) {
   return children.split(" | ").map((name, index) => {

@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { DeviceData } from "../library/DeviceData";
 
 export const styles = StyleSheet.create({
-  fontStyle: {
+  tabBarLabelStyle: {
     fontFamily: "comfortaa-bold",
   },
 
@@ -18,22 +18,59 @@ export const styles = StyleSheet.create({
     paddingBottom: 48,
   },
 
-  textBlock: {
+  // basic
+
+  basicText: {
     fontFamily: "comfortaa-regular",
     lineHeight: 24,
     paddingVertical: 6,
   },
 
-  textTitle: {
-    paddingVertical: 6,
+  basicSubtitle: {
+    paddingBottom: 12,
     textAlign: "center",
     fontFamily: "comfortaa-bold",
   },
+
+  basicTitle: {
+    paddingVertical: 6,
+  },
+
+  // menu
+
+  menuItemText: {
+    paddingVertical: 16,
+  },
+
+  menuPadding: {
+    paddingLeft: 16,
+  },
+
+  menuItemBorder: {
+    borderBottomColor: "grey",
+    borderBottomWidth: 1,
+  },
+
+  listPadding: {
+    paddingLeft: 36,
+  },
+
+  listItemMargin: {
+    paddingVertical: 2,
+  },
+
+  highlight: {
+    color: "teal",
+  },
+
+  // app
 
   appContainer: {
     flex: 1,
     height: DeviceData.windowHeight() - 2,
   },
+
+  // audio
 
   audioPlayer: {
     flex: 1,
@@ -56,30 +93,7 @@ export const styles = StyleSheet.create({
     borderColor: "teal",
   },
 
-  menuPadding: {
-    paddingLeft: 16,
-  },
-
-  menuItemBorder: {
-    borderBottomColor: "grey",
-    borderBottomWidth: 1,
-  },
-
-  menuItemBlock: {
-    paddingVertical: 16,
-  },
-
-  listPadding: {
-    paddingLeft: 36,
-  },
-
-  listItemMargin: {
-    paddingVertical: 2,
-  },
-
-  highlight: {
-    color: "teal",
-  },
+  // link
 
   linkIcon: {
     paddingHorizontal: 12,

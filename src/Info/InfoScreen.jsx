@@ -1,10 +1,11 @@
 import * as React from "react";
 import { View } from "react-native";
 
-import Block from "../components/Block";
 import Screen from "../components/Screen";
-import SubTitle from "../components/SubTitle";
-import Title from "../components/Title";
+
+import Text from "../components/basic/Text";
+import SubTitle from "../components/basic/SubTitle";
+import Title from "../components/basic/Title";
 
 import { constants } from "../../constants/constants";
 import { styles } from "../../constants/styles";
@@ -40,31 +41,31 @@ export function InfoScreen() {
       </IconLink>
 
       <SubTitle>Пра праект</SubTitle>
-      <Block>"Дабравесце" — гэта:</Block>
+      <Text>"Дабравесце" — гэта:</Text>
       <View style={styles.listPadding}>
-        <Block styler={styles.listItemMargin}>◇ Новы Запавет</Block>
-        <Block styler={styles.listItemMargin}>◇ Псалтыр</Block>
-        <Block styler={styles.listItemMargin}>◇ Малітоўнік</Block>
-        <Block styler={styles.listItemMargin}>◇ Спевы, —</Block>
+        <Text styling={styles.listItemMargin}>◇ Новы Запавет</Text>
+        <Text styling={styles.listItemMargin}>◇ Псалтыр</Text>
+        <Text styling={styles.listItemMargin}>◇ Малітоўнік</Text>
+        <Text styling={styles.listItemMargin}>◇ Спевы, —</Text>
       </View>
-      <Block>і іншыя духоўныя крыніцы на беларускай мове.</Block>
+      <Text>і іншыя духоўныя крыніцы на беларускай мове.</Text>
 
       <SubTitle>Стваральнікі</SubTitle>
-      <Block>
+      <Text>
         "Дабравесце" ствараецца і развіваецца Брацтвам ў гонар Віленскіх
         мучанікаў пры Свята-Петра-Паўлаўскім саборы г. Мінска Беларускай
         Праваслаўнай Царквы, што месціцца ў сталіцы на вуліцы Ракаўская, 4.
-      </Block>
+      </Text>
 
       <SubTitle>Пераклады</SubTitle>
-      <Block>
+      <Text>
         Пераклад Новага Запавету выкананы Біблейскай камісіяй Беларускай
         Праваслаўнай Царквы. Тэкст чытае Юрый Жыгамонт.
-      </Block>
-      <Block>
+      </Text>
+      <Text>
         Малітоўнік — у перакладзе протаіерэя Сергія Гардуна. Чытае малітвы аўтар
         перакладу.
-      </Block>
+      </Text>
     </Screen>
   );
 }

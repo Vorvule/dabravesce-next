@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Books from "./Books";
-import MenuItem from "../components/MenuItem";
+import MenuItem from "../components/basic/MenuItem";
 
 import { MenuPage } from "../../library/MenuPage";
 
@@ -19,7 +19,7 @@ export default function Album({ album, keys, folding }) {
 
   return (
     <>
-      <MenuItem onPress={onPress} styler={MenuPage.styler(keys)}>
+      <MenuItem onPress={onPress} styling={MenuPage.getStyling(keys)}>
         {album.name}
       </MenuItem>
 

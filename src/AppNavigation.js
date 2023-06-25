@@ -24,11 +24,11 @@ export default function AppNavigation() {
         screenOptions={{
           tabBarActiveTintColor: "#008080",
           tabBarInactiveTintColor: "#666666",
-          tabBarLabelStyle: styles.fontStyle,
+          tabBarLabelStyle: styles.tabBarLabelStyle,
 
           // headerShown: false,
           headerTitleStyle: [
-            styles.fontStyle,
+            styles.tabBarLabelStyle,
             { color: "teal", fontSize: DeviceData.fontSize(17, 19) },
           ],
           headerTitleAlign: "center",

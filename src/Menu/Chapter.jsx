@@ -4,7 +4,7 @@ import { NavigationContext } from "@react-navigation/native";
 import { ChainContext } from "../contexts/ChainContext";
 import { MenuPage } from "../../library/MenuPage";
 
-import MenuItem from "../components/MenuItem";
+import MenuItem from "../components/basic/MenuItem";
 
 export default function Chapter({ chapter, keys }) {
   const navigation = useContext(NavigationContext);
@@ -17,7 +17,7 @@ export default function Chapter({ chapter, keys }) {
   };
 
   return (
-    <MenuItem onPress={onPress} styler={MenuPage.styler(keys)}>
+    <MenuItem onPress={onPress} styling={MenuPage.getStyling(keys)}>
       {MenuPage.clear(chapter.name)}
     </MenuItem>
   );
