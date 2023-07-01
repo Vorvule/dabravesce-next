@@ -2,7 +2,7 @@ import * as React from "react";
 import { TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
-import { styles } from "../../constants/styles";
+import { styles } from "../constants/styles";
 
 export default function AudioTouchable({ name, onPress, active }) {
   const color = active ? "teal" : "gray";

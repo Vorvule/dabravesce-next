@@ -1,12 +1,8 @@
 import { StyleSheet } from "react-native";
 
-import { DeviceData } from "../library/DeviceData";
+import { DeviceData } from "../service/DeviceData";
 
 export const styles = StyleSheet.create({
-  tabBarLabelStyle: {
-    fontFamily: "comfortaa-bold",
-  },
-
   screenContainer: {
     width: "100%",
     maxWidth: 800,
@@ -18,32 +14,14 @@ export const styles = StyleSheet.create({
     paddingBottom: 48,
   },
 
-  // basic
-
-  basicText: {
-    fontFamily: "comfortaa-regular",
-    lineHeight: 24,
-    paddingVertical: 6,
-  },
-
-  basicSubtitle: {
-    paddingBottom: 12,
-    textAlign: "center",
-    fontFamily: "comfortaa-bold",
-  },
-
-  basicTitle: {
-    paddingVertical: 6,
-  },
-
   // menu
 
   menuItemText: {
-    paddingVertical: 16,
+    paddingVertical: 18,
   },
 
   menuPadding: {
-    paddingLeft: 16,
+    paddingLeft: 18,
   },
 
   menuItemBorder: {

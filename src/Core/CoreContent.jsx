@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View } from "react-native";
 
-import { styles } from "../../constants/styles";
+import { styles } from "../constants/styles";
 
 import ChapterAudio from "./ChapterAudio";
 import ChapterName from "./ChapterName";

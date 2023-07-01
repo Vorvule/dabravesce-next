@@ -1,13 +1,16 @@
+import { StyleSheet } from "react-native";
+
 import Text from "./Text";
 
-import { DeviceData } from "../../../library/DeviceData";
-import { styles } from "../../../constants/styles";
+import { DeviceData } from "../../service/DeviceData";
 
 export default function SubTitle({ children }) {
-  const styling = {
-    ...styles.basicSubtitle,
-    fontSize: DeviceData.fontSize(15, 17)
-  }
+  const styles = StyleSheet.create({
+    subtitleStyles: {
+      fontSize: DeviceData.fontSize(17),
+      textAlign: "center",
+    },
+  });
 
-  return <Text styling={styling}>{children}</Text>;
+  return <Text styling={styles.subtitleStyles}>{children}</Text>;
 }

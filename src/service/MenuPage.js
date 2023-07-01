@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { ChainContext } from "../src/contexts/ChainContext";
+import { ChainContext } from "../contexts/ChainContext";
 
 import { styles } from "../constants/styles";
 

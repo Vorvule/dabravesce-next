@@ -6,11 +6,9 @@ import { CoreScreen } from "./Core/CoreScreen";
 import { MenuScreen } from "./Menu/MenuScreen";
 import { InfoScreen } from "./Info/InfoScreen";
 
-import { DailyKeys } from "../library/DailyKeys";
-import { DeviceData } from "../library/DeviceData";
+import { DailyKeys } from "./service/DailyKeys";
+import { DeviceData } from "./service/DeviceData";
 import { ChainContext } from "./contexts/ChainContext";
-
-import { styles } from "../constants/styles";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -22,16 +20,16 @@ export default function AppNavigation() {
       <BottomTab.Navigator
         initialRouteName="Меню"
         screenOptions={{
-          tabBarActiveTintColor: "#008080",
-          tabBarInactiveTintColor: "#666666",
-          tabBarLabelStyle: styles.tabBarLabelStyle,
-
           // headerShown: false,
           headerTitleStyle: [
-            styles.tabBarLabelStyle,
-            { color: "teal", fontSize: DeviceData.fontSize(17, 19) },
+            // styles.tabBarLabelStyle,
+            { color: "teal", fontSize: DeviceData.fontSize(18) },
           ],
           headerTitleAlign: "center",
+
+          tabBarActiveTintColor: "#008080",
+          tabBarInactiveTintColor: "#666666",
+          // tabBarLabelStyle: styles.tabBarLabelStyle, // fontFamily: "comfortaa-regular"
         }}
       >
         <BottomTab.Screen

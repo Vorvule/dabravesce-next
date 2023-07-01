@@ -2,9 +2,9 @@ import { useEffect, useRef } from "react";
 import { ScrollView } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
 
-import { CorePage } from "../../library/CorePage";
-import { DeviceData } from "../../library/DeviceData";
-import { styles } from "../../constants/styles";
+import { CorePage } from "../service/CorePage";
+import { DeviceData } from "../service/DeviceData";
+import { styles } from "../constants/styles";
 
 import CoreContent from "./CoreContent";
 

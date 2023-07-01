@@ -7,10 +7,10 @@ import Text from "../components/basic/Text";
 import SubTitle from "../components/basic/SubTitle";
 import Title from "../components/basic/Title";
 
-import { constants } from "../../constants/constants";
-import { styles } from "../../constants/styles";
+import { constants } from "../constants/constants";
+import { styles } from "../constants/styles";
 import { IconLink } from "./IconLink";
-import { DeviceData } from "../../library/DeviceData";
+import { DeviceData } from "../service/DeviceData";
 
 export function InfoScreen() {
   const isWeb = DeviceData.isWeb();

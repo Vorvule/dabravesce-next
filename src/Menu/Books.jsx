@@ -1,6 +1,6 @@
 import { View } from "react-native";
 
-import { styles } from "../../constants/styles";
+import { styles } from "../constants/styles";
 
 import Book from "./Book";
 

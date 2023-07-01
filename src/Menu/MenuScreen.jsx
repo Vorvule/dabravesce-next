@@ -5,7 +5,7 @@ import Albums from "./Albums";
 import Screen from "../components/Screen";
 
 import { allAlbums } from "../../assets/albums/AllAlbums";
-import { DeviceData } from "../../library/DeviceData";
+import { DeviceData } from "../service/DeviceData";
 
 const NavigationContext = createContext();
 

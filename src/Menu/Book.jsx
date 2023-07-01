@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import Chapters from "./Chapters";
 import MenuItem from "../components/basic/MenuItem";
 
-import { MenuPage } from "../../library/MenuPage";
+import { MenuPage } from "../service/MenuPage";
 
 export default function Book({ book, keys, folding }) {
   const [expanded, setExpanded] = useState(false);

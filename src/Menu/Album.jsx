@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Books from "./Books";
 import MenuItem from "../components/basic/MenuItem";
 
-import { MenuPage } from "../../library/MenuPage";
+import { MenuPage } from "../service/MenuPage";
 
 export default function Album({ album, keys, folding }) {
   const [expanded, setExpanded] = useState(false);

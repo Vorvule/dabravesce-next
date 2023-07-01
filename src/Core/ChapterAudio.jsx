@@ -11,7 +11,7 @@ import { Audio } from "expo-av";
 import { useKeepAwake } from "expo-keep-awake";
 
 import AudioTouchable from "./AudioTouchable";
-import { styles } from "../../constants/styles";
+import { styles } from "../constants/styles";
 
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, _] = useState(new Audio.Sound());

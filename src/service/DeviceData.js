@@ -11,8 +11,8 @@ export class DeviceData {
     return width < 900 || height < 900;
   }
 
-  static fontSize(mobileFontSize, desktopFontSize) {
-    return this.deviceIsMobile() ? mobileFontSize : desktopFontSize;
+  static fontSize(mobileFontSize) {
+    return this.deviceIsMobile() ? mobileFontSize : mobileFontSize + 2;
   }
 
   static logoStyle() {
