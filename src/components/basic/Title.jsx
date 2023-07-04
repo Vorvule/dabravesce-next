@@ -9,7 +9,6 @@ export default function Title({ children }) {
     titleText: {
       fontSize: DeviceData.fontSize(17),
       textAlign: "center",
-      fontStyle: "italic",
       marginBottom: 12,
     },
   });
