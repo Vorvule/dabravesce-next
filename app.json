@@ -2,7 +2,7 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "18. Font simplified",
+    "version": "19. Keep Awake enhanced",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "automatic",
@@ -26,7 +26,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "by.dabravesce",
-      "versionCode": 18
+      "versionCode": 19
     },
     "web": {
       "favicon": "./assets/images/icon.png"
