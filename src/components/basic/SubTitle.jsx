@@ -8,6 +8,7 @@ export default function SubTitle({ children }) {
   const styles = StyleSheet.create({
     subtitleStyles: {
       fontSize: DeviceData.fontSize(17),
+      fontStyle: "italic",
       textAlign: "center",
     },
   });

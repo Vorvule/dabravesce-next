@@ -8,7 +8,7 @@ import { firebaseApp } from "../../firebaseConfig";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 
 import { Audio } from "expo-av";
-import { useKeepAwake } from "expo-keep-awake";
+import { activateKeepAwakeAsync, deactivateKeepAwake } from "expo-keep-awake";
 
 import AudioTouchable from "./AudioTouchable";
 import { styles } from "../constants/styles";
@@ -21,8 +21,6 @@ export default function ChapterAudio({ chapterAudio }) {
     pause: false,
     stop: false,
   });
-
-  useKeepAwake();
 
   useEffect(() => {
     SetAudio();
@@ -48,6 +46,8 @@ export default function ChapterAudio({ chapterAudio }) {
     const uri = await getDownloadURL(audioRef);
 
     await sound.loadAsync({ uri: uri }, {}, true);
+
+    deactivateKeepAwake();
   };
 
   const PlayAudio = async () => {
@@ -58,6 +58,8 @@ export default function ChapterAudio({ chapterAudio }) {
         sound.playAsync();
 
         setActive({ play: false, pause: true, stop: true });
+
+        activateKeepAwakeAsync();
       }
     } catch (error) {
       console.error(error);
@@ -72,6 +74,8 @@ export default function ChapterAudio({ chapterAudio }) {
         sound.pauseAsync();
 
         setActive({ play: true, pause: false, stop: true });
+
+        deactivateKeepAwake();
       }
     } catch (error) {
       console.error(error);
