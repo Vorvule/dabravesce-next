@@ -6,9 +6,9 @@ import { View, StyleSheet } from "react-native";
 import Slider from "@react-native-community/slider";
 
 import { Audio } from "expo-av";
-import { activateKeepAwake, deactivateKeepAwake } from "expo-keep-awake";
+import { activateKeepAwakeAsync, deactivateKeepAwake } from "expo-keep-awake";
 
-import AudioTouchable from "./AudioTouchable";
+import AudioPressable from "./AudioPressable";
 
 export default function ChapterAudio({ chapterAudio }) {
   const LoadAudio = async () => {
@@ -27,7 +27,7 @@ export default function ChapterAudio({ chapterAudio }) {
 
       if (audioStatus.isLoaded && audioStatus.isPlaying === false) {
         audio.current.playAsync();
-        activateKeepAwake();
+        activateKeepAwakeAsync();
       }
     } catch (e) {}
   };
@@ -94,9 +94,9 @@ export default function ChapterAudio({ chapterAudio }) {
   return (
     <>
       <View style={styles.player}>
-        <AudioTouchable name="play" onPress={PlayAudio} />
-        <AudioTouchable name="pause" onPress={PauseAudio} />
-        <AudioTouchable name="stop" onPress={StopAudio} />
+        <AudioPressable name="play" onPress={PlayAudio} />
+        <AudioPressable name="pause" onPress={PauseAudio} />
+        <AudioPressable name="stop" onPress={StopAudio} />
       </View>
       <Slider
         style={{ width: "100%", paddingTop: 30, height: 60 }}

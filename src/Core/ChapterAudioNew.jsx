@@ -7,7 +7,7 @@ import { View } from "react-native";
 import { Audio } from "expo-av";
 import KeepAwake from "expo-keep-awake";
 
-import AudioTouchable from "./AudioTouchable";
+import AudioPressable from "./AudioPressable";
 import { styles } from "../../constants/styles";
 
 export default function ChapterAudio({ chapterAudio }) {
@@ -108,9 +108,9 @@ export default function ChapterAudio({ chapterAudio }) {
 
   return (
     <View style={styles.audioPlayer}>
-      <AudioTouchable name="play" onPress={PlayAudio} active={active} />
-      <AudioTouchable name="pause" onPress={PauseAudio} active={active} />
-      <AudioTouchable name="stop" onPress={StopAudio} active={active} />
+      <AudioPressable name="play" onPress={PlayAudio} active={active} />
+      <AudioPressable name="pause" onPress={PauseAudio} active={active} />
+      <AudioPressable name="stop" onPress={StopAudio} active={active} />
     </View>
   );
 }

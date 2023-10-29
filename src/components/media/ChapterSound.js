@@ -4,7 +4,7 @@
 // import { FontAwesome } from "@expo/vector-icons";
 
 // import { Audio } from "expo-av";
-// import { TouchableOpacity } from "react-native-web";
+// import { Pressable } from "react-native-web";
 
 // export default function ChapterSound({ chapterAudio }) {
 //   const [sound, setSound] = React.useState();
@@ -40,12 +40,12 @@
 
 //   return (
 //     <>
-//       <TouchableOpacity style={styles.touchable} onPress={playSound}>
+//       <Pressable style={styles.touchable} onPress={playSound}>
 //         <FontAwesome name="play" size={15} color={"teal"} />
-//       </TouchableOpacity>
-//       <TouchableOpacity style={styles.touchable} onPress={pauseSound}>
+//       </Pressable>
+//       <Pressable style={styles.touchable} onPress={pauseSound}>
 //         <FontAwesome name="pause" size={15} color={"teal"} />
-//       </TouchableOpacity>
+//       </Pressable>
 //     </>
 //   );
 // }
