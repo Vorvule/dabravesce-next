@@ -14,9 +14,9 @@ import AudioPressable from "./AudioPressable";
 import { styles } from "../constants/styles";
 
 export default function ChapterAudio({ chapterAudio }) {
-  const [sound, _] = useState(new Audio.Sound());
+  const [sound, setSound] = useState(new Audio.Sound());
 
-  const [buttonsActive, setButtonsActive] = useState({
+  const [buttonsEnabled, setButtonsEnabled] = useState({
     play: false,
     pause: false,
     stop: false,
@@ -29,11 +29,9 @@ export default function ChapterAudio({ chapterAudio }) {
   const SetAudio = async () => {
     try {
       UnloadAudio();
+      LoadAudio();
 
-      LoadAudio().then(() => {
-        setButtonsActive({ play: true, pause: false, stop: false });
-      });
-
+      setButtonsEnabled({ play: true, pause: false, stop: false });
       sound.setOnPlaybackStatusUpdate(UpdateAudio);
     } catch (error) {
       console.error(error);
@@ -47,6 +45,7 @@ export default function ChapterAudio({ chapterAudio }) {
 
     await sound.loadAsync({ uri: uri }, {}, true);
 
+    setSound(sound);
     deactivateKeepAwake();
   };
 
@@ -57,7 +56,7 @@ export default function ChapterAudio({ chapterAudio }) {
       if (audioStatus.isLoaded && !audioStatus.isPlaying) {
         sound.playAsync();
 
-        setButtonsActive({ play: false, pause: true, stop: true });
+        setButtonsEnabled({ play: false, pause: true, stop: true });
 
         activateKeepAwakeAsync();
       }
@@ -73,7 +72,7 @@ export default function ChapterAudio({ chapterAudio }) {
       if (audioStatus.isLoaded && audioStatus.isPlaying) {
         sound.pauseAsync();
 
-        setButtonsActive({ play: true, pause: false, stop: true });
+        setButtonsEnabled({ play: true, pause: false, stop: true });
 
         deactivateKeepAwake();
       }
@@ -88,7 +87,7 @@ export default function ChapterAudio({ chapterAudio }) {
 
       if (audioStatus.isLoaded) {
         PauseAudio().then(() => {
-          setButtonsActive({ play: true, pause: false, stop: false });
+          setButtonsEnabled({ play: true, pause: false, stop: false });
         });
 
         await sound.setPositionAsync(0);
@@ -118,17 +117,17 @@ export default function ChapterAudio({ chapterAudio }) {
       <AudioPressable
         name="play"
         onPress={PlayAudio}
-        active={buttonsActive.play}
+        enabled={buttonsEnabled.play}
       />
       <AudioPressable
         name="pause"
         onPress={PauseAudio}
-        active={buttonsActive.pause}
+        enabled={buttonsEnabled.pause}
       />
       <AudioPressable
         name="stop"
         onPress={StopAudio}
-        active={buttonsActive.stop}
+        enabled={buttonsEnabled.stop}
       />
     </View>
   );
