@@ -16,7 +16,7 @@ import { styles } from "../constants/styles";
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, _] = useState(new Audio.Sound());
 
-  const [active, setActive] = useState({
+  const [buttonsActive, setButtonsActive] = useState({
     play: false,
     pause: false,
     stop: false,
@@ -31,7 +31,7 @@ export default function ChapterAudio({ chapterAudio }) {
       UnloadAudio();
 
       LoadAudio().then(() => {
-        setActive({ play: true, pause: false, stop: false });
+        setButtonsActive({ play: true, pause: false, stop: false });
       });
 
       sound.setOnPlaybackStatusUpdate(UpdateAudio);
@@ -46,7 +46,7 @@ export default function ChapterAudio({ chapterAudio }) {
     const uri = await getDownloadURL(audioRef);
 
     await sound.loadAsync({ uri: uri }, {}, true);
-
+    
     deactivateKeepAwake();
   };
 
@@ -57,7 +57,7 @@ export default function ChapterAudio({ chapterAudio }) {
       if (audioStatus.isLoaded && !audioStatus.isPlaying) {
         sound.playAsync();
 
-        setActive({ play: false, pause: true, stop: true });
+        setButtonsActive({ play: false, pause: true, stop: true });
 
         activateKeepAwakeAsync();
       }
@@ -73,7 +73,7 @@ export default function ChapterAudio({ chapterAudio }) {
       if (audioStatus.isLoaded && audioStatus.isPlaying) {
         sound.pauseAsync();
 
-        setActive({ play: true, pause: false, stop: true });
+        setButtonsActive({ play: true, pause: false, stop: true });
 
         deactivateKeepAwake();
       }
@@ -88,10 +88,10 @@ export default function ChapterAudio({ chapterAudio }) {
 
       if (audioStatus.isLoaded) {
         PauseAudio().then(() => {
-          setActive({ play: true, pause: false, stop: false });
+          setButtonsActive({ play: true, pause: false, stop: false });
         });
 
-        sound.setPositionAsync(0);
+        await sound.setPositionAsync(0);
       }
     } catch (error) {
       console.error(error);
@@ -115,9 +115,21 @@ export default function ChapterAudio({ chapterAudio }) {
 
   return (
     <View style={styles.audioPlayer}>
-      <AudioTouchable name="play" onPress={PlayAudio} active={active.play} />
-      <AudioTouchable name="pause" onPress={PauseAudio} active={active.pause} />
-      <AudioTouchable name="stop" onPress={StopAudio} active={active.stop} />
+      <AudioTouchable
+        name="play"
+        onPress={PlayAudio}
+        active={buttonsActive.play}
+      />
+      <AudioTouchable
+        name="pause"
+        onPress={PauseAudio}
+        active={buttonsActive.pause}
+      />
+      <AudioTouchable
+        name="stop"
+        onPress={StopAudio}
+        active={buttonsActive.stop}
+      />
     </View>
   );
 }
