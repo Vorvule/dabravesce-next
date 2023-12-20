@@ -2,7 +2,7 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "19. Keep Awake enhanced",
+    "version": "20. Housel payers fixed",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "automatic",
@@ -26,7 +26,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "by.dabravesce",
-      "versionCode": 19
+      "versionCode": 20
     },
     "web": {
       "favicon": "./assets/images/icon.png"
