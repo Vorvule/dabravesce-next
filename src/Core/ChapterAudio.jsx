@@ -10,7 +10,7 @@ import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import { Audio } from "expo-av";
 import { activateKeepAwakeAsync, deactivateKeepAwake } from "expo-keep-awake";
 
-import AudioTouchable from "./AudioTouchable";
+import AudioPressable from "./AudioPressable";
 import { styles } from "../constants/styles";
 
 export default function ChapterAudio({ chapterAudio }) {
@@ -115,9 +115,9 @@ export default function ChapterAudio({ chapterAudio }) {
 
   return (
     <View style={styles.audioPlayer}>
-      <AudioTouchable name="play" onPress={PlayAudio} active={active.play} />
-      <AudioTouchable name="pause" onPress={PauseAudio} active={active.pause} />
-      <AudioTouchable name="stop" onPress={StopAudio} active={active.stop} />
+      <AudioPressable name="play" onPress={PlayAudio} active={active.play} />
+      <AudioPressable name="pause" onPress={PauseAudio} active={active.pause} />
+      <AudioPressable name="stop" onPress={StopAudio} active={active.stop} />
     </View>
   );
 }

@@ -33,7 +33,11 @@ export function CoreScreen({ navigation, route }) {
       style={styles.screenContainer}
       ref={scrollRef}
     >
-      <CoreContent bookName={bookName} chapter={chapter} />
+      <CoreContent
+        albumName={albumName}
+        bookName={bookName}
+        chapter={chapter}
+      />
     </ScrollView>
   );
 }

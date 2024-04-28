@@ -7,7 +7,6 @@ import { MenuScreen } from "./Menu/MenuScreen";
 import { InfoScreen } from "./Info/InfoScreen";
 
 import { DailyKeys } from "./service/DailyKeys";
-import { DeviceData } from "./service/DeviceData";
 import { ChainContext } from "./contexts/ChainContext";
 
 const BottomTab = createBottomTabNavigator();
@@ -20,16 +19,15 @@ export default function AppNavigation() {
       <BottomTab.Navigator
         initialRouteName="Меню"
         screenOptions={{
-          // headerShown: false,
+          headerShown: false,
+          /*
           headerTitleStyle: [
-            // styles.tabBarLabelStyle,
             { color: "teal", fontSize: DeviceData.fontSize(18) },
           ],
           headerTitleAlign: "center",
-
+          */
           tabBarActiveTintColor: "#008080",
           tabBarInactiveTintColor: "#666666",
-          // tabBarLabelStyle: styles.tabBarLabelStyle, // fontFamily: "comfortaa-regular"
         }}
       >
         <BottomTab.Screen

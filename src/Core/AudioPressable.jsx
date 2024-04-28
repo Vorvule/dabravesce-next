@@ -1,15 +1,15 @@
 import * as React from "react";
-import { TouchableOpacity } from "react-native";
+import { Pressable } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
 import { styles } from "../constants/styles";
 
-export default function AudioTouchable({ name, onPress, active }) {
+export default function AudioPressable({ name, onPress, active }) {
   const color = active ? "teal" : "gray";
 
   return (
-    <TouchableOpacity style={styles.audioTouchable} onPress={onPress}>
+    <Pressable style={styles.audioPressable} onPress={onPress}>
       <FontAwesome name={name} size={15} color={color} />
-    </TouchableOpacity>
+    </Pressable>
   );
 }
