@@ -4,14 +4,13 @@ import Text from "./Text";
 
 import { DeviceData } from "../../service/DeviceData";
 
-export default function SubTitle({ children }) {
+export default function AlbumHeader({ children }) {
   const styles = StyleSheet.create({
-    subtitleStyles: {
-      fontSize: DeviceData.fontSize(17),
-      fontStyle: "italic",
+    header: {
+      fontSize: DeviceData.fontSize(18),
       textAlign: "center",
     },
   });
 
-  return <Text styling={styles.subtitleStyles}>{children}</Text>;
+  return <Text styling={styles.header}>{children}</Text>;
 }

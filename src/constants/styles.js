@@ -57,7 +57,7 @@ export const styles = StyleSheet.create({
     width: "100%",
   },
 
-  audioTouchable: {
+  audioPressable: {
     margin: 16,
 
     padding: 12,

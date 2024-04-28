@@ -1,15 +1,16 @@
 import { useContext } from "react";
 
 import { ChainContext } from "../contexts/ChainContext";
+import { DeviceData } from "./DeviceData";
 
 import { styles } from "../constants/styles";
 
 export class MenuPage {
   static getStyling(keys) {
-    return this.active(keys) ? styles.highlight : {};
+    return this.keysAreActive(keys) ? styles.highlight : {};
   }
 
-  static active(keys) {
+  static keysAreActive(keys) {
     const chain = useContext(ChainContext).chain;
 
     switch (keys.length) {

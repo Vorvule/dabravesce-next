@@ -1,4 +1,4 @@
-import { Linking, TouchableOpacity, View } from "react-native";
+import { Linking, Pressable, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 import Text from "../components/basic/Text";
@@ -11,7 +11,7 @@ export function IconLink({ iconUrl, iconName, children }) {
   const fontSize = DeviceData.fontSize(26);
 
   return (
-    <TouchableOpacity onPress={() => Linking.openURL(iconUrl)}>
+    <Pressable onPress={() => Linking.openURL(iconUrl)}>
       <View style={styles.linkView}>
         <AntDesign
           name={iconName}
@@ -21,6 +21,6 @@ export function IconLink({ iconUrl, iconName, children }) {
         />
         <Text styling={styles.highlight}>{children}</Text>
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 }

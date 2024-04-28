@@ -4,14 +4,14 @@ import Text from "./Text";
 
 import { DeviceData } from "../../service/DeviceData";
 
-export default function Title({ children }) {
+export default function ChapterHeader({ children }) {
   const styles = StyleSheet.create({
-    titleText: {
-      fontSize: DeviceData.fontSize(17),
+    header: {
+      fontSize: DeviceData.fontSize(16),
+      fontStyle: "italic",
       textAlign: "center",
-      marginBottom: 12,
     },
   });
 
-  return <Text styling={styles.titleText}>{children}</Text>;
+  return <Text styling={styles.header}>{children}</Text>;
 }

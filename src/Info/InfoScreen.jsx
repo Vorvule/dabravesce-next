@@ -4,8 +4,8 @@ import { View } from "react-native";
 import Screen from "../components/Screen";
 
 import Text from "../components/basic/Text";
-import SubTitle from "../components/basic/SubTitle";
-import Title from "../components/basic/Title";
+import BookHeader from "../components/basic/BookHeader";
+import AlbumHeader from "../components/basic/AlbumHeader";
 
 import { constants } from "../constants/constants";
 import { styles } from "../constants/styles";
@@ -17,9 +17,9 @@ export function InfoScreen() {
 
   return (
     <Screen>
-      <Title>Дабравесце</Title>
+      <AlbumHeader>Дабравесце</AlbumHeader>
 
-      <SubTitle>Спасылкі</SubTitle>
+      <BookHeader>Спасылкі</BookHeader>
 
       {isWeb ? (
         <IconLink iconUrl={constants.urls.market} iconName="android">
@@ -40,7 +40,7 @@ export function InfoScreen() {
         Ліст сябрам Брацтва
       </IconLink>
 
-      <SubTitle>Пра праект</SubTitle>
+      <BookHeader>Пра праект</BookHeader>
       <Text>"Дабравесце" — гэта:</Text>
       <View style={styles.listPadding}>
         <Text styling={styles.listItemMargin}>◇ Новы Запавет</Text>
@@ -50,14 +50,14 @@ export function InfoScreen() {
       </View>
       <Text>і іншыя духоўныя крыніцы на беларускай мове.</Text>
 
-      <SubTitle>Стваральнікі</SubTitle>
+      <BookHeader>Стваральнікі</BookHeader>
       <Text>
         "Дабравесце" ствараецца і развіваецца Брацтвам ў гонар Віленскіх
         мучанікаў пры Свята-Петра-Паўлаўскім саборы г. Мінска Беларускай
         Праваслаўнай Царквы, што месціцца ў сталіцы на вуліцы Ракаўская, 4.
       </Text>
 
-      <SubTitle>Пераклады</SubTitle>
+      <BookHeader>Пераклады</BookHeader>
       <Text>
         Пераклад Новага Запавету выкананы Біблейскай камісіяй Беларускай
         Праваслаўнай Царквы. Тэкст чытае Юрый Жыгамонт.
