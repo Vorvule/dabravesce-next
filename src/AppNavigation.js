@@ -20,7 +20,7 @@ export default function AppNavigation() {
       <BottomTab.Navigator
         initialRouteName="Меню"
         screenOptions={{
-          // headerShown: false,
+          headerShown: false,
           headerTitleStyle: [
             // styles.tabBarLabelStyle,
             { color: "teal", fontSize: DeviceData.fontSize(18) },
