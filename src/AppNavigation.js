@@ -20,12 +20,7 @@ export default function AppNavigation() {
         initialRouteName="Меню"
         screenOptions={{
           headerShown: false,
-          /*
-          headerTitleStyle: [
-            { color: "teal", fontSize: DeviceData.fontSize(18) },
-          ],
-          headerTitleAlign: "center",
-          */
+          /* headerTitleStyle: [ { color: "teal", fontSize: DeviceData.fontSize 18) }, ], headerTitleAlign: "center", */
           tabBarActiveTintColor: "#008080",
           tabBarInactiveTintColor: "#666666",
         }}
