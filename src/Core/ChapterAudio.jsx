@@ -47,7 +47,7 @@ export default function ChapterAudio({ chapterAudio }) {
 
     await sound.loadAsync({ uri: uri }, {}, true);
 
-    deactivateKeepAwake();
+    deactivateKeepAwake();// TODO Surround with try/catch block or apply useKeepAwake() hook
   };
 
   const PlayAudio = async () => {
