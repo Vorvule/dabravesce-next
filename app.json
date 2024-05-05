@@ -2,14 +2,14 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "20. Housel payers fixed",
+    "version": "21. New Splash Screen",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.jpg",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#fcfaeb"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,10 +23,10 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 20
+      "versionCode": 21
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
