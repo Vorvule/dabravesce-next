@@ -16,7 +16,7 @@ import { styles } from "../constants/styles";
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, _] = useState(new Audio.Sound());
 
-  const [active, setActive] = useState({
+  const [enabled, setEnabled] = useState({
     play: false,
     pause: false,
     stop: false,
@@ -24,6 +24,7 @@ export default function ChapterAudio({ chapterAudio }) {
 
   useEffect(() => {
     SetAudio();
+    activateKeepAwakeAsync();
   }, [chapterAudio]);
 
   const SetAudio = async () => {
@@ -31,7 +32,7 @@ export default function ChapterAudio({ chapterAudio }) {
       UnloadAudio();
 
       LoadAudio().then(() => {
-        setActive({ play: true, pause: false, stop: false });
+        setEnabled({ play: true, pause: false, stop: false });
       });
 
       sound.setOnPlaybackStatusUpdate(UpdateAudio);
@@ -43,11 +44,11 @@ export default function ChapterAudio({ chapterAudio }) {
   const LoadAudio = async () => {
     const firebaseStorage = getStorage();
     const audioRef = ref(firebaseStorage, chapterAudio);
-    const uri = await getDownloadURL(audioRef);
+    const audioUri = await getDownloadURL(audioRef);
 
-    await sound.loadAsync({ uri: uri }, {}, true);
+    await sound.loadAsync({ uri: audioUri }, {}, true);
 
-    deactivateKeepAwake();// TODO Surround with try/catch block or apply useKeepAwake() hook
+    await deactivateKeepAwake();
   };
 
   const PlayAudio = async () => {
@@ -57,9 +58,9 @@ export default function ChapterAudio({ chapterAudio }) {
       if (audioStatus.isLoaded && !audioStatus.isPlaying) {
         sound.playAsync();
 
-        setActive({ play: false, pause: true, stop: true });
+        setEnabled({ play: false, pause: true, stop: true });
 
-        activateKeepAwakeAsync();
+        await activateKeepAwakeAsync();
       }
     } catch (error) {
       console.error(error);
@@ -73,9 +74,9 @@ export default function ChapterAudio({ chapterAudio }) {
       if (audioStatus.isLoaded && audioStatus.isPlaying) {
         sound.pauseAsync();
 
-        setActive({ play: true, pause: false, stop: true });
+        setEnabled({ play: true, pause: false, stop: true });
 
-        deactivateKeepAwake();
+        await deactivateKeepAwake();
       }
     } catch (error) {
       console.error(error);
@@ -88,10 +89,10 @@ export default function ChapterAudio({ chapterAudio }) {
 
       if (audioStatus.isLoaded) {
         PauseAudio().then(() => {
-          setActive({ play: true, pause: false, stop: false });
+          setEnabled({ play: true, pause: false, stop: false });
         });
 
-        sound.setPositionAsync(0);
+        await sound.setPositionAsync(0);
       }
     } catch (error) {
       console.error(error);
@@ -115,9 +116,13 @@ export default function ChapterAudio({ chapterAudio }) {
 
   return (
     <View style={styles.audioPlayer}>
-      <AudioPressable name="play" onPress={PlayAudio} active={active.play} />
-      <AudioPressable name="pause" onPress={PauseAudio} active={active.pause} />
-      <AudioPressable name="stop" onPress={StopAudio} active={active.stop} />
+      <AudioPressable name="play" onPress={PlayAudio} enabled={enabled.play} />
+      <AudioPressable
+        name="pause"
+        onPress={PauseAudio}
+        enabled={enabled.pause}
+      />
+      <AudioPressable name="stop" onPress={StopAudio} enabled={enabled.stop} />
     </View>
   );
 }

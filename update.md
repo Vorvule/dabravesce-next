@@ -11,12 +11,6 @@ npm run web
 * Евангелле дня:
   * От Матфея: 19:4,5; 19:9; :13,14; :16,17; :23,24; :28,30; 7:1,2
 
-* Кантакты:
-  * Спасылкі
-  * Стваральнікі
-  * Форма для сувязі
-  * Умовы спажывання
-
 git aLFS:
 
 - You can view all files tracked by Git LFS with the command `git lfs ls-files`¹⁵. This will show you the SHA reference and the file name for each file.
