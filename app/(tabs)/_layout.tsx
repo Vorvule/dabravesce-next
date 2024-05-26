@@ -18,22 +18,34 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Меню",
+          title: "Вітаем",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? "menu" : "menu-outline"}
+              name={focused ? "albums" : "albums-outline"}
               color={color}
             />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="menu"
+        options={{
+          title: "Меню",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? "folder" : "folder-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="text"
         options={{
           title: "Змест",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
-              name={focused ? "document-text" : "document-text-outline"}
+              name={focused ? "book" : "book-outline"}
               color={color}
             />
           ),
