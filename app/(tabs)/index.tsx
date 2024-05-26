@@ -6,6 +6,10 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Link } from "expo-router";
 
+import Albums from "@/screens/menu/Albums";
+import { allAlbums } from "@/assets/albums/AllAlbums";
+import { DeviceData } from "@/service/DeviceData";
+
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
@@ -17,6 +21,10 @@ export default function HomeScreen() {
         />
       }
     >
+      <ThemedView>
+        <Albums albums={allAlbums} />
+      </ThemedView>
+
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Вітаем!</ThemedText>
         <HelloWave />
@@ -55,14 +63,15 @@ export default function HomeScreen() {
           Многія з нас чытаюць Евангелле штодзень — зазвычай, па адным раздзеле.
         </ThemedText>
         <ThemedText>
-          Таму і мы штодня гартаем старонкі Дабравесця для таго, каб супольна з
-          вамі прачытаць за год чатыры Евангеллі роўна чатыры разы.
+          І мы штодня гартаем старонкі Дабравесця для таго, каб супольна з вамі
+          прачытаць за год чатыры Евангеллі роўна чатыры разы.
         </ThemedText>
         <ThemedText>
-          Намоўчкі, пры адкрыцці {Platform.OS === "web" ? "сайта" : "дачынення"}
-          {", "} укладка Змест адлюстроўвае менавіта
+          Таму намоўчкі, пры адкрыцці{" "}
+          {DeviceData.isWeb() ? "сайта" : "дачынення"}
+          {", "} укладка Змест адлюстроўвае менавіта чарговае, сённяшняе,{" "}
           <Link href="/">
-            <ThemedText type="link"> Евангелле дня</ThemedText>
+            <ThemedText type="link">Евангелле дня</ThemedText>
           </Link>
           .
         </ThemedText>

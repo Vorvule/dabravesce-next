@@ -6,6 +6,9 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Link } from "expo-router";
 
+import Albums from "@/screens/menu/Albums";
+import { allAlbums } from "@/assets/albums/AllAlbums";
+
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
@@ -17,6 +20,8 @@ export default function HomeScreen() {
         />
       }
     >
+      {/* <Albums albums={allAlbums} /> */}
+
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Вітаем!</ThemedText>
         <HelloWave />
