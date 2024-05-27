@@ -46,7 +46,7 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="source"
+          name="[source]"
           options={{
             title: "Крыніцы",
             tabBarIcon: ({ color, focused }) => (

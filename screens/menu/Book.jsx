@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 
-import Chapters from "./Chapters";
+import ChapterList from "./ChapterList";
 import ThemedMenuItem from "@/components/ThemedMenuItem";
 
 import { MenuService } from "@/service/MenuService";
@@ -23,7 +23,7 @@ export default function Book({ book, keys, folding }) {
         {book.name}
       </ThemedMenuItem>
 
-      {expanded && <Chapters chapters={book.text} keys={keys} />}
+      {expanded && <ChapterList chapters={book.text} keys={keys} />}
     </>
   );
 }
