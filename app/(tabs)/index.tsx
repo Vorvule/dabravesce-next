@@ -6,7 +6,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Link } from "expo-router";
 
-import Albums from "@/screens/menu/Albums";
+import Albums from "@/screens/menu/AlbumList";
 import { allAlbums } from "@/assets/albums/AllAlbums";
 import { DeviceData } from "@/service/DeviceData";
 

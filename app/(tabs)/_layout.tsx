@@ -36,7 +36,7 @@ export default function TabLayout() {
         <Tabs.Screen
           name="menu"
           options={{
-            title: "Змест",
+            title: "Крыніцы",
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon
                 name={focused ? "folder" : "folder-outline"}
@@ -48,7 +48,7 @@ export default function TabLayout() {
         <Tabs.Screen
           name="[source]"
           options={{
-            title: "Крыніцы",
+            title: "Змест",
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon
                 name={focused ? "book" : "book-outline"}

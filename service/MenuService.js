@@ -4,7 +4,7 @@ import { ChainContext } from "@/contexts/ChainContext";
 import { styles } from "@/constants/styles";
 
 export class MenuService {
-  static getStyling(keys) {
+  static getColorStyle(keys) {
     return this.keysAreActive(keys) ? styles.highlight : {};
   }
 

@@ -1,12 +1,10 @@
 import { useContext } from "react";
 import { NavigationContext } from "@react-navigation/native";
+import { Link } from "expo-router";
 
 import { ChainContext } from "@/contexts/ChainContext";
 import { MenuService } from "@/service/MenuService";
-
-import { Link } from "expo-router";
 import { ThemedText } from "@/components/ThemedText";
-
 import { styles } from "@/constants/styles";
 
 export default function ChapterItem({ chapter, keys }) {
@@ -20,9 +18,9 @@ export default function ChapterItem({ chapter, keys }) {
   };
 
   const href = keys.join("-");
-  const style = [styles.menuItemBorder, styles.menuItemText];
+  const style = [styles.optionBorder, styles.optionText];
 
-  const color = MenuService.getStyling(keys);
+  const color = MenuService.getColorStyle(keys);
   const text = MenuService.clear(chapter.name);
 
   return (

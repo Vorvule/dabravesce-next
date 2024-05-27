@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
 
   // menu
 
-  menuItemText: {
+  optionText: {
     paddingVertical: 18,
   },
 
@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
     paddingLeft: 18,
   },
 
-  menuItemBorder: {
+  optionBorder: {
     borderBottomColor: "grey",
     borderBottomWidth: 1,
   },
