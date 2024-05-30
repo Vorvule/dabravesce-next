@@ -1,11 +1,10 @@
 import { useContext } from "react";
 
 import { ChainContext } from "@/contexts/ChainContext";
-import { styles } from "@/constants/styles";
 
 export class MenuService {
   static getColorStyle(keys) {
-    return this.keysAreActive(keys) ? styles.highlight : {};
+    return this.keysAreActive(keys) ? { color: "teal" } : {};
   }
 
   static keysAreActive(keys) {

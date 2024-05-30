@@ -1,7 +1,13 @@
-import { allAlbums } from "../../assets/albums/AllAlbums";
+import { allAlbums } from "@/assets/albums/AllAlbums";
 import { DailyKeys } from "./DailyKeys";
 
 export class CorePage {
+  static getRouteChain(urlChain) {
+    return this.isString(urlChain)
+      ? urlChain.split("-")
+      : DailyKeys.getDailyKeys();
+  }
+
   static getContents(chain) {
     const keys = chain ? chain : DailyKeys.getDailyKeys();
 
@@ -16,5 +22,9 @@ export class CorePage {
 
   static chainsAreSame(one, two) {
     return one[0] == two[0] && one[1] == two[1] && one[2] == two[2];
+  }
+
+  static isString(variable) {
+    return typeof variable === "string" || variable instanceof String;
   }
 }

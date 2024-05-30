@@ -23,8 +23,8 @@ export class DeviceData {
     return { width: logoWidth, height: logoWidth / 4, alignSelf: "center" };
   }
 
-  static windowHeight() {
-    // const screenHeight = Dimensions.get("screen").height; // web mobile
-    return Dimensions.get("window").height;
-  }
+  // static windowHeight() {
+  //   // const screenHeight = Dimensions.get("screen").height; // web mobile
+  //   return Dimensions.get("window").height;
+  // }
 }

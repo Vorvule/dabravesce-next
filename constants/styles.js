@@ -1,22 +1,18 @@
 import { StyleSheet } from "react-native";
 
-import { DeviceData } from "../service/DeviceData";
-
 export const styles = StyleSheet.create({
-  screenContainer: {
-    width: "100%",
-    maxWidth: 800,
-    alignSelf: "center",
-    padding: 14,
+  centered: {
+    textAlign: "center",
   },
 
-  screenContent: {
-    paddingBottom: 48,
+  gapped: {
+    // paddingBottom: 48,
+    gap: 14,
   },
 
   // menu
 
-  optionText: {
+  padded: {
     paddingVertical: 18,
   },
 
@@ -24,51 +20,9 @@ export const styles = StyleSheet.create({
     paddingLeft: 18,
   },
 
-  optionBorder: {
+  border: {
     borderBottomColor: "grey",
     borderBottomWidth: 1,
-  },
-
-  listPadding: {
-    paddingLeft: 36,
-  },
-
-  listItemMargin: {
-    paddingVertical: 2,
-  },
-
-  highlight: {
-    color: "teal",
-  },
-
-  // app
-
-  appContainer: {
-    flex: 1,
-    height: DeviceData.windowHeight() - 2,
-  },
-
-  // audio
-
-  audioPlayer: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "center",
-    width: "100%",
-  },
-
-  audioPressable: {
-    margin: 16,
-
-    padding: 12,
-    paddingLeft: 14,
-
-    height: 41,
-    width: 41,
-
-    borderRadius: 4,
-    borderWidth: 1,
-    borderColor: "teal",
   },
 
   // link

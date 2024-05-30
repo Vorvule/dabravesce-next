@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform } from "react-native";
+import { Image, StyleSheet } from "react-native";
 
 import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
@@ -6,45 +6,52 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { Link } from "expo-router";
 
-import Albums from "@/screens/menu/AlbumList";
-import { allAlbums } from "@/assets/albums/AllAlbums";
 import { DeviceData } from "@/service/DeviceData";
 
 export default function HomeScreen() {
+  const source = "@/assets/images/partial-react-logo.png";
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
-      headerImage={
-        <Image
-          source={require("@/assets/images/partial-react-logo.png")}
-          style={styles.logoImage}
-        />
-      }
+      headerImage={<Image source={require(source)} style={styles.image} />}
     >
       <ThemedView>
-        <Albums albums={allAlbums} />
-      </ThemedView>
-
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Вітаем!</ThemedText>
-        <HelloWave />
+        <ThemedText type="title">Мір вам!</ThemedText>
+        {/* <HelloWave /> */}
       </ThemedView>
 
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Пра нас</ThemedText>
+        <ThemedText type="subtitle">Аб "Дабравесці"</ThemedText>
         <ThemedText>
           Шчыра рады бачыць вас на старонках праекта{" "}
-          <ThemedText type="defaultSemiBold">"Дабравесце"</ThemedText>.
+          <ThemedText type="semiBold">"Дабравесце"</ThemedText>.
         </ThemedText>
         <ThemedText>
-          Ён створаны і развіваецца Брацтвам ў гонар Віленскіх мучанікаў пры
+          Праект створаны і развіваецца Брацтвам ў гонар Віленскіх мучанікаў пры
           Свята-Петра-Паўлаўскім саборы г. Мінска Беларускай Праваслаўнай
-          Царквы, што знаходзіцца на Нямізе, на вуліцы Ракаўская, 4.
+          Царквы.
+        </ThemedText>
+        <ThemedText>
+          Сабор знаходзіцца на Нямізе, на вуліцы Ракаўская, дом 4.
         </ThemedText>
       </ThemedView>
 
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Наш змест</ThemedText>
+        <ThemedText type="subtitle">Пра пераклад</ThemedText>
+        <ThemedText>
+          Пераклад Новага Запавету выкананы Біблейскай камісіяй Беларускай
+          Праваслаўнай Царквы.
+        </ThemedText>
+        <ThemedText>Тэкст Евангелля чытае Юрый Жыгамонт.</ThemedText>
+        <ThemedText>
+          Малітоўнік — у перакладзе протаіерэя Сергія Гардуна.
+        </ThemedText>
+        <ThemedText>Малітвы чытае аўтар перакладу.</ThemedText>
+      </ThemedView>
+
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Нашы крыніцы</ThemedText>
         <ThemedText>У меню "Дабравесця" вы знойдзеце:</ThemedText>
         <ThemedText>{"\u25cf "} Евангелле — тэксты і аўдыё</ThemedText>
         <ThemedText>{"\u25cf "} Кнігі Апосталаў</ThemedText>
@@ -60,32 +67,20 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Евангелле штодня</ThemedText>
         <ThemedText>
-          Многія з нас чытаюць Евангелле штодзень — зазвычай, па адным раздзеле.
+          Многія з нас чытаюць Евангелле штодня — зазвычай, па адным раздзеле.
         </ThemedText>
         <ThemedText>
-          І мы штодня гартаем старонкі Дабравесця для таго, каб супольна з вамі
-          прачытаць за год чатыры Евангеллі роўна чатыры разы.
+          І мы штодзённа гартаем старонкі Дабравесця для таго, каб супольна з
+          вамі прачытаць за год усе чатыры Евангеллі роўна чатыры разы.
         </ThemedText>
         <ThemedText>
           Таму намоўчкі, пры адкрыцці{" "}
           {DeviceData.isWeb() ? "сайта" : "дачынення"}
-          {", "} укладка Змест адлюстроўвае менавіта чарговае, сённяшняе,{" "}
+          {", "} укладка Змест адлюстроўвае менавіта сённяшняе чарговае{" "}
           <Link href="/">
             <ThemedText type="link">Евангелле дня</ThemedText>
           </Link>
           .
-        </ThemedText>
-      </ThemedView>
-
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Пра пераклад</ThemedText>
-        <ThemedText>
-          Пераклад Новага Запавету выкананы Біблейскай камісіяй Беларускай
-          Праваслаўнай Царквы. Тэкст чытае Юрый Жыгамонт.
-        </ThemedText>
-        <ThemedText>
-          Малітоўнік — у перакладзе протаіерэя Сергія Гардуна. Чытае малітвы
-          аўтар перакладу.
         </ThemedText>
       </ThemedView>
     </ParallaxScrollView>
@@ -102,7 +97,7 @@ const styles = StyleSheet.create({
     gap: 8,
     marginBottom: 8,
   },
-  logoImage: {
+  image: {
     height: 178,
     width: 290,
     bottom: 0,

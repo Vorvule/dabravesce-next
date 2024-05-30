@@ -48,7 +48,11 @@ export default function ParallaxScrollView({
 
   return (
     <ThemedView style={styles.container}>
-      <Animated.ScrollView ref={scrollRef} scrollEventThrottle={16} showsVerticalScrollIndicator={false}>
+      <Animated.ScrollView
+        ref={scrollRef}
+        scrollEventThrottle={16}
+        showsVerticalScrollIndicator={false}
+      >
         <Animated.View
           style={[
             styles.header,
@@ -72,12 +76,12 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   header: {
-    height: 250,
+    height: HEADER_HEIGHT, // 250,
     overflow: "hidden",
   },
   content: {
     flex: 1,
-    padding: 32,
+    padding: 24, // 32
     gap: 16,
     overflow: "hidden",
   },
