@@ -1,4 +1,4 @@
-import { Image, StyleSheet } from "react-native";
+import { Image, Platform, StyleSheet } from "react-native";
 
 import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
@@ -9,15 +9,21 @@ import { Link } from "expo-router";
 import { DeviceData } from "@/service/DeviceData";
 
 export default function HomeScreen() {
-  const source = "@/assets/images/partial-react-logo.png";
+  const colors = { light: "#F2F2F2", dark: "#F2F2F2" }; // A1CEDC 1D3D47 FCFAEB
+  const source =
+    // Platform.OS === "web"
+    DeviceData.deviceIsMobile()
+      ? require("@/assets/images/logos/spps-mob.jpg")
+      : require("@/assets/images/logos/spps-web.jpg");
 
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
-      headerImage={<Image source={require(source)} style={styles.image} />}
+      headerBackgroundColor={colors}
+      headerImage={<Image source={source} style={styles.image} />}
     >
       <ThemedView>
-        <ThemedText type="title">Мір вам!</ThemedText>
+        <ThemedText type="title">Хрыстос</ThemedText>
+        <ThemedText type="title">уваскрос!</ThemedText>
         {/* <HelloWave /> */}
       </ThemedView>
 
@@ -98,11 +104,12 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   image: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-    // alignSelf: "center"
+    height: 250,
+    // width: 500,
+    resizeMode: "contain", //
+    // bottom: 0,
+    // right: 0,
+    // position: "absolute",
+    alignSelf: "center",
   },
 });

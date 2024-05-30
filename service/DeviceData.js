@@ -8,7 +8,7 @@ export class DeviceData {
   static deviceIsMobile() {
     const { width, height } = useWindowDimensions();
 
-    return width < 900 || height < 900;
+    return width < 374 || height < 374;
   }
 
   static fontSize(mobileFontSize) {
@@ -21,6 +21,11 @@ export class DeviceData {
     const logoWidth = Math.min(width, 600) - screenPadding;
 
     return { width: logoWidth, height: logoWidth / 4, alignSelf: "center" };
+  }
+
+  static getWidth() {
+    // const screenHeight = Dimensions.get("screen").height; // web mobile
+    return Dimensions.get("window").width;
   }
 
   // static windowHeight() {
