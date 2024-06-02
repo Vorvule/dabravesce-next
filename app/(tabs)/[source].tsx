@@ -1,28 +1,29 @@
 import { useMemo } from "react";
-import { Image, Platform, StyleSheet } from "react-native";
+import { Image } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import CoreContent from "@/screens/source/CoreContent";
 import { CorePage } from "@/service/CorePage";
-import { DeviceData } from "@/service/DeviceData";
+
+import { HeaderStyles, ImageStyles } from "@/constants/TopStyles";
 
 export default function TabTwoScreen() {
+  const imageUrl = "@/assets/images/logos/book.png";
+  const imageSource = useMemo(() => require(imageUrl), [imageUrl]);
+
   const urlChain = useLocalSearchParams().source;
-  const routeChain = CorePage.getRouteChain(urlChain);
-
   const { albumName, bookName, chapter } = useMemo(
-    () => CorePage.getContents(routeChain),
-    [routeChain]
+    () => CorePage.getContent(urlChain),
+    [urlChain]
   );
-
-  const colors = { light: "#F2F2F2", dark: "#000000" }; // A1CEDC 1D3D47 FCFAEB
-  const source = "@/assets/images/logos/malpodkniga_.png";
 
   return (
     <ParallaxScrollView
-      headerBackgroundColor={colors}
-      headerImage={<Image source={require(source)} style={styles.image} />}
+      headerBackgroundColor={HeaderStyles.backgroundColor}
+      headerImage={
+        <Image source={imageSource} style={ImageStyles.headerImage} />
+      }
     >
       <CoreContent
         albumName={albumName}
@@ -32,15 +33,3 @@ export default function TabTwoScreen() {
     </ParallaxScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  image: {
-    height: 250,
-    // width:500 , // DeviceData.getWidth(),
-    resizeMode: "contain", // Platform.OS === "web" ? "cover" : 
-    // bottom: 0,
-    // right: 0,
-    // position: "absolute",
-    alignSelf: "center",
-  },
-});

@@ -1,19 +1,25 @@
-import { Image, StyleSheet } from "react-native";
+import { useMemo } from "react";
+import { Image } from "react-native";
 
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedView } from "@/components/ThemedView";
 
-import AlbumList from "@/screens/menu/AlbumList";
-import { allAlbums } from "@/assets/albums/AllAlbums";
 import { ThemedText } from "@/components/ThemedText";
+import { allAlbums } from "@/assets/albums/AllAlbums";
+import AlbumList from "@/screens/menu/AlbumList";
+
+import { HeaderStyles, ImageStyles } from "@/constants/TopStyles";
 
 export default function HomeScreen() {
-  const source = "@/assets/images/partial-react-logo.png";
+  const imageUrl = "@/assets/images/logos/books.png";
+  const imageSource = useMemo(() => require(imageUrl), [imageUrl]);
 
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
-      headerImage={<Image source={require(source)} style={styles.image} />}
+      headerBackgroundColor={HeaderStyles.backgroundColor}
+      headerImage={
+        <Image source={imageSource} style={ImageStyles.headerImage} />
+      }
     >
       <ThemedText type="title">Крыніцы</ThemedText>
 
@@ -23,14 +29,3 @@ export default function HomeScreen() {
     </ParallaxScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  image: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-    // alignSelf: "center"
-  },
-});

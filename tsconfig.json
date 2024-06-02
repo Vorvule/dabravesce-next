@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, ".ex/collapsible-tab.tsx"  ]
+, ".ex/collapsible-tab.tsx", "constants/TopStyles.js"  ]
 }

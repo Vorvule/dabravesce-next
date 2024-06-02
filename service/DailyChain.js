@@ -1,5 +1,5 @@
-export class DailyKeys {
-  static getDailyKeys() {
+export class DailyChain {
+  static getDailyChain() {
     const zeroBasedDayOfYearIndex = this.getDayOfTheYearIndex();
 
     if (zeroBasedDayOfYearIndex < 358) {

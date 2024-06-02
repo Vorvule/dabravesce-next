@@ -5,13 +5,13 @@ import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
-import { DailyKeys } from "@/service/DailyKeys";
+import { DailyChain } from "@/service/DailyChain";
 import { ChainContext } from "@/contexts/ChainContext";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
-  const [chain, setChain] = React.useState(DailyKeys.getDailyKeys());
+  const [chain, setChain] = React.useState(DailyChain.getDailyChain());
 
   return (
     <ChainContext.Provider value={{ chain: chain, setChain: setChain }}>

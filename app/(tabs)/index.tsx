@@ -1,30 +1,28 @@
-import { Image, Platform, StyleSheet } from "react-native";
+import { useMemo } from "react";
+import { Image, StyleSheet } from "react-native";
+import { Link } from "expo-router";
 
-import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { Link } from "expo-router";
 
 import { DeviceData } from "@/service/DeviceData";
+import { HeaderStyles, ImageStyles } from "@/constants/TopStyles";
 
 export default function HomeScreen() {
-  const colors = { light: "#F2F2F2", dark: "#F2F2F2" }; // A1CEDC 1D3D47 FCFAEB
-  const source =
-    // Platform.OS === "web"
-    DeviceData.deviceIsMobile()
-      ? require("@/assets/images/logos/spps-mob.jpg")
-      : require("@/assets/images/logos/spps-web.jpg");
+  const imageUrl = "@/assets/images/logos/church.png";
+  const imageSource = useMemo(() => require(imageUrl), [imageUrl]);
 
   return (
     <ParallaxScrollView
-      headerBackgroundColor={colors}
-      headerImage={<Image source={source} style={styles.image} />}
+      headerBackgroundColor={HeaderStyles.backgroundColor}
+      headerImage={
+        <Image source={imageSource} style={ImageStyles.headerImage} />
+      }
     >
       <ThemedView>
         <ThemedText type="title">Хрыстос</ThemedText>
         <ThemedText type="title">уваскрос!</ThemedText>
-        {/* <HelloWave /> */}
       </ThemedView>
 
       <ThemedView style={styles.stepContainer}>
@@ -53,7 +51,7 @@ export default function HomeScreen() {
         <ThemedText>
           Малітоўнік — у перакладзе протаіерэя Сергія Гардуна.
         </ThemedText>
-        <ThemedText>Малітвы чытае аўтар перакладу.</ThemedText>
+        <ThemedText>Малітвы агучаны аўтарам перакладу.</ThemedText>
       </ThemedView>
 
       <ThemedView style={styles.stepContainer}>
@@ -102,14 +100,5 @@ const styles = StyleSheet.create({
   stepContainer: {
     gap: 8,
     marginBottom: 8,
-  },
-  image: {
-    height: 250,
-    // width: 500,
-    resizeMode: "contain", //
-    // bottom: 0,
-    // right: 0,
-    // position: "absolute",
-    alignSelf: "center",
   },
 });

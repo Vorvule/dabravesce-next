@@ -1,17 +1,21 @@
 import { allAlbums } from "@/assets/albums/AllAlbums";
-import { DailyKeys } from "./DailyKeys";
+import { DailyChain } from "./DailyChain";
 
 export class CorePage {
+  static getContent(urlChain) {
+    const arrayChain = this.getRouteChain(urlChain);
+
+    return this.getContents(arrayChain);
+  }
+
   static getRouteChain(urlChain) {
     return this.isString(urlChain)
       ? urlChain.split("-")
-      : DailyKeys.getDailyKeys();
+      : DailyChain.getDailyChain();
   }
 
-  static getContents(chain) {
-    const keys = chain ? chain : DailyKeys.getDailyKeys();
-
-    const [albumKey, bookKey, chapterKey] = keys;
+  static getContents(arrayChain) {
+    const [albumKey, bookKey, chapterKey] = arrayChain;
 
     const albumName = allAlbums[albumKey].name;
     const bookName = allAlbums[albumKey].text[bookKey].name;
