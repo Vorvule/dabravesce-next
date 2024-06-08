@@ -9,7 +9,7 @@ import { activateKeepAwakeAsync, deactivateKeepAwake } from "expo-keep-awake";
 import { firebaseApp } from "@/firebaseConfig";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 
-import AudioPressable from "./AudioPressable";
+import RoundButton from "./RoundButton";
 // import { styles } from "@/constants/styles";
 
 export default function ChapterAudio({ chapterAudio }) {
@@ -114,17 +114,17 @@ export default function ChapterAudio({ chapterAudio }) {
 
   return (
     <View style={styles.player}>
-      <AudioPressable
+      <RoundButton
         name="play"
         onPress={PlayAudio}
         enabled={enabledButtons.play}
       />
-      <AudioPressable
+      <RoundButton
         name="pause"
         onPress={PauseAudio}
         enabled={enabledButtons.pause}
       />
-      <AudioPressable
+      <RoundButton
         name="stop"
         onPress={StopAudio}
         enabled={enabledButtons.stop}
