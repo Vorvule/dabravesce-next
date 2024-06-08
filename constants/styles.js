@@ -27,16 +27,4 @@ export const styles = StyleSheet.create({
     borderBottomColor: "grey",
     borderBottomWidth: 1,
   },
-
-  // link
-
-  linkIcon: {
-    paddingHorizontal: 12,
-    paddingVertical: 4,
-  },
-
-  linkView: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
 });

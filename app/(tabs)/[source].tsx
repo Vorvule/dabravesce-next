@@ -6,13 +6,13 @@ import ParallaxScrollView from "@/components/ParallaxScrollView";
 import SourceContent from "@/screens/source/SourceContent";
 import { CorePage } from "@/service/CorePage";
 
-import { HeaderStyle, ImageStyle } from "@/constants/TopStyles";
+import { HeaderStyle, TopStyle } from "@/constants/TopStyles";
 
-export default function TabTwoScreen() {
-  const imageUrl = "@/assets/images/logos/book.png";
-  const imageSource = useMemo(() => require(imageUrl), [imageUrl]);
+export default function SourceScreen() {
+  const source = require("@/assets/images/logos/book.png");
 
   const urlChain = useLocalSearchParams().source;
+
   const { albumName, bookName, chapter } = useMemo(
     () => CorePage.getContent(urlChain),
     [urlChain]
@@ -21,9 +21,7 @@ export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={HeaderStyle.backgroundColor}
-      headerImage={
-        <Image source={imageSource} style={ImageStyle.headerImage} />
-      }
+      headerImage={<Image source={source} style={TopStyle.image} />}
     >
       <SourceContent
         albumName={albumName}
