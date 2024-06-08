@@ -6,7 +6,7 @@ import { CorePage } from "@/service/CorePage";
 import { DeviceData } from "../service/DeviceData";
 import { styles } from "../constants/styles";
 
-import CoreContent from "./CoreContent";
+import SourceContent from "./SourceContent";
 
 export function CoreScreen({ navigation, route }) {
   const routeChain = route.params.chain;
@@ -33,7 +33,7 @@ export function CoreScreen({ navigation, route }) {
       style={styles.screenContainer}
       ref={scrollRef}
     >
-      <CoreContent
+      <SourceContent
         albumName={albumName}
         bookName={bookName}
         chapter={chapter}

@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import { ThemedView } from "@/components/ThemedView";
 import { ThemedText } from "@/components/ThemedText";
 
@@ -9,7 +7,7 @@ import ChapterText from "./ChapterText";
 
 import { styles } from "@/constants/styles";
 
-export default function CoreContent({ albumName, bookName, chapter }) {
+export default function SourceContent({ albumName, bookName, chapter }) {
   return (
     <ThemedView style={styles.gapped}>
       <ThemedText style={styles.centered} type="title">
@@ -26,4 +24,3 @@ export default function CoreContent({ albumName, bookName, chapter }) {
     </ThemedView>
   );
 }
-//style={{ alignItems: "center", gap: 14 }}

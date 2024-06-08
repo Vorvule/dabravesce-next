@@ -8,7 +8,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { allAlbums } from "@/assets/albums/AllAlbums";
 import AlbumList from "@/screens/menu/AlbumList";
 
-import { HeaderStyles, ImageStyles } from "@/constants/TopStyles";
+import { HeaderStyle, ImageStyle } from "@/constants/TopStyles";
 
 export default function HomeScreen() {
   const imageUrl = "@/assets/images/logos/books.png";
@@ -16,9 +16,9 @@ export default function HomeScreen() {
 
   return (
     <ParallaxScrollView
-      headerBackgroundColor={HeaderStyles.backgroundColor}
+      headerBackgroundColor={HeaderStyle.backgroundColor}
       headerImage={
-        <Image source={imageSource} style={ImageStyles.headerImage} />
+        <Image source={imageSource} style={ImageStyle.headerImage} />
       }
     >
       <ThemedText type="title">Крыніцы</ThemedText>

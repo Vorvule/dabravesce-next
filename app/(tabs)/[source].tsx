@@ -3,10 +3,10 @@ import { Image } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 
 import ParallaxScrollView from "@/components/ParallaxScrollView";
-import CoreContent from "@/screens/source/CoreContent";
+import SourceContent from "@/screens/source/SourceContent";
 import { CorePage } from "@/service/CorePage";
 
-import { HeaderStyles, ImageStyles } from "@/constants/TopStyles";
+import { HeaderStyle, ImageStyle } from "@/constants/TopStyles";
 
 export default function TabTwoScreen() {
   const imageUrl = "@/assets/images/logos/book.png";
@@ -20,12 +20,12 @@ export default function TabTwoScreen() {
 
   return (
     <ParallaxScrollView
-      headerBackgroundColor={HeaderStyles.backgroundColor}
+      headerBackgroundColor={HeaderStyle.backgroundColor}
       headerImage={
-        <Image source={imageSource} style={ImageStyles.headerImage} />
+        <Image source={imageSource} style={ImageStyle.headerImage} />
       }
     >
-      <CoreContent
+      <SourceContent
         albumName={albumName}
         bookName={bookName}
         chapter={chapter}

@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const ImageStyles = StyleSheet.create({
+export const ImageStyle = StyleSheet.create({
   headerImage: {
     height: 200,
     width: 360,
@@ -8,6 +8,6 @@ export const ImageStyles = StyleSheet.create({
   },
 });
 
-export const HeaderStyles = {
+export const HeaderStyle = {
   backgroundColor: { light: "#FFFFFF", dark: "#F2F2F2" },
 };

@@ -6,8 +6,11 @@ export const styles = StyleSheet.create({
   },
 
   gapped: {
-    // paddingBottom: 48,
     gap: 14,
+  },
+
+  paragraph: {
+    gap: 8,
   },
 
   // menu
