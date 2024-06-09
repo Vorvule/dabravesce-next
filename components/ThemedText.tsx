@@ -5,7 +5,7 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: "default" | "title" | "semiBold" | "subtitle" | "link";
+  type?: "title" | "subtitle" | "header" | "default" | "active";
 };
 
 export function ThemedText({
@@ -15,47 +15,59 @@ export function ThemedText({
   type = "default",
   ...rest
 }: ThemedTextProps) {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
+  const textColor = useThemeColor(
+    { light: lightColor, dark: darkColor },
+    "text"
+  );
+
+  const titleColor = useThemeColor({}, "title");
+  const subtitleColor = useThemeColor({}, "subtitle");
+  const headerColor = useThemeColor({}, "header");
+
+  const styles = StyleSheet.create({
+    title: {
+      fontFamily: "SofiaSemiBold",
+      fontSize: 24,
+      color: titleColor,
+      lineHeight: 36,
+      textAlign: "center",
+    },
+    subtitle: {
+      fontFamily: "SofiaSemiBold",
+      fontSize: 22,
+      color: subtitleColor, //
+    },
+    header: {
+      fontFamily: "SofiaSemiBold",
+      fontSize: 20,
+      color: headerColor, // #F39C12
+      lineHeight: 24,
+    },
+    default: {
+      fontFamily: "Sofia",
+      fontSize: 18,
+      lineHeight: 24,
+    },
+    active: {
+      fontFamily: "Sofia",
+      fontSize: 18,
+      lineHeight: 24,
+      color: "",
+    },
+  });
 
   return (
     <Text
       style={[
-        { color },
-        type === "default" ? styles.default : undefined,
+        { color: textColor },
         type === "title" ? styles.title : undefined,
-        type === "semiBold" ? styles.semiBold : undefined,
         type === "subtitle" ? styles.subtitle : undefined,
-        type === "link" ? styles.link : undefined,
+        type === "header" ? styles.header : undefined,
+        type === "default" ? styles.default : undefined,
+        type === "active" ? styles.active : undefined,
         style,
       ]}
       {...rest}
     />
   );
 }
-
-const styles = StyleSheet.create({
-  default: {
-    fontSize: 16,
-    lineHeight: 24,
-  },
-  semiBold: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: "600",
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: "bold",
-    lineHeight: 32,
-    textAlign: "center",
-  },
-  subtitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  link: {
-    lineHeight: 30,
-    fontSize: 16,
-    color: "#008080",
-  },
-});

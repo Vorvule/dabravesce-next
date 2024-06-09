@@ -1,10 +1,13 @@
 import { useContext } from "react";
 
 import { ChainContext } from "@/contexts/ChainContext";
+import { useThemeColor } from "@/hooks/useThemeColor";
 
 export class MenuService {
   static getColorStyle(keys) {
-    return this.keysAreActive(keys) ? { color: "teal" } : {};
+    const color = useThemeColor({}, "tint");
+
+    return this.keysAreActive(keys) ? {color} : {};
   }
 
   static keysAreActive(keys) {
@@ -24,7 +27,7 @@ export class MenuService {
     }
   }
 
-  static clear(text) {
+  static clearText(text) {
     return text.replace(/ \| .+/, "");
   }
 }

@@ -1,33 +1,34 @@
-import { StyleSheet } from "react-native";
 import { Link } from "expo-router";
 
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 
 import { DeviceData } from "@/service/DeviceData";
+import { DailyChain } from "@/service/DailyChain";
+
 import { styles } from "@/constants/styles";
+import { useThemeColor } from "@/hooks/useThemeColor";
 
 export function IndexContent() {
+  const color = useThemeColor({}, "tint");
+
   return (
     <>
       <ThemedView>
-        <ThemedText type="title">Хрыстос</ThemedText>
-        <ThemedText type="title">уваскрос!</ThemedText>
+        <ThemedText type="title">Хрыстос уваскрос!</ThemedText>
       </ThemedView>
 
       <ThemedView style={styles.paragraph}>
         <ThemedText type="subtitle">Аб "Дабравесці"</ThemedText>
         <ThemedText>
-          Шчыра рады бачыць вас на старонках праекта{" "}
-          <ThemedText type="semiBold">"Дабравесце"</ThemedText>.
+          Шчыра рады бачыць вас на старонках праекта "Дабравесце".
         </ThemedText>
         <ThemedText>
-          Праект створаны і развіваецца Брацтвам ў гонар Віленскіх мучанікаў пры
-          Свята-Петра-Паўлаўскім саборы г. Мінска Беларускай Праваслаўнай
-          Царквы.
+          Праект створаны і развіваецца Брацтвам у гонар Віленскіх мучанікаў пры
+          Свята-Петра-Паўлаўскім саборы Беларускай Праваслаўнай Царквы.
         </ThemedText>
         <ThemedText>
-          Сабор знаходзіцца на Нямізе, на вуліцы Ракаўская, дом 4.
+          Сабор знаходзіцца ў Мінску, на Нямізе, вуліца Ракаўская, дом 4.
         </ThemedText>
       </ThemedView>
 
@@ -47,14 +48,14 @@ export function IndexContent() {
       <ThemedView style={styles.paragraph}>
         <ThemedText type="subtitle">Нашы крыніцы</ThemedText>
         <ThemedText>У меню "Дабравесця" вы знойдзеце:</ThemedText>
-        <ThemedText>{"\u25cf "} Евангелле — тэксты і аўдыё</ThemedText>
-        <ThemedText>{"\u25cf "} Кнігі Апосталаў</ThemedText>
-        <ThemedText>{"\u25cf "} Псалтыр</ThemedText>
-        <ThemedText>{"\u25cf "} Малітоўнік</ThemedText>
-        <ThemedText>{"\u25cf "} Акафісты</ThemedText>
-        <ThemedText>{"\u25cf "} Богаслужэнні</ThemedText>
-        <ThemedText>{"\u25cf "} Хрысціянскія кнігі</ThemedText>
-        <ThemedText>{"\u25cf "} Пабожныя спевы — аўдыё і словы</ThemedText>
+        <ThemedText>{"\u29bf "} Евангелле — тэксты і аўдыё</ThemedText>
+        <ThemedText>{"\u29bf "} Кнігі Апосталаў</ThemedText>
+        <ThemedText>{"\u29bf "} Псалтыр</ThemedText>
+        <ThemedText>{"\u29bf "} Малітоўнік</ThemedText>
+        <ThemedText>{"\u29bf "} Акафісты</ThemedText>
+        <ThemedText>{"\u29bf "} Богаслужэнні</ThemedText>
+        <ThemedText>{"\u29bf "} Хрысціянскія кнігі</ThemedText>
+        <ThemedText>{"\u29bf "} Пабожныя спевы — аўдыё і словы</ThemedText>
         <ThemedText>і іншыя крыніцы духоўнага развіцця.</ThemedText>
       </ThemedView>
 
@@ -68,11 +69,12 @@ export function IndexContent() {
           вамі прачытаць за год усе чатыры Евангеллі роўна чатыры разы.
         </ThemedText>
         <ThemedText>
-          Таму намоўчкі, пры адкрыцці{" "}
-          {DeviceData.isWeb() ? "сайта" : "дачынення"}
-          {", "} укладка Змест адлюстроўвае менавіта сённяшняе чарговае{" "}
-          <Link href="/">
-            <ThemedText type="link">Евангелле дня</ThemedText>
+          Таму намоўчкі, пры адкрыцці{` ${DeviceData.getAppKind()}, `}
+          адлюстроўваецца Змесціва менавіта сённяшняга, чарговага{", "}
+          <Link href={DailyChain.getHref()}>
+            <ThemedText type="default" style={{ color: color }}>
+              Евангелля дня
+            </ThemedText>
           </Link>
           .
         </ThemedText>

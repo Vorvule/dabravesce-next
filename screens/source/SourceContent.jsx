@@ -13,12 +13,14 @@ export default function SourceContent({ albumName, bookName, chapter }) {
       <ThemedText style={styles.centered} type="title">
         {albumName}
       </ThemedText>
+
       <ThemedText style={styles.centered} type="subtitle">
         {bookName}
       </ThemedText>
-      <ChapterName>{chapter.name}</ChapterName>
 
       {chapter.audio && <ChapterAudio chapterAudio={chapter.audio} />}
+
+      <ChapterName>{chapter.name}</ChapterName>
 
       <ChapterText chapterText={chapter.text} />
     </ThemedView>

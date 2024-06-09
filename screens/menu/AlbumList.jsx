@@ -7,8 +7,7 @@ import AlbumItem from "./AlbumItem";
 
 export default function AlbumList({ albums }) {
   const chain = useContext(ChainContext).chain.slice(0, 2);
-  // const folding = useState(chain);
-  const folding = useState(false);
+  const folding = useState(chain); // useState(false);
 
   return albums.map((album, key) => {
     return (

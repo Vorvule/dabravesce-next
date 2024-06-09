@@ -18,7 +18,7 @@ export default function ChapterItem({ chapter, keys }) {
   const style = [styles.border, styles.padded];
 
   const color = MenuService.getColorStyle(keys);
-  const text = MenuService.clear(chapter.name);
+  const text = MenuService.clearText(chapter.name);
 
   return (
     <Link href={href} style={style} onPress={onPress}>

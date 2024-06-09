@@ -4,7 +4,7 @@ import { Mark } from "./Mark";
 import { Matthew } from "./Matthew";
 
 export const gospels = {
-  name: "Евангеллі",
+  name: "Евангелле",
   text: [
     {
       name: "Святое Дабравесце паводле Матфея",

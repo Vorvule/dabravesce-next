@@ -11,7 +11,7 @@ export default function NotFoundScreen() {
       <ThemedView style={styles.container}>
         <ThemedText type="title">Такой старонкі не існуе.</ThemedText>
         <Link href="/" style={styles.link}>
-          <ThemedText type="link">На першую старонку!</ThemedText>
+          <ThemedText type="default">На першую старонку!</ThemedText>
         </Link>
       </ThemedView>
     </>

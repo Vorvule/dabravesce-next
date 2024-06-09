@@ -27,7 +27,7 @@ export default function TabLayout() {
             title: "Дабравесце",
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon
-                name={focused ? "albums" : "albums-outline"}
+                name={focused ? "notifications" : "notifications-outline"}
                 color={color}
               />
             ),
@@ -39,7 +39,7 @@ export default function TabLayout() {
             title: "Крыніцы",
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon
-                name={focused ? "folder" : "folder-outline"}
+                name={focused ? "library" : "library-outline"}
                 color={color}
               />
             ),
@@ -48,7 +48,7 @@ export default function TabLayout() {
         <Tabs.Screen
           name="[source]"
           options={{
-            title: "Змест",
+            title: "Змесціва",
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon
                 name={focused ? "book" : "book-outline"}

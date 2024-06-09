@@ -1,5 +1,7 @@
 import { Pressable } from "react-native";
+
 import { ThemedText } from "./ThemedText";
+
 import { styles } from "../constants/styles";
 
 export default function ThemedOption({ children, colorStyle, onPress }) {
@@ -8,7 +10,7 @@ export default function ThemedOption({ children, colorStyle, onPress }) {
 
   return (
     <Pressable onPress={onPress} style={pressableStyle}>
-      <ThemedText type="semiBold" style={style}>
+      <ThemedText type="default" style={style}>
         {children}
       </ThemedText>
     </Pressable>

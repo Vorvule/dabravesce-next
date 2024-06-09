@@ -10,7 +10,6 @@ import { firebaseApp } from "@/firebaseConfig";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 
 import RoundButton from "./RoundButton";
-// import { styles } from "@/constants/styles";
 
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, _] = useState(new Audio.Sound());

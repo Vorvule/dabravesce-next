@@ -7,9 +7,18 @@ import SourceContent from "@/screens/source/SourceContent";
 import { CorePage } from "@/service/CorePage";
 
 import { HeaderStyle, TopStyle } from "@/constants/TopStyles";
+import { useTheme } from "@react-navigation/native";
+import { Colors } from "@/constants/Colors";
 
 export default function SourceScreen() {
-  const source = require("@/assets/images/logos/book.png");
+  const source = useTheme().dark
+    ? require("@/assets/images/logos/book-dark.png")
+    : require("@/assets/images/logos/book.png");
+
+  const headerBackgroundColor = {
+    dark: Colors.dark.background,
+    light: Colors.light.background,
+  };
 
   const urlChain = useLocalSearchParams().source;
 
@@ -20,7 +29,7 @@ export default function SourceScreen() {
 
   return (
     <ParallaxScrollView
-      headerBackgroundColor={HeaderStyle.backgroundColor}
+      headerBackgroundColor={headerBackgroundColor}
       headerImage={<Image source={source} style={TopStyle.image} />}
     >
       <SourceContent

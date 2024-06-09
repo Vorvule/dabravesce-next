@@ -7,17 +7,28 @@ import { ThemedText } from "@/components/ThemedText";
 import { allAlbums } from "@/assets/albums/AllAlbums";
 import AlbumList from "@/screens/menu/AlbumList";
 
-import { HeaderStyle, TopStyle as TopStyle } from "@/constants/TopStyles";
+import { TopStyle } from "@/constants/TopStyles";
+import { Colors } from "@/constants/Colors";
+import { useTheme } from "@react-navigation/native";
 
 export default function MenuScreen() {
-  const source = require("@/assets/images/logos/books.png");
+  const source = useTheme().dark
+    ? require("@/assets/images/logos/books-dark.png")
+    : require("@/assets/images/logos/books.png");
+
+  const headerBackgroundColor = {
+    dark: Colors.dark.background,
+    light: Colors.light.background,
+  };
 
   return (
     <ParallaxScrollView
-      headerBackgroundColor={HeaderStyle.backgroundColor}
+      headerBackgroundColor={headerBackgroundColor}
       headerImage={<Image source={source} style={TopStyle.image} />}
     >
       <ThemedText type="title">Крыніцы</ThemedText>
+
+      <ThemedText type="subtitle">Змест</ThemedText>
 
       <ThemedView>
         <AlbumList albums={allAlbums} />

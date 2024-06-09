@@ -20,7 +20,7 @@ export class DailyChain {
       return [0, 2, 0]; // [albumIndex, bookIndex, chapterIndex]
     }
     // indexes 0-355 = 356 Days = 89 Gospel chapters x 4 Times
-    // indexes 356, 357 = Mathew 1, 2 = fit for Christmas reading
+    // indexes 356, 357 = Matthew 1, 2 = fit for Christmas reading
     // indexes 358/359 = Christmas Eve/Christmas = Luke, 1 till EOY
   }
 
@@ -32,5 +32,9 @@ export class DailyChain {
     let daysDifference = currentDay - startOfYear;
     // Zero based day of the year
     return Math.floor(daysDifference / oneDay) - 1;
+  }
+
+  static getHref() {
+    return  DailyChain.getDailyChain().join("-");
   }
 }

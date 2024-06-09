@@ -17,7 +17,10 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    // Sophia: require("../assets/fonts/Sofia_Sans/SofiaSans-VariableFont_wght.ttf"),
+    // SophiaSemiBold: require("../assets/fonts/Sofia_Sans/static/SofiaSans-SemiBold.ttf"),
+    Sofia: require("../assets/fonts/SofiaSans-Regular.ttf"),
+    SofiaSemiBold: require("../assets/fonts/SofiaSans-SemiBold.ttf"),
   });
 
   useEffect(() => {
