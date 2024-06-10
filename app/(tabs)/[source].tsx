@@ -6,7 +6,7 @@ import ParallaxScrollView from "@/components/ParallaxScrollView";
 import SourceContent from "@/screens/source/SourceContent";
 import { CorePage } from "@/service/CorePage";
 
-import { HeaderStyle, TopStyle } from "@/constants/TopStyles";
+import { TopStyle } from "@/constants/TopStyles";
 import { useTheme } from "@react-navigation/native";
 import { Colors } from "@/constants/Colors";
 
@@ -21,6 +21,8 @@ export default function SourceScreen() {
   };
 
   const urlChain = useLocalSearchParams().source;
+  console.log(urlChain);
+  
 
   const { albumName, bookName, chapter } = useMemo(
     () => CorePage.getContent(urlChain),

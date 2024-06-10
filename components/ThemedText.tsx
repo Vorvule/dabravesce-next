@@ -35,12 +35,12 @@ export function ThemedText({
     subtitle: {
       fontFamily: "SofiaSemiBold",
       fontSize: 22,
-      color: subtitleColor, //
+      color: subtitleColor,
     },
     header: {
       fontFamily: "SofiaSemiBold",
       fontSize: 20,
-      color: headerColor, // #F39C12
+      color: headerColor,
       lineHeight: 24,
     },
     default: {

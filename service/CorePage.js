@@ -9,7 +9,7 @@ export class CorePage {
   }
 
   static getRouteChain(urlChain) {
-    return this.isString(urlChain)
+    return this.isString(urlChain) && urlChain.match(/\d-\d-\d/)
       ? urlChain.split("-")
       : DailyChain.getDailyChain();
   }
