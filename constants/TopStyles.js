@@ -7,7 +7,3 @@ export const TopStyle = StyleSheet.create({
     alignSelf: "center",
   },
 });
-
-export const HeaderStyle = {
-  backgroundColor: { light: "#FFFFFF", dark: "#F2F2F2" },
-};

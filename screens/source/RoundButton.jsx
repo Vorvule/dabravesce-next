@@ -3,7 +3,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useThemeColor } from "@/hooks/useThemeColor";
 
 export default function RoundButton({ name, onPress, enabled }) {
-  const tint = useThemeColor({}, "text");
+  const tint = useThemeColor({}, "subtitle");
   const color = enabled ? tint : "#888888";
 
   const styles = {
