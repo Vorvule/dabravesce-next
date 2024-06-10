@@ -1,9 +1,9 @@
 import { ThemedText } from "@/components/ThemedText";
 
-import { styles } from "@/constants/styles";
+import { Styles } from "@/constants/Styles";
 
 export default function ChapterName({ children }) {
-  const style = styles.centered;
+  const style = Styles.centered;
 
   return children.split(" | ").map((name, index) => {
     return (

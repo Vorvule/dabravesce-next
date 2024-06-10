@@ -7,9 +7,9 @@ import { ThemedText } from "@/components/ThemedText";
 import { allAlbums } from "@/assets/albums/AllAlbums";
 import AlbumList from "@/screens/menu/AlbumList";
 
-import { TopStyle } from "@/constants/TopStyles";
 import { Colors } from "@/constants/Colors";
 import { useTheme } from "@react-navigation/native";
+import { Styles } from "@/constants/Styles";
 
 export default function MenuScreen() {
   const source = useTheme().dark
@@ -24,11 +24,11 @@ export default function MenuScreen() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={headerBackgroundColor}
-      headerImage={<Image source={source} style={TopStyle.image} />}
+      headerImage={<Image source={source} style={Styles.image} />}
     >
       <ThemedText type="title">Крыніцы</ThemedText>
 
-      <ThemedText type="subtitle">Змест</ThemedText>
+      <ThemedText type="subtitle" style={Styles.centered}>Змест</ThemedText>
 
       <ThemedView>
         <AlbumList albums={allAlbums} />

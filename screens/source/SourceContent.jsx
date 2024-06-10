@@ -5,16 +5,16 @@ import ChapterName from "./ChapterName";
 import ChapterAudio from "./ChapterAudio";
 import ChapterText from "./ChapterText";
 
-import { styles } from "@/constants/styles";
+import { Styles } from "@/constants/Styles";
 
 export default function SourceContent({ albumName, bookName, chapter }) {
   return (
-    <ThemedView style={styles.gapped}>
-      <ThemedText style={styles.centered} type="title">
+    <ThemedView style={Styles.gapped}>
+      <ThemedText style={Styles.centered} type="title">
         {albumName}
       </ThemedText>
 
-      <ThemedText style={styles.centered} type="subtitle">
+      <ThemedText style={Styles.centered} type="subtitle">
         {bookName}
       </ThemedText>
 

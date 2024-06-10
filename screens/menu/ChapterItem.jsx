@@ -5,7 +5,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { ChainContext } from "@/contexts/ChainContext";
 import { MenuService } from "@/service/MenuService";
 
-import { styles } from "@/constants/styles";
+import { Styles } from "@/constants/Styles";
 
 export default function ChapterItem({ chapter, keys }) {
   const chainContext = useContext(ChainContext);
@@ -15,7 +15,7 @@ export default function ChapterItem({ chapter, keys }) {
   };
 
   const href = keys.join("-");
-  const style = [styles.border, styles.padded];
+  const style = [Styles.border, Styles.padded];
 
   const color = MenuService.getColorStyle(keys);
   const text = MenuService.clearText(chapter.name);

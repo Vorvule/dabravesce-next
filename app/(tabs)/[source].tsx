@@ -6,9 +6,9 @@ import ParallaxScrollView from "@/components/ParallaxScrollView";
 import SourceContent from "@/screens/source/SourceContent";
 import { CorePage } from "@/service/CorePage";
 
-import { TopStyle } from "@/constants/TopStyles";
 import { useTheme } from "@react-navigation/native";
 import { Colors } from "@/constants/Colors";
+import { Styles } from "@/constants/Styles";
 
 export default function SourceScreen() {
   const source = useTheme().dark
@@ -30,7 +30,7 @@ export default function SourceScreen() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={headerBackgroundColor}
-      headerImage={<Image source={source} style={TopStyle.image} />}
+      headerImage={<Image source={source} style={Styles.image} />}
     >
       <SourceContent
         albumName={albumName}

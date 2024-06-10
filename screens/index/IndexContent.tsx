@@ -6,7 +6,7 @@ import { ThemedView } from "@/components/ThemedView";
 import { DeviceData } from "@/service/DeviceData";
 import { DailyChain } from "@/service/DailyChain";
 
-import { styles } from "@/constants/styles";
+import { Styles } from "@/constants/Styles";
 import { useThemeColor } from "@/hooks/useThemeColor";
 
 export function IndexContent() {
@@ -18,7 +18,7 @@ export function IndexContent() {
         <ThemedText type="title">Хрыстос уваскрос!</ThemedText>
       </ThemedView>
 
-      <ThemedView style={styles.paragraph}>
+      <ThemedView style={Styles.paragraph}>
         <ThemedText type="subtitle">Аб "Дабравесці"</ThemedText>
         <ThemedText>
           Шчыра рады бачыць вас на старонках праекта "Дабравесце".
@@ -32,7 +32,7 @@ export function IndexContent() {
         </ThemedText>
       </ThemedView>
 
-      <ThemedView style={styles.paragraph}>
+      <ThemedView style={Styles.paragraph}>
         <ThemedText type="subtitle">Пра пераклад</ThemedText>
         <ThemedText>
           Пераклад Новага Запавету выкананы Біблейскай камісіяй Беларускай
@@ -45,21 +45,21 @@ export function IndexContent() {
         <ThemedText>Малітвы агучаны аўтарам перакладу.</ThemedText>
       </ThemedView>
 
-      <ThemedView style={styles.paragraph}>
+      <ThemedView style={Styles.paragraph}>
         <ThemedText type="subtitle">Нашы крыніцы</ThemedText>
         <ThemedText>У меню "Дабравесця" вы знойдзеце:</ThemedText>
-        <ThemedText>{"\u29bf "} Евангелле — тэксты і аўдыё</ThemedText>
-        <ThemedText>{"\u29bf "} Кнігі Апосталаў</ThemedText>
-        <ThemedText>{"\u29bf "} Псалтыр</ThemedText>
-        <ThemedText>{"\u29bf "} Малітоўнік</ThemedText>
-        <ThemedText>{"\u29bf "} Акафісты</ThemedText>
-        <ThemedText>{"\u29bf "} Богаслужэнні</ThemedText>
-        <ThemedText>{"\u29bf "} Хрысціянскія кнігі</ThemedText>
-        <ThemedText>{"\u29bf "} Пабожныя спевы — аўдыё і словы</ThemedText>
+        <ThemedText>{"\u2b58 "} Евангелле — тэксты і аўдыё</ThemedText>
+        <ThemedText>{"\u2b58 "} Кнігі Апосталаў</ThemedText>
+        <ThemedText>{"\u2b58 "} Псалтыр</ThemedText>
+        <ThemedText>{"\u2b58 "} Малітоўнік</ThemedText>
+        <ThemedText>{"\u2b58 "} Акафісты</ThemedText>
+        <ThemedText>{"\u2b58 "} Богаслужэнні</ThemedText>
+        <ThemedText>{"\u2b58 "} Хрысціянскія кнігі</ThemedText>
+        <ThemedText>{"\u2b58 "} Пабожныя спевы — аўдыё і словы</ThemedText>
         <ThemedText>і іншыя крыніцы духоўнага развіцця.</ThemedText>
       </ThemedView>
 
-      <ThemedView style={styles.paragraph}>
+      <ThemedView style={Styles.paragraph}>
         <ThemedText type="subtitle">Евангелле штодня</ThemedText>
         <ThemedText>
           Многія з нас чытаюць Евангелле штодня — зазвычай, па адным раздзеле.
@@ -70,10 +70,10 @@ export function IndexContent() {
         </ThemedText>
         <ThemedText>
           Таму намоўчкі, пры адкрыцці{` ${DeviceData.getAppKind()}, `}
-          адлюстроўваецца Змесціва менавіта сённяшняга, чарговага{", "}
+         Змест адлюстроўвае менавіта сённяшняе, чарговае{", "}
           <Link href={DailyChain.getHref()}>
             <ThemedText type="default" style={{ color: color }}>
-              Евангелля дня
+              Евангелле дня
             </ThemedText>
           </Link>
           .
