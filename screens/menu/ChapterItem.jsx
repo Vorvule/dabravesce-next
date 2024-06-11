@@ -10,19 +10,16 @@ import { Styles } from "@/constants/Styles";
 export default function ChapterItem({ chapter, keys }) {
   const chainContext = useContext(ChainContext);
 
-  const onPress = () => {
-    chainContext.setChain(keys);
-  };
-
-  const href = keys.join("-");
+  const href = "content/" + keys.join("-");
   const style = [Styles.border, Styles.padded];
+  const onPress = () => chainContext.setChain(keys);
 
-  const color = MenuService.getColorStyle(keys);
-  const text = MenuService.clearText(chapter.name);
+  const textColor = MenuService.getColorStyle(keys);
+  const chapterName = MenuService.clearText(chapter.name);
 
   return (
-    <Link href={href} style={style} onPress={onPress}>
-      <ThemedText style={color}>{text}</ThemedText>
+    <Link push href={href} style={style} onPress={onPress}>
+      <ThemedText style={textColor}>{chapterName}</ThemedText>
     </Link>
   );
 }
