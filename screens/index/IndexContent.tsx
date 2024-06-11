@@ -10,7 +10,8 @@ import { Styles } from "@/constants/Styles";
 import { useThemeColor } from "@/hooks/useThemeColor";
 
 export function IndexContent() {
-  const color = useThemeColor({}, "tint");
+  const linkTextColor = useThemeColor({}, "tint");
+  const linkTextStyle = { color: linkTextColor, fontFamily: "SofiaSemiBold" };
 
   return (
     <>
@@ -70,9 +71,9 @@ export function IndexContent() {
         </ThemedText>
         <ThemedText>
           Таму намоўчкі, пры адкрыцці{` ${DeviceData.getAppKind()}, `}
-         Змест адлюстроўвае менавіта сённяшняе, чарговае{", "}
+          Змест адлюстроўвае менавіта сённяшняе, чарговае{", "}
           <Link href={DailyChain.getHref()}>
-            <ThemedText type="default" style={{ color: color }}>
+            <ThemedText type="default" style={linkTextStyle}>
               Евангелле дня
             </ThemedText>
           </Link>

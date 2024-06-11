@@ -17,11 +17,9 @@ export default function AlbumItem({ album, keys, folding }) {
     unfolded[0] == keys[0] ? setExpanded(!expanded) : setUnfolded(keys);
   };
 
-  const colorStyle = MenuService.getColorStyle(keys);
-
   return (
     <>
-      <ThemedOption onPress={onPress} colorStyle={colorStyle}>
+      <ThemedOption onPress={onPress} color={MenuService.getColor(keys)}>
         {album.name}
       </ThemedOption>
 

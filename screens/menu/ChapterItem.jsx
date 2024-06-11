@@ -11,15 +11,15 @@ export default function ChapterItem({ chapter, keys }) {
   const chainContext = useContext(ChainContext);
 
   const href = "content/" + keys.join("-");
-  const style = [Styles.border, Styles.padded];
+  const linkStyle = [Styles.border, Styles.padded];
   const onPress = () => chainContext.setChain(keys);
 
-  const textColor = MenuService.getColorStyle(keys);
+  const textStyle = MenuService.getColor(keys);
   const chapterName = MenuService.clearText(chapter.name);
 
   return (
-    <Link push href={href} style={style} onPress={onPress}>
-      <ThemedText style={textColor}>{chapterName}</ThemedText>
+    <Link push href={href} style={linkStyle} onPress={onPress}>
+      <ThemedText style={textStyle}>{chapterName}</ThemedText>
     </Link>
   );
 }

@@ -16,11 +16,9 @@ export default function BookItem({ book, keys, folding }) {
     equal(unfolded, keys) ? setExpanded(!expanded) : setUnfolded(keys);
   };
 
-  const colorStyle = MenuService.getColorStyle(keys);
-
   return (
     <>
-      <ThemedOption onPress={onPress} colorStyle={colorStyle}>
+      <ThemedOption onPress={onPress} color={MenuService.getColor(keys)}>
         {book.name}
       </ThemedOption>
 

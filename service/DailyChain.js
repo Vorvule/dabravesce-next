@@ -35,6 +35,6 @@ export class DailyChain {
   }
 
   static getHref() {
-    return  DailyChain.getDailyChain().join("-");
+    return "content/" + DailyChain.getDailyChain().join("-");
   }
 }

@@ -4,10 +4,10 @@ import { ChainContext } from "@/contexts/ChainContext";
 import { useThemeColor } from "@/hooks/useThemeColor";
 
 export class MenuService {
-  static getColorStyle(keys) {
+  static getColor(keys) {
     const color = useThemeColor({}, "tint");
 
-    return this.keysAreActive(keys) ? {color} : {};
+    return this.keysAreActive(keys) ? { color } : {};
   }
 
   static keysAreActive(keys) {
