@@ -21,6 +21,8 @@ export default function SourceScreen() {
   };
 
   const { source } = useLocalSearchParams();
+  console.log(source);
+  
 
   const { albumName, bookName, chapter } = useMemo(
     () => CorePage.getContent(source),
