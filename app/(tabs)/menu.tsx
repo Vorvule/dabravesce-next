@@ -12,7 +12,7 @@ import { useTheme } from "@react-navigation/native";
 import { Styles } from "@/constants/Styles";
 
 export default function MenuScreen() {
-  const source = useTheme().dark
+  const image = useTheme().dark
     ? require("@/assets/images/logos/books-dark.png")
     : require("@/assets/images/logos/books.png");
 
@@ -24,11 +24,13 @@ export default function MenuScreen() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={headerBackgroundColor}
-      headerImage={<Image source={source} style={Styles.image} />}
+      headerImage={<Image source={image} style={Styles.image} />}
     >
       <ThemedText type="title">Крыніцы</ThemedText>
 
-      <ThemedText type="subtitle" style={Styles.centered}>Змест</ThemedText>
+      <ThemedText type="subtitle" style={Styles.centered}>
+        Змест
+      </ThemedText>
 
       <ThemedView>
         <AlbumList albums={allAlbums} />

@@ -1,32 +1,29 @@
-import { Link, Stack } from 'expo-router';
-import { StyleSheet } from 'react-native';
+import { Link } from "expo-router";
+import { StyleSheet } from "react-native";
 
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
+import { useThemeColor } from "@/hooks/useThemeColor";
 
 export default function NotFoundScreen() {
+  const linkTextColor = useThemeColor({}, "tint");
+  const linkTextStyle = { color: linkTextColor, fontFamily: "SofiaSemiBold" };
+
   return (
-    <>
-      <Stack.Screen options={{ title: 'Oops!' }} />
       <ThemedView style={styles.container}>
-        <ThemedText type="title">Такой старонкі не існуе.</ThemedText>
-        <Link href="/" style={styles.link}>
-          <ThemedText type="default">На першую старонку!</ThemedText>
+        <ThemedText type="default">Такой старонкі не існуе ;o|</ThemedText>
+        <Link href="/">
+          <ThemedText type="default" style={linkTextStyle}>На першую старонку!</ThemedText>
         </Link>
       </ThemedView>
-    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     padding: 20,
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
   },
 });

@@ -8,7 +8,7 @@ import { Colors } from "@/constants/Colors";
 import { Styles } from "@/constants/Styles";
 
 export default function IndexScreen() {
-  const source = useTheme().dark
+  const image = useTheme().dark
     ? require("@/assets/images/logos/church-dark.png")
     : require("@/assets/images/logos/church.png");
 
@@ -20,7 +20,7 @@ export default function IndexScreen() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={headerBackgroundColor}
-      headerImage={<Image source={source} style={Styles.image} />}
+      headerImage={<Image source={image} style={Styles.image} />}
     >
       <IndexContent />
     </ParallaxScrollView>

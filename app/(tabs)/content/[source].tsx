@@ -11,7 +11,7 @@ import { Colors } from "@/constants/Colors";
 import { Styles } from "@/constants/Styles";
 
 export default function SourceScreen() {
-  const source = useTheme().dark
+  const image = useTheme().dark
     ? require("@/assets/images/logos/book-dark.png")
     : require("@/assets/images/logos/book.png");
 
@@ -20,17 +20,17 @@ export default function SourceScreen() {
     light: Colors.light.background,
   };
 
-  const urlChain = useLocalSearchParams().source;
+  const { source } = useLocalSearchParams();
 
   const { albumName, bookName, chapter } = useMemo(
-    () => CorePage.getContent(urlChain),
-    [urlChain]
+    () => CorePage.getContent(source),
+    [source]
   );
 
   return (
     <ParallaxScrollView
       headerBackgroundColor={headerBackgroundColor}
-      headerImage={<Image source={source} style={Styles.image} />}
+      headerImage={<Image source={image} style={Styles.image} />}
     >
       <SourceContent
         albumName={albumName}
