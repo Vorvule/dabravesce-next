@@ -12,10 +12,11 @@ import { DeviceData } from "@/service/DeviceData";
 export default function TabLayout() {
   const colorScheme = useColorScheme(); 
 
-  const [chain, setChain] = useState(DailyChain.getDailyChain());
+  const dailyChain = DailyChain.getDailyChain()
+  const [chain, setChain] = useState(dailyChain);
 
   return (
-    <ChainContext.Provider value={{ chain: chain, setChain: setChain }}>
+    <ChainContext.Provider value={{ chain, setChain, dailyChain }}>
       <Tabs
         screenOptions={{
           tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
@@ -55,11 +56,11 @@ export default function TabLayout() {
           name="content/[source]"
           options={{
             title: "Змест",
+            href: "content/" + chain.join("-"),
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon
                 name={focused ? "book" : "book-outline"}
                 color={color}
-                // onPress={() => router.push("/content/" + chain.join("-"))}
               />
             ),
           }}

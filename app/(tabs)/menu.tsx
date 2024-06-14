@@ -16,7 +16,7 @@ export default function MenuScreen() {
     ? require("@/assets/images/logos/books-dark.png")
     : require("@/assets/images/logos/books.png");
 
-    // TODO: Put to Styles
+  // TODO: Put to Styles
   const headerBackgroundColor = {
     dark: Colors.dark.background,
     light: Colors.light.background,
