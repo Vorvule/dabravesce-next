@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 import { ThemedText } from "@/components/ThemedText";
 import { ChainContext } from "@/contexts/ChainContext";
@@ -12,7 +12,11 @@ export default function ChapterItem({ chapter, keys }) {
 
   const href = "content/" + keys.join("-");
   const linkStyle = [Styles.border, Styles.padded];
-  const onPress = () => chainContext.setChain(keys);
+  
+  const onPress = () => {
+    chainContext.setChain(keys);
+    router.push(href);
+  };
 
   const textStyle = MenuService.getColor(keys);
   const chapterName = MenuService.clearText(chapter.name);

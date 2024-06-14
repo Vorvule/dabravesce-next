@@ -1,5 +1,5 @@
-import { router, Tabs } from "expo-router";
-import React from "react";
+import { Tabs } from "expo-router";
+import { useState } from "react";
 
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { Colors } from "@/constants/Colors";
@@ -10,12 +10,9 @@ import { ChainContext } from "@/contexts/ChainContext";
 import { DeviceData } from "@/service/DeviceData";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  console.log(colorScheme);
-  
+  const colorScheme = useColorScheme(); 
 
-  const [chain, setChain] = React.useState(DailyChain.getDailyChain());
-  const fontSize = DeviceData.wideScreen() ? 17 : 11;
+  const [chain, setChain] = useState(DailyChain.getDailyChain());
 
   return (
     <ChainContext.Provider value={{ chain: chain, setChain: setChain }}>
@@ -25,7 +22,7 @@ export default function TabLayout() {
           headerShown: false,
           tabBarLabelStyle: {
             fontFamily: "SofiaSemiBold",
-            fontSize: fontSize,
+            fontSize: DeviceData.wideScreen() ? 17 : 11,
             // color: "#444444"
           },
         }}
@@ -62,6 +59,7 @@ export default function TabLayout() {
               <TabBarIcon
                 name={focused ? "book" : "book-outline"}
                 color={color}
+                // onPress={() => router.push("/content/" + chain.join("-"))}
               />
             ),
           }}
