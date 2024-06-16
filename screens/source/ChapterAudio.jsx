@@ -9,7 +9,7 @@ import { activateKeepAwakeAsync, deactivateKeepAwake } from "expo-keep-awake";
 import { firebaseApp } from "@/firebaseConfig";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 
-import RoundButton from "./RoundButton";
+import RoundButton from "@/components/RoundButton";
 
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, _] = useState(new Audio.Sound());
