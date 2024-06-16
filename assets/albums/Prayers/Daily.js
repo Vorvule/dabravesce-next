@@ -1,6 +1,7 @@
 export const Daily = [
   {
     audio: "/audio/pray/morning.mp3",
+    slug: "morning",
     name: "Малітвы ранішнія",
     text: [
       "Устаўшы ад сну, перад усякай іншай справай стань благагавейна перад Усёвідушчым Богам і, робячы на сабе знак Крыжа, скажы:",
@@ -111,6 +112,7 @@ export const Daily = [
   },
   {
     audio: "/audio/pray/evening.mp3",
+    slug: "evening",
     name: "Малітвы вячэрнія",
     text: [
       "У імя́ Айца́ і Сы́на і Свято́га Ду́ха. Амíнь.",
@@ -192,6 +194,7 @@ export const Daily = [
   },
   {
     audio: "/audio/pray/evening-plus.mp3",
+    slug: "evening-next",
     name: "Малітвы вячэрнія, працяг",
     text: [
       "Малітва святога Іаана Дамаскіна",

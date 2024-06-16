@@ -1,4 +1,6 @@
-export class DailyChain {
+import allAlbums from "@/assets/albums/AllAlbums";
+
+export default class Daily {
   static getDailyChain() {
     const zeroBasedDayOfYearIndex = this.getDayOfTheYearIndex();
 
@@ -32,5 +34,20 @@ export class DailyChain {
     let daysDifference = currentDay - startOfYear;
     // Zero based day of the year
     return Math.floor(daysDifference / oneDay) - 1;
+  }
+
+  static getDailySlugs() {
+    const [albumIndex, bookIndex, chapterIndex] = this.getDailyChain();
+
+    const albumSlug = allAlbums[albumIndex].slug;
+    const bookSlug = allAlbums[albumIndex].text[bookIndex].slug;
+    const chapterSlug =
+      allAlbums[albumIndex].text[bookIndex].text[chapterIndex].slug;
+
+    return [albumSlug, bookSlug, chapterSlug];
+  }
+
+  static getDailyUrl() {
+    return "content/" + this.getDailySlugs().join("~");
   }
 }

@@ -1,5 +1,6 @@
 export const TroparionsSunday = [
   {
+    slug: "tune-1",
     name: "Глас 1",
     text: [
       "Трапар",
@@ -26,6 +27,7 @@ export const TroparionsSunday = [
     ],
   },
   {
+    slug: "tune-2",
     name: "Глас 2",
     text: [
       "Трапар",
@@ -47,6 +49,7 @@ export const TroparionsSunday = [
     ],
   },
   {
+    slug: "tune-3",
     name: "Глас 3",
     text: [
       "Трапар",
@@ -70,6 +73,7 @@ export const TroparionsSunday = [
     ],
   },
   {
+    slug: "tune-4",
     name: "Глас 4",
     text: [
       "Трапар",
@@ -90,6 +94,7 @@ export const TroparionsSunday = [
     ],
   },
   {
+    slug: "tune-5",
     name: "Глас 5",
     text: [
       "Трапар",
@@ -114,6 +119,7 @@ export const TroparionsSunday = [
     ],
   },
   {
+    slug: "tune-6",
     name: "Глас 6",
     text: [
       "Трапар",
@@ -138,6 +144,7 @@ export const TroparionsSunday = [
     ],
   },
   {
+    slug: "tune-7",
     name: "Глас 7",
     text: [
       "Трапар",
@@ -160,6 +167,7 @@ export const TroparionsSunday = [
     ],
   },
   {
+    slug: "tune-8",
     name: "Глас 8",
     text: [
       "Трапар",

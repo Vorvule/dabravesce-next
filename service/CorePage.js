@@ -1,5 +1,5 @@
 import allAlbums from "@/assets/albums/AllAlbums";
-import { DailyChain } from "./DailyChain";
+import { Daily } from "./Daily";
 
 export class CorePage {
   static getContent(urlChain) {
@@ -9,9 +9,7 @@ export class CorePage {
   }
 
   static getRouteChain(urlChain) {
-    return this.isValid(urlChain)
-      ? urlChain.split("-")
-      : DailyChain.getDailyChain();
+    return this.isValid(urlChain) ? urlChain.split("-") : Daily.getDailyChain();
   }
 
   static getContents(arrayChain) {

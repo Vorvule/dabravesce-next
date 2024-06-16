@@ -5,7 +5,7 @@ import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import Colors from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
-import { DailyChain } from "@/service/DailyChain";
+import Daily from "@/service/Daily";
 import ChainContext from "@/contexts/ChainContext";
 import DeviceData from "@/service/DeviceData";
 import Content from "@/service/Content";
@@ -13,8 +13,13 @@ import Content from "@/service/Content";
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
-  const dailyChain = DailyChain.getDailyChain();
+  const dailyChain = Daily.getDailyChain();
   const [chain, setChain] = useState(dailyChain);
+
+  const dailyUrl = Daily.getDailyUrl();
+
+  const [url, setUrl] = useState(dailyUrl);
+  console.log("Url: " + url);
 
   return (
     <ChainContext.Provider value={{ chain, setChain, dailyChain }}>

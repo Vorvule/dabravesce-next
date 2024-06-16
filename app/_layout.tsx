@@ -15,6 +15,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+  
   const [loaded] = useFonts({
     Sofia: require("../assets/fonts/SofiaSans-Regular.ttf"),
     SofiaSemiBold: require("../assets/fonts/SofiaSans-SemiBold.ttf"),

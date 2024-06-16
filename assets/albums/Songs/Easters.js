@@ -1,6 +1,7 @@
 export const Easters = [
   {
     audio: "/audio/song/01.mp3",
+    slug: "easter-troparion",
     name: "Трапар Пасхі",
     text: [
       "Хрыстос уваскрос з мёртвых,",
@@ -11,6 +12,7 @@ export const Easters = [
   },
   {
     audio: "/audio/song/06.mp3",
+    slug: "easter-else-troparion",
     name: "Трапар Пасхі, іншы",
     text: [
       "Хрыстос уваскрос з мёртвых,",
@@ -21,6 +23,7 @@ export const Easters = [
   },
   {
     audio: "/audio/song/05.mp3",
+    slug: "easter-multilanguage-troparion",
     name: "Грэка-славянскі трапар Пасхі",
     text: [
       "Хрыстос анэсці эк нэкрон, фанато фанатон пацісас,",
@@ -35,6 +38,7 @@ export const Easters = [
   },
   {
     audio: "/audio/song/02.mp3",
+    slug: "christ-resurrected",
     name: "Хрыстос уваскрос",
     text: [
       "Хрыстос уваскрос з памёршых,",
@@ -80,6 +84,7 @@ export const Easters = [
   },
   {
     audio: "/audio/song/03.mp3",
+    slug: "great-saint",
     name: "Вялік святы",
     text: [
       "Вялік святы нам дзень настаў,",
@@ -110,6 +115,7 @@ export const Easters = [
   },
   {
     audio: "/audio/song/04.mp3",
+    slug: "celebrate-christians",
     name: "Радуймася, хрысціяне",
     text: [
       "Радуймася, хрысціяне,",

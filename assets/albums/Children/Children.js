@@ -1,11 +1,14 @@
 export const children = {
+  slug: "children",
   name: "Дзецям",
   text: [
     {
+      slug: "paulovich",
       name: "Сяргей Паўловіч — Пра Бога і веру. Гутаркі для дзяцей і бацькоў",
       text: [
         {
           audio: "/audio/paul/paulowich_old_testament.mp3",
+          slug: "old-testament",
           name: "Стары Запавет",
           text: [
             "Змешчаны асобныя тэксты са Старога Запавету ў пераказе для дзяцей Сяргея Паўловіча.",
@@ -14,6 +17,7 @@ export const children = {
         },
         {
           audio: "/audio/paul/paulowich_new_testament.mp3",
+          slug: "new-testament",
           name: "Новы Запавет",
           text: [
             "Тэксты Новага Запавету ў пераказе для дзяцей Сяргея Паўловіча.",
@@ -22,6 +26,7 @@ export const children = {
         },
         {
           audio: "/audio/paul/paulowich_biography.mp3",
+          slug: "biography",
           name: "Біяграфія Сяргея Паўловіча",
           text: [
             "Біяграфічныя звесткі пра беларускага асветніка Сяргея Паўловіча.",
