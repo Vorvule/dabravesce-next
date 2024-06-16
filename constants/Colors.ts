@@ -13,10 +13,10 @@ export const Colors = {
     icon: "#687076", // grey
     tabIconDefault: "#687076", // grey
     tabIconSelected: tintColorLight,
-    title: tintColorLight, // 
+    title: tintColorLight, //
     subtitle: "#834400",
     header: tintColorLight,
-    button: "#444444"
+    button: "#444444",
   },
   dark: {
     text: "#EEEEEE", // ~ white
@@ -28,6 +28,11 @@ export const Colors = {
     title: tintColorDark,
     subtitle: "#FCF3CF",
     header: tintColorDark,
-    button: "DDDDDD"
+    button: "DDDDDD",
   },
+};
+
+export const headerBackgroundColor = {
+  dark: Colors.dark.background,
+  light: Colors.light.background,
 };

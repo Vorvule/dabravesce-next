@@ -7,25 +7,23 @@ import { ThemedText } from "@/components/ThemedText";
 import { allAlbums } from "@/assets/albums/AllAlbums";
 import AlbumList from "@/screens/menu/AlbumList";
 
-import { Colors } from "@/constants/Colors";
+import { headerBackgroundColor } from "@/constants/Colors";
 import { useTheme } from "@react-navigation/native";
 import { Styles } from "@/constants/Styles";
 
+const dark = "@/assets/images/logos/books-dark.png";
+const light = "@/assets/images/logos/books.png";
+
 export default function MenuScreen() {
-  const image = useTheme().dark
-    ? require("@/assets/images/logos/books-dark.png")
-    : require("@/assets/images/logos/books.png");
-
-  // TODO: Put to Styles
-  const headerBackgroundColor = {
-    dark: Colors.dark.background,
-    light: Colors.light.background,
-  };
-
   return (
     <ParallaxScrollView
       headerBackgroundColor={headerBackgroundColor}
-      headerImage={<Image source={image} style={Styles.image} />}
+      headerImage={
+        <Image
+          source={useTheme().dark ? require(dark) : require(light)}
+          style={Styles.image}
+        />
+      }
     >
       <ThemedText type="title">Крыніцы</ThemedText>
 
