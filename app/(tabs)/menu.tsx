@@ -25,10 +25,10 @@ export default function MenuScreen() {
         />
       }
     >
-      <ThemedText type="title">Крыніцы</ThemedText>
+      <ThemedText type="title">Дабравесце</ThemedText>
 
       <ThemedText type="subtitle" style={Styles.centered}>
-        Змест
+        Крыніцы
       </ThemedText>
 
       <ThemedView>

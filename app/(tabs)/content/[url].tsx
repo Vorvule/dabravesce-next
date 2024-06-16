@@ -23,16 +23,15 @@ const light = "@/assets/images/logos/book.png";
 
 export default function SourceScreen() {
   const pathname = usePathname();
-  const segments = useSegments();
   console.log("Pathname: " + pathname);
 
   const { setChain, dailyChain } = useContext(ChainContext);
-  const { source } = useLocalSearchParams();
+  const { url } = useLocalSearchParams();
 
-  const sourceIsValid = CorePage.isValid(source);
+  const sourceIsValid = CorePage.isValid(url);
 
   const sourceChain = sourceIsValid
-    ? (source as string).split("-")
+    ? (url as string).split("-")
     : dailyChain;
   console.log("New source chain " + sourceChain);
 
@@ -44,12 +43,12 @@ export default function SourceScreen() {
       console.log("The chain set " + sourceChain);
 
       !sourceIsValid && router.replace(contentUrl);
-    }, [source])
+    }, [url])
   );
 
   const { albumName, bookName, chapter } = useMemo(
     () => CorePage.getContents(sourceChain),
-    [source]
+    [url]
   );
 
   return (

@@ -54,7 +54,7 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="content/[source]"
+          name="content/[url]"
           // getId={() => Content.getContentUrl(chain)}
           options={{
             title: "Змест",
