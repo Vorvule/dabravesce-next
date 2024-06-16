@@ -8,11 +8,12 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 import { DailyChain } from "@/service/DailyChain";
 import { ChainContext } from "@/contexts/ChainContext";
 import { DeviceData } from "@/service/DeviceData";
+import Content from "@/service/Content";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme(); 
+  const colorScheme = useColorScheme();
 
-  const dailyChain = DailyChain.getDailyChain()
+  const dailyChain = DailyChain.getDailyChain();
   const [chain, setChain] = useState(dailyChain);
 
   return (
@@ -56,7 +57,7 @@ export default function TabLayout() {
           name="content/[source]"
           options={{
             title: "Змест",
-            href: "content/" + chain.join("-"),
+            href: Content.getContentUrl(chain),
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon
                 name={focused ? "book" : "book-outline"}

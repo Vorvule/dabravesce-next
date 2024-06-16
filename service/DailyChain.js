@@ -33,8 +33,4 @@ export class DailyChain {
     // Zero based day of the year
     return Math.floor(daysDifference / oneDay) - 1;
   }
-
-  static getHref() {
-    return "content/" + DailyChain.getDailyChain().join("-");
-  }
 }

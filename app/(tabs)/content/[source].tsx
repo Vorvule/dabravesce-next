@@ -1,6 +1,6 @@
 import { useCallback, useContext, useMemo } from "react";
 import { Image } from "react-native";
-import { useFocusEffect, useLocalSearchParams } from "expo-router";
+import { router, useFocusEffect, useLocalSearchParams, usePathname, useSegments } from "expo-router";
 
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import SourceContent from "@/screens/source/SourceContent";
@@ -10,8 +10,14 @@ import { useTheme } from "@react-navigation/native";
 import { Colors } from "@/constants/Colors";
 import { Styles } from "@/constants/Styles";
 import { ChainContext } from "@/contexts/ChainContext";
+import Content from "@/service/Content";
 
 export default function SourceScreen() {
+  const pathname = usePathname();
+  const segments = useSegments();
+  console.log("Pathname: " + pathname);
+  
+
   const image = useTheme().dark
     ? require("@/assets/images/logos/book-dark.png")
     : require("@/assets/images/logos/book.png");
@@ -21,25 +27,30 @@ export default function SourceScreen() {
     light: Colors.light.background,
   };
 
+  const { setChain, dailyChain } = useContext(ChainContext);
   const { source } = useLocalSearchParams();
-  const { chain, setChain, dailyChain } = useContext(ChainContext);
+
+  const sourceIsValid = CorePage.isValid(source);
+
+  const sourceChain = sourceIsValid
+    ? (source as string).split("-")
+    : dailyChain;
+    console.log("New source chain " + sourceChain);
+    
+
+  const contentUrl = Content.getContentUrl(sourceChain);
 
   useFocusEffect(
     useCallback(() => {
-      console.log("Url params: " + source);
-      if (CorePage.isValid(source)) {
-        const newChain = (source as string).split("-")
-        setChain(newChain);
-        console.log("New context chain: " + newChain);
-      } else {
-        setChain(dailyChain);
-        console.log("Retrieved daily chain: " + dailyChain);
-      }
+      setChain(sourceChain);
+      console.log("The chain set " + sourceChain);
+
+      sourceIsValid ? router.push(contentUrl) : router.replace(contentUrl);
     }, [source])
   );
 
   const { albumName, bookName, chapter } = useMemo(
-    () => CorePage.getContent(source),
+    () => CorePage.getContents(sourceChain),
     [source]
   );
 

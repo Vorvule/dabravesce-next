@@ -4,14 +4,20 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 
 import { DeviceData } from "@/service/DeviceData";
-import { DailyChain } from "@/service/DailyChain";
 
 import { Styles } from "@/constants/Styles";
 import { useThemeColor } from "@/hooks/useThemeColor";
 
+import { useContext } from "react";
+import { ChainContext } from "@/contexts/ChainContext";
+import Content from "@/service/Content";
+
 export function IndexContent() {
   const linkTextColor = useThemeColor({}, "tint");
   const linkTextStyle = { color: linkTextColor, fontFamily: "SofiaSemiBold" };
+
+  const { dailyChain } = useContext(ChainContext);
+  const dailyContentUrl = Content.getContentUrl(dailyChain);
 
   return (
     <>
@@ -72,7 +78,7 @@ export function IndexContent() {
         <ThemedText>
           Таму намоўчкі, пры адкрыцці{` ${DeviceData.getAppKind()}, `}
           Змест адлюстроўвае менавіта сённяшняе, чарговае{", "}
-          <Link href={DailyChain.getHref()}>
+          <Link href={dailyContentUrl}>
             <ThemedText type="default" style={linkTextStyle}>
               Евангелле дня
             </ThemedText>
