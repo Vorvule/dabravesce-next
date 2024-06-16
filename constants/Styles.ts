@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const Styles = StyleSheet.create({
+const Styles = StyleSheet.create({
   image: {
     height: 200,
     width: 360,
@@ -17,7 +17,7 @@ export const Styles = StyleSheet.create({
 
   paragraph: {
     gap: 8,
-    paddingTop: 12
+    paddingTop: 12,
   },
 
   // menu
@@ -35,3 +35,5 @@ export const Styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
 });
+
+export default Styles;

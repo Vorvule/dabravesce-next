@@ -2,12 +2,12 @@ import { Tabs } from "expo-router";
 import { useState } from "react";
 
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
-import { Colors } from "@/constants/Colors";
+import Colors from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
 import { DailyChain } from "@/service/DailyChain";
-import { ChainContext } from "@/contexts/ChainContext";
-import { DeviceData } from "@/service/DeviceData";
+import ChainContext from "@/contexts/ChainContext";
+import DeviceData from "@/service/DeviceData";
 import Content from "@/service/Content";
 
 export default function TabLayout() {
@@ -55,6 +55,7 @@ export default function TabLayout() {
         />
         <Tabs.Screen
           name="content/[source]"
+          // getId={() => Content.getContentUrl(chain)}
           options={{
             title: "Змест",
             href: Content.getContentUrl(chain),

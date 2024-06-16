@@ -1,18 +1,17 @@
+import { useContext } from "react";
 import { Link } from "expo-router";
 
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
+import ThemedText from "@/components/ThemedText";
+import ThemedView from "@/components/ThemedView";
 
-import { DeviceData } from "@/service/DeviceData";
-
-import { Styles } from "@/constants/Styles";
-import { useThemeColor } from "@/hooks/useThemeColor";
-
-import { useContext } from "react";
-import { ChainContext } from "@/contexts/ChainContext";
+import ChainContext from "@/contexts/ChainContext";
 import Content from "@/service/Content";
+import DeviceData from "@/service/DeviceData";
 
-export function IndexContent() {
+import useThemeColor from "@/hooks/useThemeColor";
+import Styles from "@/constants/Styles";
+
+export default function IndexContent() {
   const linkTextColor = useThemeColor({}, "tint");
   const linkTextStyle = { color: linkTextColor, fontFamily: "SofiaSemiBold" };
 

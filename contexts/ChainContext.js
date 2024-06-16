@@ -1,3 +1,5 @@
 import { createContext } from "react";
 
-export const ChainContext = createContext();
+const ChainContext = createContext();
+
+export default ChainContext;

@@ -8,7 +8,7 @@ import { psalter } from "./Psalter/Psalter";
 import { songs } from "./Songs/Songs";
 import { worships } from "./Worships/Worships";
 
-export const allAlbums = [
+const allAlbums = [
   gospels,
   apostles,
   epistlesApocalypse,
@@ -19,3 +19,5 @@ export const allAlbums = [
   children,
   // contacts,
 ];
+
+export default allAlbums;

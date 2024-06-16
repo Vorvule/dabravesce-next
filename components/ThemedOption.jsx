@@ -1,8 +1,8 @@
 import { Pressable } from "react-native";
 
-import { ThemedText } from "./ThemedText";
+import ThemedText from "./ThemedText";
 
-import { Styles } from "../constants/Styles";
+import Styles from "../constants/Styles";
 
 export default function ThemedOption({ children, color, onPress }) {
   return (

@@ -1,11 +1,11 @@
-import { ThemedView } from "@/components/ThemedView";
-import { ThemedText } from "@/components/ThemedText";
+import ThemedView from "@/components/ThemedView";
+import ThemedText from "@/components/ThemedText";
 
 import ChapterName from "./ChapterName";
 import ChapterAudio from "./ChapterAudio";
 import ChapterText from "./ChapterText";
 
-import { Styles } from "@/constants/Styles";
+import Styles from "@/constants/Styles";
 
 export default function SourceContent({ albumName, bookName, chapter }) {
   return (

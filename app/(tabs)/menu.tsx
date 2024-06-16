@@ -1,15 +1,15 @@
 import { Image } from "react-native";
+import { useTheme } from "@react-navigation/native";
 
 import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { ThemedView } from "@/components/ThemedView";
-import { ThemedText } from "@/components/ThemedText";
+import ThemedView from "@/components/ThemedView";
+import ThemedText from "@/components/ThemedText";
 
-import { allAlbums } from "@/assets/albums/AllAlbums";
+import allAlbums from "@/assets/albums/AllAlbums";
 import AlbumList from "@/screens/menu/AlbumList";
 
-import { headerBackgroundColor } from "@/constants/Colors";
-import { useTheme } from "@react-navigation/native";
-import { Styles } from "@/constants/Styles";
+import headerBackgroundColor from "@/constants/HeaderColors";
+import Styles from "@/constants/Styles";
 
 const dark = "@/assets/images/logos/books-dark.png";
 const light = "@/assets/images/logos/books.png";

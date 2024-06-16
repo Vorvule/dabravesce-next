@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 
 import ChapterList from "./ChapterList";
 import ThemedOption from "@/components/ThemedOption";
-import { MenuService } from "@/service/MenuService";
 
-export default function BookItem({ book, keys, folding }) {
+import MenuService from "@/service/MenuService";
+
+export default function BookListItem({ book, keys, folding }) {
   const [expanded, setExpanded] = useState(false);
   const [unfolded, setUnfolded] = folding;
 
@@ -16,9 +17,11 @@ export default function BookItem({ book, keys, folding }) {
     equal(unfolded, keys) ? setExpanded(!expanded) : setUnfolded(keys);
   };
 
+  const color = MenuService.getColor(keys);
+
   return (
     <>
-      <ThemedOption onPress={onPress} color={MenuService.getColor(keys)}>
+      <ThemedOption onPress={onPress} color={color}>
         {book.name}
       </ThemedOption>
 

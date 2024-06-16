@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import BookList from "./BookList";
 
 import ThemedOption from "@/components/ThemedOption";
-import { MenuService } from "@/service/MenuService";
+import MenuService from "@/service/MenuService";
 
-export default function AlbumItem({ album, keys, folding }) {
+export default function AlbumListItem({ album, keys, folding }) {
   const [expanded, setExpanded] = useState(false);
   const [unfolded, setUnfolded] = folding;
 

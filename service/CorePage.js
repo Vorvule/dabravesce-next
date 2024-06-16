@@ -1,4 +1,4 @@
-import { allAlbums } from "@/assets/albums/AllAlbums";
+import allAlbums from "@/assets/albums/AllAlbums";
 import { DailyChain } from "./DailyChain";
 
 export class CorePage {

@@ -1,4 +1,4 @@
-import { ThemedText } from "@/components/ThemedText";
+import ThemedText from "@/components/ThemedText";
 
 export default function ChapterText({ chapterText }) {
   return chapterText.map((name, index) => {

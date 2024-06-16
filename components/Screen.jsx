@@ -1,8 +1,8 @@
 import * as React from "react";
 import { ScrollView, View } from "react-native";
 
-import { DeviceData } from "../service/DeviceData";
-import { styles } from "../constants/Styles";
+import DeviceData from "../service/DeviceData";
+import Styles from "../constants/Styles";
 
 export default function Screen({ children }) {
   return (

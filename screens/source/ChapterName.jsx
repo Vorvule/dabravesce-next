@@ -1,6 +1,6 @@
-import { ThemedText } from "@/components/ThemedText";
+import ThemedText from "@/components/ThemedText";
 
-import { Styles } from "@/constants/Styles";
+import Styles from "@/constants/Styles";
 
 export default function ChapterName({ children }) {
   const style = Styles.centered;

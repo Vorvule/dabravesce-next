@@ -1,6 +1,6 @@
 import { Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useThemeColor } from "@/hooks/useThemeColor";
+import useThemeColor from "@/hooks/useThemeColor";
 
 export default function RoundButton({ name, onPress, enabled }) {
   const tint = useThemeColor({}, "subtitle");

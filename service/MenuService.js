@@ -1,9 +1,9 @@
 import { useContext } from "react";
 
-import { ChainContext } from "@/contexts/ChainContext";
-import { useThemeColor } from "@/hooks/useThemeColor";
+import ChainContext from "@/contexts/ChainContext";
+import useThemeColor from "@/hooks/useThemeColor";
 
-export class MenuService {
+export default class MenuService {
   static getColor(keys) {
     const color = useThemeColor({}, "tint");
 

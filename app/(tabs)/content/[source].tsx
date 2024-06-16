@@ -13,9 +13,9 @@ import SourceContent from "@/screens/source/SourceContent";
 import { CorePage } from "@/service/CorePage";
 
 import { useTheme } from "@react-navigation/native";
-import { headerBackgroundColor } from "@/constants/Colors";
-import { Styles } from "@/constants/Styles";
-import { ChainContext } from "@/contexts/ChainContext";
+import headerBackgroundColor from "@/constants/HeaderColors";
+import Styles from "@/constants/Styles";
+import ChainContext from "@/contexts/ChainContext";
 import Content from "@/service/Content";
 
 const dark = "@/assets/images/logos/book-dark.png";
@@ -43,7 +43,7 @@ export default function SourceScreen() {
       setChain(sourceChain);
       console.log("The chain set " + sourceChain);
 
-      sourceIsValid ? router.push(contentUrl) : router.replace(contentUrl);
+      !sourceIsValid && router.replace(contentUrl);
     }, [source])
   );
 
