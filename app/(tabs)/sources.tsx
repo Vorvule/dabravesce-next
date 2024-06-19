@@ -6,7 +6,7 @@ import ThemedView from "@/components/ThemedView";
 import ThemedText from "@/components/ThemedText";
 
 import AppSources from "@/assets/albums/AppSources";
-import AlbumList from "@/screens/menu/AlbumList";
+import AlbumList from "@/app_screens/sources/AlbumList";
 
 import headerBackgroundColor from "@/constants/HeaderColors";
 import Styles from "@/constants/Styles";

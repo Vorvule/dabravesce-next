@@ -9,7 +9,7 @@ import {
 } from "expo-router";
 
 import ParallaxScrollView from "@/components/ParallaxScrollView";
-import SourceContent from "@/screens/source/SourceContent";
+import SourceContent from "@/app_screens/content/AppContent";
 import { CorePage } from "@/service/CorePage";
 
 import { useTheme } from "@react-navigation/native";
@@ -30,9 +30,7 @@ export default function SourceScreen() {
 
   const sourceIsValid = CorePage.isValid(url);
 
-  const sourceChain = sourceIsValid
-    ? (url as string).split("-")
-    : dailyChain;
+  const sourceChain = sourceIsValid ? (url as string).split("-") : dailyChain;
   console.log("New source chain " + sourceChain);
 
   const contentUrl = Content.getContentUrl(sourceChain);

@@ -1,7 +1,7 @@
 import { Image } from "react-native";
 import { useTheme } from "@react-navigation/native";
 
-import IndexContent from "@/screens/index/IndexContent";
+import IndexContent from "@/app_screens/index/IndexContent";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 
 import headerBackgroundColor from "@/constants/HeaderColors";
