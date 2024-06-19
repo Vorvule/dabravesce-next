@@ -7,15 +7,15 @@ import Styles from "@/constants/Styles";
 import Content from "@/service/Content";
 
 export default function ChapterListItem({ chapter, keys }) {
-  const linkContentUrl = Content.getContentUrl(keys);
-  const linkStyle = [Styles.border, Styles.padded];
-
-  const linkTextStyle = MenuService.getColor(keys);
+  const сontentUrl = Content.getContentUrl(keys);
   const chapterName = MenuService.clearText(chapter.name);
+  
+  const linkStyle = [Styles.border, Styles.padded];
+  const textStyle = MenuService.getColor(keys);
 
   return (
-    <Link href={linkContentUrl} style={linkStyle}>
-      <ThemedText style={linkTextStyle}>{chapterName}</ThemedText>
+    <Link href={сontentUrl} style={linkStyle}>
+      <ThemedText style={textStyle}>{chapterName}</ThemedText>
     </Link>
   );
 }

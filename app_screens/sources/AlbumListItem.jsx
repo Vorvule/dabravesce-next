@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 import BookList from "./BookList";
 
@@ -9,7 +9,7 @@ export default function AlbumListItem({ album, keys, folding }) {
   const [expanded, setExpanded] = useState(false);
   const [unfolded, setUnfolded] = folding;
 
-  useEffect(() => {
+  useMemo(() => {
     unfolded[0] == keys[0] ? setExpanded(true) : setExpanded(false);
   }, [unfolded]);
 

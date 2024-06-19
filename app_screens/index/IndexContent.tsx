@@ -5,7 +5,6 @@ import ThemedText from "@/components/ThemedText";
 import ThemedView from "@/components/ThemedView";
 
 import ChainContext from "@/contexts/ChainContext";
-import Content from "@/service/Content";
 import DeviceData from "@/service/DeviceData";
 
 import useThemeColor from "@/hooks/useThemeColor";
@@ -15,8 +14,7 @@ export default function IndexContent() {
   const linkTextColor = useThemeColor({}, "tint");
   const linkTextStyle = { color: linkTextColor, fontFamily: "SofiaSemiBold" };
 
-  const { dailyChain } = useContext(ChainContext);
-  const dailyContentUrl = Content.getContentUrl(dailyChain);
+  const { dailyUrl } = useContext(ChainContext);
 
   return (
     <>
@@ -54,14 +52,14 @@ export default function IndexContent() {
       <ThemedView style={Styles.paragraph}>
         <ThemedText type="subtitle">Нашы крыніцы</ThemedText>
         <ThemedText>У меню "Дабравесця" вы знойдзеце:</ThemedText>
-        <ThemedText>{"\u2b58 "} Евангелле — тэксты і аўдыё</ThemedText>
-        <ThemedText>{"\u2b58 "} Кнігі Апосталаў</ThemedText>
-        <ThemedText>{"\u2b58 "} Псалтыр</ThemedText>
-        <ThemedText>{"\u2b58 "} Малітоўнік</ThemedText>
-        <ThemedText>{"\u2b58 "} Акафісты</ThemedText>
-        <ThemedText>{"\u2b58 "} Богаслужэнні</ThemedText>
-        <ThemedText>{"\u2b58 "} Хрысціянскія кнігі</ThemedText>
-        <ThemedText>{"\u2b58 "} Пабожныя спевы — аўдыё і словы</ThemedText>
+        <ThemedText>{"\u2b58   "} Евангелле</ThemedText>
+        <ThemedText>{"\u2b58   "} Кнігі Апосталаў</ThemedText>
+        <ThemedText>{"\u2b58   "} Псалтыр</ThemedText>
+        <ThemedText>{"\u2b58   "} Малітоўнік</ThemedText>
+        <ThemedText>{"\u2b58   "} Акафісты</ThemedText>
+        <ThemedText>{"\u2b58   "} Богаслужэнні</ThemedText>
+        <ThemedText>{"\u2b58   "} Дзіцячыя кнігі</ThemedText>
+        <ThemedText>{"\u2b58   "} Пабожныя спевы</ThemedText>
         <ThemedText>і іншыя крыніцы духоўнага развіцця.</ThemedText>
       </ThemedView>
 
@@ -77,7 +75,7 @@ export default function IndexContent() {
         <ThemedText>
           Таму намоўчкі, пры адкрыцці{` ${DeviceData.getAppKind()}, `}
           Змест адлюстроўвае менавіта сённяшняе, чарговае{", "}
-          <Link href={dailyContentUrl}>
+          <Link href={dailyUrl}>
             <ThemedText type="default" style={linkTextStyle}>
               Евангелле дня
             </ThemedText>

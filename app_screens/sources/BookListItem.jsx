@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 import ChapterList from "./ChapterList";
 import ThemedOption from "@/components/ThemedOption";
@@ -9,7 +9,7 @@ export default function BookListItem({ book, keys, folding }) {
   const [expanded, setExpanded] = useState(false);
   const [unfolded, setUnfolded] = folding;
 
-  useEffect(() => {
+  useMemo(() => {
     setExpanded(equal(unfolded, keys));
   }, [unfolded]);
 

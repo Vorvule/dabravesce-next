@@ -18,11 +18,14 @@ export default function TabLayout() {
   const dailyChain = Daily.getDailyChain();
   const [chain, setChain] = useState(dailyChain);
 
-  const [url, setUrl] = useState(Daily.getDailyUrl());
+  const dailyUrl = Daily.getDailyUrl();
+  const [url, setUrl] = useState(dailyUrl);
   console.log("Layout Url: " + url);
 
   return (
-    <ChainContext.Provider value={{ chain, setChain, dailyChain }}>
+    <ChainContext.Provider
+      value={{ chain, setChain, dailyChain, url, setUrl, dailyUrl }}
+    >
       <Tabs
         screenOptions={{
           tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
