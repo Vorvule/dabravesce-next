@@ -1,14 +1,16 @@
-import { Tabs } from "expo-router";
 import { useState } from "react";
+import { Tabs } from "expo-router";
 
-import { TabBarIcon } from "@/components/navigation/TabBarIcon";
-import Colors from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
-import Daily from "@/service/Daily";
+import Colors from "@/constants/Colors";
+import TabBarIcon from "@/components/navigation/TabBarIcon";
+
 import ChainContext from "@/contexts/ChainContext";
-import DeviceData from "@/service/DeviceData";
 import Content from "@/service/Content";
+
+import Daily from "@/service/Daily";
+import DeviceData from "@/service/DeviceData";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -16,10 +18,8 @@ export default function TabLayout() {
   const dailyChain = Daily.getDailyChain();
   const [chain, setChain] = useState(dailyChain);
 
-  const dailyUrl = Daily.getDailyUrl();
-
-  const [url, setUrl] = useState(dailyUrl);
-  console.log("Url: " + url);
+  const [url, setUrl] = useState(Daily.getDailyUrl());
+  console.log("Layout Url: " + url);
 
   return (
     <ChainContext.Provider value={{ chain, setChain, dailyChain }}>
@@ -60,7 +60,6 @@ export default function TabLayout() {
         />
         <Tabs.Screen
           name="content/[url]"
-          // getId={() => Content.getContentUrl(chain)}
           options={{
             title: "Змест",
             href: Content.getContentUrl(chain),

@@ -8,7 +8,7 @@ import { psalter } from "./Psalter/Psalter";
 import { songs } from "./Songs/Songs";
 import { worships } from "./Worships/Worships";
 
-const allAlbums = [
+const AppSources = [
   gospels,
   apostles,
   epistlesApocalypse,
@@ -20,4 +20,4 @@ const allAlbums = [
   // contacts,
 ];
 
-export default allAlbums;
+export default AppSources;

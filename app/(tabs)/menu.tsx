@@ -5,7 +5,7 @@ import ParallaxScrollView from "@/components/ParallaxScrollView";
 import ThemedView from "@/components/ThemedView";
 import ThemedText from "@/components/ThemedText";
 
-import allAlbums from "@/assets/albums/AllAlbums";
+import AppSources from "@/assets/albums/AppSources";
 import AlbumList from "@/screens/menu/AlbumList";
 
 import headerBackgroundColor from "@/constants/HeaderColors";
@@ -32,7 +32,7 @@ export default function MenuScreen() {
       </ThemedText>
 
       <ThemedView>
-        <AlbumList albums={allAlbums} />
+        <AlbumList albums={AppSources} />
       </ThemedView>
     </ParallaxScrollView>
   );

@@ -1,4 +1,4 @@
-import allAlbums from "@/assets/albums/AllAlbums";
+import AppSources from "@/assets/albums/AppSources";
 import { Daily } from "./Daily";
 
 export class CorePage {
@@ -15,9 +15,9 @@ export class CorePage {
   static getContents(arrayChain) {
     const [albumKey, bookKey, chapterKey] = arrayChain;
 
-    const albumName = allAlbums[albumKey].name;
-    const bookName = allAlbums[albumKey].text[bookKey].name;
-    const chapter = allAlbums[albumKey].text[bookKey].text[chapterKey];
+    const albumName = AppSources[albumKey].name;
+    const bookName = AppSources[albumKey].text[bookKey].name;
+    const chapter = AppSources[albumKey].text[bookKey].text[chapterKey];
 
     return { albumName, bookName, chapter };
   }
@@ -34,6 +34,6 @@ export class CorePage {
     if (!isChain) return false;
 
     const [albumKey, bookKey, chapterKey] = chain.split("-");
-    return allAlbums[albumKey].text[bookKey].text[chapterKey] !== undefined;
+    return AppSources[albumKey].text[bookKey].text[chapterKey] !== undefined;
   }
 }

@@ -1,4 +1,4 @@
-import allAlbums from "@/assets/albums/AllAlbums";
+import AppSources from "@/assets/albums/AppSources";
 
 export default class Daily {
   static getDailyChain() {
@@ -39,10 +39,10 @@ export default class Daily {
   static getDailySlugs() {
     const [albumIndex, bookIndex, chapterIndex] = this.getDailyChain();
 
-    const albumSlug = allAlbums[albumIndex].slug;
-    const bookSlug = allAlbums[albumIndex].text[bookIndex].slug;
+    const albumSlug = AppSources[albumIndex].slug;
+    const bookSlug = AppSources[albumIndex].text[bookIndex].slug;
     const chapterSlug =
-      allAlbums[albumIndex].text[bookIndex].text[chapterIndex].slug;
+      AppSources[albumIndex].text[bookIndex].text[chapterIndex].slug;
 
     return [albumSlug, bookSlug, chapterSlug];
   }
