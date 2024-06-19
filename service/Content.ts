@@ -1,6 +1,6 @@
 export default class Content {
   static getContentUrl(chain: number[]) {
-    return "content/" + chain.join("-");
+    return "content/" + chain.join("~");
   }
 
   static getReadableUrl(slugs: string[]) {

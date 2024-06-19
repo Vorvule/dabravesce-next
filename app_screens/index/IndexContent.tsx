@@ -10,7 +10,11 @@ import DeviceData from "@/service/DeviceData";
 import useThemeColor from "@/hooks/useThemeColor";
 import Styles from "@/constants/Styles";
 
+// import mapSources from "@/service/utilities/SourceMapper"
+
 export default function IndexContent() {
+  // mapSources();
+
   const linkTextColor = useThemeColor({}, "tint");
   const linkTextStyle = { color: linkTextColor, fontFamily: "SofiaSemiBold" };
 

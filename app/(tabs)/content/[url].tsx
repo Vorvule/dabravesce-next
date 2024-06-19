@@ -5,7 +5,6 @@ import {
   useFocusEffect,
   useLocalSearchParams,
   usePathname,
-  useSegments,
 } from "expo-router";
 
 import ParallaxScrollView from "@/components/ParallaxScrollView";
@@ -30,7 +29,7 @@ export default function SourceScreen() {
 
   const sourceIsValid = CorePage.isValid(url);
 
-  const sourceChain = sourceIsValid ? (url as string).split("-") : dailyChain;
+  const sourceChain = sourceIsValid ? (url as string).split("~") : dailyChain;
   console.log("New source chain " + sourceChain);
 
   const contentUrl = Content.getContentUrl(sourceChain);

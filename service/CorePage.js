@@ -9,7 +9,7 @@ export class CorePage {
   }
 
   static getRouteChain(urlChain) {
-    return this.isValid(urlChain) ? urlChain.split("-") : Daily.getDailyChain();
+    return this.isValid(urlChain) ? urlChain.split("~") : Daily.getDailyChain();
   }
 
   static getContents(arrayChain) {
@@ -30,10 +30,10 @@ export class CorePage {
     const isString = typeof chain === "string" || chain instanceof String;
     if (!isString) return false;
 
-    const isChain = chain.match(/\d+-\d+-\d+/);
+    const isChain = chain.match(/\d+~\d+~\d+/);
     if (!isChain) return false;
 
-    const [albumKey, bookKey, chapterKey] = chain.split("-");
+    const [albumKey, bookKey, chapterKey] = chain.split("~");
     return AppSources[albumKey].text[bookKey].text[chapterKey] !== undefined;
   }
 }
