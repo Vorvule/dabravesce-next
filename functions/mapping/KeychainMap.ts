@@ -1,4 +1,4 @@
-const Keychain = {
+const KeychainMap: { [key: string]: string; } = {
   "0~0~0": "gospels~matthew~chapter-1",
   "0~0~1": "gospels~matthew~chapter-2",
   "0~0~2": "gospels~matthew~chapter-3",
@@ -380,4 +380,4 @@ const Keychain = {
   "7~0~2": "children~paulovich~biography",
 };
 
-export default Keychain;
+export default KeychainMap;

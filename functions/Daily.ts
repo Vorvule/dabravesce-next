@@ -1,8 +1,8 @@
 import AppSources from "@/assets/albums/AppSources";
 
 export default class Daily {
-  static getDailyChain() {
-    const zeroBasedDayOfYearIndex = this.getDayOfTheYearIndex();
+  static getDailyKeychain(): number[] {
+    const zeroBasedDayOfYearIndex: number = this.getDayOfTheYearIndex();
 
     if (zeroBasedDayOfYearIndex < 358) {
       const modulus = zeroBasedDayOfYearIndex % 89;
@@ -27,17 +27,19 @@ export default class Daily {
   }
 
   static getDayOfTheYearIndex() {
-    // Everything is in milliseconds
-    let oneDay = 1000 * 60 * 60 * 24;
-    let currentDay = new Date();
-    let startOfYear = new Date(currentDay.getFullYear(), 0, 0);
-    let daysDifference = currentDay - startOfYear;
+    const currentDay: Date = new Date();
+    const startOfYear: Date = new Date(currentDay.getFullYear(), 0, 0);
+
+    // To milliseconds:
+    const daysOffset: number = currentDay.getTime() - startOfYear.getTime();
+    const oneDay: number = 86_400_000; // 1000 * 60 * 60 * 24
+
     // Zero based day of the year
-    return Math.floor(daysDifference / oneDay) - 1;
+    return Math.floor(daysOffset / oneDay) - 1;
   }
 
-  static getDailySlugs() {
-    const [albumIndex, bookIndex, chapterIndex] = this.getDailyChain();
+  static getDailySlugs(): (string | undefined)[] {
+    const [albumIndex, bookIndex, chapterIndex] = this.getDailyKeychain();
 
     const albumSlug = AppSources[albumIndex].slug;
     const bookSlug = AppSources[albumIndex].text[bookIndex].slug;
@@ -47,7 +49,7 @@ export default class Daily {
     return [albumSlug, bookSlug, chapterSlug];
   }
 
-  static getDailyUrl() {
+  static getDailyUrl(): string {
     return "content/" + this.getDailySlugs().join("~");
   }
 }

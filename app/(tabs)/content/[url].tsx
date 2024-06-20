@@ -9,44 +9,67 @@ import {
 
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import SourceContent from "@/app_screens/content/AppContent";
-import { CorePage } from "@/service/CorePage";
+import { CorePage } from "@/functions/CorePage";
 
 import { useTheme } from "@react-navigation/native";
 import headerBackgroundColor from "@/constants/HeaderColors";
 import Styles from "@/constants/Styles";
 import ChainContext from "@/contexts/ChainContext";
-import Content from "@/service/Content";
+import ContentService from "@/functions/ContentService";
+import Daily from "@/functions/Daily";
 
 const dark = "@/assets/images/logos/book-dark.png";
 const light = "@/assets/images/logos/book.png";
 
 export default function SourceScreen() {
-  const pathname = usePathname();
-  console.log("Pathname: " + pathname);
-
   const { setChain, dailyChain } = useContext(ChainContext);
+
   const { url } = useLocalSearchParams();
+  console.log("Local Search Params: " + url, typeof url); // slugChain
 
-  const sourceIsValid = CorePage.isValid(url);
+  const urlIsValid: boolean = ContentService.urlIsValid(url as string);
 
-  const sourceChain = sourceIsValid ? (url as string).split("~") : dailyChain;
-  console.log("New source chain " + sourceChain);
+  const urlKeychain: number[] = urlIsValid
+    ? ContentService.getKeychain(url as string)
+    : dailyChain;
 
-  const contentUrl = Content.getContentUrl(sourceChain);
+  console.log("Url Keychain " + urlKeychain);
+
+  // const keychainIsValid: boolean = ContentService.keychainIsValid(urlKeychain);
+
+  // const newKeychain: number[] = useMemo(() => {
+  //   return keychainIsValid ? urlKeychain : dailyChain;
+  // }, [url]);
+
+  const { albumName, bookName, chapter } = useMemo(
+    () => ContentService.getContent(urlKeychain),
+    [urlKeychain]
+  );
 
   useFocusEffect(
     useCallback(() => {
-      setChain(sourceChain);
-      console.log("The chain set " + sourceChain);
+      setChain(urlKeychain);
+      console.log("Url keychain " + urlKeychain);
 
-      !sourceIsValid && router.replace(contentUrl);
-    }, [url])
+      // const validUrl = ContentService.getContentUrl(newKeychain);
+      !urlIsValid && router.replace(ContentService.getUrl(urlKeychain));
+    }, [urlKeychain])
   );
 
-  const { albumName, bookName, chapter } = useMemo(
-    () => CorePage.getContents(sourceChain),
-    [url]
-  );
+  // ====================
+
+  // const sourceIsValid = CorePage.isValid(url);
+
+  // const updatedKeychain = sourceIsValid
+  //   ? (url as string).split("~")
+  //   : dailyChain;
+
+  // const contentUrl = ContentService.getContentUrl(updatedKeychain);
+
+  // const { albumName, bookName, chapter } = useMemo(
+  //   () => CorePage.getContents(updatedKeychain),
+  //   [url]
+  // );
 
   return (
     <ParallaxScrollView

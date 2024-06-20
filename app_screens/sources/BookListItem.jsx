@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import ChapterList from "./ChapterList";
 import ThemedOption from "@/components/ThemedOption";
 
-import MenuService from "@/service/MenuService";
+import MenuService from "@/functions/MenuService";
 
 export default function BookListItem({ book, keys, folding }) {
   const [expanded, setExpanded] = useState(false);

@@ -5,12 +5,12 @@ import ThemedText from "@/components/ThemedText";
 import ThemedView from "@/components/ThemedView";
 
 import ChainContext from "@/contexts/ChainContext";
-import DeviceData from "@/service/DeviceData";
+import DeviceData from "@/functions/DeviceData";
 
 import useThemeColor from "@/hooks/useThemeColor";
 import Styles from "@/constants/Styles";
 
-// import mapSources from "@/service/utilities/SourceMapper"
+// import mapSources from "@/functions/mapping/SourceMapping"
 
 export default function IndexContent() {
   // mapSources();

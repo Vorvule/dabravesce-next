@@ -7,24 +7,30 @@ import Colors from "@/constants/Colors";
 import TabBarIcon from "@/components/navigation/TabBarIcon";
 
 import ChainContext from "@/contexts/ChainContext";
-import Content from "@/service/Content";
+import ContentService from "@/functions/ContentService";
 
-import Daily from "@/service/Daily";
-import DeviceData from "@/service/DeviceData";
+import Daily from "@/functions/Daily";
+import DeviceData from "@/functions/DeviceData";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
-  const dailyChain = Daily.getDailyChain();
-  const [chain, setChain] = useState(dailyChain);
+  const dailyKeychain = Daily.getDailyKeychain();
+  const [chain, setChain] = useState(dailyKeychain);
 
   const dailyUrl = Daily.getDailyUrl();
   const [url, setUrl] = useState(dailyUrl);
-  console.log("Layout Url: " + url);
 
   return (
     <ChainContext.Provider
-      value={{ chain, setChain, dailyChain, url, setUrl, dailyUrl }}
+      value={{
+        chain,
+        setChain,
+        dailyChain: dailyKeychain,
+        url,
+        setUrl,
+        dailyUrl,
+      }}
     >
       <Tabs
         screenOptions={{
@@ -65,7 +71,7 @@ export default function TabLayout() {
           name="content/[url]"
           options={{
             title: "Змест",
-            href: Content.getContentUrl(chain),
+            href: ContentService.getUrl(chain),
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon
                 name={focused ? "book" : "book-outline"}

@@ -1,9 +1,9 @@
 import ThemedView from "@/components/ThemedView";
 import ThemedText from "@/components/ThemedText";
 
-import ChapterName from "./ChapterName";
-import ChapterAudio from "./ChapterAudio";
-import ChapterText from "./ChapterText";
+import ChapterName from "./ContentName";
+import ContentAudio from "./ContentAudio";
+import ChapterText from "./ContentText";
 
 import Styles from "@/constants/Styles";
 
@@ -18,7 +18,7 @@ export default function SourceContent({ albumName, bookName, chapter }) {
         {bookName}
       </ThemedText>
 
-      {chapter.audio && <ChapterAudio chapterAudio={chapter.audio} />}
+      {chapter.audio && <ContentAudio chapterAudio={chapter.audio} />}
 
       <ChapterName>{chapter.name}</ChapterName>
 

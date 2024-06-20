@@ -4,7 +4,6 @@ import { useFocusEffect } from "@react-navigation/native";
 
 import { CorePage } from "@/service/CorePage";
 import DeviceData from "../service/DeviceData";
-import Styles from "../constants/Styles";
 
 import SourceContent from "./SourceContent";
 
