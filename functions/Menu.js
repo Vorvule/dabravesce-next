@@ -1,9 +1,9 @@
 import { useContext } from "react";
 
-import ChainContext from "@/contexts/ChainContext";
+import GlobalContext from "@/contexts/GlobalContext";
 import useThemeColor from "@/hooks/useThemeColor";
 
-export default class MenuService {
+export default class Menu {
   static getColor(keys) {
     const color = useThemeColor({}, "tint");
 
@@ -11,16 +11,18 @@ export default class MenuService {
   }
 
   static keysAreActive(keys) {
-    const chain = useContext(ChainContext).chain;
+    const { keychain } = useContext(GlobalContext);
 
     switch (keys.length) {
       case 1:
-        return keys[0] == chain[0];
+        return keys[0] == keychain[0];
       case 2:
-        return keys[0] == chain[0] && keys[1] == chain[1];
+        return keys[0] == keychain[0] && keys[1] == keychain[1];
       case 3:
         return (
-          keys[0] == chain[0] && keys[1] == chain[1] && keys[2] == chain[2]
+          keys[0] == keychain[0] &&
+          keys[1] == keychain[1] &&
+          keys[2] == keychain[2]
         );
       default:
         return false;

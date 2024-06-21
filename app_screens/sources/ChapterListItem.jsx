@@ -1,17 +1,17 @@
 import { Link } from "expo-router";
 
-import MenuService from "@/functions/MenuService";
+import Menu from "@/functions/Menu";
 import ThemedText from "@/components/ThemedText";
 
-import ContentService from "../../functions/ContentService";
+import Content from "../../functions/Content";
 import Styles from "@/constants/Styles";
 
 export default function ChapterListItem({ chapter, keys }) {
-  const сontentUrl = ContentService.getUrl(keys);
-  const chapterName = MenuService.clearText(chapter.name);
+  const сontentUrl = Content.getUrl(keys);
+  const chapterName = Menu.clearText(chapter.name);
 
   const linkStyle = [Styles.border, Styles.padded];
-  const textStyle = MenuService.getColor(keys);
+  const textStyle = Menu.getColor(keys);
 
   return (
     <Link href={сontentUrl} style={linkStyle}>

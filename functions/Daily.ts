@@ -1,5 +1,3 @@
-import AppSources from "@/assets/albums/AppSources";
-
 export default class Daily {
   static getDailyKeychain(): number[] {
     const zeroBasedDayOfYearIndex: number = this.getDayOfTheYearIndex();
@@ -36,20 +34,5 @@ export default class Daily {
 
     // Zero based day of the year
     return Math.floor(daysOffset / oneDay) - 1;
-  }
-
-  static getDailySlugs(): (string | undefined)[] {
-    const [albumIndex, bookIndex, chapterIndex] = this.getDailyKeychain();
-
-    const albumSlug = AppSources[albumIndex].slug;
-    const bookSlug = AppSources[albumIndex].text[bookIndex].slug;
-    const chapterSlug =
-      AppSources[albumIndex].text[bookIndex].text[chapterIndex].slug;
-
-    return [albumSlug, bookSlug, chapterSlug];
-  }
-
-  static getDailyUrl(): string {
-    return "content/" + this.getDailySlugs().join("~");
   }
 }

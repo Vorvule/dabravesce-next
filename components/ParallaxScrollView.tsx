@@ -9,6 +9,7 @@ import Animated, {
 } from "react-native-reanimated";
 
 import ThemedView from "@/components/ThemedView";
+import Device from "@/functions/Device";
 
 const HEADER_HEIGHT = 200;
 
@@ -52,7 +53,7 @@ export default function ParallaxScrollView({
       <Animated.ScrollView
         ref={scrollRef}
         scrollEventThrottle={16}
-        showsVerticalScrollIndicator={false}
+        showsVerticalScrollIndicator={!Device.wideScreen()}
       >
         <Animated.View
           style={[

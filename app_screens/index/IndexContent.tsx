@@ -4,11 +4,12 @@ import { Link } from "expo-router";
 import ThemedText from "@/components/ThemedText";
 import ThemedView from "@/components/ThemedView";
 
-import ChainContext from "@/contexts/ChainContext";
-import DeviceData from "@/functions/DeviceData";
+import GlobalContext from "@/contexts/GlobalContext";
+import Device from "@/functions/Device";
 
 import useThemeColor from "@/hooks/useThemeColor";
 import Styles from "@/constants/Styles";
+import Content from "@/functions/Content";
 
 // import mapSources from "@/functions/mapping/SourceMapping"
 
@@ -18,7 +19,7 @@ export default function IndexContent() {
   const linkTextColor = useThemeColor({}, "tint");
   const linkTextStyle = { color: linkTextColor, fontFamily: "SofiaSemiBold" };
 
-  const { dailyUrl } = useContext(ChainContext);
+  const { dailyKeychain } = useContext(GlobalContext);
 
   return (
     <>
@@ -77,9 +78,9 @@ export default function IndexContent() {
           вамі прачытаць за год усе чатыры Евангеллі роўна чатыры разы.
         </ThemedText>
         <ThemedText>
-          Таму намоўчкі, пры адкрыцці{` ${DeviceData.getAppKind()}, `}
+          Таму намоўчкі, пры адкрыцці{` ${Device.getAppKind()}, `}
           Змест адлюстроўвае менавіта сённяшняе, чарговае{", "}
-          <Link href={dailyUrl}>
+          <Link href={Content.getUrl(dailyKeychain)}>
             <ThemedText type="default" style={linkTextStyle}>
               Евангелле дня
             </ThemedText>

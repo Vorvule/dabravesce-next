@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import BookList from "./BookList";
 
 import ThemedOption from "@/components/ThemedOption";
-import MenuService from "@/functions/MenuService";
+import Menu from "@/functions/Menu";
 
 export default function AlbumListItem({ album, keys, folding }) {
   const [expanded, setExpanded] = useState(false);
@@ -19,7 +19,7 @@ export default function AlbumListItem({ album, keys, folding }) {
 
   return (
     <>
-      <ThemedOption onPress={onPress} color={MenuService.getColor(keys)}>
+      <ThemedOption onPress={onPress} color={Menu.getColor(keys)}>
         {album.name}
       </ThemedOption>
 

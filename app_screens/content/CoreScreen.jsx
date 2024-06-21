@@ -3,12 +3,12 @@ import { ScrollView } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
 
 import { CorePage } from "@/service/CorePage";
-import DeviceData from "../service/DeviceData";
+import Device from "../service/Device";
 
 import SourceContent from "./SourceContent";
 
 export function CoreScreen({ navigation, route }) {
-  const routeChain = route.params.chain;
+  const routeChain = route.params.keychain;
   const { albumName, bookName, chapter } = CorePage.getContents(routeChain);
 
   useFocusEffect(() => {
@@ -28,7 +28,7 @@ export function CoreScreen({ navigation, route }) {
 
   return (
     <ScrollView
-      showsVerticalScrollIndicator={DeviceData.deviceIsMobile()}
+      showsVerticalScrollIndicator={Device.deviceIsMobile()}
       style={styles.screenContainer}
       ref={scrollRef}
     >

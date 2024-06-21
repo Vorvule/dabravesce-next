@@ -1,75 +1,42 @@
 import { useCallback, useContext, useMemo } from "react";
 import { Image } from "react-native";
-import {
-  router,
-  useFocusEffect,
-  useLocalSearchParams,
-  usePathname,
-} from "expo-router";
+import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import SourceContent from "@/app_screens/content/AppContent";
-import { CorePage } from "@/functions/CorePage";
 
 import { useTheme } from "@react-navigation/native";
 import headerBackgroundColor from "@/constants/HeaderColors";
 import Styles from "@/constants/Styles";
-import ChainContext from "@/contexts/ChainContext";
-import ContentService from "@/functions/ContentService";
-import Daily from "@/functions/Daily";
+import GlobalContext from "@/contexts/GlobalContext";
+import Content from "@/functions/Content";
 
 const dark = "@/assets/images/logos/book-dark.png";
 const light = "@/assets/images/logos/book.png";
 
 export default function SourceScreen() {
-  const { setChain, dailyChain } = useContext(ChainContext);
+  const { setKeychain, dailyKeychain } = useContext(GlobalContext);
 
   const { url } = useLocalSearchParams();
-  console.log("Local Search Params: " + url, typeof url); // slugChain
+  const urlIsValid: boolean = Content.urlIsValid(url as string);
 
-  const urlIsValid: boolean = ContentService.urlIsValid(url as string);
-
-  const urlKeychain: number[] = urlIsValid
-    ? ContentService.getKeychain(url as string)
-    : dailyChain;
-
-  console.log("Url Keychain " + urlKeychain);
-
-  // const keychainIsValid: boolean = ContentService.keychainIsValid(urlKeychain);
-
-  // const newKeychain: number[] = useMemo(() => {
-  //   return keychainIsValid ? urlKeychain : dailyChain;
-  // }, [url]);
+  const newKeychain: number[] = useMemo(
+    () => (urlIsValid ? Content.getKeychain(url as string) : dailyKeychain),
+    [url]
+  );
 
   const { albumName, bookName, chapter } = useMemo(
-    () => ContentService.getContent(urlKeychain),
-    [urlKeychain]
+    () => Content.getContent(newKeychain),
+    [newKeychain]
   );
 
   useFocusEffect(
     useCallback(() => {
-      setChain(urlKeychain);
-      console.log("Url keychain " + urlKeychain);
+      setKeychain(newKeychain);
 
-      // const validUrl = ContentService.getContentUrl(newKeychain);
-      !urlIsValid && router.replace(ContentService.getUrl(urlKeychain));
-    }, [urlKeychain])
+      !urlIsValid && router.replace(Content.getUrl(newKeychain));
+    }, [newKeychain])
   );
-
-  // ====================
-
-  // const sourceIsValid = CorePage.isValid(url);
-
-  // const updatedKeychain = sourceIsValid
-  //   ? (url as string).split("~")
-  //   : dailyChain;
-
-  // const contentUrl = ContentService.getContentUrl(updatedKeychain);
-
-  // const { albumName, bookName, chapter } = useMemo(
-  //   () => CorePage.getContents(updatedKeychain),
-  //   [url]
-  // );
 
   return (
     <ParallaxScrollView

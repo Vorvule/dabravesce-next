@@ -6,30 +6,24 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 import Colors from "@/constants/Colors";
 import TabBarIcon from "@/components/navigation/TabBarIcon";
 
-import ChainContext from "@/contexts/ChainContext";
-import ContentService from "@/functions/ContentService";
+import GlobalContext from "@/contexts/GlobalContext";
 
 import Daily from "@/functions/Daily";
-import DeviceData from "@/functions/DeviceData";
+import Device from "@/functions/Device";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   const dailyKeychain = Daily.getDailyKeychain();
-  const [chain, setChain] = useState(dailyKeychain);
 
-  const dailyUrl = Daily.getDailyUrl();
-  const [url, setUrl] = useState(dailyUrl);
+  const [keychain, setKeychain] = useState(dailyKeychain);
 
   return (
-    <ChainContext.Provider
+    <GlobalContext.Provider
       value={{
-        chain,
-        setChain,
-        dailyChain: dailyKeychain,
-        url,
-        setUrl,
-        dailyUrl,
+        keychain,
+        setKeychain,
+        dailyKeychain,
       }}
     >
       <Tabs
@@ -38,7 +32,7 @@ export default function TabLayout() {
           headerShown: false,
           tabBarLabelStyle: {
             fontFamily: "SofiaSemiBold",
-            fontSize: DeviceData.wideScreen() ? 17 : 11,
+            fontSize: Device.wideScreen() ? 17 : 11,
             // color: "#444444"
           },
         }}
@@ -71,7 +65,7 @@ export default function TabLayout() {
           name="content/[url]"
           options={{
             title: "Змест",
-            href: ContentService.getUrl(chain),
+            // href: Content.getUrl(keychain),
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon
                 name={focused ? "book" : "book-outline"}
@@ -81,6 +75,6 @@ export default function TabLayout() {
           }}
         />
       </Tabs>
-    </ChainContext.Provider>
+    </GlobalContext.Provider>
   );
 }

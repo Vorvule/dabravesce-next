@@ -2,7 +2,7 @@ import SlugchainMap from "@/functions/mapping/SlugchainMap";
 import KeychainMap from "@/functions/mapping/KeychainMap";
 import AppSources from "@/assets/albums/AppSources";
 
-export default class ContentService {
+export default class Content {
   static getUrl(keychain: number[]): string {
     return "content/" + KeychainMap[keychain.join("~")];
   }
