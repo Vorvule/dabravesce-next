@@ -2,7 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "22. Keep Awake audio enhanced",
+    "version": "23. SDK51 and new Architecture applied",
+    "runtimeVersion": "23",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -21,7 +22,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 22
+      "versionCode": 23
     },
     "web": {
       "bundler": "metro",

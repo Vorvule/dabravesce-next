@@ -28,7 +28,7 @@ const Colors = {
     title: tintColorDark,
     subtitle: "#FCF3CF",
     header: tintColorDark,
-    button: "DDDDDD",
+    button: "#DDDDDD",
   },
 };
 

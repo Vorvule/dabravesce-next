@@ -10,13 +10,26 @@ import GlobalContext from "@/contexts/GlobalContext";
 
 import Daily from "@/functions/Daily";
 import Device from "@/functions/Device";
+import { StyleSheet } from "react-native";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  // const activeTintColor: string = Colors[colorScheme ?? "light"].tint;
+  // console.log(activeTintColor);
 
   const dailyKeychain = Daily.getDailyKeychain();
 
   const [keychain, setKeychain] = useState(dailyKeychain);
+
+  
+const style = StyleSheet.create({
+  tabBarItem: {
+    borderRightColor: "grey",
+    borderRightWidth: 1,
+    borderBottomRightRadius: 8,
+    borderTopRightRadius: 8,
+  },
+});
 
   return (
     <GlobalContext.Provider
@@ -29,6 +42,9 @@ export default function TabLayout() {
       <Tabs
         screenOptions={{
           tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+          //   tabBarInactiveBackgroundColor:
+          //   Colors[colorScheme ?? "light"].background,
+          tabBarItemStyle: style.tabBarItem,
           headerShown: false,
           tabBarLabelStyle: {
             fontFamily: "SofiaSemiBold",
@@ -65,7 +81,7 @@ export default function TabLayout() {
           name="content/[url]"
           options={{
             title: "Змест",
-            // href: Content.getUrl(keychain),
+            // tabBarItemStyle: style.lastTabBarItem,
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon
                 name={focused ? "book" : "book-outline"}
