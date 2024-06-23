@@ -53,7 +53,8 @@ export default function ParallaxScrollView({
       <Animated.ScrollView
         ref={scrollRef}
         scrollEventThrottle={16}
-        showsVerticalScrollIndicator={!Device.wideScreen()}
+        // showsVerticalScrollIndicator={!Device.wideScreen()}
+        showsVerticalScrollIndicator={false}
       >
         <Animated.View
           style={[
