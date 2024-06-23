@@ -3,6 +3,7 @@
     "name": "Дабравесце",
     "slug": "dabravesce",
     "version": "23. SDK51 and new Architecture applied",
+    "runtimeVersion": "23",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",

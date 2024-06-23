@@ -5,16 +5,18 @@ import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import SourceContent from "@/app_screens/content/AppContent";
 
-import { useTheme } from "@react-navigation/native";
 import headerBackgroundColor from "@/constants/HeaderColors";
 import Styles from "@/constants/Styles";
 import GlobalContext from "@/contexts/GlobalContext";
 import Content from "@/functions/Content";
+import Device from "@/functions/Device";
 
 const dark = "@/assets/images/logos/book-dark.png";
 const light = "@/assets/images/logos/book.png";
 
 export default function SourceScreen() {
+  const imageSource = Device.themeIsDark() ? require(dark) : require(light);
+
   const { setKeychain, dailyKeychain } = useContext(GlobalContext);
 
   const { url } = useLocalSearchParams();
@@ -41,12 +43,7 @@ export default function SourceScreen() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={headerBackgroundColor}
-      headerImage={
-        <Image
-          source={useTheme().dark ? require(dark) : require(light)}
-          style={Styles.image}
-        />
-      }
+      headerImage={<Image source={imageSource} style={Styles.image} />}
     >
       <SourceContent
         albumName={albumName}

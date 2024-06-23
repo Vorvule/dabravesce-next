@@ -13,7 +13,7 @@ import Device from "@/functions/Device";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-
+  
   const dailyKeychain = Daily.getDailyKeychain();
 
   const [keychain, setKeychain] = useState(dailyKeychain);
