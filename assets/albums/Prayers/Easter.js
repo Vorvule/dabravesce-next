@@ -1,5 +1,6 @@
 export const Easter = [
   {
+    slug: "easter-hours",
     name: "Пасхальныя гадзіны",
     text: [
       "Свяшчэннік:",

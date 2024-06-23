@@ -1,6 +1,7 @@
 export const Prayal = [
   {
     audio: "/audio/song/14.mp3",
+    slug: "our-father",
     name: "Ойча наш",
     text: [
       "Ойча наш Нябесны,",
@@ -17,6 +18,7 @@ export const Prayal = [
   },
   {
     audio: "/audio/song/15.mp3",
+    slug: "good-god",
     name: "Дай, добры Божа",
     text: [
       "Дай, добры Божа, зару й сонца бачыць,",
@@ -42,6 +44,7 @@ export const Prayal = [
   },
   {
     audio: "/audio/song/16.mp3",
+    slug: "holy-mother-girovichy",
     name: "Жыровіцкая Божая Маці",
     text: [
       "У Жыровіцах нам з’явілась,",
@@ -85,6 +88,7 @@ export const Prayal = [
   },
   {
     audio: "/audio/song/17.mp3",
+    slug: "god-kindness",
     name: "Божая дабрыня | Цыпріян Базылік",
     text: [
       "Мудрасць Бога — стан адвечны,",
@@ -95,6 +99,7 @@ export const Prayal = [
   },
   {
     audio: "/audio/song/18.mp3",
+    slug: "spiritual-defender",
     name: "Заступніца духоўная",
     text: [
       "Заступніца духоўная,",
@@ -125,6 +130,7 @@ export const Prayal = [
   },
   {
     audio: "/audio/song/19.mp3",
+    slug: "beneath-god",
     name: "Прад Табою, мой Бог",
     text: [
       "Прад Табою, мой Бог,",

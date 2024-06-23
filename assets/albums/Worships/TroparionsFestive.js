@@ -1,5 +1,6 @@
 export const TroparionsFestive = [
   {
+    slug: "chrismas",
     name: "Ражджаства Хрыстовага",
     text: [
       "Трапар, глас 4",
@@ -27,6 +28,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "concision",
     name: "Абрэзання Гасподняга",
     text: [
       "Трапар, глас 1",
@@ -50,6 +52,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "lord-baptism",
     name: "Хрышчэння Гасподняга",
     text: [
       "Трапар, глас 1",
@@ -78,6 +81,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "lord-meeting",
     name: "Стрэчання Гасподняга",
     text: [
       "Трапар, глас 1",
@@ -105,6 +109,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "annuntiation",
     name: "Благавешчання Прасвятой Багародзіцы",
     text: [
       "Трапар, глас 4",
@@ -131,6 +136,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "lazarus",
     name: "Лазаравай суботы",
     text: [
       "Трапар, глас 1",
@@ -152,6 +158,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "lord-entry",
     name: "Уваходу Гасподняга ў Іерусалім",
     text: [
       "Трапар, глас 1",
@@ -176,6 +183,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "easter",
     name: "Пасхі",
     text: [
       "Трапар, глас 5",
@@ -211,6 +219,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "ascension",
     name: "Узнясення Гасподняга",
     text: [
       "Трапар, глас 4",
@@ -237,6 +246,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "trinity",
     name: "Троіцы",
     text: [
       "Трапар, глас 8",
@@ -261,6 +271,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "trasfiguration",
     name: "Праабражэння Гасподняга",
     text: [
       "Трапар, глас 7",
@@ -286,6 +297,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "holy-mother-passing",
     name: "Успення Прасвятой Багародзіцы",
     text: [
       "Трапар, глас 1",
@@ -311,6 +323,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "beheading-john-baptist",
     name: "Усекнавення главы Прадцечы",
     text: [
       "Трапар, глас 2",
@@ -336,6 +349,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "nativity-mary",
     name: "Нараджэння Прасвятой Багародзіцы",
     text: [
       "Трапар, глас 4",
@@ -363,6 +377,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "feast-cross",
     name: "Уздзвіжання Крыжа Гасподняга",
     text: [
       "Трапар, глас 1",
@@ -389,6 +404,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "intercession-theotokos",
     name: "Пакрова Прасвятой Багародзіцы",
     text: [
       "Трапар, глас 4",
@@ -411,6 +427,7 @@ export const TroparionsFestive = [
     ],
   },
   {
+    slug: "presentation-mary",
     name: "Увядзення ў храм Прасвятой Багародзіцы",
     text: [
       "Трапар, глас 4",

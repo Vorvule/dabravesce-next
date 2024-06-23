@@ -1,5 +1,6 @@
 export const Canons = [
   {
+    slug: "repentance",
     name: "Канон пакаянны да Госпада нашага Іісуса Хрыста | Глас 6",
     text: [
       "Песня 1",
@@ -101,6 +102,7 @@ export const Canons = [
     ],
   },
   {
+    slug: "holy-mother-prayal",
     name: "Канон малебны да Прасвятой Багародзiцы | Глас 8",
     text: [
       "Спяваецца пры ўсякiм смутку душэўным і няшчасці.",
@@ -223,6 +225,7 @@ export const Canons = [
     ],
   },
   {
+    slug: "angel-guard",
     name: "Канон Ангелу ахоўніку | Глас 8",
     text: [
       "Песня 1",
@@ -326,6 +329,7 @@ export const Canons = [
     ],
   },
   {
+    slug: "paschal",
     name: "Пасхальны канон | Глас 1",
     text: [
       "Песня 1",

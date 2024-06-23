@@ -1,6 +1,7 @@
 export const Liturgy = [
   {
     audio: "/audio/pray/liturgy.mp3",
+    slug: "liturgy",
     name: "Бажэственная літургія Свяціцеля Іаана Златавустага",
     text: [
       "Дыякан: Благаславі, уладыка.",
@@ -363,6 +364,7 @@ export const Liturgy = [
   },
   {
     audio: "/audio/pray/moleben.mp3",
+    slug: "rogation",
     name: "Малебен",
     text: [
       "Дыякан: Благаславі, уладыка.",
@@ -463,6 +465,7 @@ export const Liturgy = [
   },
   {
     audio: "/audio/pray/requiem.mp3",
+    slug: "requiem",
     name: "Паніхіда",
     text: [
       "Іерэй: Благаславёны Бог наш заўжды, цяпер і заўседы, і на векі вякоў.",
@@ -601,6 +604,7 @@ export const Liturgy = [
     ],
   },
   {
+    slug: "litia",
     name: "Чын ліціі для народнага чытання",
     text: [
       "Па малíтвах святы́х айцо́ў на́шых, Го́спадзі Іісу́се Хрысце́, Бо́жа наш, памíлуй нас. Амінь.",

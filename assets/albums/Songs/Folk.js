@@ -1,6 +1,7 @@
 export const Folk = [
   {
     audio: "/audio/song/21.mp3",
+    slug: "willow-field",
     name: "А ў полі вярба | Апр. М. Равенскага",
     text: [
       "А ў полі вярба, пад вярбой вада.",
@@ -18,6 +19,7 @@ export const Folk = [
   },
   {
     audio: "/audio/song/22.mp3",
+    slug: "cossack-well",
     name: "Капаў казак крынічаньку",
     text: [
       "Капаў казак крынічаньку нядзелечкі дзве...",
