@@ -12,6 +12,8 @@ export default function AlbumList({ albums }) {
 
   useMemo(() => setUnfolded(keychain), [keychain]);
 
+  // TODO Add Suspense / Lazy load
+
   return albums.map((album, key) => {
     return (
       <ThemedView key={"album-" + key}>

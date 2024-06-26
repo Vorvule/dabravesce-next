@@ -29,6 +29,12 @@ const style = StyleSheet.create({
     borderBottomRightRadius: 8,
     borderTopRightRadius: 8,
   },
+  // Added:
+  tabBar: {
+    borderTopColor: "grey",
+    borderRightWidth: 1,
+    borderTopRightRadius: 8
+  }
 });
 
   return (
@@ -45,6 +51,7 @@ const style = StyleSheet.create({
           //   tabBarInactiveBackgroundColor:
           //   Colors[colorScheme ?? "light"].background,
           tabBarItemStyle: style.tabBarItem,
+          tabBarStyle: style.tabBar,
           headerShown: false,
           tabBarLabelStyle: {
             fontFamily: "SofiaSemiBold",
