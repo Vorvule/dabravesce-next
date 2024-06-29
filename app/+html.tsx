@@ -20,6 +20,7 @@ export default function Root({ children }: PropsWithChildren) {
           name="description"
           content="Евангелле, Кнігі Апосталаў, Псалтыр, Малітоўнік, Акафісты, Богаслужэнні, Хрысціянскія кнігі, Пабожныя спевы і іншыя крыніцы духоўнага развіцця"
         />
+        <link rel="manifest" href="/manifest.json" />
 
         {/*
           Disable body scrolling on web. This makes ScrollView components work closer to how they do on native.
