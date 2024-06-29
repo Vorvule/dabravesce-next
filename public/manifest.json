@@ -1,0 +1,37 @@
+{
+  "short_name": "Дабравесце",
+  "name": "Дабравесце",
+  "id": "/",
+  "start_url": ".",
+  "display": "fullscreen",
+  "theme_color": "#151515",
+  "background_color": "#fcfaeb",
+  "description": "Біблія, Малітоўнік, Богаслужэнні і іншыя духоўныя крыніцы",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://dabravesce.by"
+    },
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=by.dabravesce",
+      "id": "by.dabravesce"
+    }
+  ],
+  "prefer_related_applications": true
+}
