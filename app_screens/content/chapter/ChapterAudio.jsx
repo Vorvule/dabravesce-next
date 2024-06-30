@@ -11,7 +11,7 @@ import { getDownloadURL, getStorage, ref } from "firebase/storage";
 
 import RoundButton from "@/components/RoundButton";
 
-export default function ContentAudio({ chapterAudio }) {
+export default function ChapterAudio({ chapterAudio }) {
   const [sound, _] = useState(new Audio.Sound());
 
   const [enabledButtons, setEnabledButtons] = useState({

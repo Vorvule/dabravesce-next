@@ -5,7 +5,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import { CorePage } from "@/service/CorePage";
 import Device from "../service/Device";
 
-import SourceContent from "./SourceContent";
+import PageContent from "./PageContent";
 
 export function CoreScreen({ navigation, route }) {
   const routeChain = route.params.keychain;
@@ -32,7 +32,7 @@ export function CoreScreen({ navigation, route }) {
       style={styles.screenContainer}
       ref={scrollRef}
     >
-      <SourceContent
+      <PageContent
         albumName={albumName}
         bookName={bookName}
         chapter={chapter}

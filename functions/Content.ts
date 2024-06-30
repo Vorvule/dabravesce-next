@@ -15,16 +15,6 @@ export default class Content {
     return SlugchainMap[slugChain];
   }
 
-  static getContentValues(keychain: number[]) {
-    const [albumKey, bookKey, chapterKey] = keychain;
-
-    const albumName = AppSources[albumKey].name;
-    const bookName = AppSources[albumKey].text[bookKey].name;
-    const chapter = AppSources[albumKey].text[bookKey].text[chapterKey];
-
-    return { albumName, bookName, chapter };
-  }
-
   static keychainIsValid(keychain: number[]): boolean {
     try {
       const [albumKey, bookKey, chapterKey] = keychain;
@@ -33,6 +23,16 @@ export default class Content {
     } catch {
       return false;
     }
+  }
+
+  static getContentValues(keychain: number[]) {
+    const [albumKey, bookKey, chapterKey] = keychain;
+
+    const albumName = AppSources[albumKey].name;
+    const bookName = AppSources[albumKey].text[bookKey].name;
+    const chapter = AppSources[albumKey].text[bookKey].text[chapterKey];
+
+    return { albumName, bookName, chapter };
   }
 
   static getContent(keychain: number[]) {

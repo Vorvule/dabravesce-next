@@ -3,7 +3,7 @@ import { Image } from "react-native";
 import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 
 import ParallaxScrollView from "@/components/ParallaxScrollView";
-import SourceContent from "@/app_screens/content/AppContent";
+import PageContent from "@/app_screens/content/PageContent";
 
 import headerBackgroundColor from "@/constants/HeaderColors";
 import Styles from "@/constants/Styles";
@@ -22,22 +22,17 @@ export default function SourceScreen() {
   const { url } = useLocalSearchParams();
   const urlIsValid: boolean = Content.urlIsValid(url as string);
 
-  const newKeychain: number[] = useMemo(
+  const keychain: number[] = useMemo(
     () => (urlIsValid ? Content.getKeychain(url as string) : dailyKeychain),
     [url]
   );
 
-  const { albumName, bookName, chapter } = useMemo(
-    () => Content.getContent(newKeychain),
-    [newKeychain]
-  );
-
   useFocusEffect(
     useCallback(() => {
-      setKeychain(newKeychain);
+      setKeychain(keychain);
 
-      !urlIsValid && router.replace(Content.getUrl(newKeychain));
-    }, [newKeychain])
+      !urlIsValid && router.replace(Content.getUrl(keychain));
+    }, [keychain])
   );
 
   return (
@@ -45,11 +40,7 @@ export default function SourceScreen() {
       headerBackgroundColor={headerBackgroundColor}
       headerImage={<Image source={imageSource} style={Styles.image} />}
     >
-      <SourceContent
-        albumName={albumName}
-        bookName={bookName}
-        chapter={chapter}
-      />
+      <PageContent keychain={keychain} />
     </ParallaxScrollView>
   );
 }
