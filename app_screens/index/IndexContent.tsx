@@ -9,7 +9,7 @@ import Device from "@/functions/Device";
 
 import useThemeColor from "@/hooks/useThemeColor";
 import Styles from "@/constants/Styles";
-import Content from "@/functions/Content";
+import Page from "@/functions/Page";
 
 // import mapSources from "@/functions/mapping/SourceMapping"
 
@@ -80,7 +80,7 @@ export default function IndexContent() {
         <ThemedText>
           Таму намоўчкі, пры адкрыцці{` ${Device.getAppKind()}, `}
           Змест адлюстроўвае менавіта сённяшняе, чарговае{", "}
-          <Link href={Content.getUrl(dailyKeychain)}>
+          <Link href={Page.getUrl(dailyKeychain)}>
             <ThemedText type="default" style={linkTextStyle}>
               Евангелле дня
             </ThemedText>

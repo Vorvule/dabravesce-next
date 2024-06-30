@@ -21,21 +21,20 @@ export default function TabLayout() {
 
   const [keychain, setKeychain] = useState(dailyKeychain);
 
-  
-const style = StyleSheet.create({
-  tabBarItem: {
-    borderRightColor: "grey",
-    borderRightWidth: 1,
-    borderBottomRightRadius: 8,
-    borderTopRightRadius: 8,
-  },
-  // Added:
-  tabBar: {
-    borderTopColor: "grey",
-    borderRightWidth: 1,
-    borderTopRightRadius: 8
-  }
-});
+  const style = StyleSheet.create({
+    tabBarItem: {
+      borderRightColor: "grey",
+      borderRightWidth: 1,
+      borderBottomRightRadius: 8,
+      borderTopRightRadius: 8,
+    },
+    // Added:
+    tabBar: {
+      borderTopColor: "grey",
+      borderRightWidth: 1,
+      borderTopRightRadius: 8,
+    },
+  });
 
   return (
     <GlobalContext.Provider
@@ -73,7 +72,7 @@ const style = StyleSheet.create({
           }}
         />
         <Tabs.Screen
-          name="sources"
+          name="menu"
           options={{
             title: "Крыніцы",
             tabBarIcon: ({ color, focused }) => (
@@ -85,9 +84,9 @@ const style = StyleSheet.create({
           }}
         />
         <Tabs.Screen
-          name="content/[url]"
+          name="page/[slugchain]"
           options={{
-            title: "Змест",
+            title: "Старонка",
             // tabBarItemStyle: style.lastTabBarItem,
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon

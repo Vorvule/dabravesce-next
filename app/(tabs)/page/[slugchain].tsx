@@ -3,41 +3,36 @@ import { Image } from "react-native";
 import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 
 import ParallaxScrollView from "@/components/ParallaxScrollView";
-import SourceContent from "@/app_screens/content/AppContent";
+import PageContent from "@/app_screens/page/PageContent";
 
 import headerBackgroundColor from "@/constants/HeaderColors";
 import Styles from "@/constants/Styles";
 import GlobalContext from "@/contexts/GlobalContext";
-import Content from "@/functions/Content";
+import Page from "@/functions/Page";
 import Device from "@/functions/Device";
 
 const dark = "@/assets/images/logos/book-dark.png";
 const light = "@/assets/images/logos/book.png";
 
-export default function SourceScreen() {
+export default function PageScreen() {
   const imageSource = Device.themeIsDark() ? require(dark) : require(light);
 
-  const { setKeychain, dailyKeychain } = useContext(GlobalContext);
+  const slugchain: string = useLocalSearchParams().slugchain as string;
+  const validSlugchain: boolean = Page.slugchainValid(slugchain);
 
-  const { url } = useLocalSearchParams();
-  const urlIsValid: boolean = Content.urlIsValid(url as string);
+  const { dailyKeychain, setKeychain } = useContext(GlobalContext);
 
-  const newKeychain: number[] = useMemo(
-    () => (urlIsValid ? Content.getKeychain(url as string) : dailyKeychain),
-    [url]
-  );
-
-  const { albumName, bookName, chapter } = useMemo(
-    () => Content.getContent(newKeychain),
-    [newKeychain]
+  const keychain: number[] = useMemo(
+    () => (validSlugchain ? Page.getKeychain(slugchain) : dailyKeychain),
+    [slugchain]
   );
 
   useFocusEffect(
     useCallback(() => {
-      setKeychain(newKeychain);
-
-      !urlIsValid && router.replace(Content.getUrl(newKeychain));
-    }, [newKeychain])
+      validSlugchain
+        ? setKeychain(keychain)
+        : router.replace(Page.getUrl(keychain));
+    }, [keychain])
   );
 
   return (
@@ -45,11 +40,7 @@ export default function SourceScreen() {
       headerBackgroundColor={headerBackgroundColor}
       headerImage={<Image source={imageSource} style={Styles.image} />}
     >
-      <SourceContent
-        albumName={albumName}
-        bookName={bookName}
-        chapter={chapter}
-      />
+      <PageContent keychain={keychain} />
     </ParallaxScrollView>
   );
 }
