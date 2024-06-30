@@ -55,6 +55,9 @@ export default function ParallaxScrollView({
     };
   });
 
+  const viewColor = { backgroundColor: headerBackgroundColor[colorScheme] };
+  const viewStyle = [styles.header, viewColor, headerAnimatedStyle];
+
   const { keychain }: { keychain: number[] } = useContext(GlobalContext);
   useMemo(() => scrollTo(scrollRef, 0, 0, true), [keychain]);
 
@@ -65,15 +68,7 @@ export default function ParallaxScrollView({
         scrollEventThrottle={16}
         showsVerticalScrollIndicator={!Device.wideScreen()}
       >
-        <Animated.View
-          style={[
-            styles.header,
-            { backgroundColor: headerBackgroundColor[colorScheme] },
-            headerAnimatedStyle,
-          ]}
-        >
-          {headerImage}
-        </Animated.View>
+        <Animated.View style={viewStyle}>{headerImage}</Animated.View>
         <ThemedView style={styles.content}>{children}</ThemedView>
       </Animated.ScrollView>
     </ThemedView>

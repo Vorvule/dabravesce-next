@@ -21,21 +21,20 @@ export default function TabLayout() {
 
   const [keychain, setKeychain] = useState(dailyKeychain);
 
-  
-const style = StyleSheet.create({
-  tabBarItem: {
-    borderRightColor: "grey",
-    borderRightWidth: 1,
-    borderBottomRightRadius: 8,
-    borderTopRightRadius: 8,
-  },
-  // Added:
-  tabBar: {
-    borderTopColor: "grey",
-    borderRightWidth: 1,
-    borderTopRightRadius: 8
-  }
-});
+  const style = StyleSheet.create({
+    tabBarItem: {
+      borderRightColor: "grey",
+      borderRightWidth: 1,
+      borderBottomRightRadius: 8,
+      borderTopRightRadius: 8,
+    },
+    // Added:
+    tabBar: {
+      borderTopColor: "grey",
+      borderRightWidth: 1,
+      borderTopRightRadius: 8,
+    },
+  });
 
   return (
     <GlobalContext.Provider
