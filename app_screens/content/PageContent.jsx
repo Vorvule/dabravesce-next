@@ -34,7 +34,7 @@ export default function PageContent({ keychain }) {
 
       <ChapterText chapterText={chapter.text} />
 
-      <PageNavigation />
+      <PageNavigation keychain={keychain} />
     </ThemedView>
   );
 }

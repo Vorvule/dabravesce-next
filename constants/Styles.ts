@@ -34,6 +34,13 @@ const Styles = StyleSheet.create({
     borderBottomColor: "grey",
     borderBottomWidth: 1,
   },
+
+  buttons: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    width: "100%",
+  },
 });
 
 export default Styles;

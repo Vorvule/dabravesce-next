@@ -2,7 +2,7 @@
 // https://docs.expo.dev/versions/latest/sdk/keep-awake/
 
 import { useEffect, useState } from "react";
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
 import { Audio } from "expo-av";
 import { activateKeepAwakeAsync, deactivateKeepAwake } from "expo-keep-awake";
 
@@ -10,6 +10,7 @@ import { firebaseApp } from "@/firebaseConfig";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 
 import RoundButton from "@/components/RoundButton";
+import Styles from "@/constants/Styles";
 
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, _] = useState(new Audio.Sound());
@@ -112,7 +113,7 @@ export default function ChapterAudio({ chapterAudio }) {
   };
 
   return (
-    <View style={styles.player}>
+    <View style={Styles.buttons}>
       <RoundButton
         name="play"
         onPress={PlayAudio}
@@ -131,12 +132,3 @@ export default function ChapterAudio({ chapterAudio }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  player: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "center",
-    width: "100%",
-  },
-});
