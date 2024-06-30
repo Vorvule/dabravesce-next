@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "23. SDK51 and new Architecture applied",
-    "runtimeVersion": "23",
+    "version": "24. Navigation buttons added",
+    "runtimeVersion": "24",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -22,7 +22,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 23
+      "versionCode": 24
     },
     "web": {
       "bundler": "metro",
