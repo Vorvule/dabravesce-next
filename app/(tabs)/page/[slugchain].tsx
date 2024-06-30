@@ -29,9 +29,9 @@ export default function PageScreen() {
 
   useFocusEffect(
     useCallback(() => {
-      setKeychain(keychain);
-
-      !validSlugchain && router.replace(Page.getUrl(keychain));
+      validSlugchain
+        ? setKeychain(keychain)
+        : router.replace(Page.getUrl(keychain));
     }, [keychain])
   );
 
