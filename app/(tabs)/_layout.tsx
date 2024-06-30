@@ -73,7 +73,7 @@ const style = StyleSheet.create({
           }}
         />
         <Tabs.Screen
-          name="sources"
+          name="menu"
           options={{
             title: "Крыніцы",
             tabBarIcon: ({ color, focused }) => (
@@ -85,9 +85,9 @@ const style = StyleSheet.create({
           }}
         />
         <Tabs.Screen
-          name="content/[url]"
+          name="page/[slugchain]"
           options={{
-            title: "Змест",
+            title: "Старонка",
             // tabBarItemStyle: style.lastTabBarItem,
             tabBarIcon: ({ color, focused }) => (
               <TabBarIcon

@@ -7,14 +7,14 @@ import ChapterName from "./chapter/ChapterName";
 import ChapterAudio from "./chapter/ChapterAudio";
 import ChapterText from "./chapter/ChaptertText";
 
-import Content from "@/functions/Content";
-import PageNavigation from "./PageNavigation";
+import Page from "@/functions/Page";
+import ChapterNavigation from "./chapter/ChapterNavigation";
 
 import Styles from "@/constants/Styles";
 
 export default function PageContent({ keychain }) {
   const { albumName, bookName, chapter } = useMemo(
-    () => Content.getContent(keychain),
+    () => Page.getContent(keychain),
     [keychain]
   );
 
@@ -31,10 +31,9 @@ export default function PageContent({ keychain }) {
       {chapter.audio && <ChapterAudio chapterAudio={chapter.audio} />}
 
       <ChapterName>{chapter.name}</ChapterName>
-
       <ChapterText chapterText={chapter.text} />
 
-      <PageNavigation keychain={keychain} />
+      <ChapterNavigation keychain={keychain} />
     </ThemedView>
   );
 }

@@ -3,11 +3,11 @@ import { Link } from "expo-router";
 import Menu from "@/functions/Menu";
 import ThemedText from "@/components/ThemedText";
 
-import Content from "../../functions/Content";
+import Page from "../../functions/Page";
 import Styles from "@/constants/Styles";
 
 export default function ChapterListItem({ chapter, keys }) {
-  const сontentUrl = Content.getUrl(keys);
+  const сontentUrl = Page.getUrl(keys);
   const chapterName = Menu.clearText(chapter.name);
 
   const linkStyle = [Styles.border, Styles.padded];

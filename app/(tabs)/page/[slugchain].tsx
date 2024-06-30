@@ -3,35 +3,35 @@ import { Image } from "react-native";
 import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 
 import ParallaxScrollView from "@/components/ParallaxScrollView";
-import PageContent from "@/app_screens/content/PageContent";
+import PageContent from "@/app_screens/page/PageContent";
 
 import headerBackgroundColor from "@/constants/HeaderColors";
 import Styles from "@/constants/Styles";
 import GlobalContext from "@/contexts/GlobalContext";
-import Content from "@/functions/Content";
+import Page from "@/functions/Page";
 import Device from "@/functions/Device";
 
 const dark = "@/assets/images/logos/book-dark.png";
 const light = "@/assets/images/logos/book.png";
 
-export default function SourceScreen() {
+export default function PageScreen() {
   const imageSource = Device.themeIsDark() ? require(dark) : require(light);
 
-  const { setKeychain, dailyKeychain } = useContext(GlobalContext);
+  const slugchain: string = useLocalSearchParams().slugchain as string;
+  const validSlugchain: boolean = Page.slugchainValid(slugchain);
 
-  const { url } = useLocalSearchParams();
-  const urlIsValid: boolean = Content.urlIsValid(url as string);
+  const { dailyKeychain, setKeychain } = useContext(GlobalContext);
 
   const keychain: number[] = useMemo(
-    () => (urlIsValid ? Content.getKeychain(url as string) : dailyKeychain),
-    [url]
+    () => (validSlugchain ? Page.getKeychain(slugchain) : dailyKeychain),
+    [slugchain]
   );
 
   useFocusEffect(
     useCallback(() => {
       setKeychain(keychain);
 
-      !urlIsValid && router.replace(Content.getUrl(keychain));
+      !validSlugchain && router.replace(Page.getUrl(keychain));
     }, [keychain])
   );
 

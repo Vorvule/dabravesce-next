@@ -6,13 +6,13 @@ const createSitemap = () => {
   let path = "";
   urlSet += getUrlLoc(path);
 
-  path = "/sources";
+  path = "/menu";
   urlSet += getUrlLoc(path);
 
   AppSources.map((album) => {
     album.text.map((book) => {
       book.text.map((chapter) => {
-        path = "/content/" + [album.slug, book.slug, chapter.slug].join("~");
+        path = "/page/" + [album.slug, book.slug, chapter.slug].join("~");
         urlSet += getUrlLoc(path);
       });
     });

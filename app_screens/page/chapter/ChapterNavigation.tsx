@@ -1,18 +1,18 @@
 import { View } from "react-native";
 import { router } from "expo-router";
 
-import Content from "@/functions/Content";
+import Page from "@/functions/Page";
 import RoundButton from "@/components/RoundButton";
 import Styles from "@/constants/Styles";
 
-function PageNavigation({ keychain }: { keychain: number[] }) {
+function ChapterNavigation({ keychain }: { keychain: number[] }) {
   const backKeychain: number[] = [keychain[0], keychain[1], keychain[2] - 1];
-  const backEnabled: boolean = Content.keychainIsValid(backKeychain);
-  const back = () => backEnabled && router.push(Content.getUrl(backKeychain));
+  const backEnabled: boolean = Page.keychainValid(backKeychain);
+  const back = () => backEnabled && router.push(Page.getUrl(backKeychain));
 
   const nextKeychain: number[] = [keychain[0], keychain[1], keychain[2] + 1];
-  const nextEnabled: boolean = Content.keychainIsValid(nextKeychain);
-  const next = () => nextEnabled && router.push(Content.getUrl(nextKeychain));
+  const nextEnabled: boolean = Page.keychainValid(nextKeychain);
+  const next = () => nextEnabled && router.push(Page.getUrl(nextKeychain));
 
   return (
     <View style={Styles.buttons}>
@@ -22,4 +22,4 @@ function PageNavigation({ keychain }: { keychain: number[] }) {
   );
 }
 
-export default PageNavigation;
+export default ChapterNavigation;
