@@ -20,7 +20,7 @@ export default function PageScreen() {
   const slugchain: string = useLocalSearchParams().slugchain as string;
   const validSlugchain: boolean = Page.slugchainValid(slugchain);
 
-  const { dailyKeychain, setKeychain } = useContext(GlobalContext);
+  const { dailyKeychain, updateKeychain } = useContext(GlobalContext);
 
   const keychain: number[] = useMemo(
     () => (validSlugchain ? Page.getKeychain(slugchain) : dailyKeychain),
@@ -30,7 +30,7 @@ export default function PageScreen() {
   useFocusEffect(
     useCallback(() => {
       validSlugchain
-        ? setKeychain(keychain)
+        ? updateKeychain(keychain)
         : router.replace(Page.getUrl(keychain));
     }, [keychain])
   );

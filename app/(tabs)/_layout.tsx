@@ -20,6 +20,9 @@ export default function TabLayout() {
   const dailyKeychain = Daily.getDailyKeychain();
 
   const [keychain, setKeychain] = useState(dailyKeychain);
+  const updateKeychain = (newKeychain: number[]) => setKeychain(newKeychain);
+
+  const contextValue = { keychain, updateKeychain, dailyKeychain };
 
   const style = StyleSheet.create({
     tabBarItem: {
@@ -37,13 +40,7 @@ export default function TabLayout() {
   });
 
   return (
-    <GlobalContext.Provider
-      value={{
-        keychain,
-        setKeychain,
-        dailyKeychain,
-      }}
-    >
+    <GlobalContext.Provider value={contextValue}>
       <Tabs
         screenOptions={{
           tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
