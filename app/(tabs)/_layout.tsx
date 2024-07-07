@@ -11,11 +11,10 @@ import GlobalContext from "@/contexts/GlobalContext";
 import Daily from "@/functions/Daily";
 import Device from "@/functions/Device";
 import { StyleSheet } from "react-native";
+import Icon from "@/functions/TabBar";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  // const activeTintColor: string = Colors[colorScheme ?? "light"].tint;
-  // console.log(activeTintColor);
 
   const dailyKeychain = Daily.getDailyKeychain();
 
@@ -25,35 +24,37 @@ export default function TabLayout() {
   const contextValue = { keychain, updateKeychain, dailyKeychain };
 
   const style = StyleSheet.create({
+    tabBar: {
+      borderTopColor: "grey",
+      borderRightWidth: 1,
+      borderTopRightRadius: 8,
+    },
     tabBarItem: {
       borderRightColor: "grey",
       borderRightWidth: 1,
       borderBottomRightRadius: 8,
       borderTopRightRadius: 8,
     },
-    // Added:
-    tabBar: {
-      borderTopColor: "grey",
-      borderRightWidth: 1,
-      borderTopRightRadius: 8,
+    tabBarLabel: {
+      fontFamily: "SofiaSemiBold",
+      fontSize: Device.wideScreen() ? 17 : 11,
+      // color: "#444444"
     },
   });
+
+  const tabBarActiveTintColor = Colors[colorScheme ?? "light"].tint;
 
   return (
     <GlobalContext.Provider value={contextValue}>
       <Tabs
         screenOptions={{
-          tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+          headerShown: false,
+          tabBarStyle: style.tabBar,
+          tabBarItemStyle: style.tabBarItem,
+          tabBarLabelStyle: style.tabBarLabel,
+          tabBarActiveTintColor: tabBarActiveTintColor,
           //   tabBarInactiveBackgroundColor:
           //   Colors[colorScheme ?? "light"].background,
-          tabBarItemStyle: style.tabBarItem,
-          tabBarStyle: style.tabBar,
-          headerShown: false,
-          tabBarLabelStyle: {
-            fontFamily: "SofiaSemiBold",
-            fontSize: Device.wideScreen() ? 17 : 11,
-            // color: "#444444"
-          },
         }}
       >
         <Tabs.Screen
@@ -61,10 +62,7 @@ export default function TabLayout() {
           options={{
             title: "Дабравесце",
             tabBarIcon: ({ color, focused }) => (
-              <TabBarIcon
-                name={focused ? "notifications" : "notifications-outline"}
-                color={color}
-              />
+              <TabBarIcon name={Icon.getName("index", focused)} color={color} />
             ),
           }}
         />
@@ -73,10 +71,7 @@ export default function TabLayout() {
           options={{
             title: "Крыніцы",
             tabBarIcon: ({ color, focused }) => (
-              <TabBarIcon
-                name={focused ? "library" : "library-outline"}
-                color={color}
-              />
+              <TabBarIcon name={Icon.getName("menu", focused)} color={color} />
             ),
           }}
         />
@@ -86,10 +81,7 @@ export default function TabLayout() {
             title: "Старонка",
             // tabBarItemStyle: style.lastTabBarItem,
             tabBarIcon: ({ color, focused }) => (
-              <TabBarIcon
-                name={focused ? "book" : "book-outline"}
-                color={color}
-              />
+              <TabBarIcon name={Icon.getName("", focused)} color={color} />
             ),
           }}
         />
