@@ -15,6 +15,7 @@ import Icon from "@/functions/TabBar";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const colors = Colors[colorScheme ?? "light"];
 
   const dailyKeychain = Daily.getDailyKeychain();
 
@@ -42,8 +43,6 @@ export default function TabLayout() {
     },
   });
 
-  const tabBarActiveTintColor = Colors[colorScheme ?? "light"].tint;
-
   return (
     <GlobalContext.Provider value={contextValue}>
       <Tabs
@@ -52,7 +51,8 @@ export default function TabLayout() {
           tabBarStyle: style.tabBar,
           tabBarItemStyle: style.tabBarItem,
           tabBarLabelStyle: style.tabBarLabel,
-          tabBarActiveTintColor: tabBarActiveTintColor,
+          tabBarActiveTintColor: colors.link,
+          tabBarInactiveTintColor: "#777777"
           //   tabBarInactiveBackgroundColor:
           //   Colors[colorScheme ?? "light"].background,
         }}

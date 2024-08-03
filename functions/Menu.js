@@ -5,7 +5,7 @@ import useThemeColor from "@/hooks/useThemeColor";
 
 export default class Menu {
   static getColor(keys) {
-    const color = useThemeColor({}, "tint");
+    const color = useThemeColor({}, "link");
 
     return this.keysAreActive(keys) ? { color } : {};
   }
