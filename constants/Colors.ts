@@ -2,7 +2,8 @@
  * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
  */
 
-const tintColorDark = "#FDEBD0";
+const peach = "#FDEBD0";
+const sandy = "#FCF3CF"
 
 const Colors = {
   light: {
@@ -17,11 +18,11 @@ const Colors = {
   dark: {
     text: "white",
     background: "black",
-    title: tintColorDark,
-    subtitle: "#FCF3CF",
-    header: tintColorDark,
-    link: "olive",
-    button: "#DDDDDD",
+    title: peach,
+    subtitle: sandy,
+    header: "beige",
+    link: "bisque",
+    grey: "#BBBBBB",
   },
 };
 

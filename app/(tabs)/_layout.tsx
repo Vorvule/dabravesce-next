@@ -1,21 +1,19 @@
 import { useState } from "react";
+import { StyleSheet } from "react-native";
 import { Tabs } from "expo-router";
 
-import { useColorScheme } from "@/hooks/useColorScheme";
-
-import Colors from "@/constants/Colors";
+import useThemeColor from "@/hooks/useThemeColor";
 import TabBarIcon from "@/components/navigation/TabBarIcon";
-
 import GlobalContext from "@/contexts/GlobalContext";
 
 import Daily from "@/functions/Daily";
 import Device from "@/functions/Device";
-import { StyleSheet } from "react-native";
 import Icon from "@/functions/TabBar";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  const colors = Colors[colorScheme ?? "light"];
+  const linkColor = useThemeColor({}, "link");
+  const greyColor = useThemeColor({}, "grey");
+  const backgroundColor = useThemeColor({}, "background");  
 
   const dailyKeychain = Daily.getDailyKeychain();
 
@@ -26,20 +24,23 @@ export default function TabLayout() {
 
   const style = StyleSheet.create({
     tabBar: {
-      borderTopColor: "grey",
-      borderRightWidth: 1,
-      borderTopRightRadius: 8,
+      borderTopWidth: 0,
+      borderRightWidth: 0,
+      backgroundColor: backgroundColor,
     },
     tabBarItem: {
+      borderTopWidth: 2,
+      borderTopColor: "grey",
+      borderRightWidth: 2,
       borderRightColor: "grey",
-      borderRightWidth: 1,
-      borderBottomRightRadius: 8,
       borderTopRightRadius: 8,
+      borderBottomRightRadius: 8,
+      borderLeftWidth: 2,
+      backgroundColor: backgroundColor,
     },
     tabBarLabel: {
       fontFamily: "SofiaSemiBold",
       fontSize: Device.wideScreen() ? 17 : 11,
-      // color: "#444444"
     },
   });
 
@@ -51,10 +52,8 @@ export default function TabLayout() {
           tabBarStyle: style.tabBar,
           tabBarItemStyle: style.tabBarItem,
           tabBarLabelStyle: style.tabBarLabel,
-          tabBarActiveTintColor: colors.link,
-          tabBarInactiveTintColor: "#777777"
-          //   tabBarInactiveBackgroundColor:
-          //   Colors[colorScheme ?? "light"].background,
+          tabBarActiveTintColor: linkColor,
+          tabBarInactiveTintColor: greyColor,
         }}
       >
         <Tabs.Screen
