@@ -36,6 +36,7 @@ export default function TabLayout() {
       borderTopRightRadius: 8,
       borderBottomRightRadius: 8,
       borderLeftWidth: 2,
+      borderLeftColor: backgroundColor,
       backgroundColor: backgroundColor,
     },
     tabBarLabel: {
