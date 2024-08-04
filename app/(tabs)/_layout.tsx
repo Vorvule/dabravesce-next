@@ -13,7 +13,7 @@ import Icon from "@/functions/TabBar";
 export default function TabLayout() {
   const linkColor = useThemeColor({}, "link");
   const greyColor = useThemeColor({}, "grey");
-  const backgroundColor = useThemeColor({}, "background");  
+  const backgroundColor = useThemeColor({}, "background");
 
   const dailyKeychain = Daily.getDailyKeychain();
 
@@ -41,7 +41,7 @@ export default function TabLayout() {
     },
     tabBarLabel: {
       fontFamily: "SofiaSemiBold",
-      fontSize: Device.wideScreen() ? 17 : 11,
+      fontSize: Device.windowIsWide() ? 17 : 11,
     },
   });
 

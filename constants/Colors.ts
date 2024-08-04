@@ -1,8 +1,6 @@
 /**
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
+ * Other ways to style app: [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
  */
-
-const sandy = "#FCF3CF"
 
 const Colors = {
   light: {
@@ -11,7 +9,7 @@ const Colors = {
     title: "darkslategrey",
     subtitle: "slategrey",
     header: "lightslategrey",
-    link: "darkslategrey", // darkslategrey tint
+    link: "darkslategrey",
     grey: "#888888",
   },
   dark: {
@@ -20,7 +18,7 @@ const Colors = {
     title: "bisque",
     subtitle: "oldlace",
     header: "beige",
-    link: "lemonchiffon",
+    link: "bisque",
     grey: "#BBBBBB",
   },
 };
