@@ -1,22 +1,37 @@
 import Page from "./Page";
 
 export default class Web {
-  private static getTitle(pathname: string, keychain: number[]): string {
-    console.log("getTitle pathname", pathname);
-    console.log("getTitle keychain", keychain);
-    
+  public static getTitle(pathname: string): string {
     switch (pathname) {
       case "/":
-        return "Галоўная";
+        return "Дабравесце ~ Галоўная";
       case "/menu":
-        return "Крыніцы";
+        return "Дабравесце ~ Крыніцы";
       default:
-        const { albumName, bookName, chapter } = Page.getContent(keychain);
-        return /*albumName + " ~ " +*/ bookName + " ~ " + chapter.name;
+        return "Дабравесце";
     }
   }
 
-  public static getPageTitle(pathname: string, keychain: number[]): string {
-    return /*"Дабравесце ~ " +*/ this.getTitle(pathname, keychain);
+  public static getPageTitle(keychain: number[]): string {
+    const { albumName, bookName, chapter } = Page.getContent(keychain);
+
+    return [chapter.name, bookName, albumName].join(" ~ ");
+  }
+
+  public static getDescription(pathname: string): string {
+    switch (pathname) {
+      case "/":
+        return "Дабравесце ~ Біблія, Малітоўнік і іншыя крыніцы духоўнага жыцця ~ Беларуская Праваслаўная Царква ~ Хрысціянства, Ісус Хрыстос ~ Галоўная";
+      case "/menu":
+        return "Дабравесце ~ Евангелле, Кнігі Апосталаў, Псалтыр, Малітоўнік, Акафісты, Богаслужэнні, Хрысціянскія кнігі і Пабожныя спевы ~ Змест";
+      default:
+        return "Дабравесце ~ Біблія, Малітоўнік і іншыя крыніцы духоўнага жыцця";
+    }
+  }
+
+  public static getPageDescription(keychain: number[]): string {
+    const { albumName, bookName, chapter } = Page.getContent(keychain);
+
+    return ["Дабравесце", albumName, bookName, chapter.name].join(" ~ ");
   }
 }

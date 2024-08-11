@@ -3,7 +3,7 @@ import KeychainMap from "@/functions/mapping/KeychainMap";
 import AppSources from "@/assets/albums/AppSources";
 
 export default class Page {
-  static getUrl(keychain: number[]): string {
+  static getUrl(keychain: number[]): any {
     return "page/" + KeychainMap[keychain.join("~")];
   }
 
