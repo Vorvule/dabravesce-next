@@ -9,8 +9,12 @@ export default class Device {
     return this.platformIsWeb() ? "сайта" : "дачынення";
   }
 
-  static wideScreen(): boolean {
-    return Dimensions.get("screen").width > 799;
+  static windowIsWide(): boolean {
+    return this.getWindowWidth() > 800;
+  }
+
+  static getWindowWidth(): number {
+    return Dimensions.get("window").width;
   }
 
   static themeIsDark(): boolean {

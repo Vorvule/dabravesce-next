@@ -1,62 +1,60 @@
 import { useState } from "react";
+import { StyleSheet } from "react-native";
 import { Tabs } from "expo-router";
 
-import { useColorScheme } from "@/hooks/useColorScheme";
-
-import Colors from "@/constants/Colors";
+import useThemeColor from "@/hooks/useThemeColor";
 import TabBarIcon from "@/components/navigation/TabBarIcon";
-
 import GlobalContext from "@/contexts/GlobalContext";
 
 import Daily from "@/functions/Daily";
 import Device from "@/functions/Device";
-import { StyleSheet } from "react-native";
+import Icon from "@/functions/TabBar";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  // const activeTintColor: string = Colors[colorScheme ?? "light"].tint;
-  // console.log(activeTintColor);
+  const linkColor = useThemeColor({}, "link");
+  const greyColor = useThemeColor({}, "grey");
+  const backgroundColor = useThemeColor({}, "background");
 
   const dailyKeychain = Daily.getDailyKeychain();
 
   const [keychain, setKeychain] = useState(dailyKeychain);
+  const updateKeychain = (newKeychain: number[]) => setKeychain(newKeychain);
+
+  const contextValue = { keychain, updateKeychain, dailyKeychain };
 
   const style = StyleSheet.create({
-    tabBarItem: {
-      borderRightColor: "grey",
-      borderRightWidth: 1,
-      borderBottomRightRadius: 8,
-      borderTopRightRadius: 8,
-    },
-    // Added:
     tabBar: {
+      borderTopWidth: 0,
+      borderRightWidth: 0,
+      backgroundColor: backgroundColor,
+    },
+    tabBarItem: {
+      borderTopWidth: 2,
       borderTopColor: "grey",
-      borderRightWidth: 1,
+      borderRightWidth: 2,
+      borderRightColor: "grey",
       borderTopRightRadius: 8,
+      borderBottomRightRadius: 8,
+      borderLeftWidth: 2,
+      borderLeftColor: backgroundColor,
+      backgroundColor: backgroundColor,
+    },
+    tabBarLabel: {
+      fontFamily: "SofiaSemiBold",
+      fontSize: Device.windowIsWide() ? 17 : 11,
     },
   });
 
   return (
-    <GlobalContext.Provider
-      value={{
-        keychain,
-        setKeychain,
-        dailyKeychain,
-      }}
-    >
+    <GlobalContext.Provider value={contextValue}>
       <Tabs
         screenOptions={{
-          tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-          //   tabBarInactiveBackgroundColor:
-          //   Colors[colorScheme ?? "light"].background,
-          tabBarItemStyle: style.tabBarItem,
-          tabBarStyle: style.tabBar,
           headerShown: false,
-          tabBarLabelStyle: {
-            fontFamily: "SofiaSemiBold",
-            fontSize: Device.wideScreen() ? 17 : 11,
-            // color: "#444444"
-          },
+          tabBarStyle: style.tabBar,
+          tabBarItemStyle: style.tabBarItem,
+          tabBarLabelStyle: style.tabBarLabel,
+          tabBarActiveTintColor: linkColor,
+          tabBarInactiveTintColor: greyColor,
         }}
       >
         <Tabs.Screen
@@ -64,10 +62,7 @@ export default function TabLayout() {
           options={{
             title: "Дабравесце",
             tabBarIcon: ({ color, focused }) => (
-              <TabBarIcon
-                name={focused ? "notifications" : "notifications-outline"}
-                color={color}
-              />
+              <TabBarIcon name={Icon.getName("index", focused)} color={color} />
             ),
           }}
         />
@@ -76,10 +71,7 @@ export default function TabLayout() {
           options={{
             title: "Крыніцы",
             tabBarIcon: ({ color, focused }) => (
-              <TabBarIcon
-                name={focused ? "library" : "library-outline"}
-                color={color}
-              />
+              <TabBarIcon name={Icon.getName("menu", focused)} color={color} />
             ),
           }}
         />
@@ -89,10 +81,7 @@ export default function TabLayout() {
             title: "Старонка",
             // tabBarItemStyle: style.lastTabBarItem,
             tabBarIcon: ({ color, focused }) => (
-              <TabBarIcon
-                name={focused ? "book" : "book-outline"}
-                color={color}
-              />
+              <TabBarIcon name={Icon.getName("", focused)} color={color} />
             ),
           }}
         />

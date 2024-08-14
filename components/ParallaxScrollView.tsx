@@ -4,7 +4,7 @@ import {
   type PropsWithChildren,
   type ReactElement,
 } from "react";
-import { StyleSheet, useColorScheme } from "react-native";
+import { StyleSheet } from "react-native";
 
 import Animated, {
   interpolate,
@@ -17,6 +17,7 @@ import Animated, {
 import ThemedView from "@/components/ThemedView";
 import Device from "@/functions/Device";
 import GlobalContext from "@/contexts/GlobalContext";
+import useThemeColor from "@/hooks/useThemeColor";
 
 const HEADER_HEIGHT = 200;
 
@@ -28,9 +29,20 @@ type Props = PropsWithChildren<{
 export default function ParallaxScrollView({
   children,
   headerImage,
-  headerBackgroundColor,
 }: Props) {
-  const colorScheme = useColorScheme() ?? "light";
+  const windowIsWide = Device.windowIsWide();
+  const width = windowIsWide ? 800 : Device.getWindowWidth();
+
+  const backgroundColor = useThemeColor({}, "background");
+
+  const styles = StyleSheet.create({
+    container: { flex: 1, flexDirection: "row" },
+    middleColumn: { width: width },
+    sideColumn: { flex: 1 },
+    header: { height: HEADER_HEIGHT, overflow: "hidden", backgroundColor: backgroundColor },
+    content: { flex: 1, padding: 24, gap: 16, overflow: "hidden" },
+  });
+
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
   const scrollOffset = useScrollViewOffset(scrollRef);
 
@@ -55,41 +67,25 @@ export default function ParallaxScrollView({
     };
   });
 
-  const viewColor = { backgroundColor: headerBackgroundColor[colorScheme] };
-  const viewStyle = [styles.header, viewColor, headerAnimatedStyle];
+  const AnimatedViewStyle = [styles.header, headerAnimatedStyle];
 
   const { keychain }: { keychain: number[] } = useContext(GlobalContext);
   useMemo(() => scrollTo(scrollRef, 0, 0, true), [keychain]);
 
   return (
     <ThemedView style={styles.container}>
-      <Animated.ScrollView
-        ref={scrollRef}
-        scrollEventThrottle={16}
-        showsVerticalScrollIndicator={!Device.wideScreen()}
-      >
-        <Animated.View style={viewStyle}>{headerImage}</Animated.View>
-        <ThemedView style={styles.content}>{children}</ThemedView>
-      </Animated.ScrollView>
+      {windowIsWide && <ThemedView style={styles.sideColumn} />}
+      <ThemedView style={styles.middleColumn}>
+        <Animated.ScrollView
+          ref={scrollRef}
+          scrollEventThrottle={16}
+          showsVerticalScrollIndicator={!windowIsWide}
+        >
+          <Animated.View style={AnimatedViewStyle}>{headerImage}</Animated.View>
+          <ThemedView style={styles.content}>{children}</ThemedView>
+        </Animated.ScrollView>
+      </ThemedView>
+      {windowIsWide && <ThemedView style={styles.sideColumn} />}
     </ThemedView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    maxWidth: 800,
-    width: "100%",
-    alignSelf: "center",
-  },
-  header: {
-    height: HEADER_HEIGHT,
-    overflow: "hidden",
-  },
-  content: {
-    flex: 1,
-    padding: 24, // 32
-    gap: 16,
-    overflow: "hidden",
-  },
-});

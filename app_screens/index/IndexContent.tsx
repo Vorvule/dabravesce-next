@@ -16,7 +16,7 @@ import Page from "@/functions/Page";
 export default function IndexContent() {
   // mapSources();
 
-  const linkTextColor = useThemeColor({}, "tint");
+  const linkTextColor = useThemeColor({}, "link");
   const linkTextStyle = { color: linkTextColor, fontFamily: "SofiaSemiBold" };
 
   const { dailyKeychain } = useContext(GlobalContext);
