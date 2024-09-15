@@ -69,7 +69,7 @@ export default function ParallaxScrollView({
 
   const AnimatedViewStyle = [styles.header, headerAnimatedStyle];
 
-  const { keychain }: { keychain: number[] } = useContext(GlobalContext);
+  const { keychain } = useContext(GlobalContext);
   useMemo(() => scrollTo(scrollRef, 0, 0, true), [keychain]);
 
   return (
