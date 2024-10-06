@@ -5,7 +5,7 @@ import { Matthew } from "./Matthew";
 
 export const gospels = {
   slug: "gospels",
-  name: "Евангелле",
+  name: "Евангеллі",
   text: [
     {
       slug: "matthew",

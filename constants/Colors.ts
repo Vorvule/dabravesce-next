@@ -14,14 +14,14 @@ const Colors = {
     text: darkColor,
     background: lightColor,
     primary: "#2b506e", // steelblue
-    link: "#4078a5", // steelblue
+    link: "#396a93", // steelblue
     grey: "#666666",
   },
   dark: {
     text: lightColor,
     background: darkColor,
     primary: "bisque",
-    link: "beige", // teal oldlace
+    link: "beige", // oldlace
     grey: "#BBBBBB",
   },
 };

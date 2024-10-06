@@ -39,7 +39,7 @@ export default function ThemedText({
     },
     link: {
       fontFamily: "Sofia",
-      fontSize: 20,
+      fontSize: 19,
     },
     default: {
       fontFamily: "Sofia",
