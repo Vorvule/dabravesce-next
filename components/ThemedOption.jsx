@@ -7,7 +7,7 @@ import Styles from "../constants/Styles";
 export default function ThemedOption({ children, color, onPress }) {
   return (
     <Pressable onPress={onPress} style={Styles.border}>
-      <ThemedText type="default" style={[Styles.padded, color]}>
+      <ThemedText type="link" style={[Styles.padded, color]}>
         {children}
       </ThemedText>
     </Pressable>

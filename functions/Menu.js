@@ -5,9 +5,10 @@ import { ColorTheme } from "./ColorTheme";
 
 export default class Menu {
   static getColor(keys) {
-    const color = ColorTheme.getColor("link");
+    const linkColor = ColorTheme.getColor("link");
+    const linkStyle = { color: linkColor };
 
-    return this.keysAreActive(keys) ? { color } : {};
+    return this.keysAreActive(keys) ? linkStyle : {};
   }
 
   static keysAreActive(keys) {

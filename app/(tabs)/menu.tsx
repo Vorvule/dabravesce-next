@@ -9,7 +9,6 @@ import AppSources from "@/assets/albums/AppSources";
 import AlbumList from "@/app_screens/menu/AlbumList";
 import Device from "@/functions/Device";
 
-import headerBackgroundColor from "@/constants/HeaderColors";
 import Styles from "@/constants/Styles";
 import { usePathname } from "expo-router";
 import Web from "@/functions/Web";
@@ -19,6 +18,7 @@ const light = "@/assets/images/logos/books.png";
 
 export default function MenuScreen() {
   const imageSource = Device.themeIsDark() ? require(dark) : require(light);
+  const headerImage = <Image source={imageSource} style={Styles.image} />;
 
   const path = usePathname();
 
@@ -29,12 +29,9 @@ export default function MenuScreen() {
         <meta name="description" content={Web.getDescription(path)} />
       </Head>
 
-      <ParallaxScrollView
-        headerBackgroundColor={headerBackgroundColor}
-        headerImage={<Image source={imageSource} style={Styles.image} />}
-      >
+      <ParallaxScrollView headerImage={headerImage}>
         <ThemedText type="title">Дабравесце</ThemedText>
-        <ThemedText type="subtitle" style={Styles.centered}>
+        <ThemedText style={[Styles.centered, { fontSize: 22 }]}>
           Крыніцы
         </ThemedText>
 

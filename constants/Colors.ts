@@ -13,23 +13,17 @@ const Colors = {
   light: {
     text: darkColor,
     background: lightColor,
-    title: "saddlebrown",
-    subtitle: "darkslategrey",
-    header: "darkslategrey",
-    link: "saddlebrown",
+    primary: "#2b506e", // steelblue
+    link: "#4078a5", // steelblue
     grey: "#666666",
   },
   dark: {
     text: lightColor,
     background: darkColor,
-    title: "bisque",
-    subtitle: "oldlace",
-    header: "oldlace",
-    link: "bisque",
+    primary: "bisque",
+    link: "beige", // teal oldlace
     grey: "#BBBBBB",
   },
-  lightColor: "#EEEEEE",
-  darkColor: "#111111",
 };
 
 export default Colors;

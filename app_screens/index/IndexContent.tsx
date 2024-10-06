@@ -24,7 +24,7 @@ export default function IndexContent() {
   return (
     <>
       <ThemedView>
-        <ThemedText type="title">Хрыстос уваскрос!</ThemedText>
+        <ThemedText type="title">Мір вам!</ThemedText>
       </ThemedView>
 
       <ThemedView style={Styles.paragraph}>

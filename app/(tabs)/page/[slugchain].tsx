@@ -6,7 +6,6 @@ import Head from "expo-router/head";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import PageContent from "@/app_screens/page/PageContent";
 
-import headerBackgroundColor from "@/constants/HeaderColors";
 import Styles from "@/constants/Styles";
 import GlobalContext from "@/contexts/GlobalContext";
 
@@ -19,6 +18,7 @@ const light = "@/assets/images/logos/book.png";
 
 export default function PageScreen() {
   const imageSource = Device.themeIsDark() ? require(dark) : require(light);
+  const headerImage = <Image source={imageSource} style={Styles.image} />;
 
   const slugchain: string = useLocalSearchParams().slugchain as string;
   const validSlugchain: boolean = Page.slugchainValid(slugchain);
@@ -45,10 +45,7 @@ export default function PageScreen() {
         <meta name="description" content={Web.getPageDescription(keychain)} />
       </Head>
 
-      <ParallaxScrollView
-        headerBackgroundColor={headerBackgroundColor}
-        headerImage={<Image source={imageSource} style={Styles.image} />}
-      >
+      <ParallaxScrollView headerImage={headerImage}>
         <PageContent keychain={keychain} />
       </ParallaxScrollView>
     </>
