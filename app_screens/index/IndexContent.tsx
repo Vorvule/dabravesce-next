@@ -7,16 +7,16 @@ import ThemedView from "@/components/ThemedView";
 import GlobalContext from "@/contexts/GlobalContext";
 import Device from "@/functions/Device";
 
-import useThemeColor from "@/hooks/useThemeColor";
 import Styles from "@/constants/Styles";
 import Page from "@/functions/Page";
+import { ColorTheme } from "@/functions/ColorTheme";
 
 // import mapSources from "@/functions/mapping/SourceMapping"
 
 export default function IndexContent() {
   // mapSources();
 
-  const linkTextColor = useThemeColor({}, "link");
+  const linkTextColor = ColorTheme.getColor("link");
   const linkTextStyle = { color: linkTextColor, fontFamily: "SofiaSemiBold" };
 
   const { dailyKeychain } = useContext(GlobalContext);

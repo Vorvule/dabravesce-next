@@ -28,6 +28,8 @@ const Colors = {
     link: "bisque",
     grey: "#BBBBBB",
   },
+  lightColor: "#EEEEEE",
+  darkColor: "#111111",
 };
 
 export default Colors;

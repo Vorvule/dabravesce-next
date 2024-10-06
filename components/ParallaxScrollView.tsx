@@ -17,7 +17,7 @@ import Animated, {
 import ThemedView from "@/components/ThemedView";
 import Device from "@/functions/Device";
 import GlobalContext from "@/contexts/GlobalContext";
-import useThemeColor from "@/hooks/useThemeColor";
+import { ColorTheme } from "@/functions/ColorTheme";
 
 const HEADER_HEIGHT = 200;
 
@@ -33,7 +33,7 @@ export default function ParallaxScrollView({
   const windowIsWide = Device.windowIsWide();
   const width = windowIsWide ? 800 : Device.getWindowWidth();
 
-  const backgroundColor = useThemeColor({}, "background");
+  const backgroundColor = ColorTheme.getColor("background");
 
   const styles = StyleSheet.create({
     container: { flex: 1, flexDirection: "row" },

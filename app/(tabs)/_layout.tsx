@@ -2,18 +2,19 @@ import { useState } from "react";
 import { StyleSheet } from "react-native";
 import { Tabs } from "expo-router";
 
-import useThemeColor from "@/hooks/useThemeColor";
 import TabBarIcon from "@/components/navigation/TabBarIcon";
 import GlobalContext from "@/contexts/GlobalContext";
+
+import { ColorTheme } from "@/functions/ColorTheme";
 
 import Daily from "@/functions/Daily";
 import Device from "@/functions/Device";
 import Icon from "@/functions/TabBar";
 
 export default function TabLayout() {
-  const linkColor = useThemeColor({}, "link");
-  const greyColor = useThemeColor({}, "grey");
-  const backgroundColor = useThemeColor({}, "background");
+  const linkColor = ColorTheme.getColor("link"); 
+  const greyColor = ColorTheme.getColor("grey");
+  const backgroundColor = ColorTheme.getColor("background");
 
   const dailyKeychain = Daily.getDailyKeychain();
 
