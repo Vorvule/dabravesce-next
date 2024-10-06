@@ -1,17 +1,33 @@
-import { useColorScheme } from "react-native";
-
-import { Colors, Themes } from "../constants/Colors";
+import Colors from "@/constants/Colors";
+import { Appearance } from "react-native";
 
 export class ColorTheme {
-  static value() {
-    return useColorScheme();
+  static getThemeColor(
+    props,
+    colorName
+    //   props: { light?: string; dark?: string },
+    //   colorName: keyof typeof Colors.light & keyof typeof Colors.dark
+  ) {
+    const theme = Appearance.getColorScheme() ?? "dark";
+    const propsColor = props[theme];
+
+    if (propsColor) {
+      return propsColor;
+    } else {
+      return Colors[theme][colorName];
+    }
   }
 
-  static navigationTheme() {
-    return useColorScheme() == "light" ? Themes.lightTheme : Themes.darkTheme;
+  static getColor(
+    colorName
+    // colorName: keyof typeof Colors.light & keyof typeof Colors.dark
+  ) {
+    const theme = Appearance.getColorScheme() ?? "dark";
+
+    return Colors[theme][colorName];
   }
 
-  static iconColor() {
-    return useColorScheme() == "light" ? Colors.darkColor : Colors.lightColor;
+  static getIconColor(enabled) {
+    return enabled ? this.getColor("link") : this.getColor("grey");
   }
 }

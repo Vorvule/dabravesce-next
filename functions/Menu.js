@@ -1,13 +1,14 @@
 import { useContext } from "react";
 
 import GlobalContext from "@/contexts/GlobalContext";
-import useThemeColor from "@/hooks/useThemeColor";
+import { ColorTheme } from "./ColorTheme";
 
 export default class Menu {
   static getColor(keys) {
-    const color = useThemeColor({}, "link");
+    const linkColor = ColorTheme.getColor("link");
+    const linkStyle = { color: linkColor };
 
-    return this.keysAreActive(keys) ? { color } : {};
+    return this.keysAreActive(keys) ? linkStyle : {};
   }
 
   static keysAreActive(keys) {

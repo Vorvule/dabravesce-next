@@ -10,9 +10,9 @@
 
 > npx expo install --fix
 
-- To review and upgrade your dependencies use
+- Fix typescrip issues:
 
-> npx expo install --check
+> Ctrl + Shift + P > Typescript: Restart TS Server
 
 ## Expo Doctor
 

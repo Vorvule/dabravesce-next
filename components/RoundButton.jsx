@@ -1,12 +1,10 @@
 import { Pressable, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-import useThemeColor from "@/hooks/useThemeColor";
+import { ColorTheme } from "@/functions/ColorTheme";
 
 export default function RoundButton({ name, onPress, enabled }) {
-  const link = useThemeColor({}, "link");
-  const grey = useThemeColor({}, "grey");
-  const color = enabled ? link : grey;
+  const iconColor = ColorTheme.getIconColor(enabled);
 
   const styles = StyleSheet.create({
     button: {
@@ -15,7 +13,7 @@ export default function RoundButton({ name, onPress, enabled }) {
       margin: 14,
       borderRadius: 25,
       borderWidth: 2,
-      borderColor: color,
+      borderColor: iconColor,
       alignItems: "center",
       justifyContent: "center",
     },
@@ -23,7 +21,7 @@ export default function RoundButton({ name, onPress, enabled }) {
 
   return (
     <Pressable style={styles.button} onPress={onPress}>
-      <Ionicons name={name} size={24} color={color} style={{}} />
+      <Ionicons name={name} size={24} color={iconColor} style={{}} />
     </Pressable>
   );
 }

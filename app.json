@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "25. Web black theme and SEO enhanced",
-    "runtimeVersion": "24",
+    "version": "26. Appearance enhanced",
+    "runtimeVersion": "26",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -22,7 +22,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 25
+      "versionCode": 26
     },
     "web": {
       "bundler": "metro",

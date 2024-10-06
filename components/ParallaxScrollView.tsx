@@ -17,29 +17,29 @@ import Animated, {
 import ThemedView from "@/components/ThemedView";
 import Device from "@/functions/Device";
 import GlobalContext from "@/contexts/GlobalContext";
-import useThemeColor from "@/hooks/useThemeColor";
+import { ColorTheme } from "@/functions/ColorTheme";
 
 const HEADER_HEIGHT = 200;
 
 type Props = PropsWithChildren<{
   headerImage: ReactElement;
-  headerBackgroundColor: { dark: string; light: string };
 }>;
 
-export default function ParallaxScrollView({
-  children,
-  headerImage,
-}: Props) {
+export default function ParallaxScrollView({ children, headerImage }: Props) {
   const windowIsWide = Device.windowIsWide();
   const width = windowIsWide ? 800 : Device.getWindowWidth();
 
-  const backgroundColor = useThemeColor({}, "background");
+  const backgroundColor = ColorTheme.getColor("background");
 
   const styles = StyleSheet.create({
     container: { flex: 1, flexDirection: "row" },
     middleColumn: { width: width },
     sideColumn: { flex: 1 },
-    header: { height: HEADER_HEIGHT, overflow: "hidden", backgroundColor: backgroundColor },
+    header: {
+      height: HEADER_HEIGHT,
+      overflow: "hidden",
+      backgroundColor: backgroundColor,
+    },
     content: { flex: 1, padding: 24, gap: 16, overflow: "hidden" },
   });
 
@@ -69,7 +69,7 @@ export default function ParallaxScrollView({
 
   const AnimatedViewStyle = [styles.header, headerAnimatedStyle];
 
-  const { keychain }: { keychain: number[] } = useContext(GlobalContext);
+  const { keychain } = useContext(GlobalContext);
   useMemo(() => scrollTo(scrollRef, 0, 0, true), [keychain]);
 
   return (
