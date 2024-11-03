@@ -9,8 +9,8 @@ import PageContent from "@/app_screens/page/PageContent";
 import Styles from "@/constants/Styles";
 import GlobalContext from "@/contexts/GlobalContext";
 
-import Page from "@/functions/Page";
 import Device from "@/functions/Device";
+import Page from "@/functions/Page";
 import Web from "@/functions/Web";
 
 const dark = "@/assets/images/logos/book-dark.png";
@@ -40,10 +40,12 @@ export default function PageScreen() {
 
   return (
     <>
-      <Head>
-        <title>{Web.getPageTitle(keychain)}</title>
-        <meta name="description" content={Web.getPageDescription(keychain)} />
-      </Head>
+      {Device.platformIsWeb() && (
+        <Head>
+          <title>{Web.getPageTitle(keychain)}</title>
+          <meta name="description" content={Web.getPageDescription(keychain)} />
+        </Head>
+      )}
 
       <ParallaxScrollView headerImage={headerImage}>
         <PageContent keychain={keychain} />

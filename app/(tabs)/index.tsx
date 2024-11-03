@@ -1,13 +1,13 @@
 import { Image } from "react-native";
 import { usePathname } from "expo-router";
-import Head from "expo-router/head";
 
 import IndexContent from "@/app_screens/index/IndexContent";
+import MetaData from "@/components/MetaData";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 
-import Styles from "@/constants/Styles";
 import Device from "@/functions/Device";
-import Web from "@/functions/Web";
+
+import Styles from "@/constants/Styles";
 
 const dark = "@/assets/images/logos/church-dark.png";
 const light = "@/assets/images/logos/church.png";
@@ -20,10 +20,7 @@ export default function IndexScreen() {
 
   return (
     <>
-      <Head>
-        <title>{Web.getTitle(path)}</title>
-        <meta name="description" content={Web.getDescription(path)} />
-      </Head>
+      <MetaData path={path} />
 
       <ParallaxScrollView headerImage={headerImage}>
         <IndexContent />

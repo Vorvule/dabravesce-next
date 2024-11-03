@@ -8,7 +8,7 @@ export default class Web {
       case "/menu":
         return "Дабравесце ~ Крыніцы";
       default:
-        return "Дабравесце";
+        return "Дабравесце ~ Змест";
     }
   }
 
