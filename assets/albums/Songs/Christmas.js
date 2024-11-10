@@ -1,6 +1,6 @@
 export const Christmas = [
   {
-    audio: "/audio/song/07.mp3",
+    audio: "songs/07.mp3",
     slug: "yesterday-evening",
     name: "Учора з вячора | Гарм. М. Куліковіч-Шчаглоў",
     text: [
@@ -26,7 +26,7 @@ export const Christmas = [
     ],
   },
   {
-    audio: "/audio/song/08.mp3",
+    audio: "songs/08.mp3",
     slug: "savior-birth",
     name: "Нарадзіўся нам Збавіцель",
     text: [
@@ -54,7 +54,7 @@ export const Christmas = [
     ],
   },
   {
-    audio: "/audio/song/09.mp3",
+    audio: "songs/09.mp3",
     slug: "saint-evening",
     name: "А ў свеце нам | З нот М. Равенскага",
     text: [
@@ -77,7 +77,7 @@ export const Christmas = [
     ],
   },
   {
-    audio: "/audio/song/10.mp3",
+    audio: "songs/10.mp3",
     slug: "sky-earth",
     name: "Неба і зямля | Гарм. М. Куліковіч-Шчаглоў",
     text: [
@@ -109,7 +109,7 @@ export const Christmas = [
     ],
   },
   {
-    audio: "/audio/song/11.mp3",
+    audio: "songs/11.mp3",
     slug: "new-happiness",
     name: "Нова радасць",
     text: [
@@ -135,7 +135,7 @@ export const Christmas = [
     ],
   },
   // {
-  //   audio: "/audio/song/12.mp3",
+  //   audio: "songs/12.mp3",
   //   name: "Скиния златая",
   //   text: [
   //     "Скиния златая, ковчеже завета,",
@@ -162,7 +162,7 @@ export const Christmas = [
   //   ],
   // },
   {
-    audio: "/audio/song/13.mp3",
+    audio: "songs/13.mp3",
     slug: "christ-saviour",
     name: "Хрыстос Збавіцель | Апр. Кіслага",
     text: [

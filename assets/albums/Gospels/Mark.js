@@ -1,6 +1,6 @@
 export const Mark = [
   {
-    audio: "/audio/mark/01.mp3",
+    audio: "gospels/mark/01.mp3",
     slug: "chapter-1",
     name: "Раздзел 1",
     text: [
@@ -52,7 +52,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/02.mp3",
+    audio: "gospels/mark/02.mp3",
     slug: "chapter-2",
     name: "Раздзел 2",
     text: [
@@ -87,7 +87,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/03.mp3",
+    audio: "gospels/mark/03.mp3",
     slug: "chapter-3",
     name: "Раздзел 3",
     text: [
@@ -129,7 +129,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/04.mp3",
+    audio: "gospels/mark/04.mp3",
     slug: "chapter-4",
     name: "Раздзел 4",
     text: [
@@ -177,7 +177,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/05.mp3",
+    audio: "gospels/mark/05.mp3",
     slug: "chapter-5",
     name: "Раздзел 5",
     text: [
@@ -227,7 +227,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/06.mp3",
+    audio: "gospels/mark/06.mp3",
     slug: "chapter-6",
     name: "Раздзел 6",
     text: [
@@ -290,7 +290,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/07.mp3",
+    audio: "gospels/mark/07.mp3",
     slug: "chapter-7",
     name: "Раздзел 7",
     text: [
@@ -334,7 +334,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/08.mp3",
+    audio: "gospels/mark/08.mp3",
     slug: "chapter-8",
     name: "Раздзел 8",
     text: [
@@ -379,7 +379,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/09.mp3",
+    audio: "gospels/mark/09.mp3",
     slug: "chapter-9",
     name: "Раздзел 9",
     text: [
@@ -436,7 +436,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/10.mp3",
+    audio: "gospels/mark/10.mp3",
     slug: "chapter-10",
     name: "Раздзел 10",
     text: [
@@ -495,7 +495,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/11.mp3",
+    audio: "gospels/mark/11.mp3",
     slug: "chapter-11",
     name: "Раздзел 11",
     text: [
@@ -535,7 +535,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/12.mp3",
+    audio: "gospels/mark/12.mp3",
     slug: "chapter-12",
     name: "Раздзел 12",
     text: [
@@ -586,7 +586,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/13.mp3",
+    audio: "gospels/mark/13.mp3",
     slug: "chapter-13",
     name: "Раздзел 13",
     text: [
@@ -630,7 +630,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/14.mp3",
+    audio: "gospels/mark/14.mp3",
     slug: "chapter-14",
     name: "Раздзел 14",
     text: [
@@ -709,7 +709,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/15.mp3",
+    audio: "gospels/mark/15.mp3",
     slug: "chapter-15",
     name: "Раздзел 15",
     text: [
@@ -763,7 +763,7 @@ export const Mark = [
     ],
   },
   {
-    audio: "/audio/mark/16.mp3",
+    audio: "gospels/mark/16.mp3",
     slug: "chapter-16",
     name: "Раздзел 16",
     text: [

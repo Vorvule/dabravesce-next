@@ -1,6 +1,6 @@
 export const Liturgy = [
   {
-    audio: "/audio/pray/liturgy.mp3",
+    audio: "divine/liturgy.mp3",
     slug: "liturgy",
     name: "Бажэственная літургія Свяціцеля Іаана Златавустага",
     text: [
@@ -363,8 +363,8 @@ export const Liturgy = [
     ],
   },
   {
-    audio: "/audio/pray/moleben.mp3",
-    slug: "rogation",
+    audio: "divine/litany.mp3",
+    slug: "litany",
     name: "Малебен",
     text: [
       "Дыякан: Благаславі, уладыка.",
@@ -464,7 +464,7 @@ export const Liturgy = [
     ],
   },
   {
-    audio: "/audio/pray/requiem.mp3",
+    audio: "divine/requiem.mp3",
     slug: "requiem",
     name: "Паніхіда",
     text: [

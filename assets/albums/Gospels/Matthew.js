@@ -1,6 +1,6 @@
 export const Matthew = [
   {
-    audio: "/audio/matt/01.mp3",
+    audio: "gospels/matt/01.mp3",
     slug: "chapter-1",
     name: "Раздзел 1",
     text: [
@@ -32,7 +32,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/02.mp3",
+    audio: "gospels/matt/02.mp3",
     slug: "chapter-2",
     name: "Раздзел 2",
     text: [
@@ -62,7 +62,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/03.mp3",
+    audio: "gospels/matt/03.mp3",
     slug: "chapter-3",
     name: "Раздзел 3",
     text: [
@@ -86,7 +86,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/04.mp3",
+    audio: "gospels/matt/04.mp3",
     slug: "chapter-4",
     name: "Раздзел 4",
     text: [
@@ -118,7 +118,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/05.mp3",
+    audio: "gospels/matt/05.mp3",
     slug: "chapter-5",
     name: "Раздзел 5",
     text: [
@@ -173,7 +173,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/06.mp3",
+    audio: "gospels/matt/06.mp3",
     slug: "chapter-6",
     name: "Раздзел 6",
     text: [
@@ -214,7 +214,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/07.mp3",
+    audio: "gospels/matt/07.mp3",
     slug: "chapter-7",
     name: "Раздзел 7",
     text: [
@@ -250,7 +250,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/08.mp3",
+    audio: "gospels/matt/08.mp3",
     slug: "chapter-8",
     name: "Раздзел 8",
     text: [
@@ -291,7 +291,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/09.mp3",
+    audio: "gospels/matt/09.mp3",
     slug: "chapter-9",
     name: "Раздзел 9",
     text: [
@@ -336,7 +336,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/10.mp3",
+    audio: "gospels/matt/10.mp3",
     slug: "chapter-10",
     name: "Раздзел 10",
     text: [
@@ -385,7 +385,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/11.mp3",
+    audio: "gospels/matt/11.mp3",
     slug: "chapter-11",
     name: "Раздзел 11",
     text: [
@@ -422,7 +422,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/12.mp3",
+    audio: "gospels/matt/12.mp3",
     slug: "chapter-12",
     name: "Раздзел 12",
     text: [
@@ -479,7 +479,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/13.mp3",
+    audio: "gospels/matt/13.mp3",
     slug: "chapter-13",
     name: "Раздзел 13",
     text: [
@@ -544,7 +544,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/14.mp3",
+    audio: "gospels/matt/14.mp3",
     slug: "chapter-14",
     name: "Раздзел 14",
     text: [
@@ -587,7 +587,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/15.mp3",
+    audio: "gospels/matt/15.mp3",
     slug: "chapter-15",
     name: "Раздзел 15",
     text: [
@@ -633,7 +633,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/16.mp3",
+    audio: "gospels/matt/16.mp3",
     slug: "chapter-16",
     name: "Раздзел 16",
     text: [
@@ -668,7 +668,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/17.mp3",
+    audio: "gospels/matt/17.mp3",
     slug: "chapter-17",
     name: "Раздзел 17",
     text: [
@@ -702,7 +702,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/18.mp3",
+    audio: "gospels/matt/18.mp3",
     slug: "chapter-18",
     name: "Раздзел 18",
     text: [
@@ -744,7 +744,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/19.mp3",
+    audio: "gospels/matt/19.mp3",
     slug: "chapter-19",
     name: "Раздзел 19",
     text: [
@@ -781,7 +781,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/20.mp3",
+    audio: "gospels/matt/20.mp3",
     slug: "chapter-20",
     name: "Раздзел 20",
     text: [
@@ -822,7 +822,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/21.mp3",
+    audio: "gospels/matt/21.mp3",
     slug: "chapter-21",
     name: "Раздзел 21",
     text: [
@@ -875,7 +875,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/22.mp3",
+    audio: "gospels/matt/22.mp3",
     slug: "chapter-22",
     name: "Раздзел 22",
     text: [
@@ -928,7 +928,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/23.mp3",
+    audio: "gospels/matt/23.mp3",
     slug: "chapter-23",
     name: "Раздзел 23",
     text: [
@@ -974,7 +974,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/24.mp3",
+    audio: "gospels/matt/24.mp3",
     slug: "chapter-24",
     name: "Раздзел 24",
     text: [
@@ -1032,7 +1032,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/25.mp3",
+    audio: "gospels/matt/25.mp3",
     slug: "chapter-25",
     name: "Раздзел 25",
     text: [
@@ -1085,7 +1085,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/26.mp3",
+    audio: "gospels/matt/26.mp3",
     slug: "chapter-26",
     name: "Раздзел 26",
     text: [
@@ -1167,7 +1167,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/27.mp3",
+    audio: "gospels/matt/27.mp3",
     slug: "chapter-27",
     name: "Раздзел 27",
     text: [
@@ -1240,7 +1240,7 @@ export const Matthew = [
     ],
   },
   {
-    audio: "/audio/matt/28.mp3",
+    audio: "gospels/matt/28.mp3",
     slug: "chapter-28",
     name: "Раздзел 28",
     text: [
