@@ -1,6 +1,6 @@
 export const education = {
   slug: "education",
-  name: "Асвета",
+  name: "Кнігі",
   text: [
     {
       slug: "paulovich",

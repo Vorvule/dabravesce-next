@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "28. Павелічэнне хуткасці загрузкі аўдыё",
-    "runtimeVersion": "28",
+    "version": "29. Supa based audio",
+    "runtimeVersion": "29",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -23,7 +23,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 28
+      "versionCode": 29
     },
     "web": {
       "bundler": "metro",
