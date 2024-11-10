@@ -6,10 +6,10 @@ import { View } from "react-native";
 import { Audio } from "expo-av";
 import { activateKeepAwakeAsync, deactivateKeepAwake } from "expo-keep-awake";
 
+import { createClient } from "@supabase/supabase-js";
 import RoundButton from "@/components/RoundButton";
 
 import Styles from "@/constants/Styles";
-import Uris from "@/constants/Uris";
 
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, _] = useState(new Audio.Sound());
@@ -18,10 +18,22 @@ export default function ChapterAudio({ chapterAudio }) {
   const preparedState = { play: true, pause: false, stop: false };
   const playingState = { play: false, pause: true, stop: true };
   const pausedState = { play: true, pause: false, stop: true };
+
   const [enabledButtons, setEnabledButtons] = useState(initialState);
 
+  // Create a single supabase client for interacting with your database
+  const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.EXPO_PUBLIC_SUPABASE_KEY;
+  const supabase = createClient(supabaseUrl, supabaseKey);
+
   useEffect(() => {
-    SetAudio();
+    const { data, error } = supabase.storage
+      .from("audio")
+      .getPublicUrl(chapterAudio);
+
+      error && console.log(error);
+      
+    SetAudio(data.publicUrl);
 
     chapterAudio && activateKeepAwakeAsync();
 
@@ -38,18 +50,16 @@ export default function ChapterAudio({ chapterAudio }) {
     }
   };
 
-  const SetAudio = () => {
+  const SetAudio = (soundUri) => {
     try {
       UnloadAudio();
-      LoadAudio().then(() => setEnabledButtons(preparedState));
+      LoadAudio(soundUri).then(() => setEnabledButtons(preparedState));
     } catch (error) {
       console.error(error);
     }
   };
 
-  const LoadAudio = async () => {
-    await sound.loadAsync({ uri: Uris.supabaseUri + chapterAudio }, {}, true);
-  };
+  const LoadAudio = async (uri) => await sound.loadAsync({ uri }, {}, true);
 
   const PlayAudio = () => {
     try {
@@ -95,7 +105,7 @@ export default function ChapterAudio({ chapterAudio }) {
   };
 
   const UpdateAudio = (playbackStatus) => {
-    playbackStatus.didJustFinish && SetAudio(); // to replay audio and highlight icons
+    playbackStatus.didJustFinish && SetAudio(); // replay audio and highlight icons
   };
 
   return (
