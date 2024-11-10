@@ -1,5 +1,5 @@
 import { apostles } from "./Apostles/Apostles";
-import { children } from "./Children/Children";
+import { education } from "./Education/Education";
 // import { contacts } from "./Contacts";
 import { epistlesApocalypse } from "./EpistlesApocalypse/EpistlesApocalypse";
 import { gospels } from "./Gospels/Gospels";
@@ -16,7 +16,7 @@ const AppSources = [
   prayers,
   worships,
   songs,
-  children,
+  education,
   // contacts,
 ];
 

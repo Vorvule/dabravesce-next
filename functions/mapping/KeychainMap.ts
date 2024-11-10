@@ -1,4 +1,4 @@
-const KeychainMap: { [key: string]: string; } = {
+const KeychainMap: { [key: string]: string } = {
   "0~0~0": "gospels~matthew~chapter-1",
   "0~0~1": "gospels~matthew~chapter-2",
   "0~0~2": "gospels~matthew~chapter-3",
@@ -329,7 +329,7 @@ const KeychainMap: { [key: string]: string; } = {
   "5~2~2": "worships~canons~angel-guard",
   "5~2~3": "worships~canons~paschal",
   "5~3~0": "worships~liturgy~liturgy",
-  "5~3~1": "worships~liturgy~rogation",
+  "5~3~1": "worships~liturgy~litany",
   "5~3~2": "worships~liturgy~requiem",
   "5~3~3": "worships~liturgy~litia",
   "5~4~0": "worships~sunday-troparions~tune-1",
@@ -375,9 +375,9 @@ const KeychainMap: { [key: string]: string; } = {
   "6~2~3": "spiritual~prayal-songs~god-kindness",
   "6~2~4": "spiritual~prayal-songs~spiritual-defender",
   "6~2~5": "spiritual~prayal-songs~beneath-god",
-  "7~0~0": "children~paulovich~old-testament",
-  "7~0~1": "children~paulovich~new-testament",
-  "7~0~2": "children~paulovich~biography",
+  "7~0~0": "education~paulovich~biography",
+  "7~0~1": "education~paulovich~old-testament",
+  "7~0~2": "education~paulovich~new-testament",
 };
 
 export default KeychainMap;

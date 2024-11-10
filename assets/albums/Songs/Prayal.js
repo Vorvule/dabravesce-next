@@ -1,6 +1,6 @@
 export const Prayal = [
   {
-    audio: "/audio/song/14.mp3",
+    audio: "songs/14.mp3",
     slug: "our-father",
     name: "Ойча наш",
     text: [
@@ -17,7 +17,7 @@ export const Prayal = [
     ],
   },
   {
-    audio: "/audio/song/15.mp3",
+    audio: "songs/15.mp3",
     slug: "good-god",
     name: "Дай, добры Божа",
     text: [
@@ -43,7 +43,7 @@ export const Prayal = [
     ],
   },
   {
-    audio: "/audio/song/16.mp3",
+    audio: "songs/16.mp3",
     slug: "holy-mother-girovichy",
     name: "Жыровіцкая Божая Маці",
     text: [
@@ -87,7 +87,7 @@ export const Prayal = [
     ],
   },
   {
-    audio: "/audio/song/17.mp3",
+    audio: "songs/17.mp3",
     slug: "god-kindness",
     name: "Божая дабрыня | Цыпріян Базылік",
     text: [
@@ -98,7 +98,7 @@ export const Prayal = [
     ],
   },
   {
-    audio: "/audio/song/18.mp3",
+    audio: "songs/18.mp3",
     slug: "spiritual-defender",
     name: "Заступніца духоўная",
     text: [
@@ -129,7 +129,7 @@ export const Prayal = [
     ],
   },
   {
-    audio: "/audio/song/19.mp3",
+    audio: "songs/19.mp3",
     slug: "beneath-god",
     name: "Прад Табою, мой Бог",
     text: [
@@ -160,7 +160,7 @@ export const Prayal = [
     ],
   },
   // {
-  //   audio: "/audio/song/20.mp3",
+  //   audio: "songs/20.mp3",
   //   name: "Магутны Божа | Сл. Н. Арсенневай | Муз. М. Равенскага",
   //   text: [
   //     "Магутны Божа! Уладар сусветаў,",

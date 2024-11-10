@@ -1,6 +1,6 @@
 export const Folk = [
   {
-    audio: "/audio/song/21.mp3",
+    audio: "songs/21.mp3",
     slug: "willow-field",
     name: "А ў полі вярба | Апр. М. Равенскага",
     text: [
@@ -18,7 +18,7 @@ export const Folk = [
     ],
   },
   {
-    audio: "/audio/song/22.mp3",
+    audio: "songs/22.mp3",
     slug: "cossack-well",
     name: "Капаў казак крынічаньку",
     text: [

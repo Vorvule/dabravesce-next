@@ -1,13 +1,22 @@
-export const children = {
-  slug: "children",
-  name: "Дзецям",
+export const education = {
+  slug: "education",
+  name: "Асвета",
   text: [
     {
       slug: "paulovich",
       name: "Сяргей Паўловіч — Пра Бога і веру. Гутаркі для дзяцей і бацькоў",
       text: [
         {
-          audio: "/audio/paul/paulowich_old_testament.mp3",
+          audio: "books/paulowich/0_paulowich_biography.mp3",
+          slug: "biography",
+          name: "Біяграфія Сяргея Паўловіча",
+          text: [
+            "Біяграфічныя звесткі пра беларускага асветніка Сяргея Паўловіча.",
+            'Дадатак да друкаванай кнігі "Пра Бога і веру. Гутаркі для дзяцей і бацькоў", падрыхтаванай Брацтвам у гонар Віленскіх мучанікаў у 2023 годзе.',
+          ],
+        },
+        {
+          audio: "books/paulowich/1_paulowich_old_testament.mp3",
           slug: "old-testament",
           name: "Стары Запавет",
           text: [
@@ -16,21 +25,12 @@ export const children = {
           ],
         },
         {
-          audio: "/audio/paul/paulowich_new_testament.mp3",
+          audio: "books/paulowich/2_paulowich_new_testament.mp3",
           slug: "new-testament",
           name: "Новы Запавет",
           text: [
             "Тэксты Новага Запавету ў пераказе для дзяцей Сяргея Паўловіча.",
             "Чытае дыктар і рэжысёр Беларускага радыё Алег Вінярскі.",
-          ],
-        },
-        {
-          audio: "/audio/paul/paulowich_biography.mp3",
-          slug: "biography",
-          name: "Біяграфія Сяргея Паўловіча",
-          text: [
-            "Біяграфічныя звесткі пра беларускага асветніка Сяргея Паўловіча.",
-            'Дадатак да друкаванай кнігі "Пра Бога і веру. Гутаркі для дзяцей і бацькоў", падрыхтаванай Брацтвам у гонар Віленскіх мучанікаў у 2023 годзе.',
           ],
         },
       ],

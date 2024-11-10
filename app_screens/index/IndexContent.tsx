@@ -11,10 +11,12 @@ import Styles from "@/constants/Styles";
 import Page from "@/functions/Page";
 import { ColorTheme } from "@/functions/ColorTheme";
 
-// import mapSources from "@/functions/mapping/SourceMapping"
+// import mapSources from "@/functions/mapping/SourceMapper"
+// import createSiteMap from "@/functions/sitemap/SiteMapper";
 
 export default function IndexContent() {
   // mapSources();
+  // createSiteMap();
 
   const linkTextColor = ColorTheme.getColor("link");
   const linkTextStyle = { color: linkTextColor, fontFamily: "SofiaSemiBold" };

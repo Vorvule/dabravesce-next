@@ -1,6 +1,6 @@
 export const Daily = [
   {
-    audio: "/audio/pray/morning.mp3",
+    audio: "prayers/00-morning.mp3",
     slug: "morning",
     name: "Малітвы ранішнія",
     text: [
@@ -111,7 +111,7 @@ export const Daily = [
     ],
   },
   {
-    audio: "/audio/pray/evening.mp3",
+    audio: "prayers/01-evening.mp3",
     slug: "evening",
     name: "Малітвы вячэрнія",
     text: [
@@ -193,7 +193,7 @@ export const Daily = [
     ],
   },
   {
-    audio: "/audio/pray/evening-plus.mp3",
+    audio: "prayers/02-evening-next.mp3",
     slug: "evening-next",
     name: "Малітвы вячэрнія, працяг",
     text: [
