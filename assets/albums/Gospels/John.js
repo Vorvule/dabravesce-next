@@ -1,6 +1,6 @@
 export const John = [
   {
-    audio: "/audio/john/01.mp3",
+    audio: "gospels/john/01.mp3",
     slug: "chapter-1",
     name: "Раздзел 1",
     text: [
@@ -58,7 +58,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/02.mp3",
+    audio: "gospels/john/02.mp3",
     slug: "chapter-2",
     name: "Раздзел 2",
     text: [
@@ -90,7 +90,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/03.mp3",
+    audio: "gospels/john/03.mp3",
     slug: "chapter-3",
     name: "Раздзел 3",
     text: [
@@ -133,7 +133,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/04.mp3",
+    audio: "gospels/john/04.mp3",
     slug: "chapter-4",
     name: "Раздзел 4",
     text: [
@@ -194,7 +194,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/05.mp3",
+    audio: "gospels/john/05.mp3",
     slug: "chapter-5",
     name: "Раздзел 5",
     text: [
@@ -248,7 +248,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/06.mp3",
+    audio: "gospels/john/06.mp3",
     slug: "chapter-6",
     name: "Раздзел 6",
     text: [
@@ -326,7 +326,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/07.mp3",
+    audio: "gospels/john/07.mp3",
     slug: "chapter-7",
     name: "Раздзел 7",
     text: [
@@ -386,7 +386,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/08.mp3",
+    audio: "gospels/john/08.mp3",
     slug: "chapter-8",
     name: "Раздзел 8",
     text: [
@@ -452,7 +452,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/09.mp3",
+    audio: "gospels/john/09.mp3",
     slug: "chapter-9",
     name: "Раздзел 9",
     text: [
@@ -500,7 +500,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/10.mp3",
+    audio: "gospels/john/10.mp3",
     slug: "chapter-10",
     name: "Раздзел 10",
     text: [
@@ -549,7 +549,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/11.mp3",
+    audio: "gospels/john/11.mp3",
     slug: "chapter-11",
     name: "Раздзел 11",
     text: [
@@ -613,7 +613,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/12.mp3",
+    audio: "gospels/john/12.mp3",
     slug: "chapter-12",
     name: "Раздзел 12",
     text: [
@@ -670,7 +670,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/13.mp3",
+    audio: "gospels/john/13.mp3",
     slug: "chapter-13",
     name: "Раздзел 13",
     text: [
@@ -715,7 +715,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/14.mp3",
+    audio: "gospels/john/14.mp3",
     slug: "chapter-14",
     name: "Раздзел 14",
     text: [
@@ -753,7 +753,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/15.mp3",
+    audio: "gospels/john/15.mp3",
     slug: "chapter-15",
     name: "Раздзел 15",
     text: [
@@ -787,7 +787,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/16.mp3",
+    audio: "gospels/john/16.mp3",
     slug: "chapter-16",
     name: "Раздзел 16",
     text: [
@@ -827,7 +827,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/17.mp3",
+    audio: "gospels/john/17.mp3",
     slug: "chapter-17",
     name: "Раздзел 17",
     text: [
@@ -860,7 +860,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/18.mp3",
+    audio: "gospels/john/18.mp3",
     slug: "chapter-18",
     name: "Раздзел 18",
     text: [
@@ -907,7 +907,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/19.mp3",
+    audio: "gospels/john/19.mp3",
     slug: "chapter-19",
     name: "Раздзел 19",
     text: [
@@ -956,7 +956,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/20.mp3",
+    audio: "gospels/john/20.mp3",
     slug: "chapter-20",
     name: "Раздзел 20",
     text: [
@@ -994,7 +994,7 @@ export const John = [
     ],
   },
   {
-    audio: "/audio/john/21.mp3",
+    audio: "gospels/john/21.mp3",
     slug: "chapter-21",
     name: "Раздзел 21",
     text: [

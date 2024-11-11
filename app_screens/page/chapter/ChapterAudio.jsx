@@ -1,65 +1,70 @@
 // https://stackoverflow.com/questions/68042313/pausing-react-native-expo-audio
-// https://docs.expo.dev/versions/latest/sdk/keep-awake/
 
 import { useEffect, useState } from "react";
 import { View } from "react-native";
+
 import { Audio } from "expo-av";
 import { activateKeepAwakeAsync, deactivateKeepAwake } from "expo-keep-awake";
 
-import { firebaseApp } from "@/firebaseConfig";
-import { getDownloadURL, getStorage, ref } from "firebase/storage";
-
+import { createClient } from "@supabase/supabase-js";
 import RoundButton from "@/components/RoundButton";
+
 import Styles from "@/constants/Styles";
 
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, _] = useState(new Audio.Sound());
 
-  const [enabledButtons, setEnabledButtons] = useState({
-    play: false,
-    pause: false,
-    stop: false,
-  });
+  const initialState = { play: false, pause: false, stop: false };
+  const preparedState = { play: true, pause: false, stop: false };
+  const playingState = { play: false, pause: true, stop: true };
+  const pausedState = { play: true, pause: false, stop: true };
+
+  const [enabledButtons, setEnabledButtons] = useState(initialState);
+
+  // Create a single supabase client for interacting with your database
+  const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.EXPO_PUBLIC_SUPABASE_KEY;
+  const supabase = createClient(supabaseUrl, supabaseKey);
 
   useEffect(() => {
-    SetAudio();
-    activateKeepAwakeAsync();
+    const { data, error } = supabase.storage
+      .from("audio")
+      .getPublicUrl(chapterAudio);
+
+      error && console.log(error);
+      
+    SetAudio(data.publicUrl);
+
+    chapterAudio && activateKeepAwakeAsync();
+
+    sound.setOnPlaybackStatusUpdate(UpdateAudio);
+
+    return switchKeepAwakeOff;
   }, [chapterAudio]);
 
-  const SetAudio = async () => {
+  const switchKeepAwakeOff = () => {
     try {
-      UnloadAudio();
-
-      LoadAudio().then(() => {
-        setEnabledButtons({ play: true, pause: false, stop: false });
-      });
-
-      sound.setOnPlaybackStatusUpdate(UpdateAudio);
+      deactivateKeepAwake();
     } catch (error) {
       console.error(error);
     }
   };
 
-  const LoadAudio = async () => {
-    const firebaseStorage = getStorage();
-    const audioRef = ref(firebaseStorage, chapterAudio);
-    const audioUri = await getDownloadURL(audioRef);
-
-    await sound.loadAsync({ uri: audioUri }, {}, true);
-    await deactivateKeepAwake();
+  const SetAudio = (soundUri) => {
+    try {
+      UnloadAudio();
+      LoadAudio(soundUri).then(() => setEnabledButtons(preparedState));
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const PlayAudio = async () => {
+  const LoadAudio = async (uri) => await sound.loadAsync({ uri }, {}, true);
+
+  const PlayAudio = () => {
     try {
-      const audioStatus = await sound.getStatusAsync();
-
-      if (audioStatus.isLoaded && !audioStatus.isPlaying) {
-        sound.playAsync();
-
-        setEnabledButtons({ play: false, pause: true, stop: true });
-
-        await activateKeepAwakeAsync();
-      }
+      sound.playAsync();
+      setEnabledButtons(playingState);
     } catch (error) {
       console.error(error);
     }
@@ -71,10 +76,7 @@ export default function ChapterAudio({ chapterAudio }) {
 
       if (audioStatus.isLoaded && audioStatus.isPlaying) {
         sound.pauseAsync();
-
-        setEnabledButtons({ play: true, pause: false, stop: true });
-
-        await deactivateKeepAwake();
+        setEnabledButtons(pausedState);
       }
     } catch (error) {
       console.error(error);
@@ -82,14 +84,11 @@ export default function ChapterAudio({ chapterAudio }) {
   };
 
   const StopAudio = async () => {
+    const audioStatus = await sound.getStatusAsync();
+
     try {
-      const audioStatus = await sound.getStatusAsync();
-
       if (audioStatus.isLoaded) {
-        PauseAudio().then(() => {
-          setEnabledButtons({ play: true, pause: false, stop: false });
-        });
-
+        PauseAudio().then(() => setEnabledButtons(preparedState));
         await sound.setPositionAsync(0);
       }
     } catch (error) {
@@ -105,11 +104,8 @@ export default function ChapterAudio({ chapterAudio }) {
     }
   };
 
-  const UpdateAudio = async (playbackStatus) => {
-    // to replay on native platforms and to highlight icons correctly
-    if (playbackStatus.didJustFinish) {
-      SetAudio();
-    }
+  const UpdateAudio = (playbackStatus) => {
+    playbackStatus.didJustFinish && SetAudio(); // replay audio and highlight icons
   };
 
   return (

@@ -329,7 +329,7 @@ const SlugchainMap: { [key: string]: number[] } = {
   "worships~canons~angel-guard": [5, 2, 2],
   "worships~canons~paschal": [5, 2, 3],
   "worships~liturgy~liturgy": [5, 3, 0],
-  "worships~liturgy~rogation": [5, 3, 1],
+  "worships~liturgy~litany": [5, 3, 1],
   "worships~liturgy~requiem": [5, 3, 2],
   "worships~liturgy~litia": [5, 3, 3],
   "worships~sunday-troparions~tune-1": [5, 4, 0],
@@ -375,9 +375,9 @@ const SlugchainMap: { [key: string]: number[] } = {
   "spiritual~prayal-songs~god-kindness": [6, 2, 3],
   "spiritual~prayal-songs~spiritual-defender": [6, 2, 4],
   "spiritual~prayal-songs~beneath-god": [6, 2, 5],
-  "children~paulovich~old-testament": [7, 0, 0],
-  "children~paulovich~new-testament": [7, 0, 1],
-  "children~paulovich~biography": [7, 0, 2],
+  "education~paulovich~biography": [7, 0, 0],
+  "education~paulovich~old-testament": [7, 0, 1],
+  "education~paulovich~new-testament": [7, 0, 2],
 };
 
 export default SlugchainMap;

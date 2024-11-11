@@ -1,6 +1,6 @@
 export const Luke = [
   {
-    audio: "/audio/luke/01.mp3",
+    audio: "gospels/luke/01.mp3",
     slug: "chapter-1",
     name: "Раздзел 1",
     text: [
@@ -87,7 +87,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/02.mp3",
+    audio: "gospels/luke/02.mp3",
     slug: "chapter-2",
     name: "Раздзел 2",
     text: [
@@ -146,7 +146,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/03.mp3",
+    audio: "gospels/luke/03.mp3",
     slug: "chapter-3",
     name: "Раздзел 3",
     text: [
@@ -191,7 +191,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/04.mp3",
+    audio: "gospels/luke/04.mp3",
     slug: "chapter-4",
     name: "Раздзел 4",
     text: [
@@ -242,7 +242,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/05.mp3",
+    audio: "gospels/luke/05.mp3",
     slug: "chapter-5",
     name: "Раздзел 5",
     text: [
@@ -288,7 +288,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/06.mp3",
+    audio: "gospels/luke/06.mp3",
     slug: "chapter-6",
     name: "Раздзел 6",
     text: [
@@ -344,7 +344,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/07.mp3",
+    audio: "gospels/luke/07.mp3",
     slug: "chapter-7",
     name: "Раздзел 7",
     text: [
@@ -401,7 +401,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/08.mp3",
+    audio: "gospels/luke/08.mp3",
     slug: "chapter-8",
     name: "Раздзел 8",
     text: [
@@ -464,7 +464,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/09.mp3",
+    audio: "gospels/luke/09.mp3",
     slug: "chapter-9",
     name: "Раздзел 9",
     text: [
@@ -533,7 +533,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/10.mp3",
+    audio: "gospels/luke/10.mp3",
     slug: "chapter-10",
     name: "Раздзел 10",
     text: [
@@ -582,7 +582,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/11.mp3",
+    audio: "gospels/luke/11.mp3",
     slug: "chapter-11",
     name: "Раздзел 11",
     text: [
@@ -643,7 +643,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/12.mp3",
+    audio: "gospels/luke/12.mp3",
     slug: "chapter-12",
     name: "Раздзел 12",
     text: [
@@ -709,7 +709,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/13.mp3",
+    audio: "gospels/luke/13.mp3",
     slug: "chapter-13",
     name: "Раздзел 13",
     text: [
@@ -751,7 +751,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/14.mp3",
+    audio: "gospels/luke/14.mp3",
     slug: "chapter-14",
     name: "Раздзел 14",
     text: [
@@ -793,7 +793,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/15.mp3",
+    audio: "gospels/luke/15.mp3",
     slug: "chapter-15",
     name: "Раздзел 15",
     text: [
@@ -832,7 +832,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/16.mp3",
+    audio: "gospels/luke/16.mp3",
     slug: "chapter-16",
     name: "Раздзел 16",
     text: [
@@ -870,7 +870,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/17.mp3",
+    audio: "gospels/luke/17.mp3",
     slug: "chapter-17",
     name: "Раздзел 17",
     text: [
@@ -914,7 +914,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/18.mp3",
+    audio: "gospels/luke/18.mp3",
     slug: "chapter-18",
     name: "Раздзел 18",
     text: [
@@ -964,7 +964,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/19.mp3",
+    audio: "gospels/luke/19.mp3",
     slug: "chapter-19",
     name: "Раздзел 19",
     text: [
@@ -1019,7 +1019,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/20.mp3",
+    audio: "gospels/luke/20.mp3",
     slug: "chapter-20",
     name: "Раздзел 20",
     text: [
@@ -1073,7 +1073,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/21.mp3",
+    audio: "gospels/luke/21.mp3",
     slug: "chapter-21",
     name: "Раздзел 21",
     text: [
@@ -1118,7 +1118,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/22.mp3",
+    audio: "gospels/luke/22.mp3",
     slug: "chapter-22",
     name: "Раздзел 22",
     text: [
@@ -1196,7 +1196,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/23.mp3",
+    audio: "gospels/luke/23.mp3",
     slug: "chapter-23",
     name: "Раздзел 23",
     text: [
@@ -1259,7 +1259,7 @@ export const Luke = [
     ],
   },
   {
-    audio: "/audio/luke/24.mp3",
+    audio: "gospels/luke/24.mp3",
     slug: "chapter-24",
     name: "Раздзел 24",
     text: [

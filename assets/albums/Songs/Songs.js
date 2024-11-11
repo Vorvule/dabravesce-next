@@ -5,7 +5,7 @@ import { Prayal } from "./Prayal";
 
 export const songs = {
   slug: "spiritual",
-  name: "Духоўныя Спевы",
+  name: "Спевы",
   text: [
     {
       slug: "easter-songs",
