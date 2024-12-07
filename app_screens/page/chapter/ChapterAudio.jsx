@@ -7,6 +7,7 @@ import { Audio } from "expo-av";
 import { activateKeepAwakeAsync, deactivateKeepAwake } from "expo-keep-awake";
 
 import { createClient } from "@supabase/supabase-js";
+import "react-native-url-polyfill/auto";
 import RoundButton from "@/components/RoundButton";
 
 import Styles from "@/constants/Styles";
@@ -26,13 +27,15 @@ export default function ChapterAudio({ chapterAudio }) {
   const supabaseKey = process.env.EXPO_PUBLIC_SUPABASE_KEY;
   const supabase = createClient(supabaseUrl, supabaseKey);
 
-  useEffect(() => {
     const { data, error } = supabase.storage
       .from("audio")
-      .getPublicUrl(chapterAudio);
+      .getPublicUrl(chapterAudio)
 
-      error && console.log(error);
+    error && console.log(error);
       
+  useEffect(() => {
+      console.log(data);
+
     SetAudio(data.publicUrl);
 
     chapterAudio && activateKeepAwakeAsync();

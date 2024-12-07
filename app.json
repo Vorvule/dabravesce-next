@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "29. Supa based audio",
-    "runtimeVersion": "29",
+    "version": "31. Supabase audio",
+    "runtimeVersion": "31",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -23,7 +23,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 29
+      "versionCode": 31
     },
     "web": {
       "bundler": "metro",
