@@ -1,5 +1,4 @@
 import { GreatCanon } from "./GreatCanon";
-import { Acathisti } from "./Acathisti";
 import { Canons } from "./Canons";
 import { Liturgy } from "./Liturgy";
 import { TroparionsSunday } from "./TroparionsSunday";
@@ -9,11 +8,6 @@ export const worships = {
   slug: "worships",
   name: "Богаслужэнні",
   text: [
-    {
-      slug: "acathisti",
-      name: "Акафісты",
-      text: Acathisti,
-    },
     {
       slug: "great-canon",
       name: "Канон вялікі прападобнага айца нашага Андрея Крыцкага і Іерусалімскага",
