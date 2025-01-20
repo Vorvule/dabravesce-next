@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "32. Saint Euphrosinnia life added",
-    "runtimeVersion": "32",
+    "version": "33. Canon texts enhanced",
+    "runtimeVersion": "33",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -23,7 +23,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 32
+      "versionCode": 33
     },
     "web": {
       "bundler": "metro",
