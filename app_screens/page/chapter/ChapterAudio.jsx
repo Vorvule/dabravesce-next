@@ -13,6 +13,7 @@ import Styles from "@/constants/Styles";
 
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, _] = useState(new Audio.Sound());
+  const [audioUrl, setAudioUrl] = useState('')
 
   const initialState = { play: false, pause: false, stop: false };
   const preparedState = { play: true, pause: false, stop: false };
@@ -32,6 +33,8 @@ export default function ChapterAudio({ chapterAudio }) {
 
     error && console.log(error);
 
+    setAudioUrl(data.publicUrl)
+
     SetAudio(data.publicUrl);
 
     chapterAudio && activateKeepAwakeAsync();
@@ -50,6 +53,8 @@ export default function ChapterAudio({ chapterAudio }) {
   };
 
   const SetAudio = (soundUri) => {
+    console.log(soundUri, audioUrl);
+    
     try {
       UnloadAudio();
       LoadAudio(soundUri).then(() => setEnabledButtons(preparedState));
@@ -58,11 +63,14 @@ export default function ChapterAudio({ chapterAudio }) {
     }
   };
 
-  const LoadAudio = async (uri) => await sound.loadAsync({ uri }, {}, true);
+  const LoadAudio = async (uri) => {
+    console.log('url is', uri);
+    await sound.loadAsync({ uri }, {}, true)
+  };
 
-  const PlayAudio = () => {
+  const PlayAudio = async () => {
     try {
-      sound.playAsync();
+      await sound.playAsync();
       setEnabledButtons(playingState);
     } catch (error) {
       console.error(error);
@@ -104,7 +112,7 @@ export default function ChapterAudio({ chapterAudio }) {
   };
 
   const UpdateAudio = (playbackStatus) => {
-    playbackStatus.didJustFinish && SetAudio(); // replay audio and highlight icons
+    playbackStatus.didJustFinish && SetAudio(audioUrl); // replay audio and highlight icons
   };
 
   return (
