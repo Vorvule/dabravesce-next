@@ -32,7 +32,7 @@ export default function ChapterAudio({ chapterAudio }) {
       .getPublicUrl(chapterAudio);
 
     setupAudio(data.publicUrl);
-    chapterAudio && activateKeepAwakeAsync();
+    // chapterAudio && activateKeepAwakeAsync();
     sound.setOnPlaybackStatusUpdate(updateAudio);
 
     return switchKeepAwakeOff;
@@ -63,6 +63,7 @@ export default function ChapterAudio({ chapterAudio }) {
       if (audioStatus.isLoaded) {
         await sound.playAsync();
         setEnabledButtons(playingState);
+        activateKeepAwakeAsync();
       }
     } catch (error) {
       console.error(error);
@@ -76,6 +77,7 @@ export default function ChapterAudio({ chapterAudio }) {
       if (audioStatus.isLoaded && audioStatus.isPlaying) {
         sound.pauseAsync();
         setEnabledButtons(pausedState);
+        deactivateKeepAwake();
       }
     } catch (error) {
       console.error(error);
@@ -90,6 +92,7 @@ export default function ChapterAudio({ chapterAudio }) {
         sound.pauseAsync();
         sound.setPositionAsync(0);
         setEnabledButtons(stoppedState);
+        deactivateKeepAwake();
       }
     } catch (error) {
       console.error(error);
@@ -99,7 +102,6 @@ export default function ChapterAudio({ chapterAudio }) {
   const updateAudio = (playbackStatus) => {
     if (playbackStatus.didJustFinish) {
       stopAudio();
-      // switchKeepAwakeOff();
     }
   };
 
