@@ -24,18 +24,16 @@ export default function ChapterAudio({ chapterAudio }) {
 
   const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.EXPO_PUBLIC_SUPABASE_KEY;
+
   const supabase = createClient(supabaseUrl, supabaseKey);
 
   useEffect(() => {
-    const { data, error } = supabase.storage
+    const { data } = supabase.storage
       .from("audio")
       .getPublicUrl(chapterAudio);
 
-    error && console.log(error);
-
-    setAudioUrl(data.publicUrl)
-
     SetAudio(data.publicUrl);
+    setAudioUrl(data.publicUrl)
 
     chapterAudio && activateKeepAwakeAsync();
 
@@ -52,26 +50,25 @@ export default function ChapterAudio({ chapterAudio }) {
     }
   };
 
-  const SetAudio = (soundUri) => {
-    console.log(soundUri, audioUrl);
-    
+  const SetAudio = async (publicUrl) => {
     try {
-      UnloadAudio();
-      LoadAudio(soundUri).then(() => setEnabledButtons(preparedState));
+      await sound.unloadAsync();
+      await sound.loadAsync({ uri: publicUrl }, {}, true)
+
+      setEnabledButtons(preparedState);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const LoadAudio = async (uri) => {
-    console.log('url is', uri);
-    await sound.loadAsync({ uri }, {}, true)
-  };
-
   const PlayAudio = async () => {
     try {
-      await sound.playAsync();
-      setEnabledButtons(playingState);
+      const audioStatus = await sound.getStatusAsync();
+      console.log(audioStatus);
+      
+      if (audioStatus.isLoaded) {
+        await sound.playAsync();
+      } setEnabledButtons(playingState);
     } catch (error) {
       console.error(error);
     }
@@ -98,14 +95,6 @@ export default function ChapterAudio({ chapterAudio }) {
         PauseAudio().then(() => setEnabledButtons(preparedState));
         await sound.setPositionAsync(0);
       }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const UnloadAudio = async () => {
-    try {
-      await sound.unloadAsync();
     } catch (error) {
       console.error(error);
     }
