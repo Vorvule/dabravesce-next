@@ -7,12 +7,15 @@ import { Audio } from "expo-av";
 import { activateKeepAwakeAsync, deactivateKeepAwake } from "expo-keep-awake";
 
 import { createClient } from "@supabase/supabase-js";
-import RoundButton from "@/components/RoundButton";
 
+import Device from "@/functions/Device";
+import RoundButton from "@/components/RoundButton";
 import Styles from "@/constants/Styles";
 
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, _] = useState(new Audio.Sound());
+
+  const platformIsNative = !Device.platformIsWeb();
 
   const bareState = { play: false, pause: false, stop: false };
   const stoppedState = { play: true, pause: false, stop: false };
@@ -31,71 +34,47 @@ export default function ChapterAudio({ chapterAudio }) {
       .from("audio")
       .getPublicUrl(chapterAudio);
 
-    setupAudio(data.publicUrl);
-    // chapterAudio && activateKeepAwakeAsync();
+    addAudio(data.publicUrl);
     sound.setOnPlaybackStatusUpdate(updateAudio);
 
-    return switchKeepAwakeOff;
+    return undoAudio;
   }, [chapterAudio]);
 
-  const switchKeepAwakeOff = () => {
-    try {
-      deactivateKeepAwake();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const setupAudio = async (publicUrl) => {
-    try {
-      await sound.unloadAsync();
-      await sound.loadAsync({ uri: publicUrl }, {}, true)
-      setEnabledButtons(stoppedState);
-    } catch (error) {
-      console.error(error);
-    }
+  const addAudio = async (publicUrl) => {
+    await sound.unloadAsync();
+    await sound.loadAsync({ uri: publicUrl }, {}, true)
+    setEnabledButtons(stoppedState);
   };
 
   const playAudio = async () => {
-    try {
-      const audioStatus = await sound.getStatusAsync();
+    const audioStatus = await sound.getStatusAsync();
 
-      if (audioStatus.isLoaded) {
-        await sound.playAsync();
-        setEnabledButtons(playingState);
-        activateKeepAwakeAsync();
-      }
-    } catch (error) {
-      console.error(error);
+    if (audioStatus.isLoaded) {
+      await sound.playAsync();
+      setEnabledButtons(playingState);
+      platformIsNative && activateKeepAwakeAsync();
     }
   };
 
   const pauseAudio = async () => {
-    try {
-      const audioStatus = await sound.getStatusAsync();
+    const audioStatus = await sound.getStatusAsync();
 
-      if (audioStatus.isLoaded && audioStatus.isPlaying) {
-        sound.pauseAsync();
-        setEnabledButtons(pausedState);
-        deactivateKeepAwake();
-      }
-    } catch (error) {
-      console.error(error);
+    if (audioStatus.isLoaded && audioStatus.isPlaying) {
+      sound.pauseAsync();
+      setEnabledButtons(pausedState);
+      platformIsNative && deactivateKeepAwake();
     }
   };
 
   const stopAudio = async () => {
     const audioStatus = await sound.getStatusAsync();
 
-    try {
-      if (audioStatus.isLoaded) {
-        sound.pauseAsync();
-        sound.setPositionAsync(0);
-        setEnabledButtons(stoppedState);
-        deactivateKeepAwake();
-      }
-    } catch (error) {
-      console.error(error);
+    if (sound._loaded && audioStatus.isLoaded) {
+      sound.pauseAsync();
+      sound.setPositionAsync(0);
+      setEnabledButtons(stoppedState);
+
+      platformIsNative && deactivateKeepAwake();
     }
   };
 
@@ -104,6 +83,12 @@ export default function ChapterAudio({ chapterAudio }) {
       stopAudio();
     }
   };
+
+  const undoAudio = () => {
+    stopAudio();
+    platformIsNative && deactivateKeepAwake();
+    setEnabledButtons(bareState)
+  }
 
   return (
     <View style={Styles.buttons}>
