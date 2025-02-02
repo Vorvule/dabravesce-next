@@ -14,12 +14,12 @@ import Styles from "@/constants/Styles";
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, _] = useState(new Audio.Sound());
 
-  const initialState = { play: false, pause: false, stop: false };
-  const preparedState = { play: true, pause: false, stop: false };
+  const bareState = { play: false, pause: false, stop: false };
+  const stoppedState = { play: true, pause: false, stop: false };
   const playingState = { play: false, pause: true, stop: true };
   const pausedState = { play: true, pause: false, stop: true };
 
-  const [enabledButtons, setEnabledButtons] = useState(initialState);
+  const [enabledButtons, setEnabledButtons] = useState(bareState);
 
   const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.EXPO_PUBLIC_SUPABASE_KEY;
@@ -31,11 +31,9 @@ export default function ChapterAudio({ chapterAudio }) {
       .from("audio")
       .getPublicUrl(chapterAudio);
 
-    SetAudio(data.publicUrl);
-
+    setupAudio(data.publicUrl);
     chapterAudio && activateKeepAwakeAsync();
-
-    sound.setOnPlaybackStatusUpdate(UpdateAudio);
+    sound.setOnPlaybackStatusUpdate(updateAudio);
 
     return switchKeepAwakeOff;
   }, [chapterAudio]);
@@ -48,30 +46,30 @@ export default function ChapterAudio({ chapterAudio }) {
     }
   };
 
-  const SetAudio = async (publicUrl) => {
+  const setupAudio = async (publicUrl) => {
     try {
       await sound.unloadAsync();
       await sound.loadAsync({ uri: publicUrl }, {}, true)
-
-      setEnabledButtons(preparedState);
+      setEnabledButtons(stoppedState);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const PlayAudio = async () => {
+  const playAudio = async () => {
     try {
       const audioStatus = await sound.getStatusAsync();
 
       if (audioStatus.isLoaded) {
         await sound.playAsync();
-      } setEnabledButtons(playingState);
+        setEnabledButtons(playingState);
+      }
     } catch (error) {
       console.error(error);
     }
   };
 
-  const PauseAudio = async () => {
+  const pauseAudio = async () => {
     try {
       const audioStatus = await sound.getStatusAsync();
 
@@ -84,24 +82,23 @@ export default function ChapterAudio({ chapterAudio }) {
     }
   };
 
-  const StopAudio = async () => {
+  const stopAudio = async () => {
     const audioStatus = await sound.getStatusAsync();
 
     try {
       if (audioStatus.isLoaded) {
-        PauseAudio().then(() => setEnabledButtons(preparedState));
-        await sound.setPositionAsync(0);
+        sound.pauseAsync();
+        sound.setPositionAsync(0);
+        setEnabledButtons(stoppedState);
       }
     } catch (error) {
       console.error(error);
     }
   };
 
-  const UpdateAudio = (playbackStatus) => {
+  const updateAudio = (playbackStatus) => {
     if (playbackStatus.didJustFinish) {
-      sound.pauseAsync();
-      sound.setPositionAsync(0);
-      setEnabledButtons(preparedState);
+      stopAudio();
       // switchKeepAwakeOff();
     }
   };
@@ -110,17 +107,17 @@ export default function ChapterAudio({ chapterAudio }) {
     <View style={Styles.buttons}>
       <RoundButton
         name="play"
-        onPress={PlayAudio}
+        onPress={playAudio}
         enabled={enabledButtons.play}
       />
       <RoundButton
         name="pause"
-        onPress={PauseAudio}
+        onPress={pauseAudio}
         enabled={enabledButtons.pause}
       />
       <RoundButton
         name="stop"
-        onPress={StopAudio}
+        onPress={stopAudio}
         enabled={enabledButtons.stop}
       />
     </View>
