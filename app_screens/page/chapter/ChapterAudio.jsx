@@ -13,7 +13,6 @@ import Styles from "@/constants/Styles";
 
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, _] = useState(new Audio.Sound());
-  const [audioUrl, setAudioUrl] = useState('')
 
   const initialState = { play: false, pause: false, stop: false };
   const preparedState = { play: true, pause: false, stop: false };
@@ -33,7 +32,6 @@ export default function ChapterAudio({ chapterAudio }) {
       .getPublicUrl(chapterAudio);
 
     SetAudio(data.publicUrl);
-    setAudioUrl(data.publicUrl)
 
     chapterAudio && activateKeepAwakeAsync();
 
@@ -64,8 +62,7 @@ export default function ChapterAudio({ chapterAudio }) {
   const PlayAudio = async () => {
     try {
       const audioStatus = await sound.getStatusAsync();
-      console.log(audioStatus);
-      
+
       if (audioStatus.isLoaded) {
         await sound.playAsync();
       } setEnabledButtons(playingState);
@@ -101,7 +98,12 @@ export default function ChapterAudio({ chapterAudio }) {
   };
 
   const UpdateAudio = (playbackStatus) => {
-    playbackStatus.didJustFinish && SetAudio(audioUrl); // replay audio and highlight icons
+    if (playbackStatus.didJustFinish) {
+      sound.pauseAsync();
+      sound.setPositionAsync(0);
+      setEnabledButtons(preparedState);
+      // switchKeepAwakeOff();
+    }
   };
 
   return (
