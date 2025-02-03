@@ -23,7 +23,6 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 36
     },
     "web": {
       "bundler": "metro",
