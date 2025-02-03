@@ -2,40 +2,27 @@
 
 ## To update Expo SDK
 
-- Install the latest Expo SDK version:
-
 > npm install expo@latest
-
-- Upgrade all dependencies to match the installed SDK version:
 
 > npx expo install --fix
 
-- Fix typescrip issues:
+## Fix typescrip issues:
 
 > Ctrl + Shift + P > Typescript: Restart TS Server
 
-## Expo Doctor
-
-- Make sure the code is valid:
+## Build
 
 > npx -y expo-doctor
 
-## Build
-
-- Android:
-
 > eas build --platform android
 
-## Run
-
-- Web:
+## Web:
 
 > npm run web
 
 ## To do
 
 - Settings
-
   - Font size
   - Initial page
 

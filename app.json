@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "33. Canon texts enhanced",
-    "runtimeVersion": "33",
+    "version": "35. Audio player enhanced",
+    "runtimeVersion": "35",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -23,7 +23,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 33
+      "versionCode": 35
     },
     "web": {
       "bundler": "metro",
