@@ -29,7 +29,7 @@ export default function TabLayout() {
       borderRightWidth: 0,
       backgroundColor: backgroundColor,
     },
-    tabBarItem: {
+    tabBarItem: { // copied
       borderTopWidth: 2,
       borderTopColor: "grey",
       borderRightWidth: 2,
