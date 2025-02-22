@@ -6,23 +6,18 @@
 
 > npx expo install --fix
 
-## Fix typescrip issues:
+## Fix typescript issues:
 
-> Ctrl + Shift + P > Typescript: Restart TS Server
+> Ctrl+Shift+P > Typescript: Restart TS Server
 
 ## Build
 
-> npx -y expo-doctor
-
 > eas build --platform android
-
-## Web:
-
-> npm run web
 
 ## To do
 
 - Settings
+
   - Font size
   - Initial page
 
