@@ -6,7 +6,7 @@
 
 > npx expo install --fix
 
-## Fix typescrip issues:
+## Fix typescript issues:
 
 > Ctrl+Shift+P > Typescript: Restart TS Server
 
@@ -25,6 +25,7 @@
 ## To do
 
 - Settings
+
   - Font size
   - Initial page
 

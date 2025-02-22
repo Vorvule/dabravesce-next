@@ -1,16 +1,15 @@
-import { Image } from "react-native";
-import { usePathname } from "expo-router";
+import { Image } from 'expo-image';
+import { usePathname } from 'expo-router';
 
-import IndexContent from "@/app_screens/index/IndexContent";
-import MetaData from "@/components/MetaData";
-import ParallaxScrollView from "@/components/ParallaxScrollView";
+import IndexContent from '@/app_screens/index/IndexContent';
+import MetaData from '@/components/MetaData';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
 
-import Device from "@/functions/Device";
+import Device from '@/functions/Device';
+import Styles from '@/constants/styles/common.styles';
 
-import Styles from "@/constants/Styles";
-
-const dark = "@/assets/images/logos/church-dark.png";
-const light = "@/assets/images/logos/church.png";
+const dark = '@/assets/images/logos/church-dark.png';
+const light = '@/assets/images/logos/church.png';
 
 export default function IndexScreen() {
   const imageSource = Device.themeIsDark() ? require(dark) : require(light);

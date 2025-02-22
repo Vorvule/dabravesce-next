@@ -1,15 +1,13 @@
-import { useContext } from "react";
-import { Link } from "expo-router";
-
-import ThemedText from "@/components/ThemedText";
-import ThemedView from "@/components/ThemedView";
-
-import GlobalContext from "@/contexts/GlobalContext";
-import Device from "@/functions/Device";
-
-import Styles from "@/constants/Styles";
-import Page from "@/functions/Page";
-import { ColorTheme } from "@/functions/ColorTheme";
+import { useContext } from 'react';
+import { Link } from 'expo-router';
+import ThemedText from '@/components/ThemedText';
+import ThemedView from '@/components/ThemedView';
+import GlobalContext from '@/contexts/GlobalContext';
+import Device from '@/functions/Device';
+import Styles from '@/constants/styles/common.styles';
+import Page from '@/functions/Page';
+import { ColorTheme } from '@/functions/ColorTheme';
+import { StyleProp, TextStyle } from 'react-native';
 
 // import mapSources from "@/functions/mapping/SourceMapper"
 // import createSiteMap from "@/functions/sitemap/SiteMapper";
@@ -18,74 +16,76 @@ export default function IndexContent() {
   // mapSources();
   // createSiteMap();
 
-  const linkTextColor = ColorTheme.getColor("link");
-  const linkTextStyle = { color: linkTextColor, fontFamily: "SofiaSemiBold" };
+  const linkTextColor = ColorTheme.getColor('link');
+  const linkTextStyle: StyleProp<TextStyle> = {
+    color: linkTextColor,
+    fontFamily: 'Vollkorn',
+  };
 
   const { dailyKeychain } = useContext(GlobalContext);
+  const tab = '       ';
+  const bullet = ' \u2b58  ';
 
   return (
     <>
       <ThemedView>
-        <ThemedText type="title">Мір вам!</ThemedText>
+        <ThemedText type='title'>Мір вам!</ThemedText>
       </ThemedView>
 
       <ThemedView style={Styles.paragraph}>
-        <ThemedText type="subtitle">Аб "Дабравесці"</ThemedText>
+        <ThemedText type='subtitle'>"Дабравесце"</ThemedText>
         <ThemedText>
-          Шчыра рады бачыць вас на старонках праекта "Дабравесце".
-        </ThemedText>
-        <ThemedText>
-          Праект створаны і развіваецца Брацтвам у гонар Віленскіх мучанікаў пры
+          {tab}Шчыра рады бачыць вас на старонках праекта "Дабравесце", што
+          развіваецца Брацтвам у гонар Віленскіх мучанікаў пры
           Свята-Петра-Паўлаўскім саборы Беларускай Праваслаўнай Царквы.
         </ThemedText>
         <ThemedText>
-          Сабор знаходзіцца ў Мінску, на Нямізе, вуліца Ракаўская, дом 4.
+          {tab}Сабор знаходзіцца ў Мінску, на Нямізе, вуліца Ракаўская, дом 4.
         </ThemedText>
       </ThemedView>
 
       <ThemedView style={Styles.paragraph}>
-        <ThemedText type="subtitle">Пра пераклад</ThemedText>
+        <ThemedText type='subtitle'>Пераклад</ThemedText>
         <ThemedText>
-          Пераклад Новага Запавету выкананы Біблейскай камісіяй Беларускай
+          {tab}Пераклад Новага Запавету выкананы Біблейскай камісіяй Беларускай
           Праваслаўнай Царквы.
         </ThemedText>
-        <ThemedText>Тэкст Евангелля чытае Юрый Жыгамонт.</ThemedText>
+        <ThemedText>{tab}Тэкст Евангелля чытае Юрый Жыгамонт.</ThemedText>
         <ThemedText>
-          Малітоўнік — у перакладзе протаіерэя Сергія Гардуна.
+          {tab}Малітоўнік — у перакладзе протаіерэя Сергія Гардуна.
         </ThemedText>
-        <ThemedText>Малітвы агучаны аўтарам перакладу.</ThemedText>
+        <ThemedText>{tab}Малітвы агучаны аўтарам перакладу.</ThemedText>
       </ThemedView>
 
       <ThemedView style={Styles.paragraph}>
-        <ThemedText type="subtitle">Нашы крыніцы</ThemedText>
-        <ThemedText>У меню "Дабравесця" вы знойдзеце:</ThemedText>
-        <ThemedText>{"\u2b58   "} Евангелле</ThemedText>
-        <ThemedText>{"\u2b58   "} Кнігі Апосталаў</ThemedText>
-        <ThemedText>{"\u2b58   "} Псалтыр</ThemedText>
-        <ThemedText>{"\u2b58   "} Малітоўнік</ThemedText>
-        <ThemedText>{"\u2b58   "} Акафісты</ThemedText>
-        <ThemedText>{"\u2b58   "} Богаслужэнні</ThemedText>
-        <ThemedText>{"\u2b58   "} Дзіцячыя кнігі</ThemedText>
-        <ThemedText>{"\u2b58   "} Пабожныя спевы</ThemedText>
-        <ThemedText>і іншыя крыніцы духоўнага развіцця.</ThemedText>
+        <ThemedText type='subtitle'>Крыніцы</ThemedText>
+        <ThemedText>{tab}У меню "Дабравесця" вы знойдзеце:</ThemedText>
+        <ThemedText>{bullet} Евангелле</ThemedText>
+        <ThemedText>{bullet} Кнігі Апосталаў</ThemedText>
+        <ThemedText>{bullet} Псалтыр</ThemedText>
+        <ThemedText>{bullet} Малітоўнік</ThemedText>
+        <ThemedText>{bullet} Акафісты</ThemedText>
+        <ThemedText>{bullet} Богаслужэнні</ThemedText>
+        <ThemedText>{bullet} Дзіцячыя кнігі</ThemedText>
+        <ThemedText>{bullet} Пабожныя спевы</ThemedText>
+        <ThemedText>— і іншыя крыніцы духоўнага развіцця.</ThemedText>
       </ThemedView>
 
       <ThemedView style={Styles.paragraph}>
-        <ThemedText type="subtitle">Евангелле штодня</ThemedText>
+        <ThemedText type='subtitle'>Евангелле штодня</ThemedText>
         <ThemedText>
-          Многія з нас чытаюць Евангелле штодня — зазвычай, па адным раздзеле.
+          {tab}Многія з нас чытаюць Евангелле штодня — зазвычай, па адным
+          раздзеле.
         </ThemedText>
         <ThemedText>
-          І мы штодзённа гартаем старонкі Дабравесця для таго, каб супольна з
-          вамі прачытаць за год усе чатыры Евангеллі роўна чатыры разы.
+          {tab}І мы штодзённа гартаем старонкі Дабравесця для таго, каб супольна
+          з вамі прачытаць за год усе чатыры Евангеллі роўна чатыры разы.
         </ThemedText>
         <ThemedText>
-          Таму намоўчкі, пры адкрыцці{` ${Device.getAppKind()}, `}
-          Змест адлюстроўвае менавіта сённяшняе, чарговае{", "}
+          {tab}Таму намоўчкі, пры адкрыцці{` ${Device.getAppKind()}, `}
+          Старонка адлюстроўвае менавіта сённяшняе, чарговае{', '}
           <Link href={Page.getUrl(dailyKeychain)}>
-            <ThemedText type="default" style={linkTextStyle}>
-              Евангелле дня
-            </ThemedText>
+            <ThemedText style={linkTextStyle}>Евангелле дня</ThemedText>
           </Link>
           .
         </ThemedText>

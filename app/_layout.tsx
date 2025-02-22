@@ -1,30 +1,29 @@
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
-import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
-import "react-native-reanimated";
-import { Appearance } from "react-native";
+import { DarkTheme, DefaultTheme } from '@react-navigation/native';
+import { ThemeProvider } from '@react-navigation/native';
+import { Stack } from 'expo-router';
+import 'react-native-reanimated';
+import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
+import { useEffect } from 'react';
+import { useFonts } from 'expo-font';
+
+import { useColorScheme } from '@/hooks/useColorScheme';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const scheme = Appearance.getColorScheme();
-  const theme = scheme === "dark" ? DarkTheme : DefaultTheme;
+  const colorScheme = useColorScheme();
 
   const [loaded] = useFonts({
-    Sofia: require("../assets/fonts/SofiaSans-Regular.ttf"),
-    SofiaSemiBold: require("../assets/fonts/SofiaSans-SemiBold.ttf"),
+    Monomakh: require('../assets/fonts/Monomakh-Regular.ttf'),
+    Vollkorn: require('../assets/fonts/Vollkorn-Regular.ttf'),
   });
 
   useEffect(() => {
-    if (loaded) SplashScreen.hideAsync();
+    if (loaded) {
+      SplashScreen.hideAsync();
+    }
   }, [loaded]);
 
   if (!loaded) {
@@ -32,12 +31,12 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={theme}>
-      <StatusBar hidden />
+    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" options={{ headerShown: false }} />
+        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+        <Stack.Screen name='+not-found' />
       </Stack>
+      <StatusBar style='auto' />
     </ThemeProvider>
   );
 }

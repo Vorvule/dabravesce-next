@@ -1,16 +1,16 @@
 // https://stackoverflow.com/questions/68042313/pausing-react-native-expo-audio
 
-import { useEffect, useState } from "react";
-import { View } from "react-native";
+import { useEffect, useState } from 'react';
+import { View } from 'react-native';
 
-import { Audio } from "expo-av";
-import { activateKeepAwakeAsync, deactivateKeepAwake } from "expo-keep-awake";
+import { Audio } from 'expo-av';
+import { activateKeepAwakeAsync, deactivateKeepAwake } from 'expo-keep-awake';
 
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from '@supabase/supabase-js';
 
-import Device from "@/functions/Device";
-import RoundButton from "@/components/RoundButton";
-import Styles from "@/constants/Styles";
+import Device from '@/functions/Device';
+import RoundButton from '@/components/RoundButton';
+import Styles from '@/constants/styles/common.styles';
 
 export default function ChapterAudio({ chapterAudio }) {
   const [sound, _] = useState(new Audio.Sound());
@@ -30,9 +30,7 @@ export default function ChapterAudio({ chapterAudio }) {
   const supabase = createClient(supabaseUrl, supabaseKey);
 
   useEffect(() => {
-    const { data } = supabase.storage
-      .from("audio")
-      .getPublicUrl(chapterAudio);
+    const { data } = supabase.storage.from('audio').getPublicUrl(chapterAudio);
 
     addAudio(data.publicUrl);
     sound.setOnPlaybackStatusUpdate(updateAudio);
@@ -42,7 +40,7 @@ export default function ChapterAudio({ chapterAudio }) {
 
   const addAudio = async (publicUrl) => {
     await sound.unloadAsync();
-    await sound.loadAsync({ uri: publicUrl }, {}, true)
+    await sound.loadAsync({ uri: publicUrl }, {}, true);
     setEnabledButtons(stoppedState);
   };
 
@@ -87,23 +85,23 @@ export default function ChapterAudio({ chapterAudio }) {
   const undoAudio = () => {
     stopAudio();
     platformIsNative && deactivateKeepAwake();
-    setEnabledButtons(bareState)
-  }
+    setEnabledButtons(bareState);
+  };
 
   return (
     <View style={Styles.buttons}>
       <RoundButton
-        name="play"
+        name='play'
         onPress={playAudio}
         enabled={enabledButtons.play}
       />
       <RoundButton
-        name="pause"
+        name='pause'
         onPress={pauseAudio}
         enabled={enabledButtons.pause}
       />
       <RoundButton
-        name="stop"
+        name='stop'
         onPress={stopAudio}
         enabled={enabledButtons.stop}
       />
