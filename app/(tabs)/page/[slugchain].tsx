@@ -8,7 +8,7 @@ import PageContent from '@/app_screens/page/PageContent';
 
 import AppSources from '@/assets/albums/AppSources';
 import Styles from '@/constants/styles/common.styles';
-import GlobalContext from '@/contexts/GlobalContext';
+import { GlobalContext } from '@/contexts/GlobalContext';
 
 import Device from '@/functions/Device';
 import Page from '@/functions/Page';

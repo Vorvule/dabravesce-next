@@ -14,6 +14,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+  const theme = colorScheme === 'dark' ? DarkTheme : DefaultTheme;
 
   const [loaded] = useFonts({
     Monomakh: require('../assets/fonts/Monomakh-Regular.ttf'),
@@ -31,12 +32,12 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={theme}>
+      <StatusBar hidden />
       <Stack>
         <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-        <Stack.Screen name='+not-found' />
+        <Stack.Screen name='+not-found' options={{ headerShown: false }} />
       </Stack>
-      <StatusBar style='auto' />
     </ThemeProvider>
   );
 }

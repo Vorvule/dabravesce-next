@@ -3,17 +3,17 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
+    "latest": "install --fix",
+    "doctor": "npx -y expo-doctor",
     "start": "expo start",
-    "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint",
+    "android": "expo start --android",
+    "android:build": "eas build -p android",
+    "web:start": "expo start --web",
     "web:build": "expo export -p web",
-    "serve": "npx serve dist",
-    "build:android": "eas build -p android",
-    "latest": "install --fix",
-    "doctor": "npx -y expo-doctor"
+    "web:serve": "npx serve dist"
   },
   "jest": {
     "preset": "jest-expo"

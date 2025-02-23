@@ -14,10 +14,11 @@ import Animated, {
   useScrollViewOffset,
 } from 'react-native-reanimated';
 
-import ThemedView from '@/components/ThemedView';
 import Device from '@/functions/Device';
-import GlobalContext from '@/contexts/GlobalContext';
 import { ColorTheme } from '@/functions/ColorTheme';
+import { GlobalContext } from '@/contexts/GlobalContext';
+import ThemedView from '@/components/ThemedView';
+import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
 
 const HEADER_HEIGHT = 200;
 
@@ -33,7 +34,7 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
 
   const styles = StyleSheet.create({
     container: { flex: 1, flexDirection: 'row' },
-    middleColumn: { width: width },
+    middleColumn: { width },
     sideColumn: { flex: 1 },
     header: {
       height: HEADER_HEIGHT,
@@ -45,6 +46,7 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
 
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
   const scrollOffset = useScrollViewOffset(scrollRef);
+  const bottom = useBottomTabOverflow();
 
   const headerAnimatedStyle = useAnimatedStyle(() => {
     return {
@@ -79,11 +81,13 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
         <Animated.ScrollView
           ref={scrollRef}
           scrollEventThrottle={16}
-          showsVerticalScrollIndicator={!windowIsWide}
+          scrollIndicatorInsets={{ bottom }}
+          contentContainerStyle={{ paddingBottom: bottom }}
+          // showsVerticalScrollIndicator={!windowIsWide}
         >
           <Animated.View style={AnimatedViewStyle}>{headerImage}</Animated.View>
           <ThemedView style={styles.content}>{children}</ThemedView>
-          <ThemedView style={{ height: 360 }} />
+          <ThemedView style={{ height: 300 }} />
         </Animated.ScrollView>
       </ThemedView>
       {windowIsWide && <ThemedView style={styles.sideColumn} />}

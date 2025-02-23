@@ -1,21 +1,25 @@
 {
   "expo": {
-    "name": "dabravesce",
+    "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "1.0.0",
+    "version": "37. Expo SDK 52 applied",
+    "runtimeVersion": "37",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "dwapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "by.dabravesce"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#fcfaeb"
+      },
+      "package": "by.dabravesce",
+      "versionCode": 37
     },
     "web": {
       "bundler": "metro",
@@ -27,15 +31,19 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
+          "image": "./assets/images/splash.png",
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#fcfaeb"
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9ed2d8a4-b203-4b54-8fc8-4ece25041f0b"
+      }
     }
   }
 }
