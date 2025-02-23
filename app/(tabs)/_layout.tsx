@@ -1,88 +1,49 @@
-import { useState } from "react";
-import { StyleSheet } from "react-native";
-import { Tabs } from "expo-router";
+import React from 'react';
+import { Tabs } from 'expo-router';
 
-import TabBarIcon from "@/components/navigation/TabBarIcon";
-import GlobalContext from "@/contexts/GlobalContext";
-
-import { ColorTheme } from "@/functions/ColorTheme";
-
-import Daily from "@/functions/Daily";
-import Device from "@/functions/Device";
-import Icon from "@/functions/TabBar";
+import Daily from '@/functions/Daily';
+import { IconSymbol } from '@/components/ui/IconSymbol';
+import { GlobalContext } from '@/contexts/GlobalContext';
+import { options } from '@/constants/styles/screen.options';
+import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function TabLayout() {
-  const linkColor = ColorTheme.getColor("link"); 
-  const greyColor = ColorTheme.getColor("grey");
-  const backgroundColor = ColorTheme.getColor("background");
-
-  const dailyKeychain = Daily.getDailyKeychain();
-
-  const [keychain, setKeychain] = useState(dailyKeychain);
-  const updateKeychain = (newKeychain: number[]) => setKeychain(newKeychain);
+  const dailyKeychain: number[] = Daily.getDailyKeychain();
+  const [keychain, setKeychain] = React.useState(dailyKeychain);
+  const updateKeychain: (newKeychain: number[]) => void = (
+    newKeychain: number[],
+  ): void => setKeychain(newKeychain);
 
   const contextValue = { keychain, updateKeychain, dailyKeychain };
-
-  const style = StyleSheet.create({
-    tabBar: {
-      borderTopWidth: 0,
-      borderRightWidth: 0,
-      backgroundColor: backgroundColor,
-    },
-    tabBarItem: { // copied
-      borderTopWidth: 2,
-      borderTopColor: "grey",
-      borderRightWidth: 2,
-      borderRightColor: "grey",
-      borderTopRightRadius: 8,
-      borderBottomRightRadius: 8,
-      borderLeftWidth: 2,
-      borderLeftColor: backgroundColor,
-      backgroundColor: backgroundColor,
-    },
-    tabBarLabel: {
-      fontFamily: "SofiaSemiBold",
-      fontSize: Device.windowIsWide() ? 17 : 11,
-    },
-  });
+  const colorScheme = useColorScheme();
 
   return (
     <GlobalContext.Provider value={contextValue}>
-      <Tabs
-        screenOptions={{
-          headerShown: false,
-          tabBarStyle: style.tabBar,
-          tabBarItemStyle: style.tabBarItem,
-          tabBarLabelStyle: style.tabBarLabel,
-          tabBarActiveTintColor: linkColor,
-          tabBarInactiveTintColor: greyColor,
-        }}
-      >
+      <Tabs screenOptions={options.getScreenOptions(colorScheme)}>
         <Tabs.Screen
-          name="index"
+          name='index'
           options={{
-            title: "Галоўная",
-            tabBarIcon: ({ color, focused }) => (
-              <TabBarIcon name={Icon.getName("index", focused)} color={color} />
+            title: 'Дабравесце',
+            tabBarIcon: ({ color }) => (
+              <IconSymbol name='cloud' color={color} />
             ),
           }}
         />
         <Tabs.Screen
-          name="menu"
+          name='menu'
           options={{
-            title: "Крыніцы",
-            tabBarIcon: ({ color, focused }) => (
-              <TabBarIcon name={Icon.getName("menu", focused)} color={color} />
+            title: 'Крыніцы',
+            tabBarIcon: ({ color }) => (
+              <IconSymbol name='menucard' color={color} />
             ),
           }}
         />
         <Tabs.Screen
-          name="page/[slugchain]"
+          name='page/[slugchain]'
           options={{
-            title: "Старонка",
-            // tabBarItemStyle: style.lastTabBarItem,
-            tabBarIcon: ({ color, focused }) => (
-              <TabBarIcon name={Icon.getName("", focused)} color={color} />
+            title: 'Старонка',
+            tabBarIcon: ({ color }) => (
+              <IconSymbol name='book.pages.fill' color={color} />
             ),
           }}
         />

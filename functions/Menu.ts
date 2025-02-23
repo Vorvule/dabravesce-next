@@ -1,17 +1,17 @@
-import { useContext } from "react";
+import { useContext } from 'react';
 
-import GlobalContext from "@/contexts/GlobalContext";
-import { ColorTheme } from "./ColorTheme";
+import { ColorTheme } from './ColorTheme';
+import { GlobalContext } from '@/contexts/GlobalContext';
 
 export default class Menu {
-  static getColor(keys) {
-    const linkColor = ColorTheme.getColor("link");
+  static getColor(keys: number[]) {
+    const linkColor = ColorTheme.getColor('link');
     const linkStyle = { color: linkColor };
 
     return this.keysAreActive(keys) ? linkStyle : {};
   }
 
-  static keysAreActive(keys) {
+  static keysAreActive(keys: number[]): boolean {
     const { keychain } = useContext(GlobalContext);
 
     switch (keys.length) {
@@ -30,7 +30,7 @@ export default class Menu {
     }
   }
 
-  static clearText(text) {
-    return text.replace(/ \| .+/, "");
+  static clearText(text: string) {
+    return text.replace(/ \| .+/, '');
   }
 }

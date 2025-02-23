@@ -3,8 +3,8 @@ import {
   useMemo,
   type PropsWithChildren,
   type ReactElement,
-} from "react";
-import { StyleSheet } from "react-native";
+} from 'react';
+import { StyleSheet } from 'react-native';
 
 import Animated, {
   interpolate,
@@ -12,12 +12,13 @@ import Animated, {
   useAnimatedRef,
   useAnimatedStyle,
   useScrollViewOffset,
-} from "react-native-reanimated";
+} from 'react-native-reanimated';
 
-import ThemedView from "@/components/ThemedView";
-import Device from "@/functions/Device";
-import GlobalContext from "@/contexts/GlobalContext";
-import { ColorTheme } from "@/functions/ColorTheme";
+import Device from '@/functions/Device';
+import { ColorTheme } from '@/functions/ColorTheme';
+import { GlobalContext } from '@/contexts/GlobalContext';
+import ThemedView from '@/components/ThemedView';
+import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
 
 const HEADER_HEIGHT = 200;
 
@@ -29,22 +30,23 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
   const windowIsWide = Device.windowIsWide();
   const width = windowIsWide ? 800 : Device.getWindowWidth();
 
-  const backgroundColor = ColorTheme.getColor("background");
+  const backgroundColor = ColorTheme.getColor('background');
 
   const styles = StyleSheet.create({
-    container: { flex: 1, flexDirection: "row" },
-    middleColumn: { width: width },
+    container: { flex: 1, flexDirection: 'row' },
+    middleColumn: { width },
     sideColumn: { flex: 1 },
     header: {
       height: HEADER_HEIGHT,
-      overflow: "hidden",
+      overflow: 'hidden',
       backgroundColor: backgroundColor,
     },
-    content: { flex: 1, padding: 24, gap: 16, overflow: "hidden" },
+    content: { flex: 1, padding: 18, gap: 16, overflow: 'hidden' },
   });
 
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
   const scrollOffset = useScrollViewOffset(scrollRef);
+  const bottom = useBottomTabOverflow();
 
   const headerAnimatedStyle = useAnimatedStyle(() => {
     return {
@@ -53,14 +55,14 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
           translateY: interpolate(
             scrollOffset.value,
             [-HEADER_HEIGHT, 0, HEADER_HEIGHT],
-            [-HEADER_HEIGHT / 2, 0, HEADER_HEIGHT * 0.75]
+            [-HEADER_HEIGHT / 2, 0, HEADER_HEIGHT * 0.75],
           ),
         },
         {
           scale: interpolate(
             scrollOffset.value,
             [-HEADER_HEIGHT, 0, HEADER_HEIGHT],
-            [2, 1, 1]
+            [2, 1, 1],
           ),
         },
       ],
@@ -79,10 +81,13 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
         <Animated.ScrollView
           ref={scrollRef}
           scrollEventThrottle={16}
-          showsVerticalScrollIndicator={!windowIsWide}
+          scrollIndicatorInsets={{ bottom }}
+          contentContainerStyle={{ paddingBottom: bottom }}
+          // showsVerticalScrollIndicator={!windowIsWide}
         >
           <Animated.View style={AnimatedViewStyle}>{headerImage}</Animated.View>
           <ThemedView style={styles.content}>{children}</ThemedView>
+          <ThemedView style={{ height: 300 }} />
         </Animated.ScrollView>
       </ThemedView>
       {windowIsWide && <ThemedView style={styles.sideColumn} />}

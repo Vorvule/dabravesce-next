@@ -2,17 +2,13 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "36. Expo SDK 52 applied",
-    "runtimeVersion": "36",
+    "version": "37. Expo SDK 52 applied",
+    "runtimeVersion": "37",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
     "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#fcfaeb"
-    },
+    "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "by.dabravesce"
@@ -23,7 +19,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 36
+      "versionCode": 37
     },
     "web": {
       "bundler": "metro",
@@ -32,7 +28,14 @@
     },
     "plugins": [
       "expo-router",
-      "expo-font"
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#fcfaeb"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

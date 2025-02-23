@@ -1,50 +1,53 @@
-import { Text, type TextProps, StyleSheet } from "react-native";
+import { Text, type TextProps, StyleSheet } from 'react-native';
 
-import { ColorTheme } from "@/functions/ColorTheme";
+import { ColorTheme } from '@/functions/ColorTheme';
+import Device from '@/functions/Device';
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: "title" | "subtitle" | "header" | "default" | "link";
+  type?: 'title' | 'subtitle' | 'header' | 'default' | 'link';
 };
 
 export default function ThemedText({
   style,
   lightColor,
   darkColor,
-  type = "default",
+  type = 'default',
   ...rest
 }: ThemedTextProps) {
   const colors = { light: lightColor, dark: darkColor };
 
-  const textColor = ColorTheme.getThemeColor(colors, "text");
-  const primary = ColorTheme.getColor("primary");
+  const textColor = ColorTheme.getThemeColor(colors, 'text');
+  const primary = ColorTheme.getColor('primary');
+  const fontSize = Device.platformIsWeb() ? 22 : 18;
 
   const styles = StyleSheet.create({
     title: {
-      fontFamily: "SofiaSemiBold",
-      fontSize: 24,
+      fontFamily: 'Monomakh',
+      textAlign: 'center',
+      fontSize: fontSize + 12,
       color: primary,
-      lineHeight: 36,
-      textAlign: "center",
     },
     subtitle: {
-      fontFamily: "SofiaSemiBold",
-      fontSize: 22,
+      fontFamily: 'Monomakh',
+      textAlign: 'center',
+      fontSize: fontSize + 9,
     },
     header: {
-      fontFamily: "SofiaSemiBold",
-      fontSize: 20,
-      lineHeight: 24,
+      fontFamily: 'Monomakh',
+      fontSize: fontSize + 6,
+      paddingVertical: 4,
     },
     link: {
-      fontFamily: "Sofia",
-      fontSize: 19,
+      fontFamily: 'Monomakh',
+      fontSize: fontSize,
+      lineHeight: 24,
     },
     default: {
-      fontFamily: "Sofia",
-      fontSize: 18,
-      lineHeight: 24,
+      fontFamily: 'Vollkorn',
+      fontSize: fontSize,
+      lineHeight: 26,
     },
   });
 
@@ -52,11 +55,11 @@ export default function ThemedText({
     <Text
       style={[
         { color: textColor },
-        type === "title" ? styles.title : undefined,
-        type === "subtitle" ? styles.subtitle : undefined,
-        type === "header" ? styles.header : undefined,
-        type === "link" ? styles.link : undefined,
-        type === "default" ? styles.default : undefined,
+        type === 'title' ? styles.title : undefined,
+        type === 'subtitle' ? styles.subtitle : undefined,
+        type === 'header' ? styles.header : undefined,
+        type === 'link' ? styles.link : undefined,
+        type === 'default' ? styles.default : undefined,
         style,
       ]}
       {...rest}
