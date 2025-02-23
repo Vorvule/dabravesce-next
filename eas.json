@@ -18,6 +18,12 @@
         "simulator": true
       }
     },
+    "previewIos": {
+      "distribution": "internal",
+      "ios": {
+        "simulator": true
+      }
+    },
     "production": {}
   },
   "submit": {
