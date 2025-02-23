@@ -25,7 +25,6 @@
 ## To do
 
 - Settings
-
   - Font size
   - Initial page
 
