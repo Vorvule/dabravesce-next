@@ -1,18 +1,6 @@
-# Expo SDK Update
-
-## To update Expo SDK
-
-> npm install expo@latest
-
-> npx expo install --fix
-
 ## Fix typescript issues:
 
 > Ctrl+Shift+P > Typescript: Restart TS Server
-
-## Build
-
-> eas build --platform android
 
 ## To do
 
