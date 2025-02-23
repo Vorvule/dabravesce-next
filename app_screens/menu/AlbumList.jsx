@@ -1,9 +1,9 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useMemo, useState } from 'react';
 
-import ThemedView from "@/components/ThemedView";
+import ThemedView from '@/components/ThemedView';
 
-import AlbumListItem from "./AlbumListItem";
-import GlobalContext from "@/contexts/GlobalContext";
+import AlbumListItem from './AlbumListItem';
+import { GlobalContext } from '@/contexts/GlobalContext';
 
 export default function AlbumList({ albums }) {
   const { keychain } = useContext(GlobalContext);
@@ -16,7 +16,7 @@ export default function AlbumList({ albums }) {
 
   return albums.map((album, key) => {
     return (
-      <ThemedView key={"album-" + key}>
+      <ThemedView key={'album-' + key}>
         <AlbumListItem album={album} keys={[key]} folding={folding} />
       </ThemedView>
     );

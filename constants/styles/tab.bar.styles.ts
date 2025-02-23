@@ -18,7 +18,7 @@ export const tabBarItemStyle = {
 
 export const tabBarLabelStyle = {
   fontFamily: 'Monomakh',
-  fontSize: Device.windowIsWide() ? 24 : 14,
+  fontSize: Device.platformIsWeb() ? 24 : 14,
 };
 
 export const tabBarIconStyle = {

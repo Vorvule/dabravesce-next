@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Link } from 'expo-router';
 import ThemedText from '@/components/ThemedText';
 import ThemedView from '@/components/ThemedView';
-import GlobalContext from '@/contexts/GlobalContext';
+import { GlobalContext } from '@/contexts/GlobalContext';
 import Device from '@/functions/Device';
 import Styles from '@/constants/styles/common.styles';
 import Page from '@/functions/Page';
@@ -68,7 +68,7 @@ export default function IndexContent() {
         <ThemedText>{bullet} Богаслужэнні</ThemedText>
         <ThemedText>{bullet} Дзіцячыя кнігі</ThemedText>
         <ThemedText>{bullet} Пабожныя спевы</ThemedText>
-        <ThemedText>— і іншыя крыніцы духоўнага развіцця.</ThemedText>
+        <ThemedText>{tab}— і іншыя крыніцы духоўнага развіцця.</ThemedText>
       </ThemedView>
 
       <ThemedView style={Styles.paragraph}>

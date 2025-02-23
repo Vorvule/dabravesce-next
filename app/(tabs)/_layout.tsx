@@ -2,17 +2,20 @@ import React from 'react';
 import { Tabs } from 'expo-router';
 
 import Daily from '@/functions/Daily';
-import GlobalContext from '@/contexts/GlobalContext';
 import { IconSymbol } from '@/components/ui/IconSymbol';
+import { GlobalContext } from '@/contexts/GlobalContext';
 import { options } from '@/constants/styles/screen.options';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  const dailyKeychain = Daily.getDailyKeychain();
+  const dailyKeychain: number[] = Daily.getDailyKeychain();
   const [keychain, setKeychain] = React.useState(dailyKeychain);
-  const updateKeychain = (newKeychain: number[]) => setKeychain(newKeychain);
+  const updateKeychain: (newKeychain: number[]) => void = (
+    newKeychain: number[],
+  ): void => setKeychain(newKeychain);
+
   const contextValue = { keychain, updateKeychain, dailyKeychain };
+  const colorScheme = useColorScheme();
 
   return (
     <GlobalContext.Provider value={contextValue}>
