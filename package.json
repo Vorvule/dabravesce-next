@@ -3,7 +3,7 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "latest": "install --fix",
+    "latest": "expo install --fix",
     "doctor": "npx -y expo-doctor",
     "start": "expo start",
     "ios": "expo start --ios",

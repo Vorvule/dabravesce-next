@@ -10,17 +10,9 @@
 
 > Ctrl+Shift+P > Typescript: Restart TS Server
 
-## Expo Doctor
-
-> npx -y expo-doctor
-
 ## Build
 
 > eas build --platform android
-
-## Run
-
-> npm run web
 
 ## To do
 
