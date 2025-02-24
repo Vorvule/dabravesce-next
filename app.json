@@ -4,7 +4,7 @@
     "slug": "dabravesce",
     "version": "37. Expo SDK 52 applied",
     "runtimeVersion": "37",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
     "userInterfaceStyle": "automatic",
