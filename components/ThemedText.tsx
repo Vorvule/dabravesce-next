@@ -20,7 +20,7 @@ export default function ThemedText({
 
   const textColor = ColorTheme.getThemeColor(colors, 'text');
   const primary = ColorTheme.getColor('primary');
-  const fontSize = Device.platformIsWeb() ? 22 : 18;
+  const fontSize = Device.windowIsWide() ? 22 : 18;
 
   const styles = StyleSheet.create({
     title: {
