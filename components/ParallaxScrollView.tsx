@@ -87,7 +87,6 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
         >
           <Animated.View style={AnimatedViewStyle}>{headerImage}</Animated.View>
           <ThemedView style={styles.content}>{children}</ThemedView>
-          <ThemedView style={{ height: 300 }} />
         </Animated.ScrollView>
       </ThemedView>
       {windowIsWide && <ThemedView style={styles.sideColumn} />}
