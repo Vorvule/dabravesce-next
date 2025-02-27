@@ -17,7 +17,6 @@ import Web from '@/functions/Web';
 const dark = '@/assets/images/logos/book-dark.png';
 const light = '@/assets/images/logos/book.png';
 
-/*
 export async function generateStaticParams(): Promise<
   Record<string, string>[]
 > {
@@ -33,7 +32,6 @@ export async function generateStaticParams(): Promise<
 
   return slugChains;
 }
-*/
 
 export default function PageScreen() {
   const imageSource = Device.themeIsDark() ? require(dark) : require(light);
