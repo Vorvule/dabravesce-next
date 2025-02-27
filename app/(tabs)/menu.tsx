@@ -2,18 +2,27 @@ import { Image } from 'expo-image';
 import { usePathname } from 'expo-router';
 
 import AppSources from '@/assets/albums/AppSources';
+import Styles from '@/constants/styles/common.styles';
+
 import Device from '@/functions/Device';
+
+import AlbumList from '@/app_screens/menu/AlbumList';
+import MenuFooter from '@/app_screens/menu/MenuFooter';
 import MetaData from '@/components/MetaData';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import Styles from '@/constants/styles/common.styles';
 import ThemedView from '@/components/ThemedView';
 import ThemedText from '@/components/ThemedText';
-import AlbumList from '@/app_screens/menu/AlbumList';
 
 const dark = '@/assets/images/logos/books-dark.png';
 const light = '@/assets/images/logos/books.png';
 
+// import mapSources from '@/functions/mapping/SourceMapper';
+// import createSiteMap from '@/functions/sitemap/SiteMapper';
+
 export default function MenuScreen() {
+  // mapSources();
+  // createSiteMap();
+
   const imageSource = Device.themeIsDark() ? require(dark) : require(light);
   const headerImage = <Image source={imageSource} style={Styles.image} />;
 
@@ -32,6 +41,8 @@ export default function MenuScreen() {
         <ThemedView>
           <AlbumList albums={AppSources} />
         </ThemedView>
+
+        <MenuFooter />
       </ParallaxScrollView>
     </>
   );
