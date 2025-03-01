@@ -15,7 +15,7 @@ export default function ChapterText({ chapterText }) {
     return typeof paragraph === 'string' ? (
       <ThemedText key={'p-' + index}>{tab + paragraph}</ThemedText>
     ) : (
-      <Link href={paragraph[1]}>
+      <Link key={'l-' + index} href={paragraph[1]}>
         <ThemedText style={linkTextStyle}>{tab + paragraph[0]}</ThemedText>
       </Link>
     );

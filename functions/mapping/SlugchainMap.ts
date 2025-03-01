@@ -383,6 +383,7 @@ const SlugchainMap: { [key: string]: number[] } = {
   'project~creators~contacts': [8, 0, 1],
   'project~content~sources': [8, 1, 0],
   'project~content~translation': [8, 1, 1],
+  'project~content~daily-gospel': [8, 1, 2],
 };
 
 export default SlugchainMap;

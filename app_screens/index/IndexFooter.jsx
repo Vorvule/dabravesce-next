@@ -3,9 +3,9 @@ import ThemedText from '@/components/ThemedText';
 
 import Styles from '@/constants/styles/common.styles';
 
-export default function MenuFooter() {
+export default function IndexFooter() {
   return (
-    <ThemedView style={{ paddingTop: 200, paddingBottom: 40 }}>
+    <ThemedView style={{ paddingBottom: 40 }}>
       <ThemedText type='link' style={{ textAlign: 'center' }}>
         Праект
       </ThemedText>

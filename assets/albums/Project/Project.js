@@ -2,6 +2,6 @@ import { ProjectContent } from './ProjectContent';
 
 export const project = {
   slug: 'project',
-  name: 'Дабравесце',
+  name: 'Пра "Дабравесце"',
   text: ProjectContent,
 };

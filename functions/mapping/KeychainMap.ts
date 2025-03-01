@@ -383,6 +383,7 @@ const KeychainMap: { [key: string]: string } = {
   '8~0~1': 'project~creators~contacts',
   '8~1~0': 'project~content~sources',
   '8~1~1': 'project~content~translation',
+  '8~1~2': 'project~content~daily-gospel',
 };
 
 export default KeychainMap;
