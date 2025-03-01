@@ -23,16 +23,7 @@ export default function TabLayout() {
         <Tabs.Screen
           name='index'
           options={{
-            title: 'Дабравесце',
-            tabBarIcon: ({ color }) => (
-              <IconSymbol name='cloud' color={color} />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name='menu'
-          options={{
-            title: 'Крыніцы',
+            title: 'Змест',
             tabBarIcon: ({ color }) => (
               <IconSymbol name='menucard' color={color} />
             ),
@@ -41,7 +32,7 @@ export default function TabLayout() {
         <Tabs.Screen
           name='page/[slugchain]'
           options={{
-            title: 'Старонка',
+            title: 'Крыніцы',
             tabBarIcon: ({ color }) => (
               <IconSymbol name='book.pages.fill' color={color} />
             ),

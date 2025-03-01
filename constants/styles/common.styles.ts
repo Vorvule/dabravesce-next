@@ -1,14 +1,14 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 const Styles = StyleSheet.create({
   image: {
     height: 200,
     width: 360,
-    alignSelf: "center",
+    alignSelf: 'center',
   },
 
   centered: {
-    textAlign: "center",
+    textAlign: 'center',
   },
 
   gapped: {
@@ -20,7 +20,7 @@ const Styles = StyleSheet.create({
     paddingTop: 12,
   },
 
-  // menu
+  // index
 
   padded: {
     paddingVertical: 18,
@@ -31,15 +31,15 @@ const Styles = StyleSheet.create({
   },
 
   border: {
-    borderBottomColor: "grey",
+    borderBottomColor: 'grey',
     borderBottomWidth: 1,
   },
 
   buttons: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "center",
-    width: "100%",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '100%',
   },
 });
 

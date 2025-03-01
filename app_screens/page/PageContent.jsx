@@ -5,7 +5,7 @@ import ThemedText from '@/components/ThemedText';
 
 import ChapterName from './chapter/ChapterName';
 import ChapterAudio from './chapter/ChapterAudio';
-import ChapterText from './chapter/ChaptertText';
+import ChapterText from './chapter/ChapterText';
 
 import Page from '@/functions/Page';
 import ChapterNavigation from './chapter/ChapterNavigation';
@@ -34,6 +34,7 @@ export default function PageContent({ keychain }) {
       <ChapterText chapterText={chapter.text} />
 
       <ChapterNavigation keychain={keychain} />
+      <ThemedView style={{ height: 240 }} />
     </ThemedView>
   );
 }

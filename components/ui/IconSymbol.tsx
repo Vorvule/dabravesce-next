@@ -7,9 +7,8 @@ import { OpaqueColorValue, StyleProp, TextStyle } from 'react-native';
 // See MaterialIcons here: https://icons.expo.fyi
 // See SF Symbols in the SF Symbols app on Mac.
 const MAPPING = {
-  cloud: 'cloud-queue',
-  'book.pages.fill': 'menu-book',
   menucard: 'menu',
+  'book.pages.fill': 'library-books',
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],
