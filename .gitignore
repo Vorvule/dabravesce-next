@@ -5,8 +5,8 @@ node_modules/
 
 # Expo
 .expo/
+.idea/
 dist/
-web-build/
 
 # Native
 *.orig.*

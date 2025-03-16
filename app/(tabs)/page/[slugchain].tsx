@@ -14,9 +14,6 @@ import Device from '@/functions/Device';
 import Page from '@/functions/Page';
 import Web from '@/functions/Web';
 
-const dark = '@/assets/images/logos/book-dark.png';
-const light = '@/assets/images/logos/book.png';
-
 export async function generateStaticParams(): Promise<
   Record<string, string>[]
 > {
@@ -34,7 +31,7 @@ export async function generateStaticParams(): Promise<
 }
 
 export default function PageScreen() {
-  const imageSource = Device.themeIsDark() ? require(dark) : require(light);
+  const imageSource =  require('@/assets/images/header/opened-book.png') 
   const headerImage = <Image source={imageSource} style={Styles.image} />;
 
   const slugchain: string = useLocalSearchParams().slugchain as string;
