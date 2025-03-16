@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "Two tab layout introduced",
-    "runtimeVersion": "41",
+    "version": "Header imaged update",
+    "runtimeVersion": "42",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -19,7 +19,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 41
+      "versionCode": 42
     },
     "web": {
       "bundler": "metro",
