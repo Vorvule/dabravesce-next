@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const Styles = StyleSheet.create({
   image: {
-    height: 200,
+    height: 202,
     width: 360,
     alignSelf: 'center',
   },

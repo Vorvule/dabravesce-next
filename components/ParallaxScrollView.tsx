@@ -83,7 +83,7 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
           scrollEventThrottle={16}
           scrollIndicatorInsets={{ bottom }}
           contentContainerStyle={{ paddingBottom: bottom }}
-          // showsVerticalScrollIndicator={!windowIsWide}
+          showsVerticalScrollIndicator={!windowIsWide}
         >
           <Animated.View style={AnimatedViewStyle}>{headerImage}</Animated.View>
           <ThemedView style={styles.content}>{children}</ThemedView>

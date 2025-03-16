@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "40. Two tab layout introduced",
-    "runtimeVersion": "40",
+    "version": "Header imaged update",
+    "runtimeVersion": "41",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -19,7 +19,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 40
+      "versionCode": 41
     },
     "web": {
       "bundler": "metro",
@@ -32,8 +32,9 @@
         "expo-splash-screen",
         {
           "image": "./assets/images/splash.png",
-          "resizeMode": "contain",
-          "backgroundColor": "#fcfaeb"
+          "backgroundColor": "#fcfaeb",
+          "resizeMode": "native",
+          "imageWidth": 480
         }
       ]
     ],
