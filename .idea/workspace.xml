@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="050e0dd3-db2b-4d89-9426-d37b6c786f98" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ui/IconSymbol.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ui/IconSymbol.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/albums/Worships/GreatCanon/Monday.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/albums/Worships/GreatCanon/Monday.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/albums/Worships/GreatCanon/Tuesday.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/albums/Worships/GreatCanon/Tuesday.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,18 +30,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Vorvule"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Vorvule&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Vorvule/dabravesce-next.git",
-    "accountId": "3d74f187-45cf-4ec5-be55-cf4886a9c807"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Vorvule/dabravesce-next.git&quot;,
+    &quot;accountId&quot;: &quot;3d74f187-45cf-4ec5-be55-cf4886a9c807&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
@@ -55,34 +55,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "work",
-    "last_opened_file_path": "/Users/vorvule/repo/dabravesce-next/assets/albums",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.android:build.executor": "Run",
-    "npm.android:preview.executor": "Run",
-    "npm.install:latest.executor": "Run",
-    "npm.web:build.executor": "Run",
-    "npm.web:deploy.executor": "Run",
-    "npm.web:serve.executor": "Run",
-    "npm.web:start.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "/Users/vorvule/repo/dabravesce-next/node_modules/prettier",
-    "ts.external.directory.path": "/Users/vorvule/repo/dabravesce-next/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;work&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/vorvule/repo/dabravesce-next/app_screens/menu&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.android:build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.android:doctor.executor&quot;: &quot;Run&quot;,
+    &quot;npm.android:preview.executor&quot;: &quot;Run&quot;,
+    &quot;npm.install:latest.executor&quot;: &quot;Run&quot;,
+    &quot;npm.web:build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.web:deploy.executor&quot;: &quot;Run&quot;,
+    &quot;npm.web:serve.executor&quot;: &quot;Run&quot;,
+    &quot;npm.web:start.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/vorvule/repo/dabravesce-next/node_modules/prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/vorvule/repo/dabravesce-next/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app_screens/menu" />
       <recent name="$PROJECT_DIR$/assets/albums" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app_screens/menu/deletable" />
       <recent name="$PROJECT_DIR$/assets/albums/Project" />
     </key>
   </component>
@@ -97,11 +100,11 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="android:preview" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="android:doctor" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="android:preview" />
+        <script value="android:doctor" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -140,17 +143,17 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.web:start" />
+        <item itemvalue="npm.android:build" />
+        <item itemvalue="npm.android:doctor" />
         <item itemvalue="npm.web:serve" />
         <item itemvalue="npm.web:build" />
-        <item itemvalue="npm.android:build" />
-        <item itemvalue="npm.android:preview" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-WS-243.24978.60" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.25659.40" />
       </set>
     </attachedChunks>
   </component>
@@ -163,6 +166,9 @@
       <option name="presentableId" value="Default" />
       <updated>1740318496461</updated>
       <workItem from="1740318497500" duration="1974000" />
+      <workItem from="1741018715651" duration="1984000" />
+      <workItem from="1741547493989" duration="769000" />
+      <workItem from="1741548885714" duration="1663000" />
     </task>
     <servers />
   </component>
