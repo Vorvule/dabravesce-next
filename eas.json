@@ -4,16 +4,17 @@
     "appVersionSource": "local"
   },
   "build": {
+    "production": {},
     "development": {
       "developmentClient": true,
       "distribution": "internal"
     },
-    "previewAndroid": {
+    "apk": {
       "android": {
         "buildType": "apk"
       }
     },
-    "previewIos": {
+    "ios": {
       "distribution": "internal",
       "ios": {
         "simulator": true
