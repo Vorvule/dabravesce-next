@@ -36,7 +36,9 @@
           "resizeMode": "native",
           "imageWidth": 480
         }
-      ]
+      ],
+      "expo-web-browser",
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
