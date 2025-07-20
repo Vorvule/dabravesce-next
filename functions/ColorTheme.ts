@@ -1,5 +1,5 @@
 import Colors from '@/constants/Colors';
-import { Appearance } from 'react-native';
+import { Appearance, useColorScheme } from 'react-native';
 
 export class ColorTheme {
   static getThemeColor(

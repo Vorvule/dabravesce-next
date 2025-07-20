@@ -28,7 +28,7 @@ type Props = PropsWithChildren<{
 
 export default function ParallaxScrollView({ children, headerImage }: Props) {
   const windowIsWide = Device.windowIsWide();
-  const width = windowIsWide ? 800 : Device.getWindowWidth();
+  const width = windowIsWide ? 800 : '100%';
 
   const backgroundColor = ColorTheme.getColor('background');
 
@@ -39,7 +39,7 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
     header: {
       height: HEADER_HEIGHT,
       overflow: 'hidden',
-      backgroundColor: backgroundColor,
+      backgroundColor,
     },
     content: { flex: 1, padding: 18, gap: 16, overflow: 'hidden' },
   });
