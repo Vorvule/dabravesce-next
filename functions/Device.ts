@@ -1,12 +1,8 @@
-import { Appearance, Dimensions, Platform } from "react-native";
+import { Dimensions, Platform } from 'react-native';
 
 export default class Device {
   static platformIsWeb(): boolean {
-    return Platform.OS === "web";
-  }
-
-  static getAppKind(): string {
-    return this.platformIsWeb() ? "сайта" : "дачынення";
+    return Platform.OS === 'web';
   }
 
   static windowIsWide(): boolean {
@@ -14,10 +10,6 @@ export default class Device {
   }
 
   static getWindowWidth(): number {
-    return Dimensions.get("window").width;
-  }
-
-  static themeIsDark(): boolean {
-    return Appearance.getColorScheme() == "dark";
+    return Dimensions.get('window').width;
   }
 }

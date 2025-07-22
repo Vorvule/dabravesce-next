@@ -1,20 +1,43 @@
-import { DarkTheme, DefaultTheme } from '@react-navigation/native';
-import { ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
+import { Appearance } from 'react-native';
+import {
+  DarkTheme,
+  DefaultTheme,
+  ThemeProvider,
+} from '@react-navigation/native';
+
 import 'react-native-reanimated';
+
+import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
+import Colors from '@/constants/Colors';
 
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
+// Wait for asset loading is complete
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const theme = colorScheme === 'dark' ? DarkTheme : DefaultTheme;
+  const colorSchemeName = Appearance.getColorScheme();
+  console.log('colorSchemeName', colorSchemeName);
+
+  const MyLightTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      ...Colors.light,
+    },
+  };
+
+  const MyDarkTheme = {
+    ...DarkTheme,
+    colors: {
+      ...DarkTheme.colors,
+      ...Colors.dark,
+    },
+  };
+
+  const theme = colorSchemeName === 'dark' ? MyDarkTheme : MyLightTheme;
 
   const [loaded] = useFonts({
     Monomakh: require('../assets/fonts/Monomakh-Regular.ttf'),

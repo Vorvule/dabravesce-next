@@ -1,11 +1,16 @@
 import React from 'react';
+
+import { GlobalContext } from '@/contexts/GlobalContext';
 import { Tabs } from 'expo-router';
 
-import Daily from '@/functions/Daily';
+import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
-import { GlobalContext } from '@/contexts/GlobalContext';
-import { options } from '@/constants/styles/screen.options';
-import { useColorScheme } from '@/hooks/useColorScheme';
+
+import Daily from '@/functions/Daily';
+import Device from '@/functions/Device';
+import TabBarBackground from '@/components/ui/TabBarBackground';
+
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 export default function TabLayout() {
   const dailyKeychain: number[] = Daily.getDailyKeychain();
@@ -15,11 +20,34 @@ export default function TabLayout() {
   ): void => setKeychain(newKeychain);
 
   const contextValue = { keychain, updateKeychain, dailyKeychain };
-  const colorScheme = useColorScheme();
 
   return (
     <GlobalContext.Provider value={contextValue}>
-      <Tabs screenOptions={options.getScreenOptions(colorScheme)}>
+      <Tabs
+        screenOptions={{
+          tabBarActiveTintColor: useThemeColor({}, 'link'),
+          headerShown: false,
+          tabBarButton: HapticTab,
+          tabBarBackground: TabBarBackground,
+          tabBarStyle: { backgroundColor: useThemeColor({} ,'background') },
+          tabBarLabelStyle: {
+            fontFamily: 'Monomakh',
+            fontSize: Device.windowIsWide() ? 24 : 14,
+          },
+          tabBarItemStyle: {
+            borderLeftWidth: 0,
+            borderRightColor: 'grey',
+            borderRightWidth: 2,
+            borderTopColor: 'grey',
+            borderTopWidth: 2,
+            borderTopRightRadius: 10,
+          },
+            tabBarIconStyle: {
+              marginTop: -4,
+              marginBottom: -4,
+            },
+        }}
+      >
         <Tabs.Screen
           name='index'
           options={{

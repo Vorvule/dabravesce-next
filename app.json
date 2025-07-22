@@ -33,7 +33,7 @@
         {
           "image": "./assets/images/splash.png",
           "backgroundColor": "#fcfaeb",
-          "resizeMode": "native",
+          "resizeMode": "contain",
           "imageWidth": 480
         }
       ],
