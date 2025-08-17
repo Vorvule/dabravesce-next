@@ -19,7 +19,6 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const colorSchemeName = Appearance.getColorScheme();
-  console.log('colorSchemeName', colorSchemeName);
 
   const MyLightTheme = {
     ...DefaultTheme,

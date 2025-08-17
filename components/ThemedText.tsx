@@ -1,7 +1,7 @@
 import { Text, type TextProps, StyleSheet } from 'react-native';
 
-import { ColorTheme } from '@/functions/ColorTheme';
 import Device from '@/functions/Device';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type ThemedTextProps = TextProps & {
   type?: 'title' | 'subtitle' | 'header' | 'default' | 'link';
@@ -12,8 +12,6 @@ export default function ThemedText({
   type = 'default',
   ...rest
 }: ThemedTextProps) {
-  const textColor = ColorTheme.getColor('text');
-  const primary = ColorTheme.getColor('primary');
   const fontSize = Device.windowIsWide() ? 22 : 18;
 
   const styles = StyleSheet.create({
@@ -21,12 +19,13 @@ export default function ThemedText({
       fontFamily: 'Monomakh',
       textAlign: 'center',
       fontSize: fontSize + 12,
-      color: primary,
+      color: useThemeColor({}, 'primary'),
     },
     subtitle: {
       fontFamily: 'Monomakh',
       textAlign: 'center',
       fontSize: fontSize + 9,
+      color: useThemeColor({}, 'link'),
     },
     header: {
       fontFamily: 'Monomakh',
@@ -48,7 +47,7 @@ export default function ThemedText({
   return (
     <Text
       style={[
-        { color: textColor },
+        { color: useThemeColor({}, 'text') },
         type === 'title' ? styles.title : undefined,
         type === 'subtitle' ? styles.subtitle : undefined,
         type === 'header' ? styles.header : undefined,

@@ -2,16 +2,18 @@ import { Link } from 'expo-router';
 
 import ThemedText from '@/components/ThemedText';
 
-import { ColorTheme } from '@/functions/ColorTheme';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 export default function ChapterText({ chapterText }) {
   const tab = '       ';
+
   const linkTextStyle = {
-    color: ColorTheme.getColor('link'),
+    color: useThemeColor({}, 'link'),
     fontFamily: 'Vollkorn',
   };
 
   return chapterText.map((paragraph, index) => {
+    // Todo: do we use Link inside?
     return typeof paragraph === 'string' ? (
       <ThemedText key={'p-' + index}>{tab + paragraph}</ThemedText>
     ) : (
