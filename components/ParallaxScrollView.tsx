@@ -15,10 +15,10 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import Device from '@/functions/Device';
-import { ColorTheme } from '@/functions/ColorTheme';
 import { GlobalContext } from '@/contexts/GlobalContext';
 import ThemedView from '@/components/ThemedView';
 import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 const HEADER_HEIGHT = 200;
 
@@ -30,7 +30,7 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
   const windowIsWide = Device.windowIsWide();
   const width = windowIsWide ? 800 : '100%';
 
-  const backgroundColor = ColorTheme.getColor('background');
+  const backgroundColor = useThemeColor({}, 'background');
 
   const styles = StyleSheet.create({
     container: { flex: 1, flexDirection: 'row' },
@@ -41,7 +41,7 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
       overflow: 'hidden',
       backgroundColor,
     },
-    content: { flex: 1, padding: 18, gap: 16, overflow: 'hidden' },
+    content: { flex: 1, padding: 18, gap: 16, overflow: 'hidden', backgroundColor },
   });
 
   const scrollRef = useAnimatedRef<Animated.ScrollView>();

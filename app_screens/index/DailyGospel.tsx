@@ -3,9 +3,9 @@ import { StyleProp, TextStyle } from 'react-native';
 import { Link } from 'expo-router';
 
 import ThemedText from '@/components/ThemedText';
+import { useThemeColor } from '@/hooks/useThemeColor';
 
 import { GlobalContext } from '@/contexts/GlobalContext';
-import { ColorTheme } from '@/functions/ColorTheme';
 import Page from '@/functions/Page';
 
 export default function DailyGospel() {
@@ -18,7 +18,7 @@ export default function DailyGospel() {
   };
 
   const textStyle: StyleProp<TextStyle> = {
-    color: ColorTheme.getColor('link'),
+    color: useThemeColor({}, 'link'),
   };
 
   return (
