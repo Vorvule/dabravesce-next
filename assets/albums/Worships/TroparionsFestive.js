@@ -166,7 +166,7 @@ export const TroparionsFestive = [
     ],
   },
   {
-    slug: "trasfiguration",
+    slug: "transfiguration",
     name: "Праабражэння Гасподняга",
     text: [
       "Трапар, глас 7",

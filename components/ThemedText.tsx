@@ -4,21 +4,15 @@ import { ColorTheme } from '@/functions/ColorTheme';
 import Device from '@/functions/Device';
 
 export type ThemedTextProps = TextProps & {
-  lightColor?: string;
-  darkColor?: string;
   type?: 'title' | 'subtitle' | 'header' | 'default' | 'link';
 };
 
 export default function ThemedText({
   style,
-  lightColor,
-  darkColor,
   type = 'default',
   ...rest
 }: ThemedTextProps) {
-  const colors = { light: lightColor, dark: darkColor };
-
-  const textColor = ColorTheme.getThemeColor(colors, 'text');
+  const textColor = ColorTheme.getColor('text');
   const primary = ColorTheme.getColor('primary');
   const fontSize = Device.windowIsWide() ? 22 : 18;
 
