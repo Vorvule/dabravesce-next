@@ -14,8 +14,8 @@ import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
 import Colors from '@/constants/Colors';
 
-// Wait for asset loading is complete
-SplashScreen.preventAutoHideAsync();
+SplashScreen.setOptions({ duration: 1000, fade: true });
+SplashScreen.preventAutoHideAsync(); // Wait for asset loading is complete
 
 export default function RootLayout() {
   const colorSchemeName = Appearance.getColorScheme();
