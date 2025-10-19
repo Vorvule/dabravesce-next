@@ -1,4 +1,4 @@
-import { ProjectContent } from './ProjectContent';
+import { ProjectContent } from './ProjectContent.js';
 
 export const project = {
   slug: 'project',
