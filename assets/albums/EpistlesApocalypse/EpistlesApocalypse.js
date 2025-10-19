@@ -1,14 +1,14 @@
-import { ApocalypseContent } from "./ApocalypseContent";
-import { EpistlesContent } from "./EpistlesContent";
+import { ApocalypseContent } from './ApocalypseContent.js';
+import { EpistlesContent } from './EpistlesContent.js';
 
 export const epistlesApocalypse = {
-  slug: "apostle-epistles-and-apocalypse",
-  name: "Пасланні Апосталаў і Апакаліпсіс",
+  slug: 'apostle-epistles-and-apocalypse',
+  name: 'Пасланні Апосталаў і Апакаліпсіс',
   text: [
     ...EpistlesContent,
     {
-      slug: "apocalypse",
-      name: "Апака́ліпсіс, або Адкраве́нне святога Апостала Іаана Багаслова",
+      slug: 'apocalypse',
+      name: 'Апака́ліпсіс, або Адкраве́нне святога Апостала Іаана Багаслова',
       text: ApocalypseContent,
     },
   ],

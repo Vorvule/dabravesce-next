@@ -1,30 +1,30 @@
-import { John } from "./John";
-import { Luke } from "./Luke";
-import { Mark } from "./Mark";
-import { Matthew } from "./Matthew";
+import { John } from './John.js';
+import { Luke } from './Luke.js';
+import { Mark } from './Mark.js';
+import { Matthew } from './Matthew.js';
 
 export const gospels = {
-  slug: "gospels",
-  name: "Евангеллі",
+  slug: 'gospels',
+  name: 'Евангеллі',
   text: [
     {
-      slug: "matthew",
-      name: "Святое Дабравесце паводле Матфея",
+      slug: 'matthew',
+      name: 'Святое Дабравесце паводле Матфея',
       text: Matthew,
     },
     {
-      slug: "mark",
-      name: "Святое Дабравесце паводле Марка",
+      slug: 'mark',
+      name: 'Святое Дабравесце паводле Марка',
       text: Mark,
     },
     {
-      slug: "luke",
-      name: "Святое Дабравесце паводле Лукі",
+      slug: 'luke',
+      name: 'Святое Дабравесце паводле Лукі',
       text: Luke,
     },
     {
-      slug: "john",
-      name: "Святое Дабравесце паводле Іаана",
+      slug: 'john',
+      name: 'Святое Дабравесце паводле Іаана',
       text: John,
     },
   ],
