@@ -1,9 +1,7 @@
-// https://stackoverflow.com/questions/68042313/pausing-react-native-expo-audio
-
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
 
-import { Audio } from 'expo-av';
+import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import { activateKeepAwakeAsync, deactivateKeepAwake } from 'expo-keep-awake';
 
 import { createClient } from '@supabase/supabase-js';
@@ -13,79 +11,66 @@ import RoundButton from '@/components/RoundButton';
 import Styles from '@/constants/styles/common.styles';
 
 export default function ChapterAudio({ chapterAudio }) {
-  const [sound, _] = useState(new Audio.Sound());
-
   const platformIsNative = !Device.platformIsWeb();
 
-  const bareState = { play: false, pause: false, stop: false };
   const stoppedState = { play: true, pause: false, stop: false };
   const playingState = { play: false, pause: true, stop: true };
   const pausedState = { play: true, pause: false, stop: true };
 
-  const [enabledButtons, setEnabledButtons] = useState(bareState);
+  const [enabledButtons, setEnabledButtons] = useState(stoppedState);
 
   const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.EXPO_PUBLIC_SUPABASE_KEY;
 
   const supabase = createClient(supabaseUrl, supabaseKey);
 
+  const [audioSource, setAudioSource] = useState(null);
+
+  const player = useAudioPlayer(audioSource);
+   // console.log('Audio source', audioSource);
+   // console.log('Player duration', player.duration);
+   // console.log('Player current time', player.currentTime);
+   // console.log('Player buffering', player.isBuffering);
+   // console.log('Player loaded', player.isLoaded);
+   // console.log('Player paused', player.paused);
+   // console.log('Player rate', player.playbackRate);
+   // console.log('Player playing', player.playing);
+   // console.log('Player volume', player.volume);
+
+  // const handlePlaybackStatus = useCallback((status) => {
+  //   if (status.didJustFinish) {
+  //     console.log('Аудио завершилось');
+  //     setEnabledButtons(stoppedState);
+  //   }
+  // });
+
+  // const status = useAudioPlayerStatus(player);
+  // handlePlaybackStatus(status);
+
   useEffect(() => {
     const { data } = supabase.storage.from('audio').getPublicUrl(chapterAudio);
-
-    addAudio(data.publicUrl);
-    sound.setOnPlaybackStatusUpdate(updateAudio);
-
-    return undoAudio;
+    setAudioSource(data.publicUrl);
   }, [chapterAudio]);
 
-  const addAudio = async (publicUrl) => {
-    await sound.unloadAsync();
-    await sound.loadAsync({ uri: publicUrl }, {}, true);
-    setEnabledButtons(stoppedState);
-  };
-
   const playAudio = async () => {
-    const audioStatus = await sound.getStatusAsync();
+    player.play();
+    setEnabledButtons(playingState);
 
-    if (audioStatus.isLoaded) {
-      await sound.playAsync();
-      setEnabledButtons(playingState);
-      platformIsNative && activateKeepAwakeAsync();
-    }
+    player.playbackRate = 2;
+    platformIsNative && (await activateKeepAwakeAsync());
   };
 
   const pauseAudio = async () => {
-    const audioStatus = await sound.getStatusAsync();
-
-    if (audioStatus.isLoaded && audioStatus.isPlaying) {
-      sound.pauseAsync();
-      setEnabledButtons(pausedState);
-      platformIsNative && deactivateKeepAwake();
-    }
+    player.pause();
+    setEnabledButtons(pausedState);
+    platformIsNative && (await deactivateKeepAwake());
   };
 
   const stopAudio = async () => {
-    const audioStatus = await sound.getStatusAsync();
-
-    if (sound._loaded && audioStatus.isLoaded) {
-      sound.pauseAsync();
-      sound.setPositionAsync(0);
-      setEnabledButtons(stoppedState);
-
-      platformIsNative && deactivateKeepAwake();
-    }
-  };
-
-  const updateAudio = (playbackStatus) => {
-    if (playbackStatus.didJustFinish) {
-      stopAudio();
-    }
-  };
-
-  const undoAudio = () => {
-    stopAudio();
-    platformIsNative && deactivateKeepAwake();
-    setEnabledButtons(bareState);
+    player.pause();
+    await player.seekTo(0);
+    setEnabledButtons(stoppedState);
+    platformIsNative && (await deactivateKeepAwake());
   };
 
   return (
