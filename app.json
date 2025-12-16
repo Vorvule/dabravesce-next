@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "Dependencies updated",
-    "runtimeVersion": "47",
+    "version": "Audio updated",
+    "runtimeVersion": "48",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -19,7 +19,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 47
+      "versionCode": 48
     },
     "web": {
       "bundler": "metro",
