@@ -1,10 +1,7 @@
-import type { PropsWithChildren, ReactElement } from 'react';
+import { PropsWithChildren, ReactElement, useEffect, useContext } from 'react';
 import { StyleSheet } from 'react-native';
-import { useContext, useMemo } from 'react';
-
 import Animated, {
   interpolate,
-  scrollTo,
   useAnimatedRef,
   useAnimatedStyle,
   useScrollOffset,
@@ -48,6 +45,12 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
   const scrollOffset = useScrollOffset(scrollRef);
 
+  const { keychain } = useContext(GlobalContext);
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ y: 0, animated: true })
+  }, [keychain])
+
   const headerAnimatedStyle = useAnimatedStyle(() => {
     return {
       transform: [
@@ -69,10 +72,7 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
     };
   });
 
-  const AnimatedViewStyle = [styles.header, headerAnimatedStyle];
-
-  const { keychain } = useContext(GlobalContext);
-  useMemo(() => scrollTo(scrollRef, 0, 0, true), [keychain]);
+  const animatedViewStyle = [styles.header, headerAnimatedStyle];
 
   return (
     <ThemedView style={styles.container}>
@@ -83,7 +83,7 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
           scrollEventThrottle={16}
           showsVerticalScrollIndicator={!windowIsWide}
         >
-          <Animated.View style={AnimatedViewStyle}>{headerImage}</Animated.View>
+          <Animated.View style={animatedViewStyle}>{headerImage}</Animated.View>
           <ThemedView style={styles.content}>{children}</ThemedView>
         </Animated.ScrollView>
       </ThemedView>
