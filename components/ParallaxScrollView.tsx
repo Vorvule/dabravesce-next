@@ -1,24 +1,19 @@
-import {
-  useContext,
-  useMemo,
-  type PropsWithChildren,
-  type ReactElement,
-} from 'react';
+import type { PropsWithChildren, ReactElement } from 'react';
 import { StyleSheet } from 'react-native';
+import { useContext, useMemo } from 'react';
 
 import Animated, {
   interpolate,
   scrollTo,
   useAnimatedRef,
   useAnimatedStyle,
-  useScrollViewOffset,
+  useScrollOffset,
 } from 'react-native-reanimated';
 
+import ThemedView from '@/components/ThemedView';
+import { useThemeColor } from '@/hooks/useThemeColor';
 import Device from '@/functions/Device';
 import { GlobalContext } from '@/contexts/GlobalContext';
-import ThemedView from '@/components/ThemedView';
-import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
-import { useThemeColor } from '@/hooks/useThemeColor';
 
 const HEADER_HEIGHT = 200;
 
@@ -41,12 +36,17 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
       overflow: 'hidden',
       backgroundColor,
     },
-    content: { flex: 1, padding: 18, gap: 16, overflow: 'hidden', backgroundColor },
+    content: {
+      flex: 1,
+      padding: 18,
+      gap: 16,
+      overflow: 'hidden',
+      backgroundColor,
+    },
   });
 
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
-  const scrollOffset = useScrollViewOffset(scrollRef);
-  const bottom = useBottomTabOverflow();
+  const scrollOffset = useScrollOffset(scrollRef);
 
   const headerAnimatedStyle = useAnimatedStyle(() => {
     return {
@@ -81,8 +81,6 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
         <Animated.ScrollView
           ref={scrollRef}
           scrollEventThrottle={16}
-          scrollIndicatorInsets={{ bottom }}
-          contentContainerStyle={{ paddingBottom: bottom }}
           showsVerticalScrollIndicator={!windowIsWide}
         >
           <Animated.View style={AnimatedViewStyle}>{headerImage}</Animated.View>
