@@ -8,7 +8,6 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 
 import Daily from '@/functions/Daily';
 import Device from '@/functions/Device';
-import TabBarBackground from '@/components/ui/TabBarBackground';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 
@@ -28,7 +27,6 @@ export default function TabLayout() {
           tabBarActiveTintColor: useThemeColor({}, 'link'),
           headerShown: false,
           tabBarButton: HapticTab,
-          tabBarBackground: TabBarBackground,
           tabBarStyle: { backgroundColor: useThemeColor({} ,'background') },
           tabBarLabelStyle: {
             fontFamily: 'Monomakh',
