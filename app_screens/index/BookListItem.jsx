@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import ChapterList from './ChapterList';
 import ThemedOption from '@/components/ThemedOption';
@@ -6,14 +6,17 @@ import ThemedOption from '@/components/ThemedOption';
 import Menu from '@/functions/Menu';
 
 export default function BookListItem({ book, keys, folding }) {
+  const [firstRun, setFirstRun] = useState(true);
   const [expanded, setExpanded] = useState(false);
   const [unfolded, setUnfolded] = folding;
 
-  useMemo(() => {
+  useEffect(() => {
+    if (firstRun) return;
     setExpanded(equal(unfolded, keys));
   }, [unfolded]);
 
   const onPress = () => {
+    firstRun && setFirstRun(false);
     equal(unfolded, keys) ? setExpanded(!expanded) : setUnfolded(keys);
   };
 
@@ -31,5 +34,5 @@ export default function BookListItem({ book, keys, folding }) {
 }
 
 const equal = (unfolded, keys) => {
-  return unfolded[0] == keys[0] && unfolded[1] == keys[1];
+  return unfolded[0] === keys[0] && unfolded[1] === keys[1];
 };

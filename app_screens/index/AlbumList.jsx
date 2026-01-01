@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import ThemedView from '@/components/ThemedView';
 
@@ -10,7 +10,7 @@ export default function AlbumList({ albums }) {
   const [unfolded, setUnfolded] = useState(keychain);
   const folding = [unfolded, setUnfolded];
 
-  useMemo(() => setUnfolded(keychain), [keychain]);
+  useEffect(() => setUnfolded(keychain), [keychain]);
 
   // TODO Add Suspense / Lazy load
 

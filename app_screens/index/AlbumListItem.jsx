@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import BookList from './BookList';
 
@@ -6,15 +6,18 @@ import ThemedOption from '@/components/ThemedOption';
 import Menu from '@/functions/Menu';
 
 export default function AlbumListItem({ album, keys, folding }) {
+  const [firstRun, setFirstRun] = useState(true);
   const [expanded, setExpanded] = useState(false);
   const [unfolded, setUnfolded] = folding;
 
-  useMemo(() => {
-    unfolded[0] == keys[0] ? setExpanded(true) : setExpanded(false);
+  useEffect(() => {
+    if (firstRun) return;
+    setExpanded(unfolded[0] === keys[0]);
   }, [unfolded]);
 
   const onPress = () => {
-    unfolded[0] == keys[0] ? setExpanded(!expanded) : setUnfolded(keys);
+    firstRun && setFirstRun(false);
+    unfolded[0] === keys[0] ? setExpanded(!expanded) : setUnfolded(keys);
   };
 
   return (
