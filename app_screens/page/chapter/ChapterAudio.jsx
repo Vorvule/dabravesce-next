@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
@@ -37,9 +37,13 @@ export default function ChapterAudio({ chapterAudio }) {
 
   const status = useAudioPlayerStatus(player);
 
-  useMemo(() => {
-    status.didJustFinish && setButtons(BUTTON_STATE.STOPPED);
-  }, [status.didJustFinish]);
+  useEffect(() => {
+    if (status.didJustFinish) {
+      player.seekTo(0);
+      setButtons(BUTTON_STATE.STOPPED);
+      platformIsNative && deactivateKeepAwake();
+    }
+  }, [player.playing]);
 
   const platformIsNative = !Device.platformIsWeb();
 
