@@ -38,11 +38,7 @@ export default function ChapterAudio({ chapterAudio }) {
   const status = useAudioPlayerStatus(player);
 
   useEffect(() => {
-    if (status.didJustFinish) {
-      player.seekTo(0);
-      setButtons(BUTTON_STATE.STOPPED);
-      platformIsNative && deactivateKeepAwake();
-    }
+    status.didJustFinish && stopAudio();
   }, [player.playing]);
 
   const platformIsNative = !Device.platformIsWeb();
