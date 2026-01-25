@@ -7,7 +7,6 @@ node_modules/
 .expo/
 .idea/
 dist/
-util/
 
 # Native
 *.orig.*

@@ -9,6 +9,7 @@ import { OpaqueColorValue, StyleProp, TextStyle } from 'react-native';
 const MAPPING = {
   menucard: 'menu',
   'book.pages.fill': 'library-books',
+  magnifyingglass: 'search',
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],

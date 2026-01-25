@@ -14,7 +14,7 @@ export default function ChapterListItem({ chapter, keys }) {
 
   return (
     <Link href={contentUrl} style={linkStyle}>
-      <ThemedText type='link' style={textStyle}>
+      <ThemedText type='item' style={textStyle}>
         {chapterName}
       </ThemedText>
     </Link>

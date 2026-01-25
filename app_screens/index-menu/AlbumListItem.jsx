@@ -22,7 +22,7 @@ export default function AlbumListItem({ album, keys, folding }) {
 
   return (
     <>
-      <ThemedOption type='link' onPress={onPress} color={Menu.getColor(keys)}>
+      <ThemedOption type='item' onPress={onPress} color={Menu.getColor(keys)}>
         {album.name}
       </ThemedOption>
 

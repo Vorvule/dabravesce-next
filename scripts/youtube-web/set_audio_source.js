@@ -1,4 +1,4 @@
-import audioYoutube from "./audio_source";
+import audioYoutube from "./audio_source.js";
 
 const setAudioSource = () => {
   const AudioElement = document.getElementById("AudioPlayer");
