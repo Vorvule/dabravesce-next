@@ -1,23 +1,18 @@
 import { useState } from 'react';
-import { Pressable, StyleProp, TextInput, View } from 'react-native';
+import { View } from 'react-native';
 
 import { Image } from 'expo-image';
 import { usePathname } from 'expo-router';
 import Head from 'expo-router/head';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
 
 import Device from '@/functions/Device';
 import Web from '@/functions/Web';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import ThemedText from '@/components/ThemedText';
-import ThemedLink from '@/components/ThemedLink';
 
 import Search, { SearchResult } from '@/functions/Search';
 import Styles from '@/constants/styles/common.styles';
-import { useThemeColor } from '@/hooks/useThemeColor';
 import SearchResults from '@/app_screens/search/search.results';
 import SearchInput from '@/app_screens/search/search.input';
 

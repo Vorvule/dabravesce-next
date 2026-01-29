@@ -48,7 +48,7 @@ function removeAccents(text) {
     Я́: 'Я',
   };
 
-  for (let diacritic in defaultDiacriticsRemovalMap) {
+  for (const diacritic in defaultDiacriticsRemovalMap) {
     const re = new RegExp(diacritic, 'g');
     text = text.replace(re, defaultDiacriticsRemovalMap[diacritic]);
   }
