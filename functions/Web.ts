@@ -4,11 +4,11 @@ export default class Web {
   public static getTitle(pathname: string): string {
     switch (pathname) {
       case '/':
-        return 'Дабравесце ~ Змест';
+        return 'Дабравесце ~ Крыніцы';
       case '/search':
         return 'Дабравесце ~ Пошук';
       default:
-        return 'Дабравесце ~ Крыніцы';
+        return 'Дабравесце ~ Змест';
     }
   }
 

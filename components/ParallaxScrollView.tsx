@@ -1,10 +1,10 @@
-import { PropsWithChildren, ReactElement, useEffect, useContext } from 'react';
+import { PropsWithChildren, ReactElement, useContext, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import Animated, {
   interpolate,
   useAnimatedRef,
   useAnimatedStyle,
-  useScrollOffset,
+  useScrollOffset
 } from 'react-native-reanimated';
 
 import ThemedView from '@/components/ThemedView';
@@ -49,7 +49,7 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ y: 0, animated: true })
-  }, [keychain])
+  }, [keychain, scrollRef])
 
   const headerAnimatedStyle = useAnimatedStyle(() => {
     return {

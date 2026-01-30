@@ -43,10 +43,7 @@ export default function IndexScreen() {
 
       <ParallaxScrollView headerImage={headerImage}>
         <ThemedText type='title'>Дабравесце</ThemedText>
-
-        <ThemedText type='subtitle' style={centered}>
-          Змест
-        </ThemedText>
+        <ThemedText type='subtitle' style={centered}>Змест</ThemedText>
 
         <ThemedView style={{ marginBottom: 60 }}>
           <AlbumList albums={AppSources} />

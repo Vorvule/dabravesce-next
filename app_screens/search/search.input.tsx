@@ -6,6 +6,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import Device from '@/functions/Device';
 
 export default function SearchInput({
   searchText,
@@ -23,10 +24,12 @@ export default function SearchInput({
   return (
     <View>
       <TextInput
+        autoFocus={Device.platformIsWeb()}
         value={searchText}
         onChangeText={setSearchText}
         placeholder='Пошук па змесце'
         placeholderTextColor='grey'
+        cursorColor={textColor}
         style={[searchStyles.input, colors]}
       />
 
