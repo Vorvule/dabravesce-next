@@ -4,9 +4,11 @@ export default class Web {
   public static getTitle(pathname: string): string {
     switch (pathname) {
       case '/':
-        return 'Дабравесце ~ Змест';
-      default:
         return 'Дабравесце ~ Крыніцы';
+      case '/search':
+        return 'Дабравесце ~ Пошук';
+      default:
+        return 'Дабравесце ~ Змест';
     }
   }
 
@@ -17,12 +19,15 @@ export default class Web {
   }
 
   public static getDescription(pathname: string): string {
+    const rootDescription =
+      'Дабравесце ~ Біблія, Малітоўнік і іншыя крыніцы духоўнага развіцця ~ ' +
+      'Беларуская Праваслаўная Царква Госпада нашага Ісуса Хрыста ~ Галоўная';
+
     switch (pathname) {
       case '/':
-        return (
-          'Дабравесце ~ Біблія, Малітоўнік і іншыя крыніцы духоўнага развіцця ~ Беларуская' +
-          ' Праваслаўная Царква Госпада нашага Ісуса Хрыста ~ Галоўная'
-        );
+        return rootDescription;
+      case '/search':
+        return 'Дабравесце ~ Пошук па змесце';
       default:
         return 'Дабравесце ~ Біблія, Малітоўнік і іншыя крыніцы духоўнага развіцця ~ БПЦ';
     }

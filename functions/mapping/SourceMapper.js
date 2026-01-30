@@ -1,8 +1,8 @@
-import AppSources from "@/assets/albums/AppSources";
+import AppSources from '@/assets/albums/AppSources';
 
 const mapSources = () => {
-  let keychainMap = {};
-  let slugchainMap = {};
+  const keychainMap = {};
+  const slugchainMap = {};
 
   AppSources.map((album, albumIndex) => {
     album.text.map((book, bookIndex) => {

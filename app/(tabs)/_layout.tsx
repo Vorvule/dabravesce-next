@@ -14,6 +14,7 @@ import { useThemeColor } from '@/hooks/useThemeColor';
 export default function TabLayout() {
   const dailyKeychain: number[] = Daily.getDailyKeychain();
   const [keychain, setKeychain] = React.useState(dailyKeychain);
+
   const updateKeychain: (newKeychain: number[]) => void = (
     newKeychain: number[],
   ): void => setKeychain(newKeychain);
@@ -27,7 +28,7 @@ export default function TabLayout() {
           tabBarActiveTintColor: useThemeColor({}, 'link'),
           headerShown: false,
           tabBarButton: HapticTab,
-          tabBarStyle: { backgroundColor: useThemeColor({} ,'background') },
+          tabBarStyle: { backgroundColor: useThemeColor({}, 'background') },
           tabBarLabelStyle: {
             fontFamily: 'Monomakh',
             fontSize: Device.windowIsWide() ? 24 : 14,
@@ -40,16 +41,16 @@ export default function TabLayout() {
             borderTopWidth: 2,
             borderTopRightRadius: 10,
           },
-            tabBarIconStyle: {
-              marginTop: -4,
-              marginBottom: -4,
-            },
+          tabBarIconStyle: {
+            marginTop: -4,
+            marginBottom: -4,
+          },
         }}
       >
         <Tabs.Screen
           name='index'
           options={{
-            title: 'Змест',
+            title: 'Крыніцы',
             tabBarIcon: ({ color }) => (
               <IconSymbol name='menucard' color={color} />
             ),
@@ -58,9 +59,18 @@ export default function TabLayout() {
         <Tabs.Screen
           name='page/[slugchain]'
           options={{
-            title: 'Крыніцы',
+            title: 'Змест',
             tabBarIcon: ({ color }) => (
               <IconSymbol name='book.pages.fill' color={color} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name='search'
+          options={{
+            title: 'Пошук',
+            tabBarIcon: ({ color }) => (
+              <IconSymbol name='magnifyingglass' color={color} />
             ),
           }}
         />

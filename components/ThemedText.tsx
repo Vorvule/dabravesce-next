@@ -4,7 +4,7 @@ import Device from '@/functions/Device';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type ThemedTextProps = TextProps & {
-  type?: 'title' | 'subtitle' | 'header' | 'default' | 'link';
+  type?: 'title' | 'subtitle' | 'header' | 'item' | 'link' | 'default';
 };
 
 export default function ThemedText({
@@ -13,6 +13,7 @@ export default function ThemedText({
   ...rest
 }: ThemedTextProps) {
   const fontSize = Device.windowIsWide() ? 22 : 18;
+  const color = useThemeColor({}, 'text');
 
   const styles = StyleSheet.create({
     title: {
@@ -31,31 +32,27 @@ export default function ThemedText({
       fontFamily: 'Monomakh',
       fontSize: fontSize + 6,
       paddingVertical: 4,
+      color,
     },
     link: {
       fontFamily: 'Monomakh',
-      fontSize: fontSize,
+      fontSize: fontSize + 3,
       lineHeight: 24,
+      color: useThemeColor({}, 'link'),
+    },
+    item: {
+      fontFamily: 'Monomakh',
+      fontSize: fontSize + 3,
+      lineHeight: 24,
+      color,
     },
     default: {
       fontFamily: 'Vollkorn',
       fontSize: fontSize,
       lineHeight: 26,
+      color,
     },
   });
 
-  return (
-    <Text
-      style={[
-        { color: useThemeColor({}, 'text') },
-        type === 'title' ? styles.title : undefined,
-        type === 'subtitle' ? styles.subtitle : undefined,
-        type === 'header' ? styles.header : undefined,
-        type === 'link' ? styles.link : undefined,
-        type === 'default' ? styles.default : undefined,
-        style,
-      ]}
-      {...rest}
-    />
-  );
+  return <Text style={[styles[type], style]} {...rest} />;
 }
