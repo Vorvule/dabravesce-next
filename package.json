@@ -9,16 +9,16 @@
     "web:build": "expo export -p web",
     "web:serve": "npx serve dist",
     "web:deploy": "eas deploy",
-    "and:start": "expo start --android",
-    "and:doctor": "npx -y expo-doctor",
+    "and:doc": "npx -y expo-doctor",
+    "and:aab": "eas build -p android",
     "and:apk": "eas build -p android --profile apk",
-    "and:build": "eas build -p android",
+    "and:run": "expo start --android",
     "ios:start": "expo start --ios",
     "expo:start": "expo start --clear",
     "install:check": "npx expo install --check",
     "install:latest": "npm install expo@latest",
     "install:fix": "expo install --fix",
-    "lint": "expo lint"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",

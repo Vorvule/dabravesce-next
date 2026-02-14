@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
 
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
@@ -30,17 +30,6 @@ export default function ChapterAudio({ chapterAudio }) {
   // console.log('Player playing', player.playing);
   // console.log('Player volume', player.volume);
 
-  useEffect(() => {
-    const { data } = supabase.storage.from('audio').getPublicUrl(chapterAudio);
-    setAudioSource(data.publicUrl);
-  }, [chapterAudio]);
-
-  const status = useAudioPlayerStatus(player);
-
-  useEffect(() => {
-    status.didJustFinish && stopAudio();
-  }, [player.playing]);
-
   const platformIsNative = !Device.platformIsWeb();
 
   const playAudio = async () => {
@@ -59,14 +48,27 @@ export default function ChapterAudio({ chapterAudio }) {
     }
   };
 
-  const stopAudio = async () => {
+  const stopAudio = useCallback(async () => {
     if (player.currentTime > 0) {
       player.pause();
       await player.seekTo(0);
       setButtons(BUTTON_STATE.STOPPED);
       platformIsNative && (await deactivateKeepAwake());
     }
-  };
+  }, [platformIsNative, player]);
+
+  const status = useAudioPlayerStatus(player);
+
+  useEffect(() => {
+    status.didJustFinish && stopAudio();
+  }, [player.playing]);
+
+  useEffect(() => {
+    stopAudio();
+
+    const { data } = supabase.storage.from('audio').getPublicUrl(chapterAudio);
+    setAudioSource(data.publicUrl);
+  }, [chapterAudio]);
 
   return (
     <View style={Styles.buttons}>
