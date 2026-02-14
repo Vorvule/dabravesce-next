@@ -1,14 +1,14 @@
-import SlugchainMap from "@/functions/mapping/SlugchainMap";
-import KeychainMap from "@/functions/mapping/KeychainMap";
-import AppSources from "@/assets/albums/AppSources";
+import SlugchainMap from '@/functions/mapping/SlugchainMap';
+import KeychainMap from '@/functions/mapping/KeychainMap';
+import AppSources from '@/assets/albums/AppSources';
 
 export default class Page {
   static getUrl(keychain: number[]): any {
-    return "page/" + KeychainMap[keychain.join("~")];
+    return 'page/' + KeychainMap[keychain.join('~')];
   }
 
   static slugchainValid(slugchain: string): boolean {
-    return SlugchainMap[slugchain] != undefined;
+    return SlugchainMap[slugchain] !== undefined;
   }
 
   static getKeychain(slugchain: string): number[] {
@@ -19,7 +19,7 @@ export default class Page {
     try {
       const [albumKey, bookKey, chapterKey] = keychain;
 
-      return AppSources[albumKey].text[bookKey].text[chapterKey] != undefined;
+      return AppSources[albumKey].text[bookKey].text[chapterKey] !== undefined;
     } catch {
       return false;
     }

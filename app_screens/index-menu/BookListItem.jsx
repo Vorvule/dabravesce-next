@@ -1,26 +1,35 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
-import ChapterList from './ChapterList';
+import { useThemeColor } from '@/hooks/useThemeColor.ts';
 import ThemedOption from '@/components/ThemedOption';
 
+import ChapterList from './ChapterList';
 import Menu from '@/functions/Menu';
+import { GlobalContext } from '@/contexts/GlobalContext.ts';
 
 export default function BookListItem({ book, keys, folding }) {
   const [firstRun, setFirstRun] = useState(true);
   const [expanded, setExpanded] = useState(false);
   const [unfolded, setUnfolded] = folding;
 
+  const linkColor = useThemeColor({}, 'link');
+  const { keychain } = useContext(GlobalContext);
+  const color = Menu.getColor(keychain, keys, linkColor);
+
   useEffect(() => {
     if (firstRun) return;
     setExpanded(equal(unfolded, keys));
-  }, [unfolded]);
+  }, [firstRun, keys, unfolded]);
 
   const onPress = () => {
     firstRun && setFirstRun(false);
-    equal(unfolded, keys) ? setExpanded(!expanded) : setUnfolded(keys);
-  };
 
-  const color = Menu.getColor(keys);
+    if (equal(unfolded, keys)) {
+      setExpanded(!expanded);
+    } else {
+      setUnfolded(keys);
+    }
+  };
 
   return (
     <>
