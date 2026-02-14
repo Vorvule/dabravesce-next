@@ -1,17 +1,11 @@
-import { useContext } from 'react';
-
-import { GlobalContext } from '@/contexts/GlobalContext';
-
 export default class Menu {
-  static getColor(keys: number[], linkColor: string) {
+  static getColor(keychain: number[], keys: number[], linkColor: string) {
     const linkStyle = { color: linkColor };
 
-    return this.keysAreActive(keys) ? linkStyle : {};
+    return this.keysAreActive(keychain, keys) ? linkStyle : {};
   }
 
-  static keysAreActive(keys: number[]): boolean {
-    const { keychain } = useContext(GlobalContext);
-
+  static keysAreActive(keychain: number[], keys: number[]): boolean {
     switch (keys.length) {
       case 1:
         return keys[0] === keychain[0];

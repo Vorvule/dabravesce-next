@@ -57,17 +57,18 @@ export default function ChapterAudio({ chapterAudio }) {
     }
   }, [platformIsNative, player]);
 
-  useEffect(() => {
-    const { data } = supabase.storage.from('audio').getPublicUrl(chapterAudio);
-
-    setAudioSource(data.publicUrl);
-  }, [chapterAudio, supabase.storage]);
-
   const status = useAudioPlayerStatus(player);
 
   useEffect(() => {
     status.didJustFinish && stopAudio();
-  }, [player.playing, status.didJustFinish, stopAudio]);
+  }, [player.playing]);
+
+  useEffect(() => {
+    stopAudio();
+
+    const { data } = supabase.storage.from('audio').getPublicUrl(chapterAudio);
+    setAudioSource(data.publicUrl);
+  }, [chapterAudio]);
 
   return (
     <View style={Styles.buttons}>
