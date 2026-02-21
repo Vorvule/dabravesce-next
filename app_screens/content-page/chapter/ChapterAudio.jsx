@@ -5,11 +5,9 @@ import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import { activateKeepAwakeAsync, deactivateKeepAwake } from 'expo-keep-awake';
 
 import { createClient } from '@supabase/supabase-js';
-
-import Device from '@/functions/Device';
 import RoundButton from '@/components/RoundButton';
 import Styles from '@/constants/styles/common.styles';
-import { BUTTON_STATE } from '@/constants/audio.button.states';
+import { BUTTON_STATES } from '@/constants/audio/button.states.js';
 
 export default function ChapterAudio({ chapterAudio }) {
   const supabase = useMemo(() => {
@@ -20,7 +18,7 @@ export default function ChapterAudio({ chapterAudio }) {
   }, []);
 
   const [audioSource, setAudioSource] = useState(null);
-  const [buttons, setButtons] = useState(BUTTON_STATE.STOPPED);
+  const [buttons, setButtons] = useState(BUTTON_STATES.STOPPED);
 
   const player = useAudioPlayer(audioSource);
   const status = useAudioPlayerStatus(player);
@@ -33,10 +31,6 @@ export default function ChapterAudio({ chapterAudio }) {
   // console.log('Player rate', player.playbackRate);
   // console.log('Player volume', player.volume);
 
-  const platformIsNative = useMemo(() => {
-    return !Device.platformIsWeb();
-  }, []);
-
   const audioUrl = useMemo(() => {
     return supabase.storage.from('audio').getPublicUrl(chapterAudio).data
       .publicUrl;
@@ -45,16 +39,16 @@ export default function ChapterAudio({ chapterAudio }) {
   const playAudio = async () => {
     if (player.paused) {
       player.play();
-      setButtons(BUTTON_STATE.PLAYING);
-      platformIsNative && (await activateKeepAwakeAsync());
+      setButtons(BUTTON_STATES.PLAYING);
+      await activateKeepAwakeAsync();
     }
   };
 
   const pauseAudio = async () => {
     if (status.playing) {
       player.pause();
-      setButtons(BUTTON_STATE.PAUSED);
-      platformIsNative && (await deactivateKeepAwake());
+      setButtons(BUTTON_STATES.PAUSED);
+      await activateKeepAwakeAsync();
     }
   };
 
@@ -62,10 +56,10 @@ export default function ChapterAudio({ chapterAudio }) {
     if (player.currentTime > 0) {
       player.pause();
       await player.seekTo(0);
-      setButtons(BUTTON_STATE.STOPPED);
-      platformIsNative && (await deactivateKeepAwake());
+      setButtons(BUTTON_STATES.STOPPED);
+      await deactivateKeepAwake();
     }
-  }, [platformIsNative, player]);
+  }, [player]);
 
   useEffect(() => {
     status.didJustFinish && stopAudio();
