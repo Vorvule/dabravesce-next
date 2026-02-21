@@ -10,6 +10,7 @@ const config = {
   semi: true,
   singleQuote: true,
   jsxSingleQuote: true,
+  printWidth: 100,
 };
 
 export default config;

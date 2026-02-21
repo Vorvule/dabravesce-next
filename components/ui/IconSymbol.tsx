@@ -10,6 +10,7 @@ const MAPPING = {
   menucard: 'menu',
   'book.pages.fill': 'library-books',
   magnifyingglass: 'search',
+  calendar: 'calendar-month',
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],
