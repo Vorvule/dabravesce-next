@@ -16,7 +16,7 @@ export default function TabLayout() {
   const [keychain, setKeychain] = React.useState(dailyKeychain);
 
   const updateKeychain: (newKeychain: number[]) => void = (
-    newKeychain: number[],
+    newKeychain: number[]
   ): void => setKeychain(newKeychain);
 
   const contextValue = { keychain, updateKeychain, dailyKeychain };
@@ -71,6 +71,15 @@ export default function TabLayout() {
             title: 'Пошук',
             tabBarIcon: ({ color }) => (
               <IconSymbol name='magnifyingglass' color={color} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name='calendar'
+          options={{
+            title: 'Каляндар',
+            tabBarIcon: ({ color }) => (
+              <IconSymbol name='calendar' color={color} />
             ),
           }}
         />
