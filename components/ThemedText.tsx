@@ -1,17 +1,13 @@
-import { Text, type TextProps, StyleSheet } from 'react-native';
+import { StyleSheet, Text, type TextProps } from 'react-native';
 
 import Device from '@/functions/Device';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type ThemedTextProps = TextProps & {
-  type?: 'title' | 'subtitle' | 'header' | 'item' | 'link' | 'default';
+  type?: 'title' | 'subtitle' | 'header' | 'item' | 'link' | 'default' | 'today';
 };
 
-export default function ThemedText({
-  style,
-  type = 'default',
-  ...rest
-}: ThemedTextProps) {
+export default function ThemedText({ style, type = 'default', ...rest }: ThemedTextProps) {
   const fontSize = Device.windowIsWide() ? 22 : 18;
   const color = useThemeColor({}, 'text');
 
@@ -51,6 +47,14 @@ export default function ThemedText({
       fontSize: fontSize,
       lineHeight: 26,
       color,
+    },
+    today: {
+      fontFamily: 'Vollkorn',
+      fontSize: fontSize,
+      fontWeight: 'bold',
+      textDecorationLine: 'underline',
+      lineHeight: 26,
+      color: useThemeColor({}, 'primary'),
     },
   });
 

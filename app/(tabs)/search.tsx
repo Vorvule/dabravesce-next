@@ -29,8 +29,6 @@ export default function SearchScreen() {
     setSearchResults(Search.getInSources(searchText));
   };
 
-  const { centered } = Styles;
-
   return (
     <>
       {Device.platformIsWeb() && (
@@ -42,18 +40,11 @@ export default function SearchScreen() {
 
       <ParallaxScrollView headerImage={headerImage}>
         <ThemedText type='title'>Пошук</ThemedText>
+        <ThemedText type='subtitle'>Па змесце</ThemedText>
 
-        <ThemedText type='subtitle' style={centered}>
-          Па змесце
-        </ThemedText>
+        <SearchInput searchText={searchText} setSearchText={setSearchText} onPress={handleSearch} />
 
-        <SearchInput
-          searchText={searchText}
-          setSearchText={setSearchText}
-          onPress={handleSearch}
-        />
-
-        <ThemedText style={[centered, { paddingTop: 20 }]} type='header'>
+        <ThemedText style={[Styles.centered, { paddingTop: 20 }]} type='header'>
           Вынікаў ~ {searchResults.length}
         </ThemedText>
 
