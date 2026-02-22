@@ -1,14 +1,14 @@
-import { calendarData } from '@/app_screens/calendar/model/calendar.data';
+import { calendarData } from '@/app_screens/calendar/data/calendar.data';
 import { calendarEaster } from '@/app_screens/calendar/model/calendar.easter';
 
-class CalendarHelper {
+class CalendarLogic {
   getMonthName(monthIndex: number, genitive: boolean = false) {
-    const months = genitive ? calendarData.MONTHS_BE_GENETIVE : calendarData.MONTHS_BE;
+    const months = genitive ? calendarData.MONTHS_BE_GENITIVE : calendarData.MONTHS_BE;
 
     return months[monthIndex];
   }
 
-  getISODate(date: Date): string {
+  getISODate(date: Date = new Date()): string {
     return date.toISOString().split('T')[0];
   }
 
@@ -25,4 +25,4 @@ class CalendarHelper {
   }
 }
 
-export const calendarHelper = new CalendarHelper();
+export const calendarLogic = new CalendarLogic();

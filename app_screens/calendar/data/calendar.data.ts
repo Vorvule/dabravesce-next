@@ -1,4 +1,4 @@
-import { MovableEvent, RawEvent } from '@/app_screens/calendar/model/calendar.types';
+import { ImmovableEvent, MovableEvent } from '@/app_screens/calendar/types/calendar.types';
 
 class CalendarData {
   DAYS_BE = ['Пн', 'Аў', 'Ср', 'Чц', 'Пт', 'Сб', 'Нд'];
@@ -18,7 +18,7 @@ class CalendarData {
     'Снежань',
   ];
 
-  MONTHS_BE_GENETIVE = [
+  MONTHS_BE_GENITIVE = [
     'Студзеня',
     'Лютага',
     'Сакавіка',
@@ -33,7 +33,7 @@ class CalendarData {
     'Снежня',
   ];
 
-  IMMOVABLE_FEASTS: RawEvent[] = [
+  IMMOVABLE_FEASTS: ImmovableEvent[] = [
     [1, 7, 'Нараджэнне Хрыстова'],
     [1, 19, 'Хрышчэнне Гасподняе'],
     [2, 15, 'Стрэчанне Гасподняе'],
@@ -41,8 +41,8 @@ class CalendarData {
     [8, 19, 'Ператварэнне Гасподняе'],
     [8, 28, 'Успенне Багародзіцы'],
     [9, 21, 'Нараджэнне Багародзіцы'],
-    [9, 27, 'Узвіжанне Крыжа'],
-    [12, 4, 'Увядзенне ў храм Багародзіцы'],
+    [9, 27, 'Узвіжанне Крыжа', 'Ordinary'],
+    [12, 4, 'Увядзенне ў храм Багародзіцы', 'Fish', 'Christmas'],
   ];
 
   MOVABLE_FEASTS: MovableEvent[] = [
@@ -51,10 +51,10 @@ class CalendarData {
     [49, 'Дзень Святой Тройцы'],
   ];
 
-  SAINTS: RawEvent[] = [
-    [12, 19, 'Свяціцель Мікалай Цудатворац'],
-    [7, 12, 'Святыя апосталы Пётр і Павел'],
+  SAINTS: ImmovableEvent[] = [
+    [7, 12, 'Дзень памяці святых першавярхоўных апосталаў Пятра і Паўла '],
     [10, 14, 'Пакроў Прасвятой Багародзіцы'],
+    [12, 19, 'Дзень памяці Свяціцеля Мікалая Цудатворца'],
   ];
 }
 

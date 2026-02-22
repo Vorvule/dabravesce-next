@@ -8,7 +8,7 @@ import Web from '@/functions/Web';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import ThemedText from '@/components/ThemedText';
 import Styles from '@/constants/styles/common.styles';
-import CalendarGrid from '@/app_screens/calendar/view/calendar.grid';
+import CalendarView from '@/app_screens/calendar/view/calendar.view';
 
 export default function CalendarScreen() {
   const imageSource = require('@/assets/images/header/analoy.png');
@@ -26,11 +26,10 @@ export default function CalendarScreen() {
       )}
 
       <ParallaxScrollView headerImage={headerImage}>
-        <ThemedText type='title'>Каляндар</ThemedText>
-        <ThemedText type='subtitle'>Пастоў і свят</ThemedText>
+        <ThemedText type='title'>Царкоўны</ThemedText>
+        <ThemedText type='subtitle'>Каляндар</ThemedText>
 
-        {/*<CalendarLeaf />*/}
-        <CalendarGrid />
+        <CalendarView />
       </ParallaxScrollView>
     </>
   );

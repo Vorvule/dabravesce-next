@@ -1,40 +1,63 @@
-import { calendarData } from '@/app_screens/calendar/model/calendar.data';
+import { calendarData } from '@/app_screens/calendar/data/calendar.data';
 import { calendarEaster } from '@/app_screens/calendar/model/calendar.easter';
-import { calendarHelper } from '@/app_screens/calendar/model/calendar.helper';
-import { CalendarEvent, MovableEvent, RawEvent } from '@/app_screens/calendar/model/calendar.types';
+import { calendarLogic } from '@/app_screens/calendar/model/calendar.logic';
+import {
+  Calendar,
+  ImmovableEvent,
+  MovableEvent,
+} from '@/app_screens/calendar/types/calendar.types';
 
 class CalendarFeasts {
   /** Вяртае нерухомыя святы */
-  getGreatImmovableFeasts(year: number): CalendarEvent[] {
-    return calendarData.IMMOVABLE_FEASTS.map(([month, day, title]: RawEvent): CalendarEvent => {
-      const feastDate = Date.UTC(year, month - 1, day);
-      const date = calendarHelper.getISODate(new Date(feastDate));
+  getGreatImmovableFeasts(year: number): Calendar {
+    const events: Calendar = {};
 
-      return { date, title, type: 'twelve', fastingLevel: 'no_fast' };
-    });
+    calendarData.IMMOVABLE_FEASTS.forEach(
+      ([month, day, feastName, fastType, fastName]: ImmovableEvent) => {
+        const feastDate = Date.UTC(year, month - 1, day);
+        const date = calendarLogic.getISODate(new Date(feastDate));
+
+        events[date] = {
+          feastName,
+          feastType: 'GreatTwelve',
+          ...(fastName && { fastName }),
+          ...(fastType && { fastType }),
+        };
+      }
+    );
+
+    return events;
   }
 
   /** Вяртае рухомыя святы */
-  getGreatMovableFeasts(year: number): CalendarEvent[] {
+  getGreatMovableFeastsIndex(year: number): Calendar {
     const easter: Date = calendarEaster.getOrthodoxEaster(year);
+    const events: Calendar = {};
 
-    return calendarData.MOVABLE_FEASTS.map(([offset, title]: MovableEvent): CalendarEvent => {
+    calendarData.MOVABLE_FEASTS.forEach(([offset, feastName]: MovableEvent) => {
       const easterDate = new Date(easter);
       easterDate.setUTCDate(easterDate.getUTCDate() + offset);
-      const date = calendarHelper.getISODate(easterDate);
+      const date = calendarLogic.getISODate(easterDate);
 
-      return { date, title, type: 'twelve' };
+      events[date] = { feastName, feastType: 'GreatTwelve' };
     });
+
+    return events;
   }
 
+  // Todo: Add saints to Calendar
   /** Вяртае дні памяці святых і Багародзіцы */
-  getMajorSaints(year: number): CalendarEvent[] {
-    return calendarData.SAINTS.map(([month, day, name]: RawEvent): CalendarEvent => {
-      const saintDate = new Date(Date.UTC(year, +month - 1, +day));
-      const date: string = calendarHelper.getISODate(saintDate);
+  getMajorSaints(year: number): Calendar {
+    const events: Calendar = {};
 
-      return { date, title: name, type: 'saint' };
+    calendarData.SAINTS.forEach(([month, day, feastName]: ImmovableEvent) => {
+      const saintDate = new Date(Date.UTC(year, +month - 1, +day));
+      const date: string = calendarLogic.getISODate(saintDate);
+
+      events[date] = { feastName, feastType: 'Saints' };
     });
+
+    return events;
   }
 }
 

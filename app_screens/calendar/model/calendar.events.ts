@@ -1,29 +1,45 @@
 import { calendarEaster } from '@/app_screens/calendar/model/calendar.easter';
 import { calendarFasts } from '@/app_screens/calendar/model/calendar.fasts';
 import { calendarFeasts } from '@/app_screens/calendar/model/calendar.feasts';
-import { calendarHelper } from '@/app_screens/calendar/model/calendar.helper';
 
-import { CalendarEvent } from '@/app_screens/calendar/model/calendar.types';
+import { Calendar } from '@/app_screens/calendar/types/calendar.types';
 
 class CalendarEvents {
-  generateFullLiturgicalCalendar(year: number): CalendarEvent[] {
-    const easter: CalendarEvent = {
-      date: calendarHelper.getISODate(calendarEaster.getOrthodoxEaster(year)),
-      title: 'Пасха. Светлае Хрыстова Уваскрасенне',
-      type: 'great',
-      fastingLevel: 'no_fast',
+  setCalendars(calendars: any, year: number) {
+    if (!calendars.current[year]) {
+      calendars.current[year] = calendarEvents.generateCalendar(year);
+    }
+
+    return calendars.current[year];
+  }
+
+  generateCalendar(year: number): Calendar {
+    const calendar: Calendar = {
+      ...calendarFasts.getWeeklyFasts(year),
+      ...calendarFasts.getLentenFast(year),
+      ...calendarFasts.getChristmasFast(year),
     };
 
-    const events: CalendarEvent[] = [
-      easter,
-      ...calendarFasts.getLentFasts(year),
-      ...calendarFasts.getWeeklyFasts(year),
+    const feasts = {
       ...calendarFeasts.getGreatImmovableFeasts(year),
-      ...calendarFeasts.getGreatMovableFeasts(year),
-      ...calendarFeasts.getMajorSaints(year),
-    ];
+      ...calendarFeasts.getGreatMovableFeastsIndex(year),
+      ...calendarEaster.getEasterItem(year),
+    };
 
-    return events.sort((a, b) => a.date.localeCompare(b.date));
+    this.mergeCalendarEvents(calendar, feasts);
+    console.log('Calendar\n', calendar);
+
+    return calendar;
+  }
+
+  mergeCalendarEvents(aggregator: Calendar, calendar: Calendar) {
+    for (const [key, value] of Object.entries(calendar)) {
+      if (aggregator[key] && !(value.feastType === 'Easter' || value.feastType === 'GreatTwelve')) {
+        aggregator[key] = { ...aggregator[key], ...value };
+      } else {
+        aggregator[key] = value;
+      }
+    }
   }
 }
 
