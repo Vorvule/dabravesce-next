@@ -1,16 +1,26 @@
-export type ImmovableEvent = [number, number, string, FastType?, FastName?];
-export type MovableEvent = [number, string];
+export type FeastType = 'Easter' | 'GreatTwelve' | 'Great' | 'Saint' | null | 'None';
 
-export type FeastType = 'Easter' | 'GreatTwelve' | 'Saints' | 'None';
-export type FastName = 'Lenten' | 'PeterAndPaul' | 'Dormition' | 'Christmas' | 'Weekly';
-export type FastType = 'Strict' | 'Ordinary' | 'Fish' | 'WineOil' | 'None';
+export type FastKind =
+  | 'Lent'
+  | 'Apostles'
+  | 'Dormition'
+  | 'Christmas'
+  | 'Weekly'
+  | 'Festal'
+  | null
+  | 'None';
+export type FastLevel = 'Strict' | 'Ordinary' | 'Wine' | 'Fish' | 'Oil' | 'Hot' | null | 'None';
 
 export type CalendarEvent = {
   feastName?: string;
   feastType?: FeastType;
-  fastName?: FastName;
-  fastType?: FastType;
+  fastKind?: FastKind;
+  fastLevel?: FastLevel;
 };
+
+/** offset - колькасць дзён адносна Пасхі */
+export type MovableEvent = { offset: number; event: CalendarEvent };
+export type ImmovableEvent = { date: { month: number; day: number }; event: CalendarEvent };
 
 export type Calendar = { [date: string]: CalendarEvent };
 

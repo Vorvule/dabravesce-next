@@ -1,4 +1,4 @@
-import { dateLogic } from '@/app_screens/calendar/logic/date.logic';
+import { eventDates } from '@/app_screens/calendar/logic/event.dates';
 import { Cell, Grid } from '@/app_screens/calendar/types/calendar.types';
 
 class MonthMatrix {
@@ -15,7 +15,7 @@ class MonthMatrix {
   /** Запаўняе матрыцу календара да першай даты */
   fillInitialEmptyCells(cells: Cell[], grid: Grid) {
     const firstDay = new Date(grid.year, grid.month, 1);
-    const startOffset = dateLogic.getWeekdayMondayFirst(firstDay);
+    const startOffset = eventDates.getWeekdayMondayFirst(firstDay);
 
     for (let i = 0; i < startOffset; i++) cells.push(null);
   }
@@ -27,7 +27,7 @@ class MonthMatrix {
 
     for (let dayOrdinal = 1; dayOrdinal <= daysInMonth; dayOrdinal++) {
       const date = new Date(grid.year, grid.month, dayOrdinal);
-      const isoDate = dateLogic.formatLocalDate(date);
+      const isoDate = eventDates.formatLocalDate(date);
 
       cells.push({ isoDate, dayOrdinal });
     }

@@ -2,22 +2,25 @@ import { CalendarEvent } from '@/app_screens/calendar/types/calendar.types';
 
 class CellDots {
   getDotColor(event: CalendarEvent) {
-    if (event.feastType !== 'None') {
+    if (event.feastType) {
       switch (event.feastType) {
         case 'Easter':
           return { backgroundColor: '#C62828' };
         case 'GreatTwelve':
           return { backgroundColor: '#FFC107' };
-        case 'Saints':
+        case 'Great':
           return { backgroundColor: '#6A1B9A' };
+        default:
+          console.warn(`Unknown feast kind ${event.feastType}!`);
       }
     }
 
-    if (event.fastType !== 'None') {
-      switch (event.fastName) {
+    if (event.fastLevel) {
+      switch (event.fastKind) {
         case 'Weekly':
           return { backgroundColor: 'teal' };
-        default: // MultiDay
+        // Multiday fast
+        default:
           return { backgroundColor: 'green' };
       }
     }

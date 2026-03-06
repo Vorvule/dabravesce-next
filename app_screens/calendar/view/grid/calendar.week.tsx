@@ -1,11 +1,11 @@
 import { StyleSheet, View } from 'react-native';
 import ThemedText from '@/components/ThemedText';
-import { calendarData } from '@/app_screens/calendar/data/calendar.data';
+import { DATE_NAMES } from '@/app_screens/calendar/data/date.names';
 
 export default function CalendarWeek() {
   return (
     <View style={styles.weekRow}>
-      {calendarData.DAYS_BE.map((dayName) => (
+      {DATE_NAMES.DAYS_BE.map((dayName) => (
         <ThemedText type='item' key={dayName} style={styles.weekDay}>
           {dayName}
         </ThemedText>

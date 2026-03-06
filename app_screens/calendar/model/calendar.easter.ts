@@ -1,4 +1,4 @@
-import { calendarLogic } from '@/app_screens/calendar/model/calendar.logic';
+import { calendarDates } from '@/app_screens/calendar/model/calendar.dates';
 import { Calendar, FeastType } from '@/app_screens/calendar/types/calendar.types';
 
 class CalendarEaster {
@@ -15,16 +15,16 @@ class CalendarEaster {
     const day = ((d + e + 114) % 31) + 1;
 
     const julian = new Date(Date.UTC(year, month - 1, day));
-    julian.setUTCDate(julian.getUTCDate() + calendarLogic.getJulianOffset(2026));
+    julian.setUTCDate(julian.getUTCDate() + calendarDates.getJulianOffset(2026));
 
     return julian;
   }
 
   getEasterItem(year: number): Calendar {
     const easter = this.getOrthodoxEaster(year);
-    const date = calendarLogic.getISODate(easter);
+    const date = calendarDates.getISODate(easter);
 
-    const feastName = 'Светлае Хрыстова Уваскрасенне';
+    const feastName = 'Пасха (Вялікдзень).\nСветлае Хрыстова Уваскрасенне';
     const feastType: FeastType = 'Easter';
 
     return { [date]: { feastName, feastType } };

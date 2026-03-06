@@ -1,6 +1,6 @@
-import { calendarData } from '@/app_screens/calendar/data/calendar.data';
+import { DATE_NAMES } from '@/app_screens/calendar/data/date.names';
 
-class DateLogic {
+class EventDates {
   /** Вяртае індэкс дня тыдня, у якім 0 - індэкс панядзелка (не нядзелі) */
   getWeekdayMondayFirst(date: Date) {
     const day = date.getDay();
@@ -20,7 +20,7 @@ class DateLogic {
 
   getSelectedDayAndMonth(ISODate: string) {
     const [year, month, day] = ISODate.split('-');
-    const monthNameGenitive = calendarData.MONTHS_BE_GENITIVE[+month - 1];
+    const monthNameGenitive = DATE_NAMES.MONTHS_BE_GENITIVE[+month - 1];
 
     return `${+day} ${monthNameGenitive} ${year}`;
   }
@@ -30,4 +30,4 @@ class DateLogic {
   }
 }
 
-export const dateLogic = new DateLogic();
+export const eventDates = new EventDates();

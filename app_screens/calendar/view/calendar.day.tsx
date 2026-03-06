@@ -1,26 +1,26 @@
 import React from 'react';
 
 import ThemedText from '@/components/ThemedText';
-import { CalendarEvent } from '@/app_screens/calendar/types/calendar.types';
 
 import Styles from '@/constants/styles/common.styles';
-import { calendarTexts } from '@/app_screens/calendar/model/calendar.texts';
+import { calendarOutput } from '@/app_screens/calendar/model/calendar.output';
 
-export default function CalendarDay({ date, calendar }: any) {
-  const event: CalendarEvent = calendar[date];
+export default function CalendarDay({ event }: any) {
   const style = Styles.centered;
+  // console.log('event', event);
 
-  const feastName = event?.feastName ? event.feastName : null;
-  const feastType = calendarTexts.getFeastNameText(event?.feastType);
-  const fastName = calendarTexts.getFastNameText(event?.fastName);
-  const fastType = calendarTexts.getFastTypeText(event?.fastType);
+  const feastNameText = event?.feastName ? event.feastName : null;
+  const fastKindText = calendarOutput.getFastNameText(event?.fastKind);
+
+  const fastLevelText = calendarOutput.getFastTypeText(event?.fastLevel);
 
   return (
     <>
-      <ThemedText style={style}>{feastName}</ThemedText>
-      <ThemedText style={style}>{feastType}</ThemedText>
-      <ThemedText style={style}>{fastName}</ThemedText>
-      <ThemedText style={style}>{fastType}</ThemedText>
+      <ThemedText style={style}>{feastNameText}</ThemedText>
+      {/*<ThemedText style={style}>{feastType}</ThemedText>*/}
+      <ThemedText>{'\n'}</ThemedText>
+      <ThemedText style={style}>{fastKindText}</ThemedText>
+      <ThemedText style={style}>{fastLevelText}</ThemedText>
     </>
   );
 }

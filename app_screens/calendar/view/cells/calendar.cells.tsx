@@ -4,11 +4,11 @@ import { StyleSheet, View } from 'react-native';
 import React from 'react';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import Device from '@/functions/Device';
-import { calendarLogic } from '@/app_screens/calendar/model/calendar.logic';
+import { calendarDates } from '@/app_screens/calendar/model/calendar.dates';
 
 export default function CalendarCells({ monthMatrix, selection, calendar }: any) {
   const today = new Date();
-  const isoDateToday = calendarLogic.getISODate(today);
+  const isoDateToday = calendarDates.getISODate(today);
 
   const selectedStyle = { borderColor: useThemeColor({}, 'text'), borderWidth: 1 };
 

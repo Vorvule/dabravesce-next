@@ -3,10 +3,10 @@ import { StyleSheet, View } from 'react-native';
 
 import ThemedText from '@/components/ThemedText';
 import RoundButton from '@/components/RoundButton';
-import { calendarLogic } from '@/app_screens/calendar/model/calendar.logic';
+import { calendarDates } from '@/app_screens/calendar/model/calendar.dates';
 
 export default function CalendarNavigation({ grid, setDate }: any) {
-  const gridMonth = calendarLogic.getMonthName(grid.month);
+  const gridMonth = calendarDates.getMonthName(grid.month);
 
   const decreaseMonth = () => setDate(new Date(grid.year, grid.month - 1, 1));
   const increaseMonth = () => setDate(new Date(grid.year, grid.month + 1, 1));
