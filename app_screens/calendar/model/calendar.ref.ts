@@ -1,7 +1,7 @@
 import { calendarFactory } from '@/app_screens/calendar/model/calendar.factory';
 
-class CalendarEvents {
-  updateRefAndGetCalendar(calendars: any, year: number) {
+class CalendarRef {
+  updateCalendar(calendars: any, year: number) {
     if (!calendars.current[year]) {
       calendars.current[year] = calendarFactory.generateCalendar(year);
     }
@@ -10,4 +10,4 @@ class CalendarEvents {
   }
 }
 
-export const calendarEvents = new CalendarEvents();
+export const calendarRef = new CalendarRef();

@@ -1,35 +1,31 @@
 import { calendarFasts } from '@/app_screens/calendar/model/calendar.fasts';
 import { calendarFeasts } from '@/app_screens/calendar/model/calendar.feasts';
 
-import { Calendar } from '@/app_screens/calendar/types/calendar.types';
+import { Calendar, CalendarEvent } from '@/app_screens/calendar/types/calendar.types';
 
 class CalendarFactory {
   generateCalendar(year: number): Calendar {
-    const calendar: Calendar = calendarFasts.getFastsCalendar(year);
-    const feasts: Calendar = calendarFeasts.getFeastsCalendar(year);
+    const calendar: Calendar = calendarFeasts.getFeastsCalendar(year);
+    const fasts: Calendar = calendarFasts.getFastsCalendar(year);
 
-    this.mergeCalendarEvents(calendar, feasts);
+    this.joinCalendarEvents(calendar, fasts);
     console.log('Calendar\n', calendar);
 
     return calendar;
   }
 
-  mergeCalendarEvents(fastEvents: Calendar, feastEvents: Calendar) {
-    for (const [isoDate, feastEvent] of Object.entries(feastEvents)) {
-      const fastEvent = fastEvents[isoDate];
+  joinCalendarEvents(generalCalendar: Calendar, fastEvents: Calendar) {
+    for (const [isoDate, fastEvent] of Object.entries(fastEvents)) {
+      const feastEvent: CalendarEvent = generalCalendar[isoDate];
 
-      if (fastEvent) {
-        if (feastEvent.fastLevel) {
-          fastEvents[isoDate].fastKind = feastEvent.fastKind ?? 'Weekly';
-          fastEvents[isoDate].fastLevel = feastEvent.fastLevel;
-        } else if (feastEvent.feastType === 'GreatTwelve' && fastEvent.fastKind) {
-          fastEvents[isoDate].fastLevel = 'Fish';
-        }
-
-        fastEvents[isoDate].feastType = feastEvent.feastType;
-        fastEvents[isoDate].feastName = feastEvent.feastName;
+      if (feastEvent) {
+        generalCalendar[isoDate].fastKind ||= fastEvent.fastKind;
+        generalCalendar[isoDate].fastLevel ||= fastEvent.fastLevel;
       } else {
-        fastEvents[isoDate] = feastEvent;
+        generalCalendar[isoDate] = {
+          fastKind: fastEvent.fastKind || 'None',
+          fastLevel: fastEvent.fastLevel || 'None',
+        };
       }
     }
   }

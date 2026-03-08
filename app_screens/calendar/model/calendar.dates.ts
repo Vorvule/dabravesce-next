@@ -1,5 +1,6 @@
 import { DATE_NAMES } from '@/app_screens/calendar/data/date.names';
-import { calendarEaster } from '@/app_screens/calendar/model/calendar.easter';
+import { FastKind } from '@/app_screens/calendar/types/calendar.types';
+import { easterProvider } from '@/app_screens/calendar/logic/easter.provider';
 
 class CalendarDates {
   getMonthName(monthIndex: number, genitive: boolean = false) {
@@ -27,16 +28,16 @@ class CalendarDates {
    * Lent starts 48 days before Easter
    * Apostles fast starts on the second next Monday after the Holy Trinity day and lasts 8..42 days
    */
-  getEasterFastsStartDate(year: number) {
-    const easter: Date = calendarEaster.getOrthodoxEaster(year);
+  getStartDate(year: number, fastKind: FastKind) {
+    const EASTER_OFFSETS: any = { Lent: -48, Apostles: 57 };
+    const easterOffset: number = EASTER_OFFSETS[fastKind];
 
-    const lentenFastStartDate = new Date(easter);
-    lentenFastStartDate.setUTCDate(lentenFastStartDate.getUTCDate() - 48);
+    const easter: Date = easterProvider.getOrthodoxEaster(year);
+    const startDate = new Date(easter);
 
-    const apostlesFastStartDate = new Date(easter);
-    apostlesFastStartDate.setUTCDate(apostlesFastStartDate.getUTCDate() + 57);
+    startDate.setUTCDate(startDate.getUTCDate() + easterOffset);
 
-    return { lentenFastStartDate, apostlesFastStartDate };
+    return startDate;
   }
 }
 

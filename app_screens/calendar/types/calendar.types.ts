@@ -1,4 +1,4 @@
-export type FeastType = 'Easter' | 'GreatTwelve' | 'Great' | 'Saint' | null | 'None';
+export type FeastType = 'Easter' | 'GreatTwelve' | 'Great' | 'Saint' | 'None';
 
 export type FastKind =
   | 'Lent'
@@ -7,9 +7,9 @@ export type FastKind =
   | 'Christmas'
   | 'Weekly'
   | 'Festal'
-  | null
   | 'None';
-export type FastLevel = 'Strict' | 'Ordinary' | 'Wine' | 'Fish' | 'Oil' | 'Hot' | null | 'None';
+
+export type FastLevel = 'Strict' | 'Ordinary' | 'Wine' | 'Fish' | 'Oil' | 'Hot' | 'None';
 
 export type CalendarEvent = {
   feastName?: string;

@@ -26,7 +26,7 @@ export default function CalendarScreen() {
       )}
 
       <ParallaxScrollView headerImage={headerImage}>
-        <ThemedText type='title'>Царкоўны</ThemedText>
+        <ThemedText type='title'>Праваслаўны</ThemedText>
         <ThemedText type='subtitle'>Каляндар</ThemedText>
 
         <CalendarView />

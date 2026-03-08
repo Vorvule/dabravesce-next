@@ -3,35 +3,24 @@ import { Calendar, FastLevel } from '@/app_screens/calendar/types/calendar.types
 import { FAST_TEXTS } from '@/app_screens/calendar/data/fast.texts';
 
 class CalendarFasts {
-  getEasterEvents(year: number): Calendar {
-    const { lentenFastStartDate, apostlesFastStartDate } =
-      calendarDates.getEasterFastsStartDate(year);
-
+  getLent(year: number): Calendar {
     const easterEvents: Calendar = {};
+    const lentStartDate = calendarDates.getStartDate(year, 'Lent');
 
-    // Lent
     for (let i = 0; i < 48; i++) {
-      const isoDate = calendarDates.calculateISODate(lentenFastStartDate, i);
+      const isoDate = calendarDates.calculateISODate(lentStartDate, i);
       const fastLevel: FastLevel = i === 0 ? 'Strict' : 'Ordinary';
 
       easterEvents[isoDate] = { fastKind: 'Lent', fastLevel };
     }
 
-    // Bright Week
-    for (let i = 49; i < 56; i++) {
-      const isoDate = calendarDates.calculateISODate(lentenFastStartDate, i);
+    return easterEvents;
+  }
 
-      easterEvents[isoDate] = { feastName: 'Светлы тыдзень', fastLevel: null };
-    }
+  getApostlesFasts(year: number): Calendar {
+    const easterEvents: Calendar = {};
 
-    // Trinity Week
-    for (let i = 98; i < 105; i++) {
-      const isoDate = calendarDates.calculateISODate(lentenFastStartDate, i);
-
-      easterEvents[isoDate] = { feastName: 'Троіцкі суцэльны тыдзень', fastLevel: null };
-    }
-
-    // Apostles Fast
+    const apostlesFastStartDate = calendarDates.getStartDate(year, 'Apostles');
     const apostlesFeastDate: Date = new Date(Date.UTC(year, 6, 12));
 
     while (apostlesFastStartDate < apostlesFeastDate) {
@@ -40,7 +29,6 @@ class CalendarFasts {
       const fastLevel: FastLevel = FAST_TEXTS.APOSTLES_FAST_LEVELS[weekDayIndex];
 
       easterEvents[isoDate] = { fastKind: 'Apostles', fastLevel };
-
       apostlesFastStartDate.setUTCDate(apostlesFastStartDate.getUTCDate() + 1);
     }
 
@@ -86,7 +74,7 @@ class CalendarFasts {
       const eventDate = calendarDates.calculateISODate(christmasFastStartDate, i);
       const isoDate: string = eventDate.replace(String(year + 1), String(year));
 
-      events[isoDate] = { feastName: 'Yule', fastLevel: null };
+      events[isoDate] = { feastName: 'Yule', fastLevel: 'None' };
     }
 
     return events;
@@ -115,7 +103,8 @@ class CalendarFasts {
   getFastsCalendar(year: number): Calendar {
     return {
       ...this.getWeeklyFasts(year),
-      ...this.getEasterEvents(year),
+      ...this.getLent(year),
+      ...this.getApostlesFasts(year),
       ...this.getDormitionFast(year),
       ...this.getChristmasEvents(year),
     };

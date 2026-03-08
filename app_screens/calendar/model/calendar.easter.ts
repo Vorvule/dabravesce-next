@@ -1,33 +1,37 @@
 import { calendarDates } from '@/app_screens/calendar/model/calendar.dates';
 import { Calendar, FeastType } from '@/app_screens/calendar/types/calendar.types';
+import { easterProvider } from '@/app_screens/calendar/logic/easter.provider';
 
 class CalendarEaster {
-  /** For determining the Easter, the Meeus/Jones/Butcher algorithm is used */
-  getOrthodoxEaster(year: number): Date {
-    const a = year % 4;
-    const b = year % 7;
-    const c = year % 19;
+  getEasterFeasts(year: number): Calendar {
+    const easterEvents: Calendar = {};
 
-    const d = (19 * c + 15) % 30;
-    const e = (2 * a + 4 * b - d + 34) % 7;
+    const easterDate: Date = easterProvider.getOrthodoxEaster(year);
+    const easterISODate = calendarDates.getISODate(easterDate);
 
-    const month = Math.floor((d + e + 114) / 31);
-    const day = ((d + e + 114) % 31) + 1;
-
-    const julian = new Date(Date.UTC(year, month - 1, day));
-    julian.setUTCDate(julian.getUTCDate() + calendarDates.getJulianOffset(2026));
-
-    return julian;
-  }
-
-  getEasterItem(year: number): Calendar {
-    const easter = this.getOrthodoxEaster(year);
-    const date = calendarDates.getISODate(easter);
-
+    // Easter Day
     const feastName = 'Пасха (Вялікдзень).\nСветлае Хрыстова Уваскрасенне';
     const feastType: FeastType = 'Easter';
 
-    return { [date]: { feastName, feastType } };
+    easterEvents[easterISODate] = { feastName, feastType };
+
+    // Bright Week
+    for (let i = 1; i < 8; i++) {
+      const isoDate = calendarDates.calculateISODate(easterDate, i);
+      const feastName = 'Светлы тыдзень';
+
+      easterEvents[isoDate] = { feastName, feastType: 'None', fastKind: 'None', fastLevel: 'None' };
+    }
+
+    // Trinity Week
+    for (let i = 50; i < 57; i++) {
+      const isoDate = calendarDates.calculateISODate(easterDate, i);
+      const feastName = 'Троіцкі суцэльны тыдзень';
+
+      easterEvents[isoDate] = { feastName, feastType: 'None', fastKind: 'None', fastLevel: 'None' };
+    }
+
+    return easterEvents;
   }
 }
 

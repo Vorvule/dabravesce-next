@@ -38,11 +38,14 @@ class FeastSources {
     },
     {
       date: { month: 8, day: 19 },
-      event: { feastName: 'Праабражэнне Госпада Бога і Спасіцеля нашага Іісуса Хрыста' },
+      event: {
+        feastName: 'Праабражэнне Госпада Бога і Спасіцеля нашага Іісуса Хрыста',
+        fastLevel: 'Fish',
+      },
     },
     {
       date: { month: 8, day: 28 },
-      event: { feastName: `Успенне ${this.#virginTitle}` },
+      event: { feastName: `Успенне ${this.#virginTitle}`, fastKind: 'Festal', fastLevel: 'Fish' },
     },
     {
       date: { month: 9, day: 21 },
@@ -74,6 +77,7 @@ class FeastSources {
       event: {
         feastName:
           'Абрэзанне Гасподняе.\nСвяціцеля Васілія Вялікага, архіепіскапа Кесарыі Кападакійскай',
+        fastKind: 'None',
       },
     },
     {

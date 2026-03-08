@@ -8,7 +8,7 @@ class FastTexts {
     Christmas: 'Калядны (Філіпаў) пост',
     Weekly: 'Штотыднёвы пост',
     Festal: 'Дзень постны',
-    None: 'Пост адсутны\nДазваляецца любая ежа',
+    None: 'Пост адсутны',
   };
 
   #ordinary = 'Забараняюцца мяса, малочнае і яйкі';
@@ -20,7 +20,7 @@ class FastTexts {
     Fish: `Падчас ежы дазваляецца рыба\n${this.#ordinary}`,
     Oil: `Дазваляецца гарачая ежа з алеем\n${this.#ordinary}`,
     Hot: `Дазваляецца гарачая ежа без алею\n${this.#ordinary}`,
-    None: null, // 'Дазваляецца скаромная ежа',
+    None: 'Дазваляецца любая ежа',
   };
 
   /** Zero based week (Sunday..Saturday) Apostles fast levels */
