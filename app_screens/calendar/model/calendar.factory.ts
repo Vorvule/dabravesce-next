@@ -9,7 +9,7 @@ class CalendarFactory {
     const fasts: Calendar = calendarFasts.getFastsCalendar(year);
 
     this.joinCalendarEvents(calendar, fasts);
-    console.log('Calendar\n', calendar);
+    // console.log('Calendar\n', calendar);
 
     return calendar;
   }

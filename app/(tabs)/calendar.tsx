@@ -11,7 +11,7 @@ import Styles from '@/constants/styles/common.styles';
 import CalendarView from '@/app_screens/calendar/view/calendar.view';
 
 export default function CalendarScreen() {
-  const imageSource = require('@/assets/images/header/analoy.png');
+  const imageSource = require('@/assets/images/header/calendire.png');
   const headerImage = <Image source={imageSource} style={Styles.image} />;
 
   const path: string = usePathname();
@@ -26,9 +26,7 @@ export default function CalendarScreen() {
       )}
 
       <ParallaxScrollView headerImage={headerImage}>
-        <ThemedText type='title'>Праваслаўны</ThemedText>
-        <ThemedText type='subtitle'>Каляндар</ThemedText>
-
+        <ThemedText type='title'>Праваслаўны Каляндар</ThemedText>
         <CalendarView />
       </ParallaxScrollView>
     </>

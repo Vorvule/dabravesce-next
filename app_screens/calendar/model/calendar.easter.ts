@@ -10,7 +10,7 @@ class CalendarEaster {
     const easterISODate = calendarDates.getISODate(easterDate);
 
     // Easter Day
-    const feastName = 'Пасха (Вялікдзень).\nСветлае Хрыстова Уваскрасенне';
+    const feastName = 'Пасха (Вялікдзень),\nСветлае Хрыстова Уваскрасенне';
     const feastType: FeastType = 'Easter';
 
     easterEvents[easterISODate] = { feastName, feastType };

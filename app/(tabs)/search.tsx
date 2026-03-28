@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { View } from 'react-native';
 
 import { Image } from 'expo-image';
 import { usePathname } from 'expo-router';
@@ -15,6 +14,7 @@ import Search, { SearchResult } from '@/functions/Search';
 import Styles from '@/constants/styles/common.styles';
 import SearchResults from '@/app_screens/search/search.results';
 import SearchInput from '@/app_screens/search/search.input';
+import ThemedView from '@/components/ThemedView';
 
 export default function SearchScreen() {
   const imageSource = require('@/assets/images/header/analoy.png');
@@ -48,9 +48,9 @@ export default function SearchScreen() {
           Вынікаў ~ {searchResults.length}
         </ThemedText>
 
-        <View style={{ paddingBottom: 80 }}>
+        <ThemedView style={{ paddingBottom: 80 }}>
           <SearchResults searchResults={searchResults} />
-        </View>
+        </ThemedView>
       </ParallaxScrollView>
     </>
   );

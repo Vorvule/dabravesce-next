@@ -1,15 +1,16 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { cellDots } from '@/app_screens/calendar/view/cells/cell.dots';
 import { CalendarEvent } from '@/app_screens/calendar/types/calendar.types';
+import ThemedView from '@/components/ThemedView';
 
 export default function CellDot({ calendarEvent }: { calendarEvent: CalendarEvent }) {
   if (!calendarEvent) return;
 
   const style = [styles.dot, cellDots.getDotColor(calendarEvent)];
 
-  return <View style={style} />;
+  return <ThemedView style={style} />;
 }
 
 const styles = StyleSheet.create({

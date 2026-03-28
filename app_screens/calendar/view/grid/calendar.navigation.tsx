@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import ThemedText from '@/components/ThemedText';
 import RoundButton from '@/components/RoundButton';
 import { calendarDates } from '@/app_screens/calendar/model/calendar.dates';
+import ThemedView from '@/components/ThemedView';
 
 export default function CalendarNavigation({ grid, setDate }: any) {
   const gridMonth = calendarDates.getMonthName(grid.month);
@@ -12,11 +13,11 @@ export default function CalendarNavigation({ grid, setDate }: any) {
   const increaseMonth = () => setDate(new Date(grid.year, grid.month + 1, 1));
 
   return (
-    <View style={styles.navigation}>
+    <ThemedView style={styles.navigation}>
       <RoundButton name='arrow-back' onPress={decreaseMonth} enabled={true} />
       <ThemedText type='item'>{`${gridMonth} ${grid.year}`}</ThemedText>
       <RoundButton name='arrow-forward' onPress={increaseMonth} enabled={true} />
-    </View>
+    </ThemedView>
   );
 }
 

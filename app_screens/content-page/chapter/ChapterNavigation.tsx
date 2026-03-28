@@ -1,9 +1,9 @@
-import { View } from 'react-native';
 import { router } from 'expo-router';
 
 import Page from '@/functions/Page';
 import RoundButton from '@/components/RoundButton';
 import Styles from '@/constants/styles/common.styles';
+import ThemedView from '@/components/ThemedView';
 
 function ChapterNavigation({ keychain }: { keychain: number[] }) {
   const backKeychain: number[] = [keychain[0], keychain[1], keychain[2] - 1];
@@ -15,10 +15,10 @@ function ChapterNavigation({ keychain }: { keychain: number[] }) {
   const next = () => nextEnabled && router.push(Page.getUrl(nextKeychain));
 
   return (
-    <View style={Styles.buttons}>
+    <ThemedView style={Styles.buttons}>
       <RoundButton name='arrow-back' onPress={back} enabled={backEnabled} />
       <RoundButton name='arrow-forward' onPress={next} enabled={nextEnabled} />
-    </View>
+    </ThemedView>
   );
 }
 
