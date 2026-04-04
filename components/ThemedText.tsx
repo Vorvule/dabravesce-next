@@ -52,7 +52,7 @@ export default function ThemedText({ style, type = 'default', ...rest }: ThemedT
       fontFamily: 'Vollkorn',
       fontSize: fontSize,
       fontWeight: 'bold',
-      textDecorationLine: 'underline',
+      // textDecorationLine: 'underline',
       lineHeight: 26,
       color: useThemeColor({}, 'primary'),
     },
