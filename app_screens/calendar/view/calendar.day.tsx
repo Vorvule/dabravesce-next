@@ -10,13 +10,13 @@ export default function CalendarDay({ event }: any) {
   const style = Styles.centered;
 
   const feastNameColor = event?.feastType === 'Easter' ? 'crimson' : 'orangered';
-  const feastNameStyle = feastNameColor ? { ...style, color: feastNameColor } : style
+  const feastNameStyle = feastNameColor ? { ...style, color: feastNameColor } : style;
 
   const fastKindText = calendarOutput.getFastNameText(event?.fastKind);
   const fastLevelText = calendarOutput.getFastTypeText(event?.fastLevel);
 
-  const fastColor = useThemeColor({light: 'darkviolet', dark: 'orange'}, 'text')
-  const fastStyle =  { ...style, color: fastColor }
+  const fastColor = useThemeColor({ light: 'darkviolet', dark: 'orange' }, 'text');
+  const fastStyle =  { ...style, color: fastColor };
 
   return (
     <ThemedView style={Styles.padded}>
@@ -26,8 +26,8 @@ export default function CalendarDay({ event }: any) {
         </ThemedText>}
 
       <ThemedView style={Styles.padded}>
-        <ThemedText type='item' style={fastStyle}>{fastKindText}</ThemedText>
-        <ThemedText type='item' style={fastStyle}>{fastLevelText}</ThemedText>
+        <ThemedText type="item" style={fastStyle}>{fastKindText}</ThemedText>
+        <ThemedText type="item" style={fastStyle}>{fastLevelText}</ThemedText>
       </ThemedView>
     </ThemedView>
   );

@@ -33,7 +33,7 @@ export default function AlbumListItem({ album, keys, folding }) {
 
   return (
     <>
-      <ThemedOption type='item' onPress={onPress} color={color}>
+      <ThemedOption type="item" onPress={onPress} color={color}>
         {album.name}
       </ThemedOption>
 

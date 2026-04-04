@@ -18,6 +18,7 @@
     "install:check": "npx expo install --check",
     "install:latest": "npm install expo@latest",
     "install:fix": "expo install --fix",
+    "lint:fix": "eslint . --fix",
     "lint": "eslint ."
   },
   "dependencies": {

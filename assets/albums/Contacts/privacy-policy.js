@@ -28,7 +28,7 @@ export const policy = [
   'We do not use Cookies and similar tracking technologies to track the activity on Our Service and store certain information.',
 
   'Links to Other Websites',
-  "Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party's site. We strongly advise You to review the Privacy Policy of every site You visit.",
+  'Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party\'s site. We strongly advise You to review the Privacy Policy of every site You visit.',
   'We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.',
   'Changes to this Privacy Policy',
   'We may update our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page.',

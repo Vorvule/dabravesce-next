@@ -6,7 +6,7 @@ export type ContextType = {
   keychain: number[],
   updateKeychain: any,
   dailyKeychain: number[]
-}
+};
 
 const dailyKeychain: number[] = Daily.getDailyKeychain();
 

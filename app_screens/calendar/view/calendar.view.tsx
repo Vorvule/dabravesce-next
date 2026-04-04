@@ -18,7 +18,7 @@ export default function CalendarView() {
   const calendars: any = useRef({});
   const calendar: Calendar = useMemo(
     () => calendarRef.updateCalendar(calendars, grid.year),
-    [grid.year]
+    [grid.year],
   );
 
   const todayISODate = calendarDates.getISODate();

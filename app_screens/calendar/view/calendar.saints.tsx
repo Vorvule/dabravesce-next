@@ -1,6 +1,7 @@
 import React from 'react';
 import ThemedText from '@/components/ThemedText';
 import CALENDAR from '@/assets/calendar/calendire.json';
+import ThemedView from '@/components/ThemedView';
 
 export function CalendarSaints({ selectedDate }: any) {
   // selectedDate мае фармат 'YYYY-MM-DD'
@@ -12,7 +13,11 @@ export function CalendarSaints({ selectedDate }: any) {
 
   if (!saints) return null;
 
-  return saints.map((saint: any, index: any) => {
-   return (<ThemedText key={`saint-${index}`}>{` ⏺ ︎  ${saint}`}</ThemedText> );
-  })
+  return (
+    <ThemedView style={ { 'paddingHorizontal': 8 } }>
+      {saints.map((saint: any, index: any) => {
+        return (<ThemedText key={`saint-${index}`}>{` ⏺ ︎  ${saint}`}</ThemedText> );
+      })}
+    </ThemedView>
+  );
 }

@@ -37,21 +37,21 @@ export default function IndexScreen() {
       {Device.platformIsWeb() && (
         <Head>
           <title>{Web.getTitle(path)}</title>
-          <meta name='description' content={Web.getDescription(path)} />
+          <meta name="description" content={Web.getDescription(path)} />
         </Head>
       )}
 
       <ParallaxScrollView headerImage={headerImage}>
-        <ThemedText type='title'>Дабравесце</ThemedText>
-        <ThemedText type='subtitle' style={centered}>Змест</ThemedText>
+        <ThemedText type="title">Дабравесце</ThemedText>
+        <ThemedText type="subtitle" style={centered}>Змест</ThemedText>
 
         <ThemedView style={{ marginBottom: 60 }}>
           <AlbumList albums={AppSources} />
         </ThemedView>
 
-        <ThemedLink style={centered} href={gospelUrl} text='Евангелле дня' />
-        <ThemedLink style={centered} href='/calendar' text='Праваслаўны каляндар' />
-        <ThemedLink style={centered} href='/search' text='Пошук па змесце' />
+        <ThemedLink style={centered} href={gospelUrl} text="Евангелле дня" />
+        <ThemedLink style={centered} href="/calendar" text="Праваслаўны каляндар" />
+        <ThemedLink style={centered} href="/search" text="Пошук па змесце" />
 
         <IndexFooter />
       </ParallaxScrollView>

@@ -21,12 +21,12 @@ export default function CalendarScreen() {
       {Device.platformIsWeb() && (
         <Head>
           <title>Дабравесце ~ Каляндар</title>
-          <meta name='description' content={Web.getDescription(path)} />
+          <meta name="description" content={Web.getDescription(path)} />
         </Head>
       )}
 
       <ParallaxScrollView headerImage={headerImage}>
-        <ThemedText type='title'>Праваслаўны Каляндар</ThemedText>
+        <ThemedText type="title">Праваслаўны Каляндар</ThemedText>
         <CalendarView />
       </ParallaxScrollView>
     </>

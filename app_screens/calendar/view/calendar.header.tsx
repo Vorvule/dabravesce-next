@@ -11,8 +11,8 @@ export default function CalendarHeader({ date, onPress }: any) {
 
   return (
     <ThemedView style={styles.row}>
-      <ThemedText type='header'>{dayMonth}</ThemedText>
-      <RoundButton name='calendar' onPress={onPress} enabled={true} />
+      <ThemedText type="header">{dayMonth}</ThemedText>
+      <RoundButton name="calendar" onPress={onPress} enabled={true} />
     </ThemedView>
   );
 }

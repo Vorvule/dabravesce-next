@@ -20,11 +20,11 @@ export default function PageContent({ keychain }) {
 
   return (
     <ThemedView style={Styles.gapped}>
-      <ThemedText style={Styles.centered} type='title'>
+      <ThemedText style={Styles.centered} type="title">
         {albumName}
       </ThemedText>
 
-      <ThemedText style={Styles.centered} type='subtitle'>
+      <ThemedText style={Styles.centered} type="subtitle">
         {bookName}
       </ThemedText>
 

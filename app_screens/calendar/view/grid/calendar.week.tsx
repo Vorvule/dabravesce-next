@@ -7,7 +7,7 @@ export default function CalendarWeek() {
   return (
     <ThemedView style={styles.weekRow}>
       {DATE_NAMES.DAYS_BE.map((dayName) => (
-        <ThemedText type='item' key={dayName} style={styles.weekDay}>
+        <ThemedText type="item" key={dayName} style={styles.weekDay}>
           {dayName}
         </ThemedText>
       ))}

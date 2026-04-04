@@ -12,7 +12,7 @@ export default function CalendarCells({ monthMatrix, selection, calendar }: any)
   const today = new Date();
   const isoDateToday = calendarDates.getISODate(today);
 
-  const borderColor= useThemeColor({}, 'text')
+  const borderColor= useThemeColor({}, 'text');
   const selectedStyle = { borderColor, borderWidth: 1 };
 
   return monthMatrix.map((cell: Cell, key: number) => {
@@ -23,23 +23,23 @@ export default function CalendarCells({ monthMatrix, selection, calendar }: any)
         </ThemedView>);
     }
 
-      const isSelected = cell.isoDate === selection.selectedDate;
-      const isToday = cell.isoDate === isoDateToday;
+    const isSelected = cell.isoDate === selection.selectedDate;
+    const isToday = cell.isoDate === isoDateToday;
 
-      const cellStyle = isSelected
-        ? {...styles.cell, ...selectedStyle}
-        : styles.cell;
+    const cellStyle = isSelected
+      ? { ...styles.cell, ...selectedStyle }
+      : styles.cell;
 
-      return (
-        <CalendarCell
-          key={key}
-          onPress={() => selection.selectDate(cell.isoDate)}
-          style={cellStyle}
-          type={isToday ? 'today' : 'default'}
-          day={cell.dayOrdinal}
-          event={calendar[cell.isoDate]}
-        />
-      );
+    return (
+      <CalendarCell
+        key={key}
+        onPress={() => selection.selectDate(cell.isoDate)}
+        style={cellStyle}
+        type={isToday ? 'today' : 'default'}
+        day={cell.dayOrdinal}
+        event={calendar[cell.isoDate]}
+      />
+    );
   });
 }
 

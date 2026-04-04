@@ -9,22 +9,22 @@ export default function NotFoundScreen() {
     <>
       <Stack.Screen options={{ title: 'На жаль!' }} />
       <ThemedView style={styles.container}>
-        <ThemedText type='title' style={{ paddingBottom: 20 }}>
+        <ThemedText type="title" style={{ paddingBottom: 20 }}>
           Не знайшлі старонку!
         </ThemedText>
-        <ThemedText type='subtitle' style={{ color: 'grey' }}>
+        <ThemedText type="subtitle" style={{ color: 'grey' }}>
           Прапануем вам
         </ThemedText>
-        <Link href='/' style={styles.link}>
-          <ThemedText type='link' style={{ fontSize: 30 }}>
+        <Link href="/" style={styles.link}>
+          <ThemedText type="link" style={{ fontSize: 30 }}>
             Галоўную
           </ThemedText>
         </Link>
-        <ThemedText type='subtitle' style={{ color: 'grey' }}>
+        <ThemedText type="subtitle" style={{ color: 'grey' }}>
           альбо
         </ThemedText>
-        <Link href='/' style={styles.link}>
-          <ThemedText type='link' style={{ fontSize: 30 }}>
+        <Link href="/" style={styles.link}>
+          <ThemedText type="link" style={{ fontSize: 30 }}>
             Евангелле дня
           </ThemedText>
         </Link>

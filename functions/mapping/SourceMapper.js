@@ -8,8 +8,8 @@ const mapSources = () => {
     album.text.map((book, bookIndex) => {
       book.text.map((chapter, chapterIndex) => {
         const keyArray = [albumIndex, bookIndex, chapterIndex];
-        const keychain = [albumIndex, bookIndex, chapterIndex].join("~");
-        const slugchain = [album.slug, book.slug, chapter.slug].join("~");
+        const keychain = [albumIndex, bookIndex, chapterIndex].join('~');
+        const slugchain = [album.slug, book.slug, chapter.slug].join('~');
 
         keychainMap[keychain] = slugchain;
         slugchainMap[slugchain] = keyArray;

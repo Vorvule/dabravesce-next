@@ -15,7 +15,7 @@ export default function SearchResults({
         key={item.slugChain}
         style={searchStyles.link}
         href={`/page/${item.slugChain}`}
-        type='default'
+        type="default"
         text={item.nameChain}
       />
     );
