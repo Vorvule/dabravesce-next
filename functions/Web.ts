@@ -5,6 +5,8 @@ export default class Web {
     switch (pathname) {
       case '/':
         return 'Дабравесце ~ Крыніцы';
+      case '/calendar':
+        return 'Дабравесце ~ Каляндар';
       case '/search':
         return 'Дабравесце ~ Пошук';
       default:

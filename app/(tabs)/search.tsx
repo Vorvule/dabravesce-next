@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { View } from 'react-native';
 
 import { Image } from 'expo-image';
 import { usePathname } from 'expo-router';
@@ -15,6 +14,7 @@ import Search, { SearchResult } from '@/functions/Search';
 import Styles from '@/constants/styles/common.styles';
 import SearchResults from '@/app_screens/search/search.results';
 import SearchInput from '@/app_screens/search/search.input';
+import ThemedView from '@/components/ThemedView';
 
 export default function SearchScreen() {
   const imageSource = require('@/assets/images/header/analoy.png');
@@ -29,8 +29,6 @@ export default function SearchScreen() {
     setSearchResults(Search.getInSources(searchText));
   };
 
-  const { centered } = Styles;
-
   return (
     <>
       {Device.platformIsWeb() && (
@@ -42,24 +40,17 @@ export default function SearchScreen() {
 
       <ParallaxScrollView headerImage={headerImage}>
         <ThemedText type='title'>Пошук</ThemedText>
+        <ThemedText type='subtitle'>Па змесце</ThemedText>
 
-        <ThemedText type='subtitle' style={centered}>
-          Па змесце
-        </ThemedText>
+        <SearchInput searchText={searchText} setSearchText={setSearchText} onPress={handleSearch} />
 
-        <SearchInput
-          searchText={searchText}
-          setSearchText={setSearchText}
-          onPress={handleSearch}
-        />
-
-        <ThemedText style={[centered, { paddingTop: 20 }]} type='header'>
+        <ThemedText style={[Styles.centered, { paddingTop: 20 }]} type='header'>
           Вынікаў ~ {searchResults.length}
         </ThemedText>
 
-        <View style={{ paddingBottom: 80 }}>
+        <ThemedView style={{ paddingBottom: 80 }}>
           <SearchResults searchResults={searchResults} />
-        </View>
+        </ThemedView>
       </ParallaxScrollView>
     </>
   );

@@ -13,7 +13,7 @@ export default function ChapterText({ chapterText }) {
   };
 
   return chapterText.map((paragraph, index) => {
-    // Todo: do we use Link inside?
+    // Todo: Move links (about Dabravesce) to the footer and simplify the code below
     return typeof paragraph === 'string' ? (
       <ThemedText key={'p-' + index}>{tab + paragraph}</ThemedText>
     ) : (

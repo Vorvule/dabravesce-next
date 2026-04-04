@@ -1,5 +1,5 @@
 import { JSX } from 'react';
-import { Pressable, TextInput, View } from 'react-native';
+import { Pressable, TextInput } from 'react-native';
 
 import searchStyles from './search.styles';
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -7,6 +7,7 @@ import { useThemeColor } from '@/hooks/useThemeColor';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Device from '@/functions/Device';
+import ThemedView from '@/components/ThemedView';
 
 export default function SearchInput({
   searchText,
@@ -22,7 +23,7 @@ export default function SearchInput({
   };
 
   return (
-    <View>
+    <ThemedView>
       <TextInput
         autoFocus={Device.platformIsWeb()}
         value={searchText}
@@ -36,6 +37,6 @@ export default function SearchInput({
       <Pressable style={searchStyles.button} onPress={onPress}>
         <MaterialIcons name='search' size={30} color='white' />
       </Pressable>
-    </View>
+    </ThemedView>
   );
 }

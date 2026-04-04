@@ -16,22 +16,26 @@ export default function TabLayout() {
   const [keychain, setKeychain] = React.useState(dailyKeychain);
 
   const updateKeychain: (newKeychain: number[]) => void = (
-    newKeychain: number[],
+    newKeychain: number[]
   ): void => setKeychain(newKeychain);
 
   const contextValue = { keychain, updateKeychain, dailyKeychain };
 
+  const tabBarActiveTintColor = useThemeColor({}, 'link');
+  const tabBarStyle = { backgroundColor: useThemeColor({}, 'background') };
+
+
   return (
-    <GlobalContext.Provider value={contextValue}>
+    <GlobalContext.Provider value={ contextValue }>
       <Tabs
-        screenOptions={{
-          tabBarActiveTintColor: useThemeColor({}, 'link'),
+        screenOptions={ {
+          tabBarActiveTintColor,
           headerShown: false,
           tabBarButton: HapticTab,
-          tabBarStyle: { backgroundColor: useThemeColor({}, 'background') },
+          tabBarStyle,
           tabBarLabelStyle: {
             fontFamily: 'Monomakh',
-            fontSize: Device.windowIsWide() ? 24 : 14,
+            fontSize: Device.windowIsWide() ? 24 : 14
           },
           tabBarItemStyle: {
             borderLeftWidth: 0,
@@ -39,40 +43,49 @@ export default function TabLayout() {
             borderRightWidth: 2,
             borderTopColor: 'grey',
             borderTopWidth: 2,
-            borderTopRightRadius: 10,
+            borderTopRightRadius: 10
           },
           tabBarIconStyle: {
             marginTop: -4,
-            marginBottom: -4,
-          },
-        }}
+            marginBottom: -4
+          }
+        } }
       >
         <Tabs.Screen
-          name='index'
-          options={{
+          name="index"
+          options={ {
             title: 'Крыніцы',
             tabBarIcon: ({ color }) => (
-              <IconSymbol name='menucard' color={color} />
-            ),
-          }}
+              <IconSymbol name="menucard" color={ color } />
+            )
+          } }
         />
         <Tabs.Screen
-          name='page/[slugchain]'
-          options={{
+          name="page/[slugchain]"
+          options={ {
             title: 'Змест',
             tabBarIcon: ({ color }) => (
-              <IconSymbol name='book.pages.fill' color={color} />
-            ),
-          }}
+              <IconSymbol name="book.pages.fill" color={ color } />
+            )
+          } }
         />
         <Tabs.Screen
-          name='search'
-          options={{
+          name="search"
+          options={ {
             title: 'Пошук',
             tabBarIcon: ({ color }) => (
-              <IconSymbol name='magnifyingglass' color={color} />
-            ),
-          }}
+              <IconSymbol name="magnifyingglass" color={ color } />
+            )
+          } }
+        />
+        <Tabs.Screen
+          name="calendar"
+          options={ {
+            title: 'Каляндар',
+            tabBarIcon: ({ color }) => (
+              <IconSymbol name="calendar" color={ color } />
+            )
+          } }
         />
       </Tabs>
     </GlobalContext.Provider>

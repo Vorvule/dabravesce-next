@@ -50,6 +50,7 @@ export default function IndexScreen() {
         </ThemedView>
 
         <ThemedLink style={centered} href={gospelUrl} text='Евангелле дня' />
+        <ThemedLink style={centered} href='/calendar' text='Праваслаўны каляндар' />
         <ThemedLink style={centered} href='/search' text='Пошук па змесце' />
 
         <IndexFooter />
