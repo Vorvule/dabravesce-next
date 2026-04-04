@@ -6,31 +6,40 @@ import { useThemeColor } from '@/hooks/useThemeColor';
 import Device from '@/functions/Device';
 import { calendarDates } from '@/app_screens/calendar/model/calendar.dates';
 import ThemedView from '@/components/ThemedView';
+import ThemedText from '@/components/ThemedText';
 
 export default function CalendarCells({ monthMatrix, selection, calendar }: any) {
   const today = new Date();
   const isoDateToday = calendarDates.getISODate(today);
 
-  const selectedStyle = { borderColor: useThemeColor({}, 'text'), borderWidth: 1 };
+  const borderColor= useThemeColor({}, 'text');
+  const selectedStyle = { borderColor, borderWidth: 1 };
 
   return monthMatrix.map((cell: Cell, key: number) => {
-    if (cell) {
-      const isSelected = cell.isoDate === selection.selectedDate;
-      const isToday = cell.isoDate === isoDateToday;
-
+    if (!cell){
       return (
-        <CalendarCell
-          key={key}
-          onPress={() => selection.selectDate(cell.isoDate)}
-          style={[styles.cell, isSelected && selectedStyle]}
-          type={isToday ? 'today' : 'default'}
-          day={cell.dayOrdinal}
-          event={calendar[cell.isoDate]}
-        />
-      );
-    } else {
-      return <ThemedView key={key} style={styles.cell} />;
+        <ThemedView key={key} style={styles.cell} >
+          <ThemedText> </ThemedText>
+        </ThemedView>);
     }
+
+    const isSelected = cell.isoDate === selection.selectedDate;
+    const isToday = cell.isoDate === isoDateToday;
+
+    const cellStyle = isSelected
+      ? { ...styles.cell, ...selectedStyle }
+      : styles.cell;
+
+    return (
+      <CalendarCell
+        key={key}
+        onPress={() => selection.selectDate(cell.isoDate)}
+        style={cellStyle}
+        type={isToday ? 'today' : 'default'}
+        day={cell.dayOrdinal}
+        event={calendar[cell.isoDate]}
+      />
+    );
   });
 }
 

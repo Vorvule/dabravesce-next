@@ -7,7 +7,7 @@ export default function ChapterName({ children }) {
 
   return children.split(' | ').map((name, index) => {
     return (
-      <ThemedText type='header' style={style} key={'chapter-' + index}>
+      <ThemedText type="header" style={style} key={'chapter-' + index}>
         {name}
       </ThemedText>
     );

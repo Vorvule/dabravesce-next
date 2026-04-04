@@ -34,17 +34,17 @@ export default function SearchScreen() {
       {Device.platformIsWeb() && (
         <Head>
           <title>Дабравесце ~ Пошук</title>
-          <meta name='description' content={Web.getDescription(path)} />
+          <meta name="description" content={Web.getDescription(path)} />
         </Head>
       )}
 
       <ParallaxScrollView headerImage={headerImage}>
-        <ThemedText type='title'>Пошук</ThemedText>
-        <ThemedText type='subtitle'>Па змесце</ThemedText>
+        <ThemedText type="title">Пошук</ThemedText>
+        <ThemedText type="subtitle">Па змесце</ThemedText>
 
         <SearchInput searchText={searchText} setSearchText={setSearchText} onPress={handleSearch} />
 
-        <ThemedText style={[Styles.centered, { paddingTop: 20 }]} type='header'>
+        <ThemedText style={[Styles.centered, { paddingTop: 20 }]} type="header">
           Вынікаў ~ {searchResults.length}
         </ThemedText>
 

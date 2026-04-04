@@ -1,10 +1,23 @@
 import React from 'react';
 import ThemedText from '@/components/ThemedText';
-import { CALENDAR } from '@/assets/calendar/calendire';
+import CALENDAR from '@/assets/calendar/calendire.json';
+import ThemedView from '@/components/ThemedView';
 
 export function CalendarSaints({ selectedDate }: any) {
-  const date: keyof typeof CALENDAR = selectedDate.substring(5);
-  const saints = `        ${CALENDAR[date]}`;
+  // selectedDate мае фармат 'YYYY-MM-DD'
+  const month = selectedDate.substring(5, 7); // 'MM'
+  const day = selectedDate.substring(8, 10); // 'DD'
 
-  return saints?.trim() ? <ThemedText>{saints}</ThemedText> : null;
+  const typedCalendar: any = CALENDAR;
+  const saints = typedCalendar[month]?.[day] || '';
+
+  if (!saints) return null;
+
+  return (
+    <ThemedView style={ { 'paddingHorizontal': 8 } }>
+      {saints.map((saint: any, index: any) => {
+        return (<ThemedText key={`saint-${index}`}>{` ⏺ ︎  ${saint}`}</ThemedText> );
+      })}
+    </ThemedView>
+  );
 }

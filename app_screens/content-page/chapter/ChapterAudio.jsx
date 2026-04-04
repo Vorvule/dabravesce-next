@@ -73,9 +73,9 @@ export default function ChapterAudio({ chapterAudio }) {
 
   return (
     <View style={Styles.buttons}>
-      <RoundButton name='play' onPress={playAudio} enabled={buttons.play} />
-      <RoundButton name='pause' onPress={pauseAudio} enabled={buttons.pause} />
-      <RoundButton name='stop' onPress={stopAudio} enabled={buttons.stop} />
+      <RoundButton name="play" onPress={playAudio} enabled={buttons.play} />
+      <RoundButton name="pause" onPress={pauseAudio} enabled={buttons.pause} />
+      <RoundButton name="stop" onPress={stopAudio} enabled={buttons.stop} />
     </View>
   );
 }

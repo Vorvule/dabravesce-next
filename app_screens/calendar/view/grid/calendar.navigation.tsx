@@ -14,9 +14,9 @@ export default function CalendarNavigation({ grid, setDate }: any) {
 
   return (
     <ThemedView style={styles.navigation}>
-      <RoundButton name='arrow-back' onPress={decreaseMonth} enabled={true} />
-      <ThemedText type='item'>{`${gridMonth} ${grid.year}`}</ThemedText>
-      <RoundButton name='arrow-forward' onPress={increaseMonth} enabled={true} />
+      <RoundButton name="arrow-back" onPress={decreaseMonth} enabled={true} />
+      <ThemedText type="item">{`${gridMonth} ${grid.year}`}</ThemedText>
+      <RoundButton name="arrow-forward" onPress={increaseMonth} enabled={true} />
     </ThemedView>
   );
 }

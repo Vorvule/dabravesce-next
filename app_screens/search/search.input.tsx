@@ -28,14 +28,14 @@ export default function SearchInput({
         autoFocus={Device.platformIsWeb()}
         value={searchText}
         onChangeText={setSearchText}
-        placeholder='Пошук па змесце'
-        placeholderTextColor='grey'
+        placeholder="Пошук па змесце"
+        placeholderTextColor="grey"
         cursorColor={textColor}
         style={[searchStyles.input, colors]}
       />
 
       <Pressable style={searchStyles.button} onPress={onPress}>
-        <MaterialIcons name='search' size={30} color='white' />
+        <MaterialIcons name="search" size={30} color="white" />
       </Pressable>
     </ThemedView>
   );

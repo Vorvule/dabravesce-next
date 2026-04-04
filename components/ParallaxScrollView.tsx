@@ -4,7 +4,7 @@ import Animated, {
   interpolate,
   useAnimatedRef,
   useAnimatedStyle,
-  useScrollOffset
+  useScrollOffset,
 } from 'react-native-reanimated';
 
 import ThemedView from '@/components/ThemedView';
@@ -48,8 +48,8 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
   const { keychain } = useContext(GlobalContext);
 
   useEffect(() => {
-    scrollRef.current?.scrollTo({ y: 0, animated: true })
-  }, [keychain, scrollRef])
+    scrollRef.current?.scrollTo({ y: 0, animated: true });
+  }, [keychain, scrollRef]);
 
   const headerAnimatedStyle = useAnimatedStyle(() => {
     return {

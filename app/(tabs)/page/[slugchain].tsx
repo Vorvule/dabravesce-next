@@ -41,7 +41,7 @@ export default function PageScreen() {
 
   const keychain: number[] = useMemo(
     () => (validSlugChain ? Page.getKeychain(slugChain) : dailyKeychain),
-    [dailyKeychain, slugChain, validSlugChain]
+    [dailyKeychain, slugChain, validSlugChain],
   );
 
   useFocusEffect(
@@ -49,7 +49,7 @@ export default function PageScreen() {
       return validSlugChain
         ? updateKeychain(keychain)
         : router.replace(Page.getUrl(keychain));
-    }, [keychain, updateKeychain, validSlugChain])
+    }, [keychain, updateKeychain, validSlugChain]),
   );
 
   return (

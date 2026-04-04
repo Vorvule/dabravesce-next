@@ -51,8 +51,8 @@ export default function ThemedText({ style, type = 'default', ...rest }: ThemedT
     today: {
       fontFamily: 'Vollkorn',
       fontSize: fontSize,
-      fontWeight: 'bold',
-      textDecorationLine: 'underline',
+      // fontWeight: 'bold',
+      // textDecorationLine: 'underline',
       lineHeight: 26,
       color: useThemeColor({}, 'primary'),
     },

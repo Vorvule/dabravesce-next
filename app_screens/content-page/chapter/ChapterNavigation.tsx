@@ -16,8 +16,8 @@ function ChapterNavigation({ keychain }: { keychain: number[] }) {
 
   return (
     <ThemedView style={Styles.buttons}>
-      <RoundButton name='arrow-back' onPress={back} enabled={backEnabled} />
-      <RoundButton name='arrow-forward' onPress={next} enabled={nextEnabled} />
+      <RoundButton name="arrow-back" onPress={back} enabled={backEnabled} />
+      <RoundButton name="arrow-forward" onPress={next} enabled={nextEnabled} />
     </ThemedView>
   );
 }
