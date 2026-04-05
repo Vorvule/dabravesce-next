@@ -16,7 +16,7 @@ export default function CalendarDay({ event }: any) {
   const fastLevelText = calendarOutput.getFastTypeText(event?.fastLevel);
 
   const fastColor = useThemeColor({ light: 'darkviolet', dark: 'orange' }, 'text');
-  const fastStyle =  { ...style, color: fastColor };
+  const fastStyle = { ...style, color: fastColor };
 
   return (
     <ThemedView style={Styles.padded}>

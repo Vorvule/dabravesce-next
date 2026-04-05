@@ -1,4 +1,4 @@
-import { Appearance } from 'react-native';
+import { useColorScheme } from 'react-native';
 import {
   DarkTheme,
   DefaultTheme,
@@ -18,7 +18,7 @@ SplashScreen.setOptions({ duration: 1000, fade: true });
 SplashScreen.preventAutoHideAsync(); // Wait for asset loading is complete
 
 export default function RootLayout() {
-  const colorSchemeName = Appearance.getColorScheme();
+  const colorSchemeName = useColorScheme();
 
   const MyLightTheme = {
     ...DefaultTheme,

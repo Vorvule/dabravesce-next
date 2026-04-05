@@ -29,6 +29,7 @@ export default [
       '@stylistic/jsx-quotes': ['error', 'prefer-double'],
       '@stylistic/object-curly-spacing': ['error', 'always'],
       '@stylistic/no-trailing-spaces': 'error',
+      '@stylistic/no-multi-spaces': 'error',
     },
   },
 ];

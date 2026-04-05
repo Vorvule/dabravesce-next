@@ -8,8 +8,8 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import ThemedView from '@/components/ThemedView';
-import { useThemeColor } from '@/hooks/useThemeColor';
 import Device from '@/functions/Device';
+import { useColorScheme } from '@/hooks/useColorScheme';
 import { GlobalContext } from '@/contexts/GlobalContext';
 
 const HEADER_HEIGHT = 200;
@@ -22,8 +22,6 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
   const windowIsWide = Device.windowIsWide();
   const width = windowIsWide ? 800 : '100%';
 
-  const backgroundColor = useThemeColor({}, 'background');
-
   const styles = StyleSheet.create({
     container: { flex: 1, flexDirection: 'row' },
     middleColumn: { width },
@@ -31,14 +29,12 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
     header: {
       height: HEADER_HEIGHT,
       overflow: 'hidden',
-      backgroundColor,
     },
     content: {
       flex: 1,
       padding: 18,
       gap: 16,
       overflow: 'hidden',
-      backgroundColor,
     },
   });
 
@@ -46,6 +42,7 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
   const scrollOffset = useScrollOffset(scrollRef);
 
   const { keychain } = useContext(GlobalContext);
+  const colorScheme = useColorScheme();
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ y: 0, animated: true });
@@ -83,8 +80,10 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
           scrollEventThrottle={16}
           showsVerticalScrollIndicator={!windowIsWide}
         >
-          <Animated.View style={animatedViewStyle}>{headerImage}</Animated.View>
-          <ThemedView style={styles.content}>{children}</ThemedView>
+          <Animated.View style={animatedViewStyle}>
+            {headerImage}
+          </Animated.View>
+          <ThemedView key={colorScheme} style={styles.content}>{children}</ThemedView>
         </Animated.ScrollView>
       </ThemedView>
       {windowIsWide && <ThemedView style={styles.sideColumn} />}
