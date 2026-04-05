@@ -8,7 +8,6 @@
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "by.dabravesce"

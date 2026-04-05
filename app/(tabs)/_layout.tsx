@@ -10,6 +10,7 @@ import Daily from '@/functions/Daily';
 import Device from '@/functions/Device';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
+import ThemedView from '@/components/ThemedView';
 
 export default function TabLayout() {
   const dailyKeychain: number[] = Daily.getDailyKeychain();
@@ -21,73 +22,76 @@ export default function TabLayout() {
 
   const contextValue = { keychain, updateKeychain, dailyKeychain };
 
-  const tabBarActiveTintColor = useThemeColor({}, 'link');
-  const tabBarStyle = { backgroundColor: useThemeColor({}, 'background') };
-
+  const backgroundColor = useThemeColor({}, 'background');
+  const borderColor = useThemeColor({}, 'border');
+  const activeColor = useThemeColor({}, 'link');
 
   return (
-    <GlobalContext.Provider value={ contextValue }>
-      <Tabs
-        screenOptions={ {
-          tabBarActiveTintColor,
-          headerShown: false,
-          tabBarButton: HapticTab,
-          tabBarStyle,
-          tabBarLabelStyle: {
-            fontFamily: 'Monomakh',
-            fontSize: Device.windowIsWide() ? 24 : 14,
-          },
-          tabBarItemStyle: {
-            borderLeftWidth: 0,
-            borderRightColor: 'grey',
-            borderRightWidth: 2,
-            borderTopColor: 'grey',
-            borderTopWidth: 2,
-            borderTopRightRadius: 10,
-          },
-          tabBarIconStyle: {
-            marginTop: -4,
-            marginBottom: -4,
-          },
-        } }
-      >
-        <Tabs.Screen
-          name="index"
-          options={ {
-            title: 'Крыніцы',
-            tabBarIcon: ({ color }) => (
-              <IconSymbol name="menucard" color={ color } />
-            ),
-          } }
-        />
-        <Tabs.Screen
-          name="page/[slugchain]"
-          options={ {
-            title: 'Змест',
-            tabBarIcon: ({ color }) => (
-              <IconSymbol name="book.pages.fill" color={ color } />
-            ),
-          } }
-        />
-        <Tabs.Screen
-          name="search"
-          options={ {
-            title: 'Пошук',
-            tabBarIcon: ({ color }) => (
-              <IconSymbol name="magnifyingglass" color={ color } />
-            ),
-          } }
-        />
-        <Tabs.Screen
-          name="calendar"
-          options={ {
-            title: 'Каляндар',
-            tabBarIcon: ({ color }) => (
-              <IconSymbol name="calendar" color={ color } />
-            ),
-          } }
-        />
-      </Tabs>
-    </GlobalContext.Provider>
+    <ThemedView style={{ flex: 1 }}>
+      <GlobalContext.Provider value={contextValue}>
+        <Tabs
+          screenOptions={() => ({
+            tabBarActiveTintColor: activeColor,
+            headerShown: false,
+            tabBarInactiveTintColor: borderColor,
+            tabBarButton: HapticTab,
+            tabBarStyle: { backgroundColor },
+            tabBarLabelStyle: {
+              fontFamily: 'Monomakh',
+              fontSize: Device.windowIsWide() ? 24 : 14,
+            },
+            tabBarItemStyle: {
+              borderLeftWidth: 0,
+              borderRightColor: borderColor,
+              borderRightWidth: 2,
+              borderTopColor: borderColor,
+              borderTopWidth: 2,
+              borderTopRightRadius: 10,
+            },
+            tabBarIconStyle: {
+              marginTop: -4,
+              marginBottom: -4,
+            },
+          })}
+        >
+          <Tabs.Screen
+            name="index"
+            options={{
+              title: 'Крыніцы',
+              tabBarIcon: ({ color }) => (
+                <IconSymbol name="menucard" color={color} />
+              ),
+            }}
+          />
+          <Tabs.Screen
+            name="page/[slugchain]"
+            options={{
+              title: 'Змест',
+              tabBarIcon: ({ color }) => (
+                <IconSymbol name="book.pages.fill" color={color} />
+              ),
+            }}
+          />
+          <Tabs.Screen
+            name="search"
+            options={{
+              title: 'Пошук',
+              tabBarIcon: ({ color }) => (
+                <IconSymbol name="magnifyingglass" color={color} />
+              ),
+            }}
+          />
+          <Tabs.Screen
+            name="calendar"
+            options={{
+              title: 'Каляндар',
+              tabBarIcon: ({ color }) => (
+                <IconSymbol name="calendar" color={color} />
+              ),
+            }}
+          />
+        </Tabs>
+      </GlobalContext.Provider>
+    </ThemedView>
   );
 }

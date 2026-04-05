@@ -12,8 +12,6 @@ import Styles from '@/constants/styles/common.styles';
 import CalendarView from '@/app_screens/calendar/view/calendar.view';
 
 export default function CalendarScreen() {
-  const headerImage = <Image source={imageSource} style={Styles.image} />;
-
   const path: string = usePathname();
 
   return (
@@ -25,7 +23,7 @@ export default function CalendarScreen() {
         </Head>
       )}
 
-      <ParallaxScrollView headerImage={headerImage}>
+      <ParallaxScrollView headerImage={<Image source={imageSource} style={Styles.image} />}>
         <ThemedText type="title">Праваслаўны Каляндар</ThemedText>
         <CalendarView />
       </ParallaxScrollView>
