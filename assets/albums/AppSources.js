@@ -1,12 +1,12 @@
-import { apostles } from './Apostles/Apostles.js';
-import { education } from './Education/Education.js';
-import { epistlesApocalypse } from './EpistlesApocalypse/EpistlesApocalypse.js';
-import { gospels } from './Gospels/Gospels.js';
-import { prayers } from './Prayers/Prayers.js';
-import { psalter } from './Psalter/Psalter.js';
-import { songs } from './Songs/Songs.js';
-import { worships } from './Worships/Worships.js';
-import { project } from './Project/Project.js';
+import apostles from '@/assets/albums/apostles/apostles.js';
+import education from '@/assets/albums/education/education.js';
+import epistlesApocalypse from '@/assets/albums/epistles-apocalypse/epistles.apocalypse.js';
+import gospels from '@/assets/albums/gospels/gospels.js';
+import prayers from '@/assets/albums/prayers/prayers.js';
+import psalter from '@/assets/albums/psalter/psalter.js';
+import songs from '@/assets/albums/songs/songs.js';
+import worships from '@/assets/albums/worships/worships.js';
+import project from '@/assets/albums/project/project.js';
 
 const AppSources = [
   gospels,
