@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "Calendar sources enhanced",
-    "runtimeVersion": "58",
+    "version": "SDK55 applied",
+    "runtimeVersion": "59",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -18,7 +18,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 58
+      "versionCode": 59
     },
     "web": {
       "bundler": "metro",
@@ -43,7 +43,8 @@
       "expo-web-browser",
       "expo-font",
       "expo-audio",
-      "expo-asset"
+      "expo-asset",
+      "expo-image"
     ],
     "experiments": {
       "typedRoutes": true

@@ -33,7 +33,7 @@ export function CalendarSaints({ selectedDate }: CalendarSaintsProps) {
   return (
     <ThemedView style={styles.container}>
       {saints.map((saint, index) => {
-        return (<ThemedText key={`saint-${index}`}>{` ⏺ ︎  ${saint}`}</ThemedText> );
+        return (<ThemedText key={`saint-${index}`}>{` \u25cf   ${saint}`}</ThemedText> );
       })}
     </ThemedView>
   );
