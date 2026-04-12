@@ -1,6 +1,22 @@
 import SlugchainMap from '@/functions/mapping/SlugchainMap';
 import KeychainMap from '@/functions/mapping/KeychainMap';
-import AppSources from '@/assets/albums/AppSources';
+import appSources from '@/assets/albums/app.sources.js';
+
+interface Chapter {
+  text: string[];
+}
+
+interface Book {
+  name: string;
+  slug: string;
+  text: Chapter[];
+}
+
+interface Album {
+  name: string;
+  slug: string;
+  text: Book[];
+}
 
 export default class Page {
   static getUrl(keychain: number[]): any {
@@ -19,7 +35,7 @@ export default class Page {
     try {
       const [albumKey, bookKey, chapterKey] = keychain;
 
-      return AppSources[albumKey].text[bookKey].text[chapterKey] !== undefined;
+      return (appSources[albumKey] as Album).text[bookKey].text[chapterKey] !== undefined;
     } catch {
       return false;
     }
@@ -27,10 +43,11 @@ export default class Page {
 
   static getContent(keychain: number[]) {
     const [albumKey, bookKey, chapterKey] = keychain;
+    const album = appSources[albumKey] as Album;
 
-    const albumName: string = AppSources[albumKey].name;
-    const bookName: string = AppSources[albumKey].text[bookKey].name;
-    const chapter = AppSources[albumKey].text[bookKey].text[chapterKey];
+    const albumName: string = album.name;
+    const bookName: string = album.text[bookKey].name;
+    const chapter = album.text[bookKey].text[chapterKey];
 
     return { albumName, bookName, chapter };
   }

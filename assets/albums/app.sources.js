@@ -8,7 +8,7 @@ import songs from '@/assets/albums/songs/songs.js';
 import worships from '@/assets/albums/worships/worships.js';
 import project from '@/assets/albums/project/project.js';
 
-const AppSources = [
+const appSources = [
   gospels,
   apostles,
   epistlesApocalypse,
@@ -20,4 +20,4 @@ const AppSources = [
   project,
 ];
 
-export default AppSources;
+export default appSources;

@@ -19,6 +19,7 @@
     "and:apk": "eas build -p android --profile apk",
     "and:run": "expo start --android",
     "ios:start": "expo start --ios",
+    "tsc:no:emit": "npx tsc --noEmit",
     "lint:fix": "eslint . --fix",
     "lint": "eslint ."
   },

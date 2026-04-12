@@ -1,10 +1,13 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "baseUrl": ".",
     "strict": true,
+    "moduleResolution": "bundler",
+    "allowJs": true,
     "paths": {
       "@/*": ["./*"]
     }
   },
-  "include": ["**/*.{ts,tsx}", ".expo/types/**/*.ts", "expo-env.d.ts"]
+  "include": ["**/*.{ts,tsx,json}", ".expo/types/**/*.ts", "expo-env.d.ts"]
 }
