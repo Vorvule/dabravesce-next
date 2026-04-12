@@ -1,9 +1,9 @@
-import AppSources from '../../assets/albums/AppSources.js';
+import appSources from '../../assets/albums/app.sources.js';
 
 /**
  * The script is to validate if the content separated with two spaces
  */
-AppSources.forEach((albums, i) => {
+appSources.forEach((albums, i) => {
   // i === 0 && console.log('ALBUMS:\n', albums.text[0]);
 
   albums.text.forEach((album, j) => {

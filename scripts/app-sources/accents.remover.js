@@ -1,10 +1,8 @@
 import { promises as fs } from 'fs';
-import AppSources from '../../assets/albums/AppSources.js';
+import appSources from '../../assets/albums/app.sources.js';
 
-/**
- * The script is to remove accent marks from the app sources
- */
-const sources = structuredClone(AppSources);
+/** The script is to remove accent marks from the app sources */
+const sources = structuredClone(appSources);
 
 sources.forEach((source) => {
   source.text.forEach((album) => {

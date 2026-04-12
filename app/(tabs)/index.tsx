@@ -2,7 +2,7 @@ import { Image } from 'expo-image';
 import { usePathname } from 'expo-router';
 import useDailyGospelUrl from '@/hooks/use.daily.gospel.url';
 
-import AppSources from '@/assets/albums/AppSources';
+import appSources from '@/assets/albums/app.sources.js';
 import Head from 'expo-router/head';
 import Styles from '@/constants/styles/common.styles';
 
@@ -46,7 +46,7 @@ export default function IndexScreen() {
         <ThemedText type="subtitle" style={centered}>Змест</ThemedText>
 
         <ThemedView style={{ marginBottom: 60 }}>
-          <AlbumList albums={AppSources} />
+          <AlbumList albums={appSources} />
         </ThemedView>
 
         <ThemedLink style={centered} href={gospelUrl} text="Евангелле дня" />
