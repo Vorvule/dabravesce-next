@@ -2,7 +2,7 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "Assets made JSON",
+    "version": "Assets made JSON formatted",
     "runtimeVersion": "60",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
