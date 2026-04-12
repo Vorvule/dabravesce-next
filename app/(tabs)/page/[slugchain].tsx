@@ -6,7 +6,7 @@ import Head from 'expo-router/head';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import PageContent from '@/app_screens/content-page/PageContent';
 
-import AppSources from '@/assets/albums/AppSources';
+import appSources from '@/assets/albums/app.sources';
 import Styles from '@/constants/styles/common.styles';
 import { GlobalContext } from '@/contexts/GlobalContext';
 
@@ -18,9 +18,9 @@ export async function generateStaticParams(): Promise<
   Record<string, string>[]
 > {
   const slugChains: { slugchain: string }[] = [];
-  AppSources.map((album) => {
-    album.text.map((book) => {
-      book.text.map((chapter) => {
+  appSources.map((album: any ) => {
+    album.text.map((book: any) => {
+      book.text.map((chapter: any) => {
         const slugchain = [album.slug, book.slug, chapter.slug].join('~');
         slugChains.push({ slugchain });
       });

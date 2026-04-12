@@ -1,4 +1,4 @@
-import AppSources from '@/assets/albums/AppSources';
+import appSources from '@/assets/albums/app.sources.js';
 
 const createSitemap = () => {
   let urlSet = '';
@@ -6,7 +6,7 @@ const createSitemap = () => {
   let path = '';
   urlSet += getUrlLoc(path);
 
-  AppSources.map((album) => {
+  appSources.map((album) => {
     album.text.map((book) => {
       book.text.map((chapter) => {
         path = '/page/' + [album.slug, book.slug, chapter.slug].join('~');
