@@ -312,6 +312,7 @@
 <url><loc>https://dabravesce.by/page/psalter~psalms~psalm-49</loc></url>
 <url><loc>https://dabravesce.by/page/psalter~psalms~psalm-50</loc></url>
 <url><loc>https://dabravesce.by/page/psalter~psalms~psalm-51</loc></url>
+<url><loc>https://dabravesce.by/page/prayer-book~litia~litia</loc></url>
 <url><loc>https://dabravesce.by/page/prayer-book~daily-prayers~morning</loc></url>
 <url><loc>https://dabravesce.by/page/prayer-book~daily-prayers~morning-next</loc></url>
 <url><loc>https://dabravesce.by/page/prayer-book~daily-prayers~evening</loc></url>
@@ -334,7 +335,6 @@
 <url><loc>https://dabravesce.by/page/worships~liturgy~liturgy</loc></url>
 <url><loc>https://dabravesce.by/page/worships~liturgy~litany</loc></url>
 <url><loc>https://dabravesce.by/page/worships~liturgy~requiem</loc></url>
-<url><loc>https://dabravesce.by/page/worships~liturgy~litia</loc></url>
 <url><loc>https://dabravesce.by/page/worships~sunday-troparions~tune-1</loc></url>
 <url><loc>https://dabravesce.by/page/worships~sunday-troparions~tune-2</loc></url>
 <url><loc>https://dabravesce.by/page/worships~sunday-troparions~tune-3</loc></url>
@@ -387,6 +387,6 @@
 <url><loc>https://dabravesce.by/page/project~content~sources</loc></url>
 <url><loc>https://dabravesce.by/page/project~content~translation</loc></url>
 <url><loc>https://dabravesce.by/page/project~content~daily-gospel</loc></url>
-<url><loc>https://dabravesce.by/search</loc></url>
 <url><loc>https://dabravesce.by/calendar</loc></url>
+<url><loc>https://dabravesce.by/search</loc></url>
 </urlset>
