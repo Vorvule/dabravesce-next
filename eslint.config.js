@@ -30,6 +30,7 @@ export default [
       '@stylistic/object-curly-spacing': ['error', 'always'],
       '@stylistic/no-trailing-spaces': 'error',
       '@stylistic/no-multi-spaces': 'error',
+      'no-multiple-empty-lines': ['error', { max: 1 }],
     },
   },
 ];

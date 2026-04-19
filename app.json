@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "Assets made JSON formatted",
-    "runtimeVersion": "60",
+    "version": "Prayers enhancements",
+    "runtimeVersion": "61",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",

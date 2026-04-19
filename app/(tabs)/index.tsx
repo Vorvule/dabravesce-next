@@ -8,8 +8,8 @@ import Styles from '@/constants/styles/common.styles';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import ThemedView from '@/components/ThemedView';
-import ThemedText from '@/components/ThemedText';
 import ThemedLink from '@/components/ThemedLink';
+import ThemedText from '@/components/ThemedText';
 
 import AlbumList from '@/app_screens/index-menu/AlbumList';
 import IndexFooter from '@/app_screens/index-menu/IndexFooter';
