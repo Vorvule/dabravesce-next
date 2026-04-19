@@ -35,10 +35,14 @@ export default function TabLayout() {
             headerShown: false,
             tabBarInactiveTintColor: borderColor,
             tabBarButton: HapticTab,
-            tabBarStyle: { backgroundColor },
+            tabBarStyle: {
+              backgroundColor,
+              flexDirection: Device.windowIsWide() ? 'row' : 'column',
+            },
             tabBarLabelStyle: {
               fontFamily: 'Monomakh',
               fontSize: Device.windowIsWide() ? 24 : 14,
+              marginLeft: Device.windowIsWide() ? 8 : 0,
             },
             tabBarItemStyle: {
               borderLeftWidth: 0,
@@ -47,6 +51,7 @@ export default function TabLayout() {
               borderTopColor: borderColor,
               borderTopWidth: 2,
               borderTopRightRadius: 10,
+              flexDirection: 'row',
             },
             tabBarIconStyle: {
               marginTop: -4,
