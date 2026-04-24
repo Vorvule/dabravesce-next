@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "Prayers enhancements",
-    "runtimeVersion": "61",
+    "version": "Acathist amended",
+    "runtimeVersion": "62",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -18,7 +18,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 61
+      "versionCode": 62
     },
     "web": {
       "bundler": "metro",

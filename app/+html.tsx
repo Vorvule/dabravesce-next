@@ -25,6 +25,36 @@ export default function Root({ children }: PropsWithChildren) {
         */}
         <ScrollViewStyleReset />
 
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              @media (min-width: 800px) {
+                div[role="tablist"] {
+                  flex-direction: row !important;
+                  justify-content: center;
+                  align-items: center;
+                }
+                div[role="tablist"] > div {
+                  flex-direction: row !important;
+                  flex: 1;
+                  justify-content: center;
+                  align-items: center;
+                }
+                div[role="tablist"] > div > a {
+                  flex-direction: row !important;
+                  justify-content: center;
+                  padding: 10px;
+                }
+                div[role="tablist"] > div > a > div:first-child {
+                  margin-right: 8px;
+                }
+                div[role="tablist"] .css-146c3p1 {
+                  font-size: 24px !important;
+                }
+              }
+            `,
+          }}
+        />
         {/* Using raw CSS styles as an escape-hatch to ensure the background color never flickers in dark-mode. */}
         {/*<style dangerouslySetInnerHTML={{ __html: responsiveBackground }} />*/}
       </head>
