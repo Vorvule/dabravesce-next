@@ -1,18 +1,19 @@
 import React from 'react';
+import { useWindowDimensions } from 'react-native';
 
 import { GlobalContext } from '@/contexts/GlobalContext';
 import { Tabs } from 'expo-router';
 
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
-
 import Daily from '@/functions/Daily';
-import Device from '@/functions/Device';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 import ThemedView from '@/components/ThemedView';
 
 export default function TabLayout() {
+  const { width } = useWindowDimensions();
+  const isWide = width > 800;
   const dailyKeychain: number[] = Daily.getDailyKeychain();
   const [keychain, setKeychain] = React.useState(dailyKeychain);
 
@@ -30,19 +31,20 @@ export default function TabLayout() {
     <ThemedView style={{ flex: 1 }}>
       <GlobalContext.Provider value={contextValue}>
         <Tabs
-          screenOptions={() => ({
+          screenOptions={{
             tabBarActiveTintColor: activeColor,
             headerShown: false,
             tabBarInactiveTintColor: borderColor,
             tabBarButton: HapticTab,
             tabBarStyle: {
+              borderColor: backgroundColor,
               backgroundColor,
-              flexDirection: Device.windowIsWide() ? 'row' : 'column',
+              flexDirection: isWide ? 'row' : 'column',
             },
             tabBarLabelStyle: {
               fontFamily: 'Monomakh',
-              fontSize: Device.windowIsWide() ? 24 : 14,
-              marginLeft: Device.windowIsWide() ? 8 : 0,
+              fontSize: isWide ? 24 : 14,
+              marginLeft: isWide ? 8 : 0,
             },
             tabBarItemStyle: {
               borderLeftWidth: 0,
@@ -57,8 +59,7 @@ export default function TabLayout() {
               marginTop: -4,
               marginBottom: -4,
             },
-          })}
-        >
+          }}>
           <Tabs.Screen
             name="index"
             options={{

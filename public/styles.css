@@ -1,0 +1,5 @@
+@media (min-width: 800px) {
+  [data-rn-tabs="true"] div[role="tablist"] {
+    flex-direction: row !important;
+  }
+}
