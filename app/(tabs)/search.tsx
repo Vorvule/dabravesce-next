@@ -1,6 +1,4 @@
 import { useState } from 'react';
-
-import { Image } from 'expo-image';
 import { usePathname } from 'expo-router';
 import Head from 'expo-router/head';
 
@@ -17,9 +15,6 @@ import SearchInput from '@/app_screens/search/search.input';
 import ThemedView from '@/components/ThemedView';
 
 export default function SearchScreen() {
-  const imageSource = require('@/assets/images/header/analoy.png');
-  const headerImage = <Image source={imageSource} style={Styles.image} />;
-
   const path: string = usePathname();
 
   const [searchText, setSearchText] = useState('');
@@ -38,10 +33,7 @@ export default function SearchScreen() {
         </Head>
       )}
 
-      <ParallaxScrollView headerImage={headerImage}>
-        <ThemedText type="title">Пошук</ThemedText>
-        <ThemedText type="subtitle">Па змесце</ThemedText>
-
+      <ParallaxScrollView title="Пошук" subtitle="Па змесце">
         <SearchInput searchText={searchText} setSearchText={setSearchText} onPress={handleSearch} />
 
         <ThemedText style={[Styles.centered, { paddingTop: 20 }]} type="header">

@@ -2,8 +2,8 @@ import slugchainMap from '@/functions/mapping/slugchain.map.json';
 import keychainMap from '@/functions/mapping/keychain.map.json';
 import appSources from '@/assets/albums/app.sources.js';
 
-interface Chapter { text: string[]; }
-interface Book { name: string; slug: string; text: Chapter[]; }
+interface Chapter { name: string; text: string[]; }
+interface Book { slug: string; name: string; text: Chapter[]; }
 interface Album { name: string;slug: string;text: Book[]; }
 
 type SlugchainMapType = Record<string, number[]>;

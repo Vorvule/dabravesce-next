@@ -21,9 +21,7 @@ export default function CalendarDay({ event }: any) {
   return (
     <ThemedView style={Styles.padded}>
       {event?.feastName &&
-        <ThemedText type="header" style={feastNameStyle}>
-          {event.feastName}
-        </ThemedText>}
+        <ThemedText type="header" style={feastNameStyle}>{event.feastName}</ThemedText>}
 
       <ThemedView style={Styles.padded}>
         <ThemedText type="item" style={fastStyle}>{fastKindText}</ThemedText>

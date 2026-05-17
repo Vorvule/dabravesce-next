@@ -1,5 +1,4 @@
 import { useCallback, useContext, useMemo } from 'react';
-import { Image } from 'expo-image';
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import Head from 'expo-router/head';
 
@@ -7,16 +6,13 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import PageContent from '@/app_screens/content-page/PageContent';
 
 import appSources from '@/assets/albums/app.sources';
-import Styles from '@/constants/styles/common.styles';
 import { GlobalContext } from '@/contexts/GlobalContext';
 
 import Device from '@/functions/Device';
 import Page from '@/functions/Page';
 import Web from '@/functions/Web';
 
-export async function generateStaticParams(): Promise<
-  Record<string, string>[]
-> {
+export async function generateStaticParams(): Promise<Record<string, string>[]> {
   const slugChains: { slugchain: string }[] = [];
   appSources.map((album: any ) => {
     album.text.map((book: any) => {
@@ -31,9 +27,6 @@ export async function generateStaticParams(): Promise<
 }
 
 export default function PageScreen() {
-  const imageSource = require('@/assets/images/header/opened-book.png');
-  const headerImage = <Image source={ imageSource } style={ Styles.image } />;
-
   const slugChain: string = useLocalSearchParams().slugchain as string;
   const validSlugChain: boolean = Page.slugchainValid(slugChain);
 
@@ -42,6 +35,11 @@ export default function PageScreen() {
   const keychain: number[] = useMemo(
     () => (validSlugChain ? Page.getKeychain(slugChain) : dailyKeychain),
     [dailyKeychain, slugChain, validSlugChain],
+  );
+
+  const { albumName, bookName, chapter } = useMemo(
+    () => Page.getContent(keychain),
+    [keychain],
   );
 
   useFocusEffect(
@@ -61,8 +59,8 @@ export default function PageScreen() {
         </Head>
       ) }
 
-      <ParallaxScrollView headerImage={ headerImage }>
-        <PageContent keychain={ keychain } />
+      <ParallaxScrollView title={ albumName } subtitle={ bookName }>
+        <PageContent chapter={ chapter } keychain={ keychain }/>
       </ParallaxScrollView>
     </>
   );

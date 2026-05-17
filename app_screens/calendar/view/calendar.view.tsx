@@ -6,10 +6,10 @@ import { calendarRef } from '@/app_screens/calendar/model/calendar.ref';
 
 import CalendarDay from '@/app_screens/calendar/view/calendar.day';
 import CalendarGrid from '@/app_screens/calendar/view/calendar.grid';
-import CalendarHeader from '@/app_screens/calendar/view/calendar.header';
 import { Calendar, Grid } from '@/app_screens/calendar/types/calendar.types';
 import { CalendarSaints } from '@/app_screens/calendar/view/calendar.saints';
 import ThemedView from '@/components/ThemedView';
+import ThemedText from '../../../components/ThemedText';
 
 export default function CalendarView() {
   const [date, setDate] = useState(eventDates.getMonthFirstDate());
@@ -24,30 +24,21 @@ export default function CalendarView() {
   const todayISODate = calendarDates.getISODate();
   const [selectedDate, setSelectedDate] = useState<string>(todayISODate);
 
-  const [displayGrid, setDisplayGrid] = useState(false);
-  const toggleDisplayGrid = () => setDisplayGrid(!displayGrid);
-
   const selectedCalendar: Calendar = calendars.current[eventDates.getYear(selectedDate)];
-  const selectDate = (date: string) => {
-    setSelectedDate(date);
-    toggleDisplayGrid();
-  };
+  const selectDate = (date: string) => { setSelectedDate(date); };
 
+  const dayMonth = eventDates.getSelectedDayAndMonth(selectedDate);
   const selection = { selectedDate, selectDate };
   const event = selectedCalendar[selectedDate];
 
   return (
     <ThemedView>
-      <CalendarHeader date={selectedDate} onPress={toggleDisplayGrid} />
+      <CalendarGrid grid={grid} selection={selection} calendar={calendar} setDate={setDate} />
 
-      {displayGrid ? (
-        <CalendarGrid grid={grid} selection={selection} calendar={calendar} setDate={setDate} />
-      ) : (
-        <>
-          <CalendarDay event={event} />
-          <CalendarSaints selectedDate={selectedDate} />
-        </>
-      )}
+      <ThemedText type="subtitle" style={{ textAlign: 'center' }}>{dayMonth}</ThemedText>
+
+      <CalendarDay event={event} />
+      <CalendarSaints selectedDate={selectedDate} />
     </ThemedView>
   );
 }

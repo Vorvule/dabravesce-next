@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "Acathist amended",
-    "runtimeVersion": "62",
+    "version": "Calendar prioritized",
+    "runtimeVersion": "63",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -18,7 +18,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 62
+      "versionCode": 63
     },
     "web": {
       "bundler": "metro",
