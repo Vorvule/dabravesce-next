@@ -63,6 +63,15 @@ export default function TabLayout() {
           <Tabs.Screen
             name="index"
             options={{
+              title: 'Каляндар',
+              tabBarIcon: ({ color }) => (
+                <IconSymbol name="calendar" color={color} />
+              ),
+            }}
+          />
+          <Tabs.Screen
+            name="menu"
+            options={{
               title: 'Крыніцы',
               tabBarIcon: ({ color }) => (
                 <IconSymbol name="menucard" color={color} />
@@ -84,15 +93,6 @@ export default function TabLayout() {
               title: 'Пошук',
               tabBarIcon: ({ color }) => (
                 <IconSymbol name="magnifyingglass" color={color} />
-              ),
-            }}
-          />
-          <Tabs.Screen
-            name="calendar"
-            options={{
-              title: 'Каляндар',
-              tabBarIcon: ({ color }) => (
-                <IconSymbol name="calendar" color={color} />
               ),
             }}
           />

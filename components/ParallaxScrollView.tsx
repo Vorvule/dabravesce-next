@@ -1,24 +1,18 @@
-import { PropsWithChildren, ReactElement, useContext, useEffect } from 'react';
+import { PropsWithChildren, useContext, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
-import Animated, {
-  interpolate,
-  useAnimatedRef,
-  useAnimatedStyle,
-  useScrollOffset,
-} from 'react-native-reanimated';
+import Animated, { interpolate, useAnimatedRef, useAnimatedStyle, useScrollOffset } from 'react-native-reanimated';
 
 import ThemedView from '@/components/ThemedView';
 import Device from '@/functions/Device';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { GlobalContext } from '@/contexts/GlobalContext';
+import ParallaxHeader from './ParallaxHeader';
 
-const HEADER_HEIGHT = 200;
+const HEADER_HEIGHT = 140;
 
-type Props = PropsWithChildren<{
-  headerImage: ReactElement;
-}>;
+type Props = PropsWithChildren<{ title: string, subtitle: string }>;
 
-export default function ParallaxScrollView({ children, headerImage }: Props) {
+export default function ParallaxScrollView({ children, title, subtitle }:Props) {
   const windowIsWide = Device.windowIsWide();
   const width = windowIsWide ? 800 : '100%';
 
@@ -26,16 +20,7 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
     container: { flex: 1, flexDirection: 'row' },
     middleColumn: { width },
     sideColumn: { flex: 1 },
-    header: {
-      height: HEADER_HEIGHT,
-      overflow: 'hidden',
-    },
-    content: {
-      flex: 1,
-      padding: 18,
-      gap: 16,
-      overflow: 'hidden',
-    },
+    content: { flex: 1, padding: 18, gap: 16, overflow: 'hidden' },
   });
 
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
@@ -69,23 +54,24 @@ export default function ParallaxScrollView({ children, headerImage }: Props) {
     };
   });
 
-  const animatedViewStyle = [styles.header, headerAnimatedStyle];
-
   return (
     <ThemedView style={styles.container}>
       {windowIsWide && <ThemedView style={styles.sideColumn} />}
+
       <ThemedView style={styles.middleColumn}>
         <Animated.ScrollView
           ref={scrollRef}
           scrollEventThrottle={16}
           showsVerticalScrollIndicator={!windowIsWide}
         >
-          <Animated.View style={animatedViewStyle}>
-            {headerImage}
+          <Animated.View style={headerAnimatedStyle}>
+            <ParallaxHeader title={title} subtitle={subtitle} />
           </Animated.View>
+
           <ThemedView key={colorScheme} style={styles.content}>{children}</ThemedView>
         </Animated.ScrollView>
       </ThemedView>
+
       {windowIsWide && <ThemedView style={styles.sideColumn} />}
     </ThemedView>
   );
