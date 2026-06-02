@@ -6,7 +6,7 @@ import ChapterText from './chapter/ChapterText';
 
 import ChapterNavigation from './chapter/ChapterNavigation';
 
-import Styles from '@/constants/styles/common.styles';
+import Styles from '../../constants/styles/common.styles';
 
 export default function PageContent({ chapter, keychain }) {
   return (
@@ -17,7 +17,6 @@ export default function PageContent({ chapter, keychain }) {
       <ChapterText chapterText={chapter.text} />
 
       <ChapterNavigation keychain={keychain} />
-      <ThemedView style={{ height: 240 }} />
     </ThemedView>
   );
 }

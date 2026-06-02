@@ -5,7 +5,7 @@ import appSources from '@/assets/albums/app.sources.js';
 import Head from 'expo-router/head';
 import Styles from '@/constants/styles/common.styles';
 
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import PageScrollView from '@/components/PageScrollView';
 import ThemedView from '@/components/ThemedView';
 import ThemedLink from '@/components/ThemedLink';
 import AlbumList from '@/app_screens/index-menu/AlbumList';
@@ -35,7 +35,7 @@ export default function IndexScreen() {
         </Head>
       )}
 
-      <ParallaxScrollView title="Дабравесце" subtitle="Крыніцы" >
+      <PageScrollView title="Дабравесце" subtitle="Крыніцы" >
         <ThemedView style={{ marginBottom: 60 }}>
           <AlbumList albums={appSources} />
         </ThemedView>
@@ -45,7 +45,7 @@ export default function IndexScreen() {
         <ThemedLink style={centered} href="/search" text="Пошук па змесце" />
 
         <IndexFooter />
-      </ParallaxScrollView>
+      </PageScrollView>
     </>
   );
 }
