@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "Calendar prioritized",
-    "runtimeVersion": "63",
+    "version": "Header enhanced",
+    "runtimeVersion": "64",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -18,7 +18,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 63
+      "versionCode": 64
     },
     "web": {
       "bundler": "metro",

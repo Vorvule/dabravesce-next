@@ -4,7 +4,7 @@ import ThemedView from './ThemedView';
 
 type Header = { title: string; subtitle: string };
 
-export default function ParallaxHeader({ title, subtitle }: Header) {
+export default function PageHeader({ title, subtitle }: Header) {
   const { centered } = Styles;
 
   return (

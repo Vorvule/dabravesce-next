@@ -4,15 +4,12 @@ import Head from 'expo-router/head';
 
 import Device from '@/functions/Device';
 import Web from '@/functions/Web';
-
-import ParallaxScrollView from '@/components/ParallaxScrollView';
 import ThemedText from '@/components/ThemedText';
-
+import PageScrollView from '../../components/PageScrollView';
 import Search, { SearchResult } from '@/functions/Search';
 import Styles from '@/constants/styles/common.styles';
 import SearchResults from '@/app_screens/search/search.results';
 import SearchInput from '@/app_screens/search/search.input';
-import ThemedView from '@/components/ThemedView';
 
 export default function SearchScreen() {
   const path: string = usePathname();
@@ -33,17 +30,15 @@ export default function SearchScreen() {
         </Head>
       )}
 
-      <ParallaxScrollView title="Пошук" subtitle="Па змесце">
+      <PageScrollView title="Пошук" subtitle="Па змесце">
         <SearchInput searchText={searchText} setSearchText={setSearchText} onPress={handleSearch} />
 
         <ThemedText style={[Styles.centered, { paddingTop: 20 }]} type="header">
-          Вынікаў ~ {searchResults.length}
+          Вынікаў — {searchResults.length}
         </ThemedText>
 
-        <ThemedView style={{ paddingBottom: 80 }}>
-          <SearchResults searchResults={searchResults} />
-        </ThemedView>
-      </ParallaxScrollView>
+        <SearchResults searchResults={searchResults} />
+      </PageScrollView>
     </>
   );
 }

@@ -2,7 +2,7 @@ import { useCallback, useContext, useMemo } from 'react';
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import Head from 'expo-router/head';
 
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import PageScrollView from '@/components/PageScrollView';
 import PageContent from '@/app_screens/content-page/PageContent';
 
 import appSources from '@/assets/albums/app.sources';
@@ -59,9 +59,9 @@ export default function PageScreen() {
         </Head>
       ) }
 
-      <ParallaxScrollView title={ albumName } subtitle={ bookName }>
+      <PageScrollView title={ albumName } subtitle={ bookName }>
         <PageContent chapter={ chapter } keychain={ keychain }/>
-      </ParallaxScrollView>
+      </PageScrollView>
     </>
   );
 }
