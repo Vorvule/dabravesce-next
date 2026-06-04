@@ -1,9 +1,7 @@
-import { calendarDates } from '@/app_screens/calendar/model/calendar.dates';
+import { eventDates } from './event.dates';
 
 class EasterProvider {
-  /**
-   * For determining the Easter, the Meeus/Jones/Butcher algorithm is used
-   * */
+  /** For determining the Easter, the Meeus/Jones/Butcher algorithm is used */
   getOrthodoxEaster(year: number): Date {
     const a = year % 4;
     const b = year % 7;
@@ -16,7 +14,7 @@ class EasterProvider {
     const day = ((d + e + 114) % 31) + 1;
 
     const julian = new Date(Date.UTC(year, month - 1, day));
-    julian.setUTCDate(julian.getUTCDate() + calendarDates.getJulianOffset(2026));
+    julian.setUTCDate(julian.getUTCDate() + eventDates.getJulianOffset(2026));
 
     return julian;
   }

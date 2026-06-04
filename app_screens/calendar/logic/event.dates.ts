@@ -1,6 +1,10 @@
 import { DATE_NAMES } from '@/app_screens/calendar/data/date.names';
 
 class EventDates {
+  getJulianOffset(year: number): number {
+    return Math.floor(year / 100) - Math.floor(year / 400) - 2;
+  }
+
   /** Вяртае індэкс дня тыдня, у якім 0 - індэкс панядзелка (не нядзелі) */
   getWeekdayMondayFirst(date: Date) {
     const day = date.getDay();
