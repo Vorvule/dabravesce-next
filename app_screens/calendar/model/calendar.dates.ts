@@ -20,10 +20,6 @@ class CalendarDates {
     return calendarDates.getISODate(eventDate);
   }
 
-  getJulianOffset(year: number): number {
-    return Math.floor(year / 100) - Math.floor(year / 400) - 2;
-  }
-
   /**
    * Lent starts 48 days before Easter
    * Apostles fast starts on the second next Monday after the Holy Trinity day and lasts 8..42 days
