@@ -1,12 +1,11 @@
 import { JSX } from 'react';
-import { Pressable, TextInput } from 'react-native';
+import { Platform, Pressable, TextInput } from 'react-native';
 
 import searchStyles from './search.styles';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import Device from '@/functions/Device';
 import ThemedView from '@/components/ThemedView';
 
 export default function SearchInput({
@@ -25,7 +24,7 @@ export default function SearchInput({
   return (
     <ThemedView>
       <TextInput
-        autoFocus={Device.platformIsWeb()}
+        autoFocus={Platform.OS === 'web'}
         value={searchText}
         onChangeText={setSearchText}
         placeholder="Пошук па змесце"

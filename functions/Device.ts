@@ -1,10 +1,6 @@
 import { Dimensions, Platform } from 'react-native';
 
 export default class Device {
-  static platformIsWeb(): boolean {
-    return Platform.OS === 'web';
-  }
-
   static windowIsWide(): boolean {
     if (Platform.OS === 'web' && typeof window !== 'undefined') {
       return window.innerWidth > 800;
