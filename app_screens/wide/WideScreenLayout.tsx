@@ -18,13 +18,11 @@ import IndexFooter from '@/app_screens/index-menu/IndexFooter';
 import ThemedView from '@/components/ThemedView';
 import ThemedLink from '@/components/ThemedLink';
 import ThemedText from '@/components/ThemedText';
-import ThemedOption from '@/components/ThemedOption';
 import PageHeader from '@/components/PageHeader';
 
 import useDailyGospelUrl from '@/hooks/use.daily.gospel.url';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { GlobalContext } from '@/contexts/GlobalContext';
-import Styles from '../../constants/styles/common.styles';
 
 const styles = StyleSheet.create({
   container: { flex: 1, flexDirection: 'row' },
@@ -82,7 +80,7 @@ function LeftPanel() {
   };
 
   return (
-    <ThemedView style={[styles.sidePanel, { borderRightWidth: 2, borderRightColor: borderColor }]}>
+    <ThemedView style={[styles.sidePanel, { borderRightWidth: 1, borderRightColor: borderColor }]}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <PageHeader
           title="Дабравесце"
@@ -124,7 +122,7 @@ function LeftPanel() {
 function RightPanel() {
   const borderColor = useThemeColor({}, 'border');
   return (
-    <ThemedView style={[styles.sidePanel, { borderLeftWidth: 2, borderLeftColor: borderColor }]}>
+    <ThemedView style={[styles.sidePanel, { borderLeftWidth: 1, borderLeftColor: borderColor }]}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <PageHeader title="Дабравесце" subtitle="Праваслаўны каляндар" />
         <ThemedView style={{ padding: 18, paddingBottom: 160 }}>

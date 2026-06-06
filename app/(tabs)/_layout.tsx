@@ -19,9 +19,9 @@ export default function TabLayout() {
   const dailyKeychain: number[] = React.useMemo(() => Daily.getDailyKeychain(), []);
   const [keychain, setKeychain] = React.useState(dailyKeychain);
 
-  const updateKeychain = React.useCallback((newKeychain: number[]) => {
-    setKeychain(newKeychain);
-  }, []);
+  const updateKeychain = React.useCallback(
+    (newKeychain: number[]) => setKeychain(newKeychain),
+    []);
 
   const contextValue = React.useMemo(
     () => ({ keychain, updateKeychain, dailyKeychain }),
