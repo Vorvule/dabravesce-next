@@ -31,6 +31,7 @@ export default function TabLayout() {
     <ThemedView style={{ flex: 1 }}>
       <GlobalContext.Provider value={contextValue}>
         <Tabs
+          backBehavior="history"
           screenOptions={{
             tabBarActiveTintColor: activeColor,
             headerShown: false,
