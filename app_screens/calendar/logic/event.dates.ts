@@ -29,8 +29,8 @@ class EventDates {
     return `${+day} ${monthNameGenitive} ${year}`;
   }
 
-  getYear(ISODate: string) {
-    return ISODate.split('-')[0];
+  getYear(ISODate: string): number {
+    return +ISODate.split('-')[0];
   }
 }
 
