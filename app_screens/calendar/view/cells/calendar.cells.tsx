@@ -45,7 +45,7 @@ export default function CalendarCells({ monthMatrix, selection, calendar }: any)
 const styles = StyleSheet.create({
   cell: {
     width: '14.28%',
-    height: Platform.OS === 'android' ? 100 : 46,
+    height: 46,
     padding: 4,
     borderWidth: 0.5,
     borderColor: 'grey',
