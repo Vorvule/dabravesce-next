@@ -3,6 +3,9 @@ import { Platform, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { usePathname } from 'expo-router';
 import Head from 'expo-router/head';
 
+import { calendarDates } from '@/app_screens/calendar/model/calendar.dates';
+import { eventDates } from '@/app_screens/calendar/logic/event.dates';
+
 import appSources from '@/assets/albums/app.sources.js';
 import Page from '@/functions/Page';
 import Search from '@/functions/Search';
@@ -121,12 +124,14 @@ function LeftPanel() {
 
 function RightPanel() {
   const borderColor = useThemeColor({}, 'border');
+  const [selectedDate, setSelectedDate] = useState<string>(calendarDates.getISODate());
+  const dayMonth = eventDates.getSelectedDayAndMonth(selectedDate);
   return (
     <ThemedView style={[styles.sidePanel, { borderLeftWidth: 1, borderLeftColor: borderColor }]}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <PageHeader title="Дабравесце" subtitle="Праваслаўны каляндар" />
+        <PageHeader title="Праваслаўны каляндар" subtitle={dayMonth} />
         <ThemedView style={{ padding: 18, paddingBottom: 160 }}>
-          <CalendarView />
+          <CalendarView selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
         </ThemedView>
       </ScrollView>
     </ThemedView>

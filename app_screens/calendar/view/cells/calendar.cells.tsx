@@ -3,7 +3,6 @@ import CalendarCell from '@/app_screens/calendar/view/cells/calendar.cell';
 import { Platform, StyleSheet } from 'react-native';
 import React from 'react';
 import { useThemeColor } from '@/hooks/useThemeColor';
-// import Device from '@/functions/Device';
 import { calendarDates } from '@/app_screens/calendar/model/calendar.dates';
 import ThemedView from '@/components/ThemedView';
 import ThemedText from '@/components/ThemedText';
@@ -33,7 +32,7 @@ export default function CalendarCells({ monthMatrix, selection, calendar }: any)
     return (
       <CalendarCell
         key={key}
-        onPress={() => selection.selectDate(cell.isoDate)}
+        onPress={() => selection.setSelectedDate(cell.isoDate)}
         style={cellStyle}
         type={isToday ? 'today' : 'default'}
         day={cell.dayOrdinal}
@@ -46,7 +45,6 @@ export default function CalendarCells({ monthMatrix, selection, calendar }: any)
 const styles = StyleSheet.create({
   cell: {
     width: '14.28%',
-    // aspectRatio: Device.windowIsWide() ? 2 : 1,
     height: Platform.OS === 'android' ? 100 : 46,
     padding: 4,
     borderWidth: 0.5,
