@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import { usePathname } from 'expo-router';
 import useDailyGospelUrl from '@/hooks/use.daily.gospel.url';
 
@@ -12,7 +13,6 @@ import AlbumList from '@/app_screens/index-menu/AlbumList';
 import IndexFooter from '@/app_screens/index-menu/IndexFooter';
 
 import Web from '@/functions/Web';
-import Device from '@/functions/Device';
 
 // import mapSources from '@/functions/mapping/SourceMapper';
 // import createSiteMap from '@/functions/sitemap/SiteMapper';
@@ -28,7 +28,7 @@ export default function IndexScreen() {
 
   return (
     <>
-      {Device.platformIsWeb() && (
+      {Platform.OS === 'web' && (
         <Head>
           <title>{Web.getTitle(path)}</title>
           <meta name="description" content={Web.getDescription(path)} />

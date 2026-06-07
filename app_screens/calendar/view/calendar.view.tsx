@@ -1,42 +1,39 @@
-import React, { useMemo, useRef, useState } from 'react';
+import { type Dispatch, type SetStateAction, useMemo, useState } from 'react';
 
-import { calendarDates } from '@/app_screens/calendar/model/calendar.dates';
 import { eventDates } from '@/app_screens/calendar/logic/event.dates';
 import { calendarRef } from '@/app_screens/calendar/model/calendar.ref';
 
 import CalendarDay from '@/app_screens/calendar/view/calendar.day';
 import CalendarGrid from '@/app_screens/calendar/view/calendar.grid';
-import { Calendar, Grid } from '@/app_screens/calendar/types/calendar.types';
-import { CalendarSaints } from '@/app_screens/calendar/view/calendar.saints';
+import { Grid } from '@/app_screens/calendar/types/calendar.types';
 import ThemedView from '@/components/ThemedView';
-import ThemedText from '../../../components/ThemedText';
+import { CalendarSaints } from './calendar.saints';
 
-export default function CalendarView() {
+type Props = {
+  selectedDate: string;
+  setSelectedDate: Dispatch<SetStateAction<string>>;
+};
+
+export default function CalendarView({ selectedDate, setSelectedDate }: Props) {
   const [date, setDate] = useState(eventDates.getMonthFirstDate());
   const grid: Grid = { year: date.getFullYear(), month: date.getMonth() };
 
-  const calendars: any = useRef({});
-  const calendar: Calendar = useMemo(
-    () => calendarRef.updateCalendar(calendars, grid.year),
+  const calendar = useMemo(
+    () => calendarRef.updateCalendar(grid.year),
     [grid.year],
   );
 
-  const todayISODate = calendarDates.getISODate();
-  const [selectedDate, setSelectedDate] = useState<string>(todayISODate);
+  const selectedCalendar = useMemo(
+    () => calendarRef.updateCalendar(eventDates.getYear(selectedDate)),
+    [selectedDate],
+  );
 
-  const selectedCalendar: Calendar = calendars.current[eventDates.getYear(selectedDate)];
-  const selectDate = (date: string) => { setSelectedDate(date); };
-
-  const dayMonth = eventDates.getSelectedDayAndMonth(selectedDate);
-  const selection = { selectedDate, selectDate };
+  const selection = { selectedDate, setSelectedDate };
   const event = selectedCalendar[selectedDate];
 
   return (
     <ThemedView>
       <CalendarGrid grid={grid} selection={selection} calendar={calendar} setDate={setDate} />
-
-      <ThemedText type="subtitle" style={{ textAlign: 'center' }}>{dayMonth}</ThemedText>
-
       <CalendarDay event={event} />
       <CalendarSaints selectedDate={selectedDate} />
     </ThemedView>

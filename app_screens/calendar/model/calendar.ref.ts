@@ -1,12 +1,15 @@
+import { Calendar } from '@/app_screens/calendar/types/calendar.types';
 import { calendarFactory } from '@/app_screens/calendar/model/calendar.factory';
 
 class CalendarRef {
-  updateCalendar(calendars: any, year: number) {
-    if (!calendars.current[year]) {
-      calendars.current[year] = calendarFactory.generateCalendar(year);
+  private cache: Record<number, Calendar> = {};
+
+  updateCalendar(year: number): Calendar {
+    if (!this.cache[year]) {
+      this.cache[year] = calendarFactory.generateCalendar(year);
     }
 
-    return calendars.current[year];
+    return this.cache[year];
   }
 }
 

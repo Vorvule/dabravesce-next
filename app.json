@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "SDK56 enhancements",
-    "runtimeVersion": "65",
+    "version": "Three column web layout",
+    "runtimeVersion": "66",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -18,11 +18,11 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 65
+      "versionCode": 66
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
+      "output": "single",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [

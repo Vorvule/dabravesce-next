@@ -10,27 +10,43 @@ import Daily from '@/functions/Daily';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 import ThemedView from '@/components/ThemedView';
+import WideScreenLayout from '@/app_screens/wide/WideScreenLayout';
 
 export default function TabLayout() {
   const { width } = useWindowDimensions();
   const isWide = width > 800;
-  const dailyKeychain: number[] = Daily.getDailyKeychain();
+  const isVeryWide = width >= 1720;
+  const dailyKeychain: number[] = React.useMemo(() => Daily.getDailyKeychain(), []);
   const [keychain, setKeychain] = React.useState(dailyKeychain);
 
-  const updateKeychain: (newKeychain: number[]) => void = (
-    newKeychain: number[],
-  ): void => setKeychain(newKeychain);
+  const updateKeychain = React.useCallback(
+    (newKeychain: number[]) => setKeychain(newKeychain),
+    []);
 
-  const contextValue = { keychain, updateKeychain, dailyKeychain };
+  const contextValue = React.useMemo(
+    () => ({ keychain, updateKeychain, dailyKeychain }),
+    [keychain, updateKeychain, dailyKeychain],
+  );
 
   const backgroundColor = useThemeColor({}, 'background');
   const borderColor = useThemeColor({}, 'border');
   const activeColor = useThemeColor({}, 'link');
 
+  if (isVeryWide) {
+    return (
+      <ThemedView style={{ flex: 1 }}>
+        <GlobalContext.Provider value={contextValue}>
+          <WideScreenLayout />
+        </GlobalContext.Provider>
+      </ThemedView>
+    );
+  }
+
   return (
     <ThemedView style={{ flex: 1 }}>
       <GlobalContext.Provider value={contextValue}>
         <Tabs
+          backBehavior="history"
           screenOptions={{
             tabBarActiveTintColor: activeColor,
             headerShown: false,

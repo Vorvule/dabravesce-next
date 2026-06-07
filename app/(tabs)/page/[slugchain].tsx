@@ -1,4 +1,5 @@
 import { useCallback, useContext, useMemo } from 'react';
+import { Platform } from 'react-native';
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import Head from 'expo-router/head';
 
@@ -8,7 +9,6 @@ import PageContent from '@/app_screens/content-page/PageContent';
 import appSources from '@/assets/albums/app.sources';
 import { GlobalContext } from '@/contexts/GlobalContext';
 
-import Device from '@/functions/Device';
 import Page from '@/functions/Page';
 import Web from '@/functions/Web';
 
@@ -52,7 +52,7 @@ export default function PageScreen() {
 
   return (
     <>
-      { Device.platformIsWeb() && (
+      { Platform.OS === 'web' && (
         <Head>
           <title>{ Web.getPageTitle(keychain) }</title>
           <meta name="description" content={ Web.getPageDescription(keychain) } />

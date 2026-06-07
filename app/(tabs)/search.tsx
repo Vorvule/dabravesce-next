@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import { Platform } from 'react-native';
 import { usePathname } from 'expo-router';
 import Head from 'expo-router/head';
 
-import Device from '@/functions/Device';
 import Web from '@/functions/Web';
 import ThemedText from '@/components/ThemedText';
 import PageScrollView from '../../components/PageScrollView';
@@ -23,7 +23,7 @@ export default function SearchScreen() {
 
   return (
     <>
-      {Device.platformIsWeb() && (
+      {Platform.OS === 'web' && (
         <Head>
           <title>Дабравесце ~ Пошук</title>
           <meta name="description" content={Web.getDescription(path)} />
