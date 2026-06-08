@@ -4,6 +4,8 @@ import { ScrollView, StyleSheet } from 'react-native';
 import Device from '@/functions/Device';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { GlobalContext } from '@/contexts/GlobalContext';
+import LeftPanel from '@/app_screens/panel/LeftPanel';
+import RightPanel from '@/app_screens/panel/RightPanel';
 import PageHeader from './PageHeader';
 import ThemedView from './ThemedView';
 
@@ -16,7 +18,7 @@ export default function PageScrollView({ children, title, subtitle }:Props) {
   const styles = StyleSheet.create({
     container: { flex: 1, flexDirection: 'row' },
     middleColumn: { width },
-    sideColumn: { flex: 1 },
+    sideColumn: { flex: 1, overflow: 'hidden' },
     content: { flex: 1, padding: 18, paddingBottom: 160, gap: 16, overflow: 'hidden' },
   });
 
@@ -30,7 +32,11 @@ export default function PageScrollView({ children, title, subtitle }:Props) {
 
   return (
     <ThemedView style={styles.container}>
-      {windowIsWide && <ThemedView style={styles.sideColumn} />}
+      {windowIsWide && (
+        <ThemedView style={styles.sideColumn}>
+          <LeftPanel />
+        </ThemedView>
+      )}
 
       <ThemedView style={styles.middleColumn}>
         <ScrollView ref={scrollRef} showsVerticalScrollIndicator={!windowIsWide} >
@@ -39,7 +45,11 @@ export default function PageScrollView({ children, title, subtitle }:Props) {
         </ScrollView>
       </ThemedView>
 
-      {windowIsWide && <ThemedView style={styles.sideColumn} />}
+      {windowIsWide && (
+        <ThemedView style={styles.sideColumn}>
+          <RightPanel />
+        </ThemedView>
+      )}
     </ThemedView>
   );
 }

@@ -10,7 +10,6 @@ import Daily from '@/functions/Daily';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 import ThemedView from '@/components/ThemedView';
-import WideScreenLayout from '@/app_screens/wide/WideScreenLayout';
 
 export default function TabLayout() {
   const { width } = useWindowDimensions();
@@ -32,16 +31,6 @@ export default function TabLayout() {
   const borderColor = useThemeColor({}, 'border');
   const activeColor = useThemeColor({}, 'link');
 
-  if (isVeryWide) {
-    return (
-      <ThemedView style={{ flex: 1 }}>
-        <GlobalContext.Provider value={contextValue}>
-          <WideScreenLayout />
-        </GlobalContext.Provider>
-      </ThemedView>
-    );
-  }
-
   return (
     <ThemedView style={{ flex: 1 }}>
       <GlobalContext.Provider value={contextValue}>
@@ -56,6 +45,7 @@ export default function TabLayout() {
               borderColor: backgroundColor,
               backgroundColor,
               flexDirection: isWide ? 'row' : 'column',
+              ...(isVeryWide && { display: 'none' }),
             },
             tabBarLabelStyle: {
               fontFamily: 'Monomakh',
