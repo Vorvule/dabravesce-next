@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, type TextStyle } from 'react-native';
 
 const Styles = StyleSheet.create({
   image: {
@@ -9,7 +9,7 @@ const Styles = StyleSheet.create({
 
   centered: {
     textAlign: 'center',
-  },
+  } as TextStyle,
 
   gapped: {
     gap: 14,

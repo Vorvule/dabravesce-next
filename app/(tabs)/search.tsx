@@ -1,25 +1,13 @@
-import { useState } from 'react';
 import { Platform } from 'react-native';
 import { usePathname } from 'expo-router';
 import Head from 'expo-router/head';
 
 import Web from '@/functions/Web';
-import ThemedText from '@/components/ThemedText';
 import PageScrollView from '../../components/PageScrollView';
-import Search, { SearchResult } from '@/functions/Search';
-import Styles from '@/constants/styles/common.styles';
-import SearchResults from '@/app_screens/search/search.results';
-import SearchInput from '@/app_screens/search/search.input';
+import SearchView from '../../app_screens/search/search.view';
 
 export default function SearchScreen() {
   const path: string = usePathname();
-
-  const [searchText, setSearchText] = useState('');
-  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
-
-  const handleSearch = () => {
-    setSearchResults(Search.getInSources(searchText));
-  };
 
   return (
     <>
@@ -31,13 +19,7 @@ export default function SearchScreen() {
       )}
 
       <PageScrollView title="Пошук" subtitle="Па змесце">
-        <SearchInput searchText={searchText} setSearchText={setSearchText} onPress={handleSearch} />
-
-        <ThemedText style={[Styles.centered, { paddingTop: 20 }]} type="header">
-          Вынікаў — {searchResults.length}
-        </ThemedText>
-
-        <SearchResults searchResults={searchResults} />
+        <SearchView />
       </PageScrollView>
     </>
   );

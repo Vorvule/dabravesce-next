@@ -1,6 +1,6 @@
 import { Cell } from '@/app_screens/calendar/types/calendar.types';
 import CalendarCell from '@/app_screens/calendar/view/cells/calendar.cell';
-import { Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import React from 'react';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { calendarDates } from '@/app_screens/calendar/model/calendar.dates';
