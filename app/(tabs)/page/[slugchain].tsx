@@ -4,7 +4,7 @@ import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import Head from 'expo-router/head';
 
 import PageScrollView from '@/components/PageScrollView';
-import PageContent from '@/app_screens/content-page/PageContent';
+import PageContent from '@/app_screens/page/PageContent';
 
 import appSources from '@/assets/albums/app.sources';
 import { GlobalContext } from '@/contexts/GlobalContext';

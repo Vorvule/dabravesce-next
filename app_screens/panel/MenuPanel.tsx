@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Pressable, ScrollView } from 'react-native';
 
-import MenuView from '@/app_screens/index-menu/menu.view';
+import MenuView from '@/app_screens/menu/menu.view';
 import SearchView from '@/app_screens/search/search.view';
 import ThemedView from '@/components/ThemedView';
 import ThemedText from '@/components/ThemedText';

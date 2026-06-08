@@ -1,6 +1,6 @@
 import appSources from '@/assets/albums/app.sources.js';
-import AlbumList from '@/app_screens/index-menu/AlbumList';
-import IndexFooter from '@/app_screens/index-menu/IndexFooter';
+import AlbumList from '@/app_screens/menu/AlbumList';
+import IndexFooter from '@/app_screens/menu/IndexFooter';
 import ThemedLink from '@/components/ThemedLink';
 
 import useDailyGospelUrl from '@/hooks/use.daily.gospel.url';
