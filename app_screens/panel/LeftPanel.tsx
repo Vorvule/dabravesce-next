@@ -1,22 +1,17 @@
 import { useState } from 'react';
 import { Pressable, ScrollView } from 'react-native';
 
-import appSources from '@/assets/albums/app.sources.js';
-import AlbumList from '@/app_screens/index-menu/AlbumList';
+import MenuView from '@/app_screens/index-menu/menu.view';
 import SearchView from '@/app_screens/search/search.view';
-import IndexFooter from '@/app_screens/index-menu/IndexFooter';
 import ThemedView from '@/components/ThemedView';
-import ThemedLink from '@/components/ThemedLink';
 import ThemedText from '@/components/ThemedText';
 import PageHeader from '@/components/PageHeader';
 
-import useDailyGospelUrl from '@/hooks/use.daily.gospel.url';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export default function LeftPanel() {
   const borderColor = useThemeColor({}, 'border');
   const [showSearch, setShowSearch] = useState(false);
-  const gospelUrl = useDailyGospelUrl();
 
   return (
     <ThemedView style={{ flex: 1, borderRightWidth: 1, borderRightColor: borderColor }}>
@@ -33,15 +28,7 @@ export default function LeftPanel() {
         </Pressable>
 
         <ThemedView style={{ padding: 18, paddingBottom: 160 }}>
-          {showSearch ? (
-            <SearchView />
-          ) : (
-            <>
-              <AlbumList albums={appSources} />
-              <ThemedLink style={{ textAlign: 'center', paddingTop: 24 }} href={gospelUrl} text="Евангелле дня" />
-              <IndexFooter />
-            </>
-          )}
+          {showSearch ? <SearchView /> : <MenuView />}
         </ThemedView>
       </ScrollView>
     </ThemedView>
