@@ -4,8 +4,8 @@ import { ScrollView, StyleSheet } from 'react-native';
 import Device from '@/functions/Device';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { GlobalContext } from '@/contexts/GlobalContext';
-import LeftPanel from '@/app_screens/panel/LeftPanel';
-import RightPanel from '@/app_screens/panel/RightPanel';
+import MenuPanel from '@/app_screens/panel/MenuPanel';
+import CalendarPanel from '@/app_screens/panel/CalendarPanel';
 import PageHeader from './PageHeader';
 import ThemedView from './ThemedView';
 
@@ -35,7 +35,7 @@ export default function PageScrollView({ children, title, subtitle }:Props) {
     <ThemedView style={styles.container}>
       {windowIsVeryWide && (
         <ThemedView style={styles.sideColumn}>
-          <LeftPanel />
+          <MenuPanel />
         </ThemedView>
       )}
 
@@ -48,7 +48,7 @@ export default function PageScrollView({ children, title, subtitle }:Props) {
 
       {windowIsVeryWide && (
         <ThemedView style={styles.sideColumn}>
-          <RightPanel />
+          <CalendarPanel />
         </ThemedView>
       )}
     </ThemedView>

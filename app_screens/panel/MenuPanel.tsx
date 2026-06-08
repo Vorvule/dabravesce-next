@@ -9,7 +9,7 @@ import PageHeader from '@/components/PageHeader';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 
-export default function LeftPanel({ standalone }: { standalone?: boolean }) {
+export default function MenuPanel({ standalone }: { standalone?: boolean }) {
   const borderColor = useThemeColor({}, 'border');
   const [showSearch, setShowSearch] = useState(false);
   const panelStyles = { borderRightWidth: 1, borderRightColor: borderColor };

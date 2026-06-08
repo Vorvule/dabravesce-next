@@ -9,7 +9,7 @@ import PageHeader from '@/components/PageHeader';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 
-export default function RightPanel() {
+export default function CalendarPanel() {
   const borderColor = useThemeColor({}, 'border');
   const [selectedDate, setSelectedDate] = useState<string>(calendarDates.getISODate());
   const dayMonth = eventDates.getSelectedDayAndMonth(selectedDate);

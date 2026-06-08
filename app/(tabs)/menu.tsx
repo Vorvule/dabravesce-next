@@ -4,12 +4,12 @@ import Head from 'expo-router/head';
 
 import Web from '@/functions/Web';
 import Device from '@/functions/Device';
-import LeftPanel from '@/app_screens/panel/LeftPanel';
+import MenuPanel from '@/app_screens/panel/MenuPanel';
 import ThemedView from '@/components/ThemedView';
 // import mapSources from '@/functions/mapping/SourceMapper';
 // import createSiteMap from '@/functions/sitemap/SiteMapper';
 
-export default function IndexScreen() {
+export default function MenuScreen() {
   // mapSources();
   // createSiteMap();
 
@@ -28,7 +28,7 @@ export default function IndexScreen() {
 
       <ThemedView style={{ flex: 1, alignItems: 'center' }}>
         <ThemedView style={panelStyle}>
-          <LeftPanel standalone />
+          <MenuPanel standalone />
         </ThemedView>
       </ThemedView>
     </>
