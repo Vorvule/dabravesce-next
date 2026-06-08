@@ -6,17 +6,13 @@ import { OpaqueColorValue, StyleProp, TextStyle } from 'react-native';
 // Add your SFSymbol to MaterialIcons mappings here.
 // See MaterialIcons here: https://icons.expo.fyi
 // See SF Symbols in the SF Symbols app on Mac.
-const MAPPING = {
+type MaterialIconName = React.ComponentProps<typeof MaterialIcons>['name'];
+
+const MAPPING: Record<string, MaterialIconName> = {
   menucard: 'menu',
   'book.pages.fill': 'library-books',
-  magnifyingglass: 'search',
   calendar: 'calendar-month',
-} as Partial<
-  Record<
-    import('expo-symbols').SymbolViewProps['name'],
-    React.ComponentProps<typeof MaterialIcons>['name']
-  >
->;
+};
 
 export type IconSymbolName = keyof typeof MAPPING;
 
