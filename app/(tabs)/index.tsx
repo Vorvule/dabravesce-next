@@ -23,7 +23,7 @@ export default function CalendarScreen() {
         </Head>
       )}
 
-      <PageScrollView title="Дабравесце" subtitle={dayMonth}>
+      <PageScrollView title="Праваслаўны каляндар" subtitle={dayMonth}>
         <CalendarView selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
       </PageScrollView>
     </>

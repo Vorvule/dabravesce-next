@@ -9,12 +9,13 @@ import PageHeader from '@/components/PageHeader';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 
-export default function LeftPanel() {
+export default function LeftPanel({ standalone }: { standalone?: boolean }) {
   const borderColor = useThemeColor({}, 'border');
   const [showSearch, setShowSearch] = useState(false);
+  const panelStyles = { borderRightWidth: 1, borderRightColor: borderColor };
 
   return (
-    <ThemedView style={{ flex: 1, borderRightWidth: 1, borderRightColor: borderColor }}>
+    <ThemedView style={{ flex: 1, ...(standalone ? {} : panelStyles) }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <PageHeader
           title="Дабравесце"

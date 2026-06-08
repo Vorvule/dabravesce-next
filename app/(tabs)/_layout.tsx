@@ -93,15 +93,6 @@ export default function TabLayout() {
               ),
             }}
           />
-          <Tabs.Screen
-            name="search"
-            options={{
-              title: 'Пошук',
-              tabBarIcon: ({ color }) => (
-                <IconSymbol name="magnifyingglass" color={color} />
-              ),
-            }}
-          />
         </Tabs>
       </GlobalContext.Provider>
     </ThemedView>
