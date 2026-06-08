@@ -8,16 +8,11 @@ import { eventDates } from '@/app_screens/calendar/logic/event.dates';
 
 import appSources from '@/assets/albums/app.sources.js';
 import Page from '@/functions/Page';
-import Search from '@/functions/Search';
-import type { SearchResult } from '@/functions/Search';
-
 import AlbumList from '@/app_screens/index-menu/AlbumList';
 import CalendarView from '@/app_screens/calendar/view/calendar.view';
 import PageContent from '@/app_screens/content-page/PageContent';
-import SearchInput from '@/app_screens/search/search.input';
-import SearchResults from '@/app_screens/search/search.results';
+import SearchView from '@/app_screens/search/search.view';
 import IndexFooter from '@/app_screens/index-menu/IndexFooter';
-
 import ThemedView from '@/components/ThemedView';
 import ThemedLink from '@/components/ThemedLink';
 import ThemedText from '@/components/ThemedText';
@@ -74,13 +69,7 @@ function CenterPanel() {
 function LeftPanel() {
   const borderColor = useThemeColor({}, 'border');
   const [showSearch, setShowSearch] = useState(false);
-  const [searchText, setSearchText] = useState('');
-  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const gospelUrl = useDailyGospelUrl();
-
-  const handleSearch = () => {
-    setSearchResults(Search.getInSources(searchText));
-  };
 
   return (
     <ThemedView style={[styles.sidePanel, { borderRightWidth: 1, borderRightColor: borderColor }]}>
@@ -98,17 +87,7 @@ function LeftPanel() {
 
         <ThemedView style={{ padding: 18, paddingBottom: 160 }}>
           {showSearch ? (
-            <>
-              <SearchInput
-                searchText={searchText}
-                setSearchText={setSearchText}
-                onPress={handleSearch}
-              />
-              <ThemedText type="header" style={{ padding: 16, textAlign: 'center' }}>
-                Вынікаў — {searchResults.length}
-              </ThemedText>
-              <SearchResults searchResults={searchResults} />
-            </>
+            <SearchView />
           ) : (
             <>
               <AlbumList albums={appSources} />
