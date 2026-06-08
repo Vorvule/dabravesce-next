@@ -5,6 +5,10 @@ export default class Device {
     return this.getWindowWidth() > 800;
   }
 
+  static windowIsVeryWide(): boolean {
+    return this.getWindowWidth() >= 1720;
+  }
+
   static getWindowWidth(): number {
     return (Platform.OS === 'web' && typeof window !== 'undefined')
       ? window.innerWidth

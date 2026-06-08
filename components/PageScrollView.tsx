@@ -13,10 +13,11 @@ type Props = PropsWithChildren<{ title: string, subtitle: string }>;
 
 export default function PageScrollView({ children, title, subtitle }:Props) {
   const windowIsWide = Device.windowIsWide();
+  const windowIsVeryWide = Device.windowIsVeryWide();
   const width = windowIsWide ? 800 : '100%';
 
   const styles = StyleSheet.create({
-    container: { flex: 1, flexDirection: 'row' },
+    container: { flex: 1, flexDirection: 'row', justifyContent: windowIsVeryWide ? undefined : 'center' },
     middleColumn: { width },
     sideColumn: { flex: 1, overflow: 'hidden' },
     content: { flex: 1, padding: 18, paddingBottom: 160, gap: 16, overflow: 'hidden' },
@@ -32,7 +33,7 @@ export default function PageScrollView({ children, title, subtitle }:Props) {
 
   return (
     <ThemedView style={styles.container}>
-      {windowIsWide && (
+      {windowIsVeryWide && (
         <ThemedView style={styles.sideColumn}>
           <LeftPanel />
         </ThemedView>
@@ -45,7 +46,7 @@ export default function PageScrollView({ children, title, subtitle }:Props) {
         </ScrollView>
       </ThemedView>
 
-      {windowIsWide && (
+      {windowIsVeryWide && (
         <ThemedView style={styles.sideColumn}>
           <RightPanel />
         </ThemedView>
