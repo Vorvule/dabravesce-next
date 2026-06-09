@@ -1,30 +1,21 @@
 import { Platform } from 'react-native';
 import { usePathname } from 'expo-router';
-import useDailyGospelUrl from '@/hooks/use.daily.gospel.url';
-
-import appSources from '@/assets/albums/app.sources.js';
 import Head from 'expo-router/head';
-import Styles from '@/constants/styles/common.styles';
 
-import PageScrollView from '@/components/PageScrollView';
-import ThemedView from '@/components/ThemedView';
-import ThemedLink from '@/components/ThemedLink';
-import AlbumList from '@/app_screens/index-menu/AlbumList';
-import IndexFooter from '@/app_screens/index-menu/IndexFooter';
+import Web from '@/services/Web';
+import Device from '@/services/Device';
+import MenuPanel from '@/screens/panel/MenuPanel';
+import ThemedView from '@/components/themed/ThemedView';
+// import mapSources from '@/services/mapping/SourceMapper';
+// import createSiteMap from '@/services/sitemap/SiteMapper';
 
-import Web from '@/functions/Web';
-
-// import mapSources from '@/functions/mapping/SourceMapper';
-// import createSiteMap from '@/functions/sitemap/SiteMapper';
-
-export default function IndexScreen() {
+export default function MenuScreen() {
   // mapSources();
   // createSiteMap();
 
-  const { centered } = Styles;
-
   const path: string = usePathname();
-  const gospelUrl: string = useDailyGospelUrl();
+  const windowIsWide = Device.windowIsWide();
+  const panelStyle = { flex: 1, width: '100%', maxWidth: windowIsWide ? 800 : '100%' };
 
   return (
     <>
@@ -35,17 +26,11 @@ export default function IndexScreen() {
         </Head>
       )}
 
-      <PageScrollView title="Дабравесце" subtitle="Крыніцы" >
-        <ThemedView style={{ marginBottom: 60 }}>
-          <AlbumList albums={appSources} />
+      <ThemedView style={{ flex: 1, alignItems: 'center' }}>
+        <ThemedView style={panelStyle}>
+          <MenuPanel standalone />
         </ThemedView>
-
-        <ThemedLink style={centered} href={gospelUrl} text="Евангелле дня" />
-        <ThemedLink style={centered} href="/" text="Праваслаўны каляндар" />
-        <ThemedLink style={centered} href="/search" text="Пошук па змесце" />
-
-        <IndexFooter />
-      </PageScrollView>
+      </ThemedView>
     </>
   );
 }

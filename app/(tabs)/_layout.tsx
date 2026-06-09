@@ -5,12 +5,11 @@ import { GlobalContext } from '@/contexts/GlobalContext';
 import { Tabs } from 'expo-router';
 
 import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import Daily from '@/functions/Daily';
+import { IconSymbol } from '@/components/icons/IconSymbol';
+import Daily from '@/services/Daily';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
-import ThemedView from '@/components/ThemedView';
-import WideScreenLayout from '@/app_screens/wide/WideScreenLayout';
+import ThemedView from '@/components/themed/ThemedView';
 
 export default function TabLayout() {
   const { width } = useWindowDimensions();
@@ -32,16 +31,6 @@ export default function TabLayout() {
   const borderColor = useThemeColor({}, 'border');
   const activeColor = useThemeColor({}, 'link');
 
-  if (isVeryWide) {
-    return (
-      <ThemedView style={{ flex: 1 }}>
-        <GlobalContext.Provider value={contextValue}>
-          <WideScreenLayout />
-        </GlobalContext.Provider>
-      </ThemedView>
-    );
-  }
-
   return (
     <ThemedView style={{ flex: 1 }}>
       <GlobalContext.Provider value={contextValue}>
@@ -56,6 +45,7 @@ export default function TabLayout() {
               borderColor: backgroundColor,
               backgroundColor,
               flexDirection: isWide ? 'row' : 'column',
+              ...(isVeryWide && { display: 'none' }),
             },
             tabBarLabelStyle: {
               fontFamily: 'Monomakh',
@@ -100,15 +90,6 @@ export default function TabLayout() {
               title: 'Змест',
               tabBarIcon: ({ color }) => (
                 <IconSymbol name="book.pages.fill" color={color} />
-              ),
-            }}
-          />
-          <Tabs.Screen
-            name="search"
-            options={{
-              title: 'Пошук',
-              tabBarIcon: ({ color }) => (
-                <IconSymbol name="magnifyingglass" color={color} />
               ),
             }}
           />
