@@ -1,14 +1,7 @@
-import { DATE_NAMES } from '@/screens/calendar/data/date.names';
 import { FastKind } from '@/screens/calendar/types/calendar.types';
 import { easterProvider } from '@/screens/calendar/logic/easter.provider';
 
 class CalendarDates {
-  getMonthName(monthIndex: number, genitive: boolean = false) {
-    const monthNames = genitive ? DATE_NAMES.MONTHS_BE_GENITIVE : DATE_NAMES.MONTHS_BE;
-
-    return monthNames[monthIndex];
-  }
-
   getISODate(date: Date = new Date()): string {
     return date.toISOString().split('T')[0];
   }

@@ -3,19 +3,22 @@ import { StyleSheet } from 'react-native';
 
 import ThemedText from '@/components/themed/ThemedText';
 import RoundButton from '@/components/RoundButton';
-import { calendarDates } from '@/screens/calendar/model/calendar.dates';
 import ThemedView from '@/components/themed/ThemedView';
+import { DATE_NAMES } from '../../data/date.names';
 
 export default function CalendarNavigation({ grid, setDate }: any) {
-  const gridMonth = calendarDates.getMonthName(grid.month);
+  const gridMonthName = DATE_NAMES.MONTHS_BE[grid.month];
 
-  const decreaseMonth = () => setDate(new Date(grid.year, grid.month - 1, 1));
-  const increaseMonth = () => setDate(new Date(grid.year, grid.month + 1, 1));
+  const decreaseMonth = () =>
+    setDate(new Date(grid.year, grid.month - 1, 1));
+
+  const increaseMonth = () =>
+    setDate(new Date(grid.year, grid.month + 1, 1));
 
   return (
     <ThemedView style={styles.navigation}>
       <RoundButton name="arrow-back" onPress={decreaseMonth} enabled={true} />
-      <ThemedText type="item">{`${gridMonth} ${grid.year}`}</ThemedText>
+      <ThemedText type="item">{`${gridMonthName} ${grid.year}`}</ThemedText>
       <RoundButton name="arrow-forward" onPress={increaseMonth} enabled={true} />
     </ThemedView>
   );
