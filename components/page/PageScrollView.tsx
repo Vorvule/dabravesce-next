@@ -11,7 +11,7 @@ import ThemedView from '../ThemedView';
 
 type Props = PropsWithChildren<{ title: string, subtitle: string }>;
 
-export default function PageScrollView({ children, title, subtitle }:Props) {
+export default function PageScrollView({ children, title, subtitle }: Props) {
   const windowIsWide = Device.windowIsWide();
   const windowIsVeryWide = Device.windowIsVeryWide();
   const width = windowIsWide ? 800 : '100%';
@@ -40,7 +40,7 @@ export default function PageScrollView({ children, title, subtitle }:Props) {
       )}
 
       <ThemedView style={styles.middleColumn}>
-        <ScrollView ref={scrollRef} showsVerticalScrollIndicator={!windowIsWide} >
+        <ScrollView ref={scrollRef} showsVerticalScrollIndicator={!windowIsWide}>
           <PageHeader title={title} subtitle={subtitle} />
           <ThemedView key={colorScheme} style={styles.content}>{children}</ThemedView>
         </ScrollView>
