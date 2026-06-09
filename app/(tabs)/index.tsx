@@ -4,10 +4,10 @@ import { usePathname } from 'expo-router';
 import Head from 'expo-router/head';
 
 import Web from '@/functions/Web';
-import { calendarDates } from '@/app_screens/calendar/model/calendar.dates';
-import { eventDates } from '@/app_screens/calendar/logic/event.dates';
-import PageScrollView from '../../components/PageScrollView';
-import CalendarView from '../../app_screens/calendar/view/calendar.view';
+import { calendarDates } from '@/screens/calendar/model/calendar.dates';
+import { eventDates } from '@/screens/calendar/logic/event.dates';
+import PageScrollView from '../../components/page/PageScrollView';
+import CalendarView from '../../screens/calendar/view/calendar.view';
 
 export default function CalendarScreen() {
   const path: string = usePathname();

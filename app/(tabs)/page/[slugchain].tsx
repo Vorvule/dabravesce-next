@@ -3,8 +3,8 @@ import { Platform } from 'react-native';
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import Head from 'expo-router/head';
 
-import PageScrollView from '@/components/PageScrollView';
-import PageContent from '@/app_screens/page/PageContent';
+import PageScrollView from '@/components/page/PageScrollView';
+import PageContent from '@/screens/content/PageContent';
 
 import appSources from '@/assets/albums/app.sources';
 import { GlobalContext } from '@/contexts/GlobalContext';

@@ -10,10 +10,5 @@
       "@/*": ["./*"]
     }
   },
-  "include": [
-    "**/*.{ts,tsx,json}",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts",
-    "components/ui/IconSymbol.tsx"
-  ]
+  "include": ["**/*.{ts,tsx,json}", ".expo/types/**/*.ts", "expo-env.d.ts"]
 }

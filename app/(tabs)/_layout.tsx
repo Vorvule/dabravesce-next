@@ -5,7 +5,7 @@ import { GlobalContext } from '@/contexts/GlobalContext';
 import { Tabs } from 'expo-router';
 
 import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
+import { IconSymbol } from '@/components/icons/IconSymbol';
 import Daily from '@/functions/Daily';
 
 import { useThemeColor } from '@/hooks/useThemeColor';

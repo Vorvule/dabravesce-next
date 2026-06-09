@@ -4,7 +4,7 @@ import Head from 'expo-router/head';
 
 import Web from '@/functions/Web';
 import Device from '@/functions/Device';
-import MenuPanel from '@/app_screens/panel/MenuPanel';
+import MenuPanel from '@/screens/panel/MenuPanel';
 import ThemedView from '@/components/ThemedView';
 // import mapSources from '@/functions/mapping/SourceMapper';
 // import createSiteMap from '@/functions/sitemap/SiteMapper';
