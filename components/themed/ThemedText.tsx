@@ -15,13 +15,13 @@ export default function ThemedText({ style, type = 'default', ...rest }: ThemedT
     title: {
       fontFamily: 'Monomakh',
       textAlign: 'center',
-      fontSize: fontSize + 12,
+      fontSize: fontSize + 14,
       color: useThemeColor({}, 'primary'),
     },
     subtitle: {
       fontFamily: 'Monomakh',
       textAlign: 'center',
-      fontSize: fontSize + 9,
+      fontSize: fontSize + 10,
       color: useThemeColor({}, 'link'),
     },
     header: {
@@ -51,8 +51,6 @@ export default function ThemedText({ style, type = 'default', ...rest }: ThemedT
     today: {
       fontFamily: 'Vollkorn',
       fontSize: fontSize,
-      // fontWeight: 'bold',
-      // textDecorationLine: 'underline',
       lineHeight: 26,
       color: useThemeColor({}, 'primary'),
     },
