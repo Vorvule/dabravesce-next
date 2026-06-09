@@ -15,13 +15,13 @@ export default function ThemedText({ style, type = 'default', ...rest }: ThemedT
     title: {
       fontFamily: 'Monomakh',
       textAlign: 'center',
-      fontSize: fontSize + 14,
+      fontSize: fontSize + 20,
       color: useThemeColor({}, 'primary'),
     },
     subtitle: {
       fontFamily: 'Monomakh',
       textAlign: 'center',
-      fontSize: fontSize + 10,
+      fontSize: fontSize + 14,
       color: useThemeColor({}, 'link'),
     },
     header: {
