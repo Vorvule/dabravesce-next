@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Link } from 'expo-router';
 
-import ThemedText from '@/components/ThemedText';
+import ThemedText from '@/components/themed/ThemedText';
 
 export default function ThemedLink({
   style,

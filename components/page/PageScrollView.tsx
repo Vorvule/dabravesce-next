@@ -1,13 +1,13 @@
 import { PropsWithChildren, useContext, useEffect, useRef } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 
-import Device from '@/functions/Device';
+import Device from '@/services/Device';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { GlobalContext } from '@/contexts/GlobalContext';
 import MenuPanel from '@/screens/panel/MenuPanel';
 import CalendarPanel from '@/screens/panel/CalendarPanel';
 import PageHeader from './PageHeader';
-import ThemedView from '../ThemedView';
+import ThemedView from '../themed/ThemedView';
 
 type Props = PropsWithChildren<{ title: string, subtitle: string }>;
 

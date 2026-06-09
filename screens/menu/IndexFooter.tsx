@@ -1,4 +1,4 @@
-import ThemedText from '@/components/ThemedText';
+import ThemedText from '@/components/themed/ThemedText';
 
 export default function IndexFooter() {
   const style: any = { textAlign: 'center', paddingVertical: 40 };

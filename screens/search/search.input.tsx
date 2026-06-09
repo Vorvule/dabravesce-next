@@ -6,7 +6,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import ThemedView from '@/components/ThemedView';
+import ThemedView from '@/components/themed/ThemedView';
 
 export default function SearchInput({
   searchText,

@@ -1,4 +1,4 @@
-import ThemedView from '@/components/ThemedView';
+import ThemedView from '@/components/themed/ThemedView';
 
 import ChapterName from './chapter/ChapterName';
 import ChapterAudio from './chapter/ChapterAudio';

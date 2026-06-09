@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
 
-import ThemedText from '@/components/ThemedText';
+import ThemedText from '@/components/themed/ThemedText';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
 

@@ -4,8 +4,8 @@ import { StyleSheet } from 'react-native';
 import React from 'react';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { calendarDates } from '@/screens/calendar/model/calendar.dates';
-import ThemedView from '@/components/ThemedView';
-import ThemedText from '@/components/ThemedText';
+import ThemedView from '@/components/themed/ThemedView';
+import ThemedText from '@/components/themed/ThemedText';
 
 export default function CalendarCells({ monthMatrix, selection, calendar }: any) {
   const today = new Date();

@@ -9,8 +9,8 @@ import PageContent from '@/screens/content/PageContent';
 import appSources from '@/assets/albums/app.sources';
 import { GlobalContext } from '@/contexts/GlobalContext';
 
-import Page from '@/functions/Page';
-import Web from '@/functions/Web';
+import Page from '@/services/Page';
+import Web from '@/services/Web';
 
 export async function generateStaticParams(): Promise<Record<string, string>[]> {
   const slugChains: { slugchain: string }[] = [];

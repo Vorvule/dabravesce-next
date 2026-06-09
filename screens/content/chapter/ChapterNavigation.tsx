@@ -1,9 +1,9 @@
 import { router } from 'expo-router';
 
-import Page from '@/functions/Page';
+import Page from '@/services/Page';
 import RoundButton from '@/components/RoundButton';
 import Styles from '@/constants/styles/common.styles';
-import ThemedView from '@/components/ThemedView';
+import ThemedView from '@/components/themed/ThemedView';
 
 function ChapterNavigation({ keychain }: { keychain: number[] }) {
   const backKeychain: number[] = [keychain[0], keychain[1], keychain[2] - 1];

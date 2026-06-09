@@ -1,6 +1,6 @@
-import ThemedText from '../ThemedText';
+import ThemedText from '../themed/ThemedText';
 import Styles from '../../constants/styles/common.styles';
-import ThemedView from '../ThemedView';
+import ThemedView from '../themed/ThemedView';
 
 type Header = { title: string; subtitle: string };
 

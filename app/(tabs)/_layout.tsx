@@ -6,10 +6,10 @@ import { Tabs } from 'expo-router';
 
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/icons/IconSymbol';
-import Daily from '@/functions/Daily';
+import Daily from '@/services/Daily';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
-import ThemedView from '@/components/ThemedView';
+import ThemedView from '@/components/themed/ThemedView';
 
 export default function TabLayout() {
   const { width } = useWindowDimensions();

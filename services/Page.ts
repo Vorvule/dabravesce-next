@@ -1,5 +1,5 @@
-import slugchainMap from '@/functions/mapping/slugchain.map.json';
-import keychainMap from '@/functions/mapping/keychain.map.json';
+import slugchainMap from '@/services/mapping/slugchain.map.json';
+import keychainMap from '@/services/mapping/keychain.map.json';
 import appSources from '@/assets/albums/app.sources.js';
 
 interface Chapter { name: string; text: string[]; }

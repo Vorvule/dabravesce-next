@@ -2,12 +2,12 @@ import { Platform } from 'react-native';
 import { usePathname } from 'expo-router';
 import Head from 'expo-router/head';
 
-import Web from '@/functions/Web';
-import Device from '@/functions/Device';
+import Web from '@/services/Web';
+import Device from '@/services/Device';
 import MenuPanel from '@/screens/panel/MenuPanel';
-import ThemedView from '@/components/ThemedView';
-// import mapSources from '@/functions/mapping/SourceMapper';
-// import createSiteMap from '@/functions/sitemap/SiteMapper';
+import ThemedView from '@/components/themed/ThemedView';
+// import mapSources from '@/services/mapping/SourceMapper';
+// import createSiteMap from '@/services/sitemap/SiteMapper';
 
 export default function MenuScreen() {
   // mapSources();

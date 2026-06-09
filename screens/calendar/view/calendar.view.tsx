@@ -6,7 +6,7 @@ import { calendarRef } from '@/screens/calendar/model/calendar.ref';
 import CalendarDay from '@/screens/calendar/view/calendar.day';
 import CalendarGrid from '@/screens/calendar/view/calendar.grid';
 import { Grid } from '@/screens/calendar/types/calendar.types';
-import ThemedView from '@/components/ThemedView';
+import ThemedView from '@/components/themed/ThemedView';
 import { CalendarSaints } from './calendar.saints';
 
 type Props = {

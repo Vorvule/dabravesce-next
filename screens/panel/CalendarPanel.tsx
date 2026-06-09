@@ -4,7 +4,7 @@ import { ScrollView } from 'react-native';
 import { calendarDates } from '@/screens/calendar/model/calendar.dates';
 import { eventDates } from '@/screens/calendar/logic/event.dates';
 import CalendarView from '@/screens/calendar/view/calendar.view';
-import ThemedView from '@/components/ThemedView';
+import ThemedView from '@/components/themed/ThemedView';
 import PageHeader from '@/components/page/PageHeader';
 
 import { useThemeColor } from '@/hooks/useThemeColor';

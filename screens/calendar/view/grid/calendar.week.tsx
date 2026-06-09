@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
-import ThemedText from '@/components/ThemedText';
+import ThemedText from '@/components/themed/ThemedText';
 import { DATE_NAMES } from '@/screens/calendar/data/date.names';
-import ThemedView from '@/components/ThemedView';
+import ThemedView from '@/components/themed/ThemedView';
 
 export default function CalendarWeek() {
   return (

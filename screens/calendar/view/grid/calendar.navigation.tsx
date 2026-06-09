@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-import ThemedText from '@/components/ThemedText';
+import ThemedText from '@/components/themed/ThemedText';
 import RoundButton from '@/components/RoundButton';
 import { calendarDates } from '@/screens/calendar/model/calendar.dates';
-import ThemedView from '@/components/ThemedView';
+import ThemedView from '@/components/themed/ThemedView';
 
 export default function CalendarNavigation({ grid, setDate }: any) {
   const gridMonth = calendarDates.getMonthName(grid.month);

@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 
-import ThemedView from '@/components/ThemedView';
+import ThemedView from '@/components/themed/ThemedView';
 
 import AlbumListItem from './AlbumListItem';
 import { GlobalContext } from '@/contexts/GlobalContext';

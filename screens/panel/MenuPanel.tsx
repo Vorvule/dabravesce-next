@@ -3,8 +3,8 @@ import { Pressable, ScrollView, StyleProp, TextStyle } from 'react-native';
 
 import MenuView from '@/screens/menu/menu.view';
 import SearchView from '@/screens/search/search.view';
-import ThemedView from '@/components/ThemedView';
-import ThemedText from '@/components/ThemedText';
+import ThemedView from '@/components/themed/ThemedView';
+import ThemedText from '@/components/themed/ThemedText';
 import PageHeader from '@/components/page/PageHeader';
 
 import { useThemeColor } from '@/hooks/useThemeColor';

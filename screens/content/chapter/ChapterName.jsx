@@ -1,4 +1,4 @@
-import ThemedText from '@/components/ThemedText';
+import ThemedText from '@/components/themed/ThemedText';
 
 import Styles from '@/constants/styles/common.styles';
 

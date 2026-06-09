@@ -2,7 +2,7 @@ import React from 'react';
 import CalendarMonth from '@/screens/calendar/view/grid/calendar.month';
 import CalendarNavigation from '@/screens/calendar/view/grid/calendar.navigation';
 import CalendarWeek from '@/screens/calendar/view/grid/calendar.week';
-import ThemedView from '../../../components/ThemedView';
+import ThemedView from '../../../components/themed/ThemedView';
 
 export default function CalendarGrid({ grid, selection, calendar, setDate }: any) {
   return (

@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 
 import { useThemeColor } from '@/hooks/useThemeColor.ts';
-import ThemedOption from '@/components/ThemedOption';
+import ThemedOption from '@/components/themed/ThemedOption';
 
 import BookList from './BookList';
-import Menu from '@/functions/Menu';
+import Menu from '@/services/Menu';
 import { GlobalContext } from '@/contexts/GlobalContext.ts';
 
 export default function AlbumListItem({ album, keys, folding }) {

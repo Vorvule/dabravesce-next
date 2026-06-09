@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pressable } from 'react-native';
 
-import ThemedText from '@/components/ThemedText';
+import ThemedText from '@/components/themed/ThemedText';
 import CellDot from '@/screens/calendar/view/cells/cell.dot';
 
 export default function CalendarCell({ onPress, style, type, day, event }: any) {

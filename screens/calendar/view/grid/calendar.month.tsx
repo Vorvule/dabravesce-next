@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 import { Cell } from '@/screens/calendar/types/calendar.types';
 import { gridMatrix } from '@/screens/calendar/logic/month.matrix';
 import CalendarCells from '@/screens/calendar/view/cells/calendar.cells';
-import ThemedView from '@/components/ThemedView';
+import ThemedView from '@/components/themed/ThemedView';
 
 export default function CalendarMonth({ grid, selection, calendar }: any) {
   const monthMatrix: Cell[] = useMemo(() => gridMatrix.getMonthMatrix(grid), [grid]);

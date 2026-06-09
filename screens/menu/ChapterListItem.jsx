@@ -1,13 +1,13 @@
 import { Link } from 'expo-router';
 
 import { useThemeColor } from '@/hooks/useThemeColor.ts';
-import ThemedText from '@/components/ThemedText';
+import ThemedText from '@/components/themed/ThemedText';
 
 import { useContext } from 'react';
 import { GlobalContext } from '@/contexts/GlobalContext.ts';
 
-import Menu from '@/functions/Menu';
-import Page from '../../functions/Page';
+import Menu from '@/services/Menu';
+import Page from '../../services/Page';
 import Styles from '@/constants/styles/common.styles';
 
 export default function ChapterListItem({ chapter, keys }) {

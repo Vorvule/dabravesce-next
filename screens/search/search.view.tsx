@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useLocalSearchParams, router } from 'expo-router';
 import SearchInput from './search.input';
-import ThemedText from '../../components/ThemedText';
+import ThemedText from '../../components/themed/ThemedText';
 import SearchResults from './search.results';
-import Search, { SearchResult } from '../../functions/Search';
+import Search, { SearchResult } from '../../services/Search';
 
 export default function SearchView() {
   const { q } = useLocalSearchParams<{ q?: string }>();

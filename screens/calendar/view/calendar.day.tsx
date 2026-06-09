@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { calendarOutput } from '@/screens/calendar/model/calendar.output';
-import ThemedText from '@/components/ThemedText';
+import ThemedText from '@/components/themed/ThemedText';
 import Styles from '@/constants/styles/common.styles';
-import ThemedView from '@/components/ThemedView';
+import ThemedView from '@/components/themed/ThemedView';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export default function CalendarDay({ event }: any) {
