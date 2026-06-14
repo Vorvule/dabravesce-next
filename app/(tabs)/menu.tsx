@@ -9,10 +9,12 @@ import ThemedView from '@/components/themed/ThemedView';
 
 // import mapSources from '../../scripts/source.mapper';
 // import createSiteMap from '../../scripts/site.mapper';
+// import getAppSourcesSearchable from '../../scripts/app-sources/accents.remover';
 
 export default function MenuScreen() {
   // mapSources();
   // createSiteMap();
+  // getAppSourcesSearchable();
 
   const path: string = usePathname();
   const windowIsWide = Device.windowIsWide();
