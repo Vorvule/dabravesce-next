@@ -8,13 +8,14 @@ import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/icons/IconSymbol';
 import Daily from '@/services/Daily';
 
+import { VERY_WIDE } from '@/constants/breakpoints';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import ThemedView from '@/components/themed/ThemedView';
 
 export default function TabLayout() {
   const { width } = useWindowDimensions();
   const isWide = width > 800;
-  const isVeryWide = width > 1699;
+  const isVeryWide = width > VERY_WIDE;
   const dailyKeychain: number[] = React.useMemo(() => Daily.getDailyKeychain(), []);
   const [keychain, setKeychain] = React.useState(dailyKeychain);
 

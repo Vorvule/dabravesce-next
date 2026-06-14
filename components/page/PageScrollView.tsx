@@ -1,6 +1,7 @@
 import { PropsWithChildren, useContext, useEffect, useRef } from 'react';
 import { Platform, ScrollView, StyleSheet, useWindowDimensions } from 'react-native';
 
+import { VERY_WIDE } from '@/constants/breakpoints';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { GlobalContext } from '@/contexts/GlobalContext';
 import MenuPanel from '@/screens/panel/MenuPanel';
@@ -15,7 +16,7 @@ export default function PageScrollView({ children, title, subtitle }: Props) {
   const ssrWidth = Platform.OS === 'web' && typeof window !== 'undefined' ? window.innerWidth : 0;
   const width = ssrWidth > windowWidth ? ssrWidth : windowWidth;
   const windowIsWide = width > 800;
-  const windowIsVeryWide = width > 1699;
+  const windowIsVeryWide = width > VERY_WIDE;
   const columnWidth = windowIsWide ? 800 : '100%';
 
   const styles = StyleSheet.create({

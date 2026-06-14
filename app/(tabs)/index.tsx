@@ -9,6 +9,7 @@ import { calendarDates } from '@/screens/calendar/model/calendar.dates';
 import { eventDates } from '@/screens/calendar/logic/event.dates';
 import PageScrollView from '../../components/page/PageScrollView';
 import CalendarView from '../../screens/calendar/view/calendar.view';
+import { VERY_WIDE } from '@/constants/breakpoints';
 import Page from '../../services/Page';
 
 export default function CalendarScreen() {
@@ -20,7 +21,7 @@ export default function CalendarScreen() {
 
   useFocusEffect(
     useCallback(() => {
-      if (width > 1699) {
+      if (width > VERY_WIDE) {
         router.replace(Page.getUrl(dailyKeychain));
       }
     }, [width, dailyKeychain]),
