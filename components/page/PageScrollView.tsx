@@ -1,7 +1,6 @@
 import { PropsWithChildren, useContext, useEffect, useRef } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { Platform, ScrollView, StyleSheet, useWindowDimensions } from 'react-native';
 
-import Device from '@/services/Device';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { GlobalContext } from '@/contexts/GlobalContext';
 import MenuPanel from '@/screens/panel/MenuPanel';
@@ -12,13 +11,16 @@ import ThemedView from '../themed/ThemedView';
 type Props = PropsWithChildren<{ title: string, subtitle: string }>;
 
 export default function PageScrollView({ children, title, subtitle }: Props) {
-  const windowIsWide = Device.windowIsWide();
-  const windowIsVeryWide = Device.windowIsVeryWide();
-  const width = windowIsWide ? 800 : '100%';
+  const { width: windowWidth } = useWindowDimensions();
+  const ssrWidth = Platform.OS === 'web' && typeof window !== 'undefined' ? window.innerWidth : 0;
+  const width = ssrWidth > windowWidth ? ssrWidth : windowWidth;
+  const windowIsWide = width > 800;
+  const windowIsVeryWide = width > 1699;
+  const columnWidth = windowIsWide ? 800 : '100%';
 
   const styles = StyleSheet.create({
     container: { flex: 1, flexDirection: 'row', justifyContent: windowIsVeryWide ? undefined : 'center' },
-    middleColumn: { width },
+    middleColumn: { width: columnWidth },
     sideColumn: { flex: 1, overflow: 'hidden' },
     content: { flex: 1, padding: 18, paddingBottom: 160, gap: 16, overflow: 'hidden' },
   });
