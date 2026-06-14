@@ -2,15 +2,15 @@ import canons from './canons.json';
 import liturgy from './liturgy.json';
 import troparionsSunday from './troparions.sunday.json';
 import troparionsFestive from './troparions.festive.json';
-import acathisti from './acathisti.json';
+import acathisti from './acathists.json';
 import greatCanon from './great-canon/great.canon.js';
 
-const worships = {
+const worship = {
   slug: 'worships',
   name: 'Богаслужэбнае',
   text: [
     {
-      slug: 'acathisti',
+      slug: 'acathists',
       name: 'Акафісты',
       text: acathisti,
     },
@@ -42,4 +42,4 @@ const worships = {
   ],
 };
 
-export default worships;
+export default worship;

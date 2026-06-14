@@ -1,10 +1,12 @@
-import appSources from '@/assets/albums/app.sources.js';
+import appSources from '../assets/albums/app.sources.js';
 
 const createSitemap = () => {
   let urlSet = '';
 
   let path = '';
-  urlSet += getUrlLoc(path);
+  urlSet += getUrlLoc(path)+
+    getUrlLoc('/menu') +
+    getUrlLoc('/calendar');
 
   appSources.map((album) => {
     album.text.map((book) => {
@@ -17,11 +19,7 @@ const createSitemap = () => {
 
   const sitemap =
     '<?xml version="1.0" encoding="UTF-8"?>\n' +
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-    urlSet +
-    getUrlLoc('/calendar') +
-    getUrlLoc('/search') +
-  '</urlset>';
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urlSet + '</urlset>';
 
   console.log(sitemap);
 };

@@ -13,7 +13,7 @@ const songs = {
       text: easters,
     },
     {
-      slug: 'chrismas-songs',
+      slug: 'christmas-songs',
       name: 'Калядныя спевы',
       text: christmas,
     },

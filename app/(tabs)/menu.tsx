@@ -6,8 +6,9 @@ import Web from '@/services/Web';
 import Device from '@/services/Device';
 import MenuPanel from '@/screens/panel/MenuPanel';
 import ThemedView from '@/components/themed/ThemedView';
-// import mapSources from '@/services/mapping/SourceMapper';
-// import createSiteMap from '@/services/sitemap/SiteMapper';
+
+// import mapSources from '../../scripts/source.mapper';
+// import createSiteMap from '../../scripts/site.mapper';
 
 export default function MenuScreen() {
   // mapSources();

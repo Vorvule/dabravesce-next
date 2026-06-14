@@ -2,9 +2,9 @@ import john from './gospels/john.json';
 import luke from './gospels/luke.json';
 import mark from './gospels/mark.json';
 import matt from './gospels/matt.json';
-import apostlesContent from './apostles/apostles.content.json';
-import epistlesContent from './apostles/epistles.content.json';
-import apocalypseContent from './apostles/apocalypse.content.json';
+import apostlesContent from './apostles/apostles.json';
+import epistlesContent from './apostles/epistles.json';
+import apocalypseContent from './apostles/apocalypse.json';
 
 const newTestament = {
   slug: 'new-testament',
@@ -31,7 +31,7 @@ const newTestament = {
       text: john,
     },
     {
-      slug: 'apostles',
+      slug: 'apostle-acts',
       name: 'Дзеянні святых Апосталаў',
       text: apostlesContent,
     },
