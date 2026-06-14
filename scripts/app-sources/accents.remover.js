@@ -1,23 +1,25 @@
-import { promises as fs } from 'fs';
 import appSources from '../../assets/albums/app.sources.js';
 
 /** The script is to remove accent marks from the app sources */
-const sources = structuredClone(appSources);
+const getAppSourcesSearchable = () => {
+  const sources = structuredClone(appSources);
 
-sources.forEach((source) => {
-  source.text.forEach((album) => {
-    album.text.forEach((book) => {
-      book.text.forEach((chapter, i) => {
-        book.text[i] = removeAccents(chapter);
+  sources.forEach((source) => {
+    source.text.forEach((album) => {
+      album.text.forEach((book) => {
+        book.text.forEach((chapter, i) => {
+          book.text[i] = removeAccents(chapter);
+        });
       });
     });
   });
-});
 
-const prefix = 'const AppSourcesSearchable = ';
-const suffix = '\r\n\r\n' + 'export default AppSourcesSearchable;';
-const output = prefix + JSON.stringify(sources, null, 2) + suffix;
-await fs.writeFile('AppSourcesSearchable.js', output, 'utf8');
+  const prefix = 'const appSourcesSearchable = ';
+  const suffix = '\r\n\r\nexport default appSourcesSearchable;';
+  const output = prefix + JSON.stringify(sources, null, 2) + suffix;
+
+  console.log( output);
+};
 
 function removeAccents(text) {
   if (typeof text !== 'string') return text;
@@ -53,3 +55,5 @@ function removeAccents(text) {
 
   return text;
 }
+
+export default getAppSourcesSearchable;
