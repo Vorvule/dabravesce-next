@@ -14,7 +14,7 @@ import ThemedView from '@/components/themed/ThemedView';
 export default function TabLayout() {
   const { width } = useWindowDimensions();
   const isWide = width > 800;
-  const isVeryWide = width >= 1720;
+  const isVeryWide = width > 1699;
   const dailyKeychain: number[] = React.useMemo(() => Daily.getDailyKeychain(), []);
   const [keychain, setKeychain] = React.useState(dailyKeychain);
 

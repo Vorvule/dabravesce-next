@@ -1,4 +1,4 @@
-const AppSourcesSearchable = [
+const appSourcesSearchable = [
   {
     'slug': 'gospels',
     'name': 'Евангеллі',
@@ -14506,4 +14506,4 @@ const AppSourcesSearchable = [
   },
 ];
 
-export default AppSourcesSearchable;
+export default appSourcesSearchable;

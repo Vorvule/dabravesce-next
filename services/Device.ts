@@ -6,7 +6,7 @@ export default class Device {
   }
 
   static windowIsVeryWide(): boolean {
-    return this.getWindowWidth() >= 1720;
+    return this.getWindowWidth() > 1699;
   }
 
   static getWindowWidth(): number {

@@ -20,11 +20,12 @@ export default function CalendarScreen() {
 
   useFocusEffect(
     useCallback(() => {
-      if (width >= 1720) {
+      if (width > 1699) {
         router.replace(Page.getUrl(dailyKeychain));
       }
     }, [width, dailyKeychain]),
   );
+
   return (
     <>
       {Platform.OS === 'web' && (

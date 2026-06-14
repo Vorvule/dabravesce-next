@@ -1,4 +1,4 @@
-import AppSourcesSearchable from '@/assets/albums/AppSourcesSearchable';
+import appSourcesSearchable from '../assets/albums/app.sources.searchable';
 
 export type SearchResult = {
   nameChain: string;
@@ -16,7 +16,7 @@ class Search {
     let itemFound = false;
     const searchResults: SearchResult[] = [];
 
-    AppSourcesSearchable.forEach((source) => {
+    appSourcesSearchable.forEach((source) => {
       source.text.forEach((album) => {
         album.text.forEach((book) => {
           itemFound = false;

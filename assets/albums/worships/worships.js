@@ -7,7 +7,7 @@ import greatCanon from './great-canon/great.canon.js';
 
 const worships = {
   slug: 'worships',
-  name: 'Богаслужэнні',
+  name: 'Богаслужэбнае',
   text: [
     {
       slug: 'acathisti',
