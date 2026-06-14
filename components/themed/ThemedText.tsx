@@ -1,6 +1,4 @@
-import { StyleSheet, Text, type TextProps } from 'react-native';
-
-import Device from '@/services/Device';
+import { StyleSheet, Text, useWindowDimensions, type TextProps } from 'react-native';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type ThemedTextProps = TextProps & {
@@ -8,7 +6,8 @@ export type ThemedTextProps = TextProps & {
 };
 
 export default function ThemedText({ style, type = 'default', ...rest }: ThemedTextProps) {
-  const fontSize = Device.windowIsWide() ? 22 : 18;
+  const { width } = useWindowDimensions();
+  const fontSize = width > 800 ? 22 : 18;
   const color = useThemeColor({}, 'text');
 
   const styles = StyleSheet.create({
