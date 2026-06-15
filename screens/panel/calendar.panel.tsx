@@ -4,10 +4,10 @@ import { ScrollView } from 'react-native';
 import { calendarDates } from '@/screens/calendar/model/calendar.dates';
 import { eventDates } from '@/screens/calendar/logic/event.dates';
 import CalendarView from '@/screens/calendar/view/calendar.view';
-import ThemedView from '@/components/themed/ThemedView';
-import PageHeader from '@/components/page/PageHeader';
+import ThemedView from '@/components/themed/themed.view';
+import PageHeader from '@/components/page/page.header';
 
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { useThemeColor } from '@/hooks/use.theme.color';
 
 export default function CalendarPanel() {
   const borderColor = useThemeColor({}, 'border');

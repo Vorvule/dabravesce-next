@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react';
 
-import ThemedView from '@/components/themed/ThemedView';
+import ThemedView from '@/components/themed/themed.view';
 
-import AlbumListItem from './AlbumListItem';
-import { GlobalContext } from '@/contexts/GlobalContext';
+import AlbumListItem from './album.list.item.jsx';
+import { GlobalContext } from '@/contexts/global.context';
 
 export default function AlbumList({ albums }) {
   const { keychain } = useContext(GlobalContext);

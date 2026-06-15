@@ -1,16 +1,16 @@
 import React from 'react';
 import { useWindowDimensions } from 'react-native';
 
-import { GlobalContext } from '@/contexts/GlobalContext';
+import { GlobalContext } from '@/contexts/global.context';
 import { Tabs } from 'expo-router';
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/icons/IconSymbol';
-import Daily from '@/services/Daily';
+import { HapticTab } from '@/components/haptic.tab';
+import { IconSymbol } from '@/components/icons/icon.symbol';
+import Daily from '@/services/daily';
 
 import { VERY_WIDE } from '@/constants/breakpoints';
-import { useThemeColor } from '@/hooks/useThemeColor';
-import ThemedView from '@/components/themed/ThemedView';
+import { useThemeColor } from '@/hooks/use.theme.color';
+import ThemedView from '@/components/themed/themed.view';
 
 export default function TabLayout() {
   const { width } = useWindowDimensions();

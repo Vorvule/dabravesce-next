@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import ChapterListItem from './ChapterListItem';
+import ChapterListItem from './chapter.list.item.jsx';
 import Styles from '@/constants/styles/common.styles';
 
 export default function ChapterList({ chapters, keys }) {

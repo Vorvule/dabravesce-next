@@ -2,10 +2,10 @@ import { Cell } from '@/screens/calendar/types/calendar.types';
 import CalendarCell from '@/screens/calendar/view/cells/calendar.cell';
 import { StyleSheet } from 'react-native';
 import React from 'react';
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { useThemeColor } from '@/hooks/use.theme.color';
 import { calendarDates } from '@/screens/calendar/model/calendar.dates';
-import ThemedView from '@/components/themed/ThemedView';
-import ThemedText from '@/components/themed/ThemedText';
+import ThemedView from '@/components/themed/themed.view';
+import ThemedText from '@/components/themed/themed.text';
 
 export default function CalendarCells({ monthMatrix, selection, calendar }: any) {
   const today = new Date();

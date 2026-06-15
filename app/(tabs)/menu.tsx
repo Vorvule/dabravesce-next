@@ -2,9 +2,9 @@ import { Platform, useWindowDimensions } from 'react-native';
 import { usePathname } from 'expo-router';
 import Head from 'expo-router/head';
 
-import Web from '@/services/Web';
-import MenuPanel from '@/screens/panel/MenuPanel';
-import ThemedView from '@/components/themed/ThemedView';
+import Web from '@/services/web';
+import MenuPanel from '@/screens/panel/menu.panel';
+import ThemedView from '@/components/themed/themed.view';
 
 // import mapSources from '../../scripts/source.mapper';
 // import createSiteMap from '../../scripts/site.mapper';

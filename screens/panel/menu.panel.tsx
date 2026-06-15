@@ -3,11 +3,11 @@ import { Pressable, ScrollView, StyleProp, TextStyle } from 'react-native';
 
 import MenuView from '@/screens/menu/menu.view';
 import SearchView from '@/screens/search/search.view';
-import ThemedView from '@/components/themed/ThemedView';
-import ThemedText from '@/components/themed/ThemedText';
-import PageHeader from '@/components/page/PageHeader';
+import ThemedView from '@/components/themed/themed.view';
+import ThemedText from '@/components/themed/themed.text';
+import PageHeader from '@/components/page/page.header';
 
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { useThemeColor } from '@/hooks/use.theme.color';
 
 export default function MenuPanel({ standalone }: { standalone?: boolean }) {
   const [showSearch, setShowSearch] = useState(false);

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, useWindowDimensions, type TextProps } from 'react-native';
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { useThemeColor } from '@/hooks/use.theme.color';
 
 export type ThemedTextProps = TextProps & {
   type?: 'title' | 'subtitle' | 'header' | 'item' | 'link' | 'default' | 'today';

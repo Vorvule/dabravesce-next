@@ -5,7 +5,7 @@ import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import { activateKeepAwakeAsync, deactivateKeepAwake } from 'expo-keep-awake';
 
 import { createClient } from '@supabase/supabase-js';
-import RoundButton from '@/components/RoundButton';
+import RoundButton from '@/components/round.button';
 import Styles from '@/constants/styles/common.styles';
 import { BUTTON_STATES } from '@/constants/audio/button.states.js';
 

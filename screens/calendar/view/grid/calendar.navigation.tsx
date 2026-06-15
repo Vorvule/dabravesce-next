@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-import ThemedText from '@/components/themed/ThemedText';
-import RoundButton from '@/components/RoundButton';
-import ThemedView from '@/components/themed/ThemedView';
+import ThemedText from '@/components/themed/themed.text';
+import RoundButton from '@/components/round.button';
+import ThemedView from '@/components/themed/themed.view';
 import { DATE_NAMES } from '../../data/date.names';
 
 export default function CalendarNavigation({ grid, setDate }: any) {

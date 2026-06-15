@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Daily from '@/services/Daily';
+import Daily from '@/services/daily';
 
 export type ContextType = {
   keychain: number[],

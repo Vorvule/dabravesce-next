@@ -3,14 +3,14 @@ import { Platform, useWindowDimensions } from 'react-native';
 import { Redirect, usePathname } from 'expo-router';
 import Head from 'expo-router/head';
 
-import Web from '@/services/Web';
-import { GlobalContext } from '@/contexts/GlobalContext';
+import Web from '@/services/web';
+import { GlobalContext } from '@/contexts/global.context';
 import { calendarDates } from '@/screens/calendar/model/calendar.dates';
 import { eventDates } from '@/screens/calendar/logic/event.dates';
-import PageScrollView from '../../components/page/PageScrollView';
+import PageScrollView from '../../components/page/page.scroll.view';
 import CalendarView from '../../screens/calendar/view/calendar.view';
 import { VERY_WIDE } from '@/constants/breakpoints';
-import Page from '../../services/Page';
+import Page from '../../services/page';
 
 export default function CalendarScreen() {
   const path: string = usePathname();

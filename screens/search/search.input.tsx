@@ -2,11 +2,11 @@ import { JSX } from 'react';
 import { Platform, Pressable, TextInput } from 'react-native';
 
 import searchStyles from './search.styles';
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { useColorScheme } from '@/hooks/use.color.scheme';
+import { useThemeColor } from '@/hooks/use.theme.color';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import ThemedView from '@/components/themed/ThemedView';
+import ThemedView from '@/components/themed/themed.view';
 
 export default function SearchInput({
   searchText,

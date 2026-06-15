@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { useThemeColor } from '@/hooks/use.theme.color';
 
 export default function RoundButton({ name, onPress, enabled }) {
   const colorName = enabled ? 'link' : 'grey';

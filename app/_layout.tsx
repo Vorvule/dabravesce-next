@@ -12,7 +12,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
-import Colors from '@/constants/Colors';
+import Colors from '@/constants/colors';
 
 SplashScreen.setOptions({ duration: 1000, fade: true });
 SplashScreen.preventAutoHideAsync(); // Wait for asset loading is complete

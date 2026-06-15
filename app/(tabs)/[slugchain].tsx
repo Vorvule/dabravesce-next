@@ -3,14 +3,14 @@ import { Platform } from 'react-native';
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import Head from 'expo-router/head';
 
-import PageScrollView from '@/components/page/PageScrollView';
-import PageContent from '@/screens/content/PageContent';
+import PageScrollView from '@/components/page/page.scroll.view';
+import PageContent from '@/screens/content/page.content';
 
 import appSources from '@/assets/albums/app.sources';
-import { GlobalContext } from '@/contexts/GlobalContext';
+import { GlobalContext } from '@/contexts/global.context';
 
-import Page from '@/services/Page';
-import Web from '@/services/Web';
+import Page from '@/services/page';
+import Web from '@/services/web';
 
 export async function generateStaticParams(): Promise<Record<string, string>[]> {
   const slugChains: { slugchain: string }[] = [];

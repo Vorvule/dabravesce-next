@@ -1,10 +1,10 @@
-import ThemedView from '@/components/themed/ThemedView';
+import ThemedView from '@/components/themed/themed.view';
 
-import ChapterName from './chapter/ChapterName';
-import ChapterAudio from './chapter/ChapterAudio';
-import ChapterText from './chapter/ChapterText';
+import ChapterName from './chapter/chapter.name.jsx';
+import ChapterAudio from './chapter/chapter.audio.jsx';
+import ChapterText from './chapter/chapter.text.jsx';
 
-import ChapterNavigation from './chapter/ChapterNavigation';
+import ChapterNavigation from './chapter/chapter.navigation.tsx';
 
 import Styles from '../../constants/styles/common.styles';
 

@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 
-import { useThemeColor } from '@/hooks/useThemeColor.ts';
-import ThemedOption from '@/components/themed/ThemedOption';
+import { useThemeColor } from '@/hooks/use.theme.color';
+import ThemedOption from '@/components/themed/themed.option';
 
-import ChapterList from './ChapterList';
-import Menu from '@/services/Menu';
-import { GlobalContext } from '@/contexts/GlobalContext.ts';
+import ChapterList from './chapter.list.jsx';
+import Menu from '@/services/menu';
+import { GlobalContext } from '@/contexts/global.context';
 
 export default function BookListItem({ book, keys, folding }) {
   const [firstRun, setFirstRun] = useState(true);

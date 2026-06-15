@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { calendarOutput } from '@/screens/calendar/model/calendar.output';
-import ThemedText from '@/components/themed/ThemedText';
+import ThemedText from '@/components/themed/themed.text';
 import Styles from '@/constants/styles/common.styles';
-import ThemedView from '@/components/themed/ThemedView';
-import { useThemeColor } from '@/hooks/useThemeColor';
+import ThemedView from '@/components/themed/themed.view';
+import { useThemeColor } from '@/hooks/use.theme.color';
 
 export default function CalendarDay({ event }: any) {
   const style = Styles.centered;

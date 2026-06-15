@@ -2,12 +2,12 @@ import { PropsWithChildren, useContext, useEffect, useRef } from 'react';
 import { Platform, ScrollView, StyleSheet, useWindowDimensions } from 'react-native';
 
 import { VERY_WIDE } from '@/constants/breakpoints';
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { GlobalContext } from '@/contexts/GlobalContext';
-import MenuPanel from '@/screens/panel/MenuPanel';
-import CalendarPanel from '@/screens/panel/CalendarPanel';
-import PageHeader from './PageHeader';
-import ThemedView from '../themed/ThemedView';
+import { useColorScheme } from '@/hooks/use.color.scheme';
+import { GlobalContext } from '@/contexts/global.context';
+import MenuPanel from '@/screens/panel/menu.panel';
+import CalendarPanel from '@/screens/panel/calendar.panel';
+import PageHeader from './page.header';
+import ThemedView from '../themed/themed.view';
 
 type Props = PropsWithChildren<{ title: string, subtitle: string }>;
 

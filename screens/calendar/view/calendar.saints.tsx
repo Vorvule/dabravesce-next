@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import ThemedText from '@/components/themed/ThemedText';
+import ThemedText from '@/components/themed/themed.text';
 import CALENDAR from '@/assets/calendar/calendire.json';
-import ThemedView from '@/components/themed/ThemedView';
+import ThemedView from '@/components/themed/themed.view';
 
 type CalendarSaintsProps = {
   selectedDate: string;

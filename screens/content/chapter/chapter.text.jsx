@@ -1,8 +1,8 @@
 import { Link } from 'expo-router';
 
-import ThemedText from '@/components/themed/ThemedText';
+import ThemedText from '@/components/themed/themed.text';
 
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { useThemeColor } from '@/hooks/use.theme.color';
 
 export default function ChapterText({ chapterText }) {
   const tab = '       ';
