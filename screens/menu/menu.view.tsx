@@ -7,7 +7,7 @@ import useDailyGospelUrl from '@/hooks/use.daily.gospel.url';
 
 export default function MenuView() {
   const gospelUrl = useDailyGospelUrl();
-  const style = { textAlign: 'center', paddingTop: 24 };
+  const style = { textAlign: 'center', paddingTop: 36 };
 
   return (
     <>

@@ -9,7 +9,7 @@ const searchStyles: StyleProp<any> = {
     borderRadius: 30,
     paddingVertical: 10,
     paddingLeft: 25,
-    paddingRight: 60, // Важна: месца для кнопкі
+    paddingRight: 60, // Месца для кнопкі
     fontFamily: 'Monomakh',
     fontSize: 22,
   },

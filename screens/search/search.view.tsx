@@ -20,7 +20,11 @@ export default function SearchView() {
 
   return (
     <>
-      <SearchInput searchText={searchText} setSearchText={setSearchText} onPress={handleSearch} />
+      <SearchInput
+        searchText={searchText}
+        setSearchText={setSearchText}
+        onPress={handleSearch}
+      />
 
       <ThemedText style={{ textAlign: 'center', paddingTop: 20 }} type="header">
         Вынікаў — {searchResults.length}

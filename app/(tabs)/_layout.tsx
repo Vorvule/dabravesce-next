@@ -67,15 +67,7 @@ export default function TabLayout() {
               marginBottom: -4,
             },
           }}>
-          <Tabs.Screen
-            name="index"
-            options={{
-              title: 'Каляндар',
-              tabBarIcon: ({ color }) => (
-                <IconSymbol name="calendar" color={color} />
-              ),
-            }}
-          />
+          <Tabs.Screen name="index" options={{ href: null }} />
           <Tabs.Screen
             name="menu"
             options={{
@@ -91,6 +83,15 @@ export default function TabLayout() {
               title: 'Змест',
               tabBarIcon: ({ color }) => (
                 <IconSymbol name="book.pages.fill" color={color} />
+              ),
+            }}
+          />
+          <Tabs.Screen
+            name="calendar"
+            options={{
+              title: 'Каляндар',
+              tabBarIcon: ({ color }) => (
+                <IconSymbol name="calendar" color={color} />
               ),
             }}
           />
