@@ -5,10 +5,10 @@ import Head from 'expo-router/head';
 
 import Web from '@/services/web';
 import { GlobalContext } from '@/contexts/global.context';
-import { calendarDates } from '@/screens/calendar/model/calendar.dates';
-import { eventDates } from '@/screens/calendar/logic/event.dates';
+import { calendarDates } from '@/applets/calendar/model/calendar.dates';
+import { eventDates } from '@/applets/calendar/logic/event.dates';
 import PageScrollView from '../../components/page/page.scroll.view';
-import CalendarView from '../../screens/calendar/view/calendar.view';
+import CalendarView from '../../applets/calendar/view/calendar.view';
 import { VERY_WIDE } from '@/constants/breakpoints';
 import Page from '../../services/page';
 

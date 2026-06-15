@@ -4,8 +4,8 @@ import { Platform, ScrollView, StyleSheet, useWindowDimensions } from 'react-nat
 import { VERY_WIDE } from '@/constants/breakpoints';
 import { useColorScheme } from '@/hooks/use.color.scheme';
 import { GlobalContext } from '@/contexts/global.context';
-import MenuPanel from '@/screens/panel/menu.panel';
-import CalendarPanel from '@/screens/panel/calendar.panel';
+import MenuPanel from '@/applets/panel/menu.panel';
+import CalendarPanel from '@/applets/panel/calendar.panel';
 import PageHeader from './page.header';
 import ThemedView from '../themed/themed.view';
 

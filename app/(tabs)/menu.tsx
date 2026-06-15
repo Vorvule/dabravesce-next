@@ -3,7 +3,7 @@ import { usePathname } from 'expo-router';
 import Head from 'expo-router/head';
 
 import Web from '@/services/web';
-import MenuPanel from '@/screens/panel/menu.panel';
+import MenuPanel from '@/applets/panel/menu.panel';
 import ThemedView from '@/components/themed/themed.view';
 
 // import mapSources from '../../scripts/source.mapper';
