@@ -1,6 +1,6 @@
-import { useCallback, useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Platform, useWindowDimensions } from 'react-native';
-import { router, useFocusEffect, usePathname } from 'expo-router';
+import { Redirect, usePathname } from 'expo-router';
 import Head from 'expo-router/head';
 
 import Web from '@/services/Web';
@@ -19,13 +19,9 @@ export default function CalendarScreen() {
   const [selectedDate, setSelectedDate] = useState<string>(calendarDates.getISODate());
   const dayMonth = eventDates.getSelectedDayAndMonth(selectedDate);
 
-  useFocusEffect(
-    useCallback(() => {
-      if (width > VERY_WIDE) {
-        router.replace(Page.getUrl(dailyKeychain));
-      }
-    }, [width, dailyKeychain]),
-  );
+  if (width > VERY_WIDE) {
+    return <Redirect href={Page.getUrl(dailyKeychain)} />;
+  }
 
   return (
     <>
