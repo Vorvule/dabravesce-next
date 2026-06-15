@@ -1,10 +1,10 @@
-import { Platform, useWindowDimensions } from 'react-native';
+import { Platform } from 'react-native';
 import { usePathname } from 'expo-router';
 import Head from 'expo-router/head';
 
 import Web from '@/services/web';
 import MenuPanel from '@/applets/panel/menu.panel';
-import ThemedView from '@/components/themed/themed.view';
+import PageScrollView from '../../components/page/page.scroll.view';
 
 // import mapSources from '../../scripts/source.mapper';
 // import createSiteMap from '../../scripts/site.mapper';
@@ -16,9 +16,6 @@ export default function MenuScreen() {
   // getAppSourcesSearchable();
 
   const path: string = usePathname();
-  const { width } = useWindowDimensions();
-  const maxWidth = width > 800 ? 800 : '100%';
-  const panelStyle = { flex: 1, width: '100%', maxWidth };
 
   return (
     <>
@@ -29,11 +26,9 @@ export default function MenuScreen() {
         </Head>
       )}
 
-      <ThemedView style={{ flex: 1, alignItems: 'center' }}>
-        <ThemedView style={panelStyle}>
-          <MenuPanel standalone />
-        </ThemedView>
-      </ThemedView>
+      <PageScrollView title={Web.getTitle(path)} subtitle="">
+        <MenuPanel standalone />
+      </PageScrollView>
     </>
   );
 }
