@@ -14,7 +14,7 @@ export default function SearchResults({
       <ThemedLink
         key={item.slugChain}
         style={searchStyles.link}
-        href={`/page/${item.slugChain}`}
+        href={`/${item.slugChain}`}
         type="default"
         text={item.nameChain}
       />

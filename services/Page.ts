@@ -12,7 +12,7 @@ type KeychainMapType = Record<string, string>;
 export default class Page {
   static getUrl(keychain: number[]): any {
     const key = keychain.join('~');
-    return 'page/' + (keychainMap as KeychainMapType)[key];
+    return (keychainMap as KeychainMapType)[key];
   }
 
   static slugchainValid(slugchain: string): boolean {

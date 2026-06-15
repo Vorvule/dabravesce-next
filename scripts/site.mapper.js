@@ -3,16 +3,16 @@ import appSources from '../assets/albums/app.sources.js';
 const createSitemap = () => {
   let urlSet = '';
 
-  let path = '';
-  urlSet += getUrlLoc(path)+
+  let slugChain = '';
+  urlSet += getUrlLoc(slugChain)+
     getUrlLoc('/menu') +
     getUrlLoc('/calendar');
 
   appSources.map((album) => {
     album.text.map((book) => {
       book.text.map((chapter) => {
-        path = '/page/' + [album.slug, book.slug, chapter.slug].join('~');
-        urlSet += getUrlLoc(path);
+        slugChain = [album.slug, book.slug, chapter.slug].join('~');
+        urlSet += getUrlLoc('/' + slugChain);
       });
     });
   });
