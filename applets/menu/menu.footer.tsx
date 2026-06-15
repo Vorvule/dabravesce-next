@@ -1,6 +1,6 @@
 import ThemedText from '@/components/themed/themed.text';
 
-export default function IndexFooter() {
+export default function MenuFooter() {
   const style: any = { textAlign: 'center', paddingVertical: 40 };
 
   return (
