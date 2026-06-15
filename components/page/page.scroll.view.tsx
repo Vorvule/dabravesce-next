@@ -23,7 +23,7 @@ export default function PageScrollView({ children, title, subtitle }: Props) {
     container: { flex: 1, flexDirection: 'row', justifyContent: windowIsVeryWide ? undefined : 'center' },
     middleColumn: { width: columnWidth },
     sideColumn: { flex: 1, overflow: 'hidden' },
-    content: { flex: 1, padding: 18, paddingBottom: 160, gap: 16, overflow: 'hidden' },
+    content: { flex: 1, padding: 18, paddingBottom: 160, overflow: 'hidden' },
   });
 
   const scrollRef = useRef<ScrollView>(null);

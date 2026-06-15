@@ -3,7 +3,7 @@ import { usePathname } from 'expo-router';
 import Head from 'expo-router/head';
 
 import Web from '@/services/web';
-import MenuPanel from '@/applets/panel/menu.panel';
+import MenuView from '@/applets/menu/menu.view';
 import PageScrollView from '../../components/page/page.scroll.view';
 
 // import mapSources from '../../scripts/source.mapper';
@@ -27,7 +27,7 @@ export default function MenuScreen() {
       )}
 
       <PageScrollView title={Web.getTitle(path)} subtitle="">
-        <MenuPanel standalone />
+        <MenuView />
       </PageScrollView>
     </>
   );

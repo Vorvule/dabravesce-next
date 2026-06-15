@@ -11,6 +11,7 @@ import { useThemeColor } from '@/hooks/use.theme.color';
 
 export default function CalendarPanel() {
   const borderColor = useThemeColor({}, 'border');
+
   const [selectedDate, setSelectedDate] = useState<string>(calendarDates.getISODate());
   const dayMonth = eventDates.getSelectedDayAndMonth(selectedDate);
 
@@ -18,9 +19,11 @@ export default function CalendarPanel() {
     <ThemedView style={{ flex: 1, borderLeftWidth: 1, borderLeftColor: borderColor }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <PageHeader title="Праваслаўны каляндар" subtitle={dayMonth} />
+
         <ThemedView style={{ padding: 18, paddingBottom: 160 }}>
           <CalendarView selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
         </ThemedView>
+
       </ScrollView>
     </ThemedView>
   );
