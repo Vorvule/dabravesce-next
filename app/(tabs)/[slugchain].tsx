@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import Head from 'expo-router/head';
 
-import PageScrollView from '@/components/page/page.scroll.view';
+import ColumnLayout from '../../applets/layout/column.layout';
 import PageContent from '@/applets/content/page.content';
 
 import appSources from '@/assets/albums/app.sources';
@@ -59,9 +59,9 @@ export default function PageScreen() {
         </Head>
       ) }
 
-      <PageScrollView title={ albumName } subtitle={ bookName }>
+      <ColumnLayout title={ albumName } subtitle={ bookName }>
         <PageContent chapter={ chapter } keychain={ keychain }/>
-      </PageScrollView>
+      </ColumnLayout>
     </>
   );
 }

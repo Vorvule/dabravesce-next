@@ -1,10 +1,10 @@
-import ThemedText from '../themed/themed.text';
+import ThemedText from '../../components/themed/themed.text';
 import Styles from '../../constants/styles/common.styles';
-import ThemedView from '../themed/themed.view';
+import ThemedView from '../../components/themed/themed.view';
 
 type Header = { title: string; subtitle: string };
 
-export default function PageHeader({ title, subtitle }: Header) {
+export default function ColumnHeader({ title, subtitle }: Header) {
   const { centered } = Styles;
   const style ={ paddingTop: 48, paddingBottom: 12, paddingHorizontal: 18 };
 

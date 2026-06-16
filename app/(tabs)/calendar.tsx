@@ -6,7 +6,7 @@ import Head from 'expo-router/head';
 import Web from '@/services/web';
 import { calendarDates } from '@/applets/calendar/model/calendar.dates';
 import { eventDates } from '@/applets/calendar/logic/event.dates';
-import PageScrollView from '../../components/page/page.scroll.view';
+import ColumnLayout from '../../applets/layout/column.layout';
 import CalendarView from '../../applets/calendar/view/calendar.view';
 
 export default function CalendarScreen() {
@@ -24,9 +24,9 @@ export default function CalendarScreen() {
         </Head>
       )}
 
-      <PageScrollView title="Праваслаўны каляндар" subtitle={dayMonth}>
+      <ColumnLayout title="Праваслаўны каляндар" subtitle={dayMonth}>
         <CalendarView selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
-      </PageScrollView>
+      </ColumnLayout>
     </>
   );
 }

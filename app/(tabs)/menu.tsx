@@ -4,7 +4,7 @@ import Head from 'expo-router/head';
 
 import Web from '@/services/web';
 import MenuView from '@/applets/menu/menu.view';
-import PageScrollView from '../../components/page/page.scroll.view';
+import ColumnLayout from '../../applets/layout/column.layout';
 
 // import mapSources from '../../scripts/source.mapper';
 // import createSiteMap from '../../scripts/site.mapper';
@@ -26,9 +26,9 @@ export default function MenuScreen() {
         </Head>
       )}
 
-      <PageScrollView title={Web.getTitle(path)} subtitle="">
+      <ColumnLayout title={Web.getTitle(path)} subtitle="">
         <MenuView />
-      </PageScrollView>
+      </ColumnLayout>
     </>
   );
 }

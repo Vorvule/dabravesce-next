@@ -4,14 +4,14 @@ import { Platform, ScrollView, StyleSheet, useWindowDimensions } from 'react-nat
 import { VERY_WIDE } from '@/constants/breakpoints';
 import { useColorScheme } from '@/hooks/use.color.scheme';
 import { GlobalContext } from '@/contexts/global.context';
-import MenuPanel from '@/applets/panel/menu.panel';
-import CalendarPanel from '@/applets/panel/calendar.panel';
-import PageHeader from './page.header';
-import ThemedView from '../themed/themed.view';
+import LeftColumn from './left.column';
+import RightColumn from './right.column';
+import ColumnHeader from './column.header';
+import ThemedView from '../../components/themed/themed.view';
 
 type Props = PropsWithChildren<{ title: string, subtitle: string }>;
 
-export default function PageScrollView({ children, title, subtitle }: Props) {
+export default function ColumnLayout({ children, title, subtitle }: Props) {
   const { width: windowWidth } = useWindowDimensions();
   const ssrWidth = Platform.OS === 'web' && typeof window !== 'undefined' ? window.innerWidth : 0;
   const width = ssrWidth > windowWidth ? ssrWidth : windowWidth;
@@ -38,20 +38,20 @@ export default function PageScrollView({ children, title, subtitle }: Props) {
     <ThemedView style={styles.container}>
       {windowIsVeryWide && (
         <ThemedView style={styles.sideColumn}>
-          <MenuPanel />
+          <LeftColumn />
         </ThemedView>
       )}
 
       <ThemedView style={styles.middleColumn}>
         <ScrollView ref={scrollRef} showsVerticalScrollIndicator={!windowIsWide}>
-          <PageHeader title={title} subtitle={subtitle} />
+          <ColumnHeader title={title} subtitle={subtitle} />
           <ThemedView key={colorScheme} style={styles.content}>{children}</ThemedView>
         </ScrollView>
       </ThemedView>
 
       {windowIsVeryWide && (
         <ThemedView style={styles.sideColumn}>
-          <CalendarPanel />
+          <RightColumn />
         </ThemedView>
       )}
     </ThemedView>

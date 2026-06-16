@@ -5,11 +5,11 @@ import { calendarDates } from '@/applets/calendar/model/calendar.dates';
 import { eventDates } from '@/applets/calendar/logic/event.dates';
 import CalendarView from '@/applets/calendar/view/calendar.view';
 import ThemedView from '@/components/themed/themed.view';
-import PageHeader from '@/components/page/page.header';
+import ColumnHeader from './column.header';
 
 import { useThemeColor } from '@/hooks/use.theme.color';
 
-export default function CalendarPanel() {
+export default function RightColumn() {
   const borderColor = useThemeColor({}, 'border');
 
   const [selectedDate, setSelectedDate] = useState<string>(calendarDates.getISODate());
@@ -18,7 +18,7 @@ export default function CalendarPanel() {
   return (
     <ThemedView style={{ flex: 1, borderLeftWidth: 1, borderLeftColor: borderColor }}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <PageHeader title="Праваслаўны каляндар" subtitle={dayMonth} />
+        <ColumnHeader title="Праваслаўны каляндар" subtitle={dayMonth} />
 
         <ThemedView style={{ padding: 18, paddingBottom: 160 }}>
           <CalendarView selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
