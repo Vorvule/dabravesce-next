@@ -8,14 +8,14 @@ import { HapticTab } from '@/components/haptic.tab';
 import { IconSymbol } from '@/components/icons/icon.symbol';
 import Daily from '@/services/daily';
 
-import { VERY_WIDE } from '@/constants/breakpoints';
+import { SCREEN_WIDTH_LIMIT } from '@/constants/breakpoints';
 import { useThemeColor } from '@/hooks/use.theme.color';
 import ThemedView from '@/components/themed/themed.view';
 
 export default function TabLayout() {
   const { width } = useWindowDimensions();
-  const isWide = width > 800;
-  const isVeryWide = width > VERY_WIDE;
+  const windowIsMiddle = width > SCREEN_WIDTH_LIMIT.NARROW;
+  const windowIsWide = width > SCREEN_WIDTH_LIMIT.WIDE;
   const dailyKeychain: number[] = React.useMemo(() => Daily.getDailyKeychain(), []);
   const [keychain, setKeychain] = React.useState(dailyKeychain);
 
@@ -45,13 +45,12 @@ export default function TabLayout() {
             tabBarStyle: {
               borderColor: backgroundColor,
               backgroundColor,
-              flexDirection: isWide ? 'row' : 'column',
-              ...(isVeryWide && { display: 'none' }),
+              flexDirection: windowIsMiddle ? 'row' : 'column',
+              ...(windowIsWide && { display: 'none' }),
             },
             tabBarLabelStyle: {
               fontFamily: 'Monomakh',
-              fontSize: isWide ? 24 : 14,
-              marginLeft: isWide ? 8 : 0,
+              fontSize: windowIsMiddle ? 24 : 14,
             },
             tabBarItemStyle: {
               borderLeftWidth: 0,

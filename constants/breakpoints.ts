@@ -1,1 +1,4 @@
-export const VERY_WIDE = 1699;
+export const SCREEN_WIDTH_LIMIT = {
+  NARROW: 800,
+  WIDE: 1699,
+};
