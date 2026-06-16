@@ -1,4 +1,4 @@
-export const SCREEN_WIDTH_LIMIT = {
-  NARROW: 800,
-  WIDE: 1699,
+export const WIDTH_LIMIT = {
+  MIDDLE_COLUMN: 800,
+  VIEWPORT: 1700,
 };

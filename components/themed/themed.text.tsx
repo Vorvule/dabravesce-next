@@ -1,6 +1,6 @@
 import { StyleSheet, Text, useWindowDimensions, type TextProps } from 'react-native';
 import { useThemeColor } from '@/hooks/use.theme.color';
-import { SCREEN_WIDTH_LIMIT } from '../../constants/breakpoints';
+import { WIDTH_LIMIT } from '../../constants/breakpoints';
 
 export type ThemedTextProps = TextProps & {
   type?: 'title' | 'subtitle' | 'header' | 'item' | 'link' | 'default' | 'today';
@@ -8,7 +8,7 @@ export type ThemedTextProps = TextProps & {
 
 export default function ThemedText({ style, type = 'default', ...rest }: ThemedTextProps) {
   const { width } = useWindowDimensions();
-  const fontSize = width > SCREEN_WIDTH_LIMIT.NARROW ? 22 : 18;
+  const fontSize = width > WIDTH_LIMIT.MIDDLE_COLUMN ? 22 : 18;
   const color = useThemeColor({}, 'text');
 
   const styles = StyleSheet.create({
