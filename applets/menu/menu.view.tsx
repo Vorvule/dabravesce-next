@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Pressable, StyleProp, TextStyle } from 'react-native';
 
-import SearchView from '../../applets/search/search.view';
+import SearchView from './search/search.view';
 import ThemedText from '../../components/themed/themed.text';
 import MenuContent from './menu.content';
 

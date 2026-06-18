@@ -1,7 +1,7 @@
 import { JSX } from 'react';
 
 import { SearchResult } from '@/services/search';
-import searchStyles from '@/applets/search/search.styles';
+import searchStyles from '@/applets/menu/search/search.styles';
 import ThemedLink from '@/components/themed/themed.link';
 
 export default function SearchResults({
