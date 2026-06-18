@@ -1,14 +1,9 @@
-import { useWindowDimensions } from 'react-native';
 import { Redirect } from 'expo-router';
 
-import { WIDTH_LIMIT } from '@/constants/breakpoints';
-import useDailyGospelUrl from '../../hooks/use.daily.gospel.url';
+import useRedirectToPageOnWideScreens from '../../hooks/use.redirect.to.page.on.wide.screens';
 
 export default function CalendarScreen() {
-  const { width } = useWindowDimensions();
-  const dailyGospelUrl = useDailyGospelUrl();
+  const redirectUrl = useRedirectToPageOnWideScreens();
 
-  const href = width > WIDTH_LIMIT.WIDE_COLUMN ? dailyGospelUrl : '/calendar';
-
-  return <Redirect href={href} />;
+  return <Redirect href={redirectUrl ?? '/calendar'} />;
 }
