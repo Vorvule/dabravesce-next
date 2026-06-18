@@ -15,7 +15,7 @@ export default function ColumnLayout({ children, title, subtitle }: Props) {
   const { width: windowWidth } = useWindowDimensions();
   const ssrWidth = Platform.OS === 'web' && typeof window !== 'undefined' ? window.innerWidth : 0;
   const width = ssrWidth > windowWidth ? ssrWidth : windowWidth;
-  const viewportIsWide = width > WIDTH_LIMIT.VIEWPORT;
+  const viewportIsWide = width > WIDTH_LIMIT.WIDE_COLUMN;
   const columnIsWide = width > WIDTH_LIMIT.MIDDLE_COLUMN;
   const columnWidth = columnIsWide ? WIDTH_LIMIT.MIDDLE_COLUMN : '100%';
 

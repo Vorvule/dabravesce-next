@@ -15,7 +15,7 @@ import ThemedView from '@/components/themed/themed.view';
 export default function TabLayout() {
   const { width } = useWindowDimensions();
   const columnIsWide = width > WIDTH_LIMIT.MIDDLE_COLUMN;
-  const viewportIsWide = width > WIDTH_LIMIT.VIEWPORT;
+  const viewportIsWide = width > WIDTH_LIMIT.WIDE_COLUMN;
   const dailyKeychain: number[] = React.useMemo(() => Daily.getDailyKeychain(), []);
   const [keychain, setKeychain] = React.useState(dailyKeychain);
 

@@ -7,12 +7,11 @@ import useDailyGospelUrl from '@/hooks/use.daily.gospel.url';
 
 export default function MenuContent() {
   const style = { textAlign: 'center', paddingTop: 40 };
-  const gospelUrl = useDailyGospelUrl();
 
   return (
     <>
       <AlbumList albums={appSources} />
-      <ThemedLink style={style} href={gospelUrl} text="Евангелле дня" />
+      <ThemedLink style={style} href={useDailyGospelUrl()} text="Евангелле дня" />
       <MenuFooter />
     </>
   );

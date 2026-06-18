@@ -1,4 +1,4 @@
 export const WIDTH_LIMIT = {
   MIDDLE_COLUMN: 800,
-  VIEWPORT: 1700,
+  WIDE_COLUMN: 1700,
 };

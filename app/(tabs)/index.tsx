@@ -8,7 +8,7 @@ export default function CalendarScreen() {
   const { width } = useWindowDimensions();
   const dailyGospelUrl = useDailyGospelUrl();
 
-  const href = width > WIDTH_LIMIT.VIEWPORT ? dailyGospelUrl : '/calendar';
+  const href = width > WIDTH_LIMIT.WIDE_COLUMN ? dailyGospelUrl : '/calendar';
 
   return <Redirect href={href} />;
 }
