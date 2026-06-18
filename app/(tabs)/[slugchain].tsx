@@ -4,7 +4,7 @@ import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import Head from 'expo-router/head';
 
 import ColumnLayout from '../../applets/layout/column.layout';
-import PageContent from '@/applets/content/page.content';
+import PageView from '../../applets/page/page.view';
 
 import appSources from '@/assets/albums/app.sources';
 import { GlobalContext } from '@/contexts/global.context';
@@ -60,7 +60,7 @@ export default function PageScreen() {
       ) }
 
       <ColumnLayout title={ albumName } subtitle={ bookName }>
-        <PageContent chapter={ chapter } keychain={ keychain }/>
+        <PageView chapter={ chapter } keychain={ keychain }/>
       </ColumnLayout>
     </>
   );

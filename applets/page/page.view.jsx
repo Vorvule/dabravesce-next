@@ -1,4 +1,4 @@
-import ThemedView from '@/components/themed/themed.view';
+import ThemedView from '../../components/themed/themed.view';
 
 import ChapterName from './chapter/chapter.name.jsx';
 import ChapterAudio from './chapter/chapter.audio.jsx';
@@ -8,7 +8,7 @@ import ChapterNavigation from './chapter/chapter.navigation.tsx';
 
 import Styles from '../../constants/styles/common.styles';
 
-export default function PageContent({ chapter, keychain }) {
+export default function PageView({ chapter, keychain }) {
   return (
     <ThemedView style={Styles.gapped}>
       {chapter.audio && <ChapterAudio chapterAudio={chapter.audio} />}
