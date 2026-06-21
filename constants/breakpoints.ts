@@ -1,0 +1,4 @@
+export const WIDTH_LIMIT = {
+  MIDDLE_COLUMN: 800,
+  WIDE_COLUMN: 1700,
+};

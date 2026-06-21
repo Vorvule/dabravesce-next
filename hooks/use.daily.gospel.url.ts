@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import { GlobalContext } from '@/contexts/GlobalContext';
-import Page from '@/services/Page';
+import { GlobalContext } from '@/contexts/global.context';
+import Page from '@/services/page';
 
 export default function useDailyGospelUrl(): string {
   const { dailyKeychain } = useContext(GlobalContext);

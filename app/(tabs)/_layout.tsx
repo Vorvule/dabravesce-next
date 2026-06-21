@@ -1,20 +1,21 @@
 import React from 'react';
 import { useWindowDimensions } from 'react-native';
 
-import { GlobalContext } from '@/contexts/GlobalContext';
+import { GlobalContext } from '@/contexts/global.context';
 import { Tabs } from 'expo-router';
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/icons/IconSymbol';
-import Daily from '@/services/Daily';
+import { HapticTab } from '@/components/haptic.tab';
+import { IconSymbol } from '@/components/icons/icon.symbol';
+import Daily from '@/services/daily';
 
-import { useThemeColor } from '@/hooks/useThemeColor';
-import ThemedView from '@/components/themed/ThemedView';
+import { WIDTH_LIMIT } from '@/constants/breakpoints';
+import { useThemeColor } from '@/hooks/use.theme.color';
+import ThemedView from '@/components/themed/themed.view';
 
 export default function TabLayout() {
   const { width } = useWindowDimensions();
-  const isWide = width > 800;
-  const isVeryWide = width > 1699;
+  const columnIsWide = width > WIDTH_LIMIT.MIDDLE_COLUMN;
+  const viewportIsWide = width > WIDTH_LIMIT.WIDE_COLUMN;
   const dailyKeychain: number[] = React.useMemo(() => Daily.getDailyKeychain(), []);
   const [keychain, setKeychain] = React.useState(dailyKeychain);
 
@@ -44,13 +45,12 @@ export default function TabLayout() {
             tabBarStyle: {
               borderColor: backgroundColor,
               backgroundColor,
-              flexDirection: isWide ? 'row' : 'column',
-              ...(isVeryWide && { display: 'none' }),
+              flexDirection: columnIsWide ? 'row' : 'column',
+              ...(viewportIsWide && { display: 'none' }),
             },
             tabBarLabelStyle: {
               fontFamily: 'Monomakh',
-              fontSize: isWide ? 24 : 14,
-              marginLeft: isWide ? 8 : 0,
+              fontSize: columnIsWide ? 24 : 14,
             },
             tabBarItemStyle: {
               borderLeftWidth: 0,
@@ -66,15 +66,7 @@ export default function TabLayout() {
               marginBottom: -4,
             },
           }}>
-          <Tabs.Screen
-            name="index"
-            options={{
-              title: 'Каляндар',
-              tabBarIcon: ({ color }) => (
-                <IconSymbol name="calendar" color={color} />
-              ),
-            }}
-          />
+          <Tabs.Screen name="index" options={{ href: null }} />
           <Tabs.Screen
             name="menu"
             options={{
@@ -85,11 +77,20 @@ export default function TabLayout() {
             }}
           />
           <Tabs.Screen
-            name="page/[slugchain]"
+            name="[slugchain]"
             options={{
               title: 'Змест',
               tabBarIcon: ({ color }) => (
                 <IconSymbol name="book.pages.fill" color={color} />
+              ),
+            }}
+          />
+          <Tabs.Screen
+            name="calendar"
+            options={{
+              title: 'Каляндар',
+              tabBarIcon: ({ color }) => (
+                <IconSymbol name="calendar" color={color} />
               ),
             }}
           />

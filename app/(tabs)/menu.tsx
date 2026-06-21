@@ -1,11 +1,11 @@
 import { Platform } from 'react-native';
-import { usePathname } from 'expo-router';
+import { Redirect, usePathname } from 'expo-router';
 import Head from 'expo-router/head';
 
-import Web from '@/services/Web';
-import Device from '@/services/Device';
-import MenuPanel from '@/screens/panel/MenuPanel';
-import ThemedView from '@/components/themed/ThemedView';
+import Web from '@/services/web';
+import MenuView from '@/applets/menu/menu.view';
+import ColumnLayout from '../../applets/layout/column.layout';
+import useRedirectToPageOnWideScreens from '../../hooks/use.redirect.to.page.on.wide.screens';
 
 // import mapSources from '../../scripts/source.mapper';
 // import createSiteMap from '../../scripts/site.mapper';
@@ -17,8 +17,11 @@ export default function MenuScreen() {
   // getAppSourcesSearchable();
 
   const path: string = usePathname();
-  const windowIsWide = Device.windowIsWide();
-  const panelStyle = { flex: 1, width: '100%', maxWidth: windowIsWide ? 800 : '100%' };
+  const redirectUrl = useRedirectToPageOnWideScreens();
+
+  if (redirectUrl) {
+    return <Redirect href={redirectUrl} />;
+  }
 
   return (
     <>
@@ -29,11 +32,9 @@ export default function MenuScreen() {
         </Head>
       )}
 
-      <ThemedView style={{ flex: 1, alignItems: 'center' }}>
-        <ThemedView style={panelStyle}>
-          <MenuPanel standalone />
-        </ThemedView>
-      </ThemedView>
+      <ColumnLayout title={Web.getTitle(path)} subtitle="">
+        <MenuView />
+      </ColumnLayout>
     </>
   );
 }
