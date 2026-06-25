@@ -3,7 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { useThemeColor } from '@/hooks/use.theme.color';
 
-export default function RoundButton({ name, onPress, enabled }) {
+export default function RoundButton({ name, onPress = () => {}, enabled }) {
   const colorName = enabled ? 'link' : 'grey';
   const iconColor = useThemeColor({}, colorName);
 
