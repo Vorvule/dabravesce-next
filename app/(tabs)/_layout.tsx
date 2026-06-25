@@ -89,7 +89,7 @@ export default function TabLayout() {
             }}
           />
           <Tabs.Screen
-            name="[slugchain]"
+            name="content"
             options={{
               title: 'Змест',
               tabBarIcon: ({ color }) => (

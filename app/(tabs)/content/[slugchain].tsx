@@ -3,8 +3,8 @@ import { Platform } from 'react-native';
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import Head from 'expo-router/head';
 
-import ColumnLayout from '../../applets/layout/column.layout';
-import PageView from '../../applets/page/page.view';
+import ColumnLayout from '../../../applets/layout/column.layout';
+import PageView from '../../../applets/page/page.view';
 
 import appSources from '@/assets/albums/app.sources';
 import { GlobalContext } from '@/contexts/global.context';

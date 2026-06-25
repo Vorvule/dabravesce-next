@@ -10,7 +10,7 @@ export default class Web {
       case '/search':
         return 'Дабравесце ~ Пошук';
       default:
-        return 'Дабравесце ~ Змест';
+        return 'Дабравесце ~ Крыніцы';
     }
   }
 
