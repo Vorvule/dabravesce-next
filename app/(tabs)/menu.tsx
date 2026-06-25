@@ -27,12 +27,12 @@ export default function MenuScreen() {
     <>
       {Platform.OS === 'web' && (
         <Head>
-          <title>{Web.getTitle(path)}</title>
+          <title>Дабравесце ~ Крыніцы</title>
           <meta name="description" content={Web.getDescription(path)} />
         </Head>
       )}
 
-      <ColumnLayout title={Web.getTitle(path)} subtitle="">
+      <ColumnLayout title="Крыніцы" subtitle="">
         <MenuView />
       </ColumnLayout>
     </>

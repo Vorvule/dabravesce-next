@@ -26,7 +26,7 @@ export default function CalendarScreen() {
     <>
       {Platform.OS === 'web' && (
         <Head>
-          <title>Дабравесце ~ Праваслаўны каляндар</title>
+          <title>Дабравесце ~ Каляндар</title>
           <meta name="description" content={Web.getDescription(path)} />
         </Head>
       )}
