@@ -22,7 +22,7 @@ export default function RoundButton({ name, onPress, enabled }) {
 
   return (
     <Pressable style={styles.button} onPress={onPress}>
-      <Ionicons name={name} size={24} color={iconColor} style={{}} />
+      <Ionicons name={name} size={24} color={iconColor} />
     </Pressable>
   );
 }
