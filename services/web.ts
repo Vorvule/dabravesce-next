@@ -1,42 +1,28 @@
 import Page from './page';
 
 export default class Web {
-  public static getTitle(pathname: string): string {
-    switch (pathname) {
-      case '/':
-        return 'Дабравесце ~ Крыніцы';
-      case '/calendar':
-        return 'Дабравесце ~ Каляндар';
-      case '/search':
-        return 'Дабравесце ~ Пошук';
-      default:
-        return 'Дабравесце ~ Змест';
-    }
-  }
-
-  public static getPageTitle(keychain: number[]): string {
-    const { albumName, bookName, chapter } = Page.getContent(keychain);
+  public static getPageTitle(keys: number[]): string {
+    const { albumName, bookName, chapter } = Page.getContent(keys);
 
     return [chapter.name, bookName, albumName].join(' ~ ');
   }
 
-  public static getDescription(pathname: string): string {
-    const rootDescription =
-      'Дабравесце ~ Біблія, Малітоўнік і іншыя крыніцы духоўнага развіцця ~ ' +
-      'Беларуская Праваслаўная Царква Госпада нашага Ісуса Хрыста ~ Галоўная';
+  public static getDescription(path: string): string {
+    const description = 'Дабравесце ~ Біблія, малітоўнік, каляндар, спевы, кнігі'
+    + ' ~ Беларуская Праваслаўная Царква';
 
-    switch (pathname) {
+    switch (path) {
       case '/':
-        return rootDescription;
-      case '/search':
-        return 'Дабравесце ~ Пошук па змесце';
+        return description + ' ~ Каляндар';
+      case '/menu':
+        return description + ' ~ Крыніцы';
       default:
-        return 'Дабравесце ~ Біблія, Малітоўнік і іншыя крыніцы духоўнага развіцця ~ БПЦ';
+        return description + ' ~ Змест';
     }
   }
 
-  public static getPageDescription(keychain: number[]): string {
-    const { albumName, bookName, chapter } = Page.getContent(keychain);
+  public static getPageDescription(keys: number[]): string {
+    const { albumName, bookName, chapter } = Page.getContent(keys);
 
     return ['Дабравесце', albumName, bookName, chapter.name].join(' ~ ');
   }

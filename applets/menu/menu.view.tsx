@@ -9,7 +9,7 @@ export default function MenuView() {
   const [showSearch, setShowSearch] = useState(false);
 
   const style = { paddingBottom: 24, textAlign: 'center' } as StyleProp<TextStyle>;
-  const text = showSearch ? 'Крыніцы' : 'Пошук па змесце';
+  const text = showSearch ? 'Меню' : 'Пошук па змесце';
 
   return (
     <>
