@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "Navigation history enhanced",
-    "runtimeVersion": "70",
+    "version": "SDK57 applied",
+    "runtimeVersion": "71",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -18,7 +18,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 70
+      "versionCode": 71
     },
     "web": {
       "bundler": "metro",
