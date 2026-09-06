@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import { GlobalContext } from '@/contexts/global.context';
 
 import Menu from '@/services/menu';
-import Page from '../../services/page.ts';
+import Page from '@/services/page.ts';
 import Styles from '@/constants/styles/common.styles';
 
 export default function ChapterListItem({ chapter, keys }) {

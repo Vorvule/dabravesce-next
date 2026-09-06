@@ -1,4 +1,4 @@
-import ThemedView from '../../components/themed/themed.view';
+import ThemedView from '@/components/themed/themed.view';
 
 import ChapterName from './chapter/chapter.name.jsx';
 import ChapterAudio from './chapter/chapter.audio.jsx';
@@ -6,7 +6,7 @@ import ChapterText from './chapter/chapter.text.jsx';
 
 import ChapterNavigation from './chapter/chapter.navigation.tsx';
 
-import Styles from '../../constants/styles/common.styles';
+import Styles from '@/constants/styles/common.styles';
 
 export default function PageView({ chapter, keychain }) {
   return (

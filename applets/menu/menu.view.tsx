@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Pressable, StyleProp, TextStyle } from 'react-native';
 
 import SearchView from './search/search.view';
-import ThemedText from '../../components/themed/themed.text';
+import ThemedText from '@/components/themed/themed.text';
 import MenuContent from './menu.content';
 
 export default function MenuView() {

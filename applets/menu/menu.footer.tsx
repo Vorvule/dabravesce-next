@@ -1,8 +1,8 @@
 import { Pressable, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useThemeColor } from '../../hooks/use.theme.color';
-import ThemedText from '../../components/themed/themed.text';
-import { ExternalLink } from '../../components/external.link';
+import { useThemeColor } from '@/hooks/use.theme.color';
+import ThemedText from '@/components/themed/themed.text';
+import { ExternalLink } from '@/components/external.link';
 
 export default function MenuFooter() {
   const style: any = { textAlign: 'center', paddingVertical: 40 };

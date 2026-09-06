@@ -1,6 +1,6 @@
-import ThemedText from '../../components/themed/themed.text';
-import Styles from '../../constants/styles/common.styles';
-import ThemedView from '../../components/themed/themed.view';
+import ThemedText from '@/components/themed/themed.text';
+import Styles from '@/constants/styles/common.styles';
+import ThemedView from '@/components/themed/themed.view';
 
 type Header = { title: string; subtitle: string };
 
