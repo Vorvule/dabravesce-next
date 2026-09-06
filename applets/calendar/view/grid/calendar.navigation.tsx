@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 import ThemedText from '@/components/themed/themed.text';
 import RoundButton from '@/components/round.button';
 import ThemedView from '@/components/themed/themed.view';
-import { DATE_NAMES } from '../../data/date.names';
+import { DATE_NAMES } from '@/applets/calendar/data/date.names';
 
 export default function CalendarNavigation({ grid, setDate }: any) {
   const gridMonthName = DATE_NAMES.MONTHS_BE[grid.month];

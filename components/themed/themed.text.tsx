@@ -1,6 +1,6 @@
 import { StyleSheet, Text, useWindowDimensions, type TextProps } from 'react-native';
 import { useThemeColor } from '@/hooks/use.theme.color';
-import { WIDTH_LIMIT } from '../../constants/breakpoints';
+import { WIDTH_LIMIT } from '@/constants/breakpoints';
 
 export type ThemedTextProps = TextProps & {
   type?: 'title' | 'subtitle' | 'header' | 'item' | 'link' | 'default' | 'today';

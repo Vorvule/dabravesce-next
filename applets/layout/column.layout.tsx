@@ -7,7 +7,7 @@ import { GlobalContext } from '@/contexts/global.context';
 import LeftColumn from './left.column';
 import RightColumn from './right.column';
 import ColumnHeader from './column.header';
-import ThemedView from '../../components/themed/themed.view';
+import ThemedView from '@/components/themed/themed.view';
 
 type Props = PropsWithChildren<{ title: string, subtitle: string }>;
 

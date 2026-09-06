@@ -1,7 +1,7 @@
-import appSources from '../../assets/albums/app.sources.js';
-import AlbumList from '../../applets/menu/album.list';
+import appSources from '@/assets/albums/app.sources.js';
+import AlbumList from '@/applets/menu/album.list';
 import MenuFooter from './menu.footer';
-import ThemedLink from '../../components/themed/themed.link';
+import ThemedLink from '@/components/themed/themed.link';
 
 import useDailyGospelUrl from '@/hooks/use.daily.gospel.url';
 
