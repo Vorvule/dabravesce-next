@@ -11,7 +11,7 @@ export default function MenuFooterLinks() {
 
   return (
     <View style={styles.links}>
-      <ExternalLink href="https://www.youtube.com/@Dabravesce" style={styles.link}>
+      <ExternalLink asChild href="https://www.youtube.com/@Dabravesce">
         <Pressable style={styles.button}>
           <Ionicons name="logo-youtube" size={28} color="#FF0000" />
           <ThemedText type="link" style={{ color: linkColor }}>УТ-канал</ThemedText>
@@ -19,14 +19,14 @@ export default function MenuFooterLinks() {
       </ExternalLink>
 
       {Platform.OS === 'android' ? (
-        <ExternalLink href="https://dabravesce.by" style={styles.link}>
+        <ExternalLink asChild href="https://dabravesce.by">
           <Pressable style={styles.button}>
             <Ionicons name="link" size={28} color="#1E90FF" />
             <ThemedText type="link" style={{ color: linkColor }}>Веб-сайт</ThemedText>
           </Pressable>
         </ExternalLink>
       ) : (
-        <ExternalLink href={PLAY_MARKET_URL} style={styles.link}>
+        <ExternalLink asChild href={PLAY_MARKET_URL}>
           <Pressable style={styles.button}>
             <FontAwesome5 name="google-play" size={28} color="#00C853" />
             <ThemedText type="link" style={{ color: linkColor }}>Дачыненне</ThemedText>
@@ -42,9 +42,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 14,
     marginTop: 14,
-  },
-  link: {
-    alignSelf: 'center',
   },
   button: {
     flexDirection: 'row',
