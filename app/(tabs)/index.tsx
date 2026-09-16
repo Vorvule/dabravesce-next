@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Platform } from 'react-native';
 import { Redirect, usePathname } from 'expo-router';
-import Head from 'expo-router/head';
 
 import Web from '@/services/web';
+import WebHead from '@/components/web.head';
 import { calendarDates } from '@/applets/calendar/model/calendar.dates';
 import { eventDates } from '@/applets/calendar/logic/event.dates';
 import ColumnLayout from '../../applets/layout/column.layout';
@@ -24,12 +23,7 @@ export default function CalendarScreen() {
 
   return (
     <>
-      {Platform.OS === 'web' && (
-        <Head>
-          <title>Дабравесце ~ Каляндар</title>
-          <meta name="description" content={Web.getDescription(path)} />
-        </Head>
-      )}
+      <WebHead name="Каляндар" description={Web.getDescription(path)} />
 
       <ColumnLayout title="Праваслаўны каляндар" subtitle={dayMonth}>
         <CalendarView selectedDate={selectedDate} setSelectedDate={setSelectedDate} />

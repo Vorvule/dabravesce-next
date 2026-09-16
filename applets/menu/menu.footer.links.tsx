@@ -1,5 +1,6 @@
 import { Platform, Pressable, StyleSheet, View } from 'react-native';
-import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
+import { Link } from 'expo-router';
+import { Ionicons, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { useThemeColor } from '@/hooks/use.theme.color';
 import ThemedText from '@/components/themed/themed.text';
 import { ExternalLink } from '@/components/external.link';
@@ -33,6 +34,13 @@ export default function MenuFooterLinks() {
           </Pressable>
         </ExternalLink>
       )}
+
+      <Link href="/donation" asChild>
+        <Pressable style={styles.button}>
+          <MaterialIcons name="volunteer-activism" size={28} color="#1E90FF" />
+          <ThemedText type="link" style={{ color: linkColor }}>Ахвяраванне</ThemedText>
+        </Pressable>
+      </Link>
     </View>
   );
 }

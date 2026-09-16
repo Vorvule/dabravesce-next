@@ -1,8 +1,7 @@
-import { Platform } from 'react-native';
 import { Redirect, usePathname } from 'expo-router';
-import Head from 'expo-router/head';
 
 import Web from '@/services/web';
+import WebHead from '@/components/web.head';
 import MenuView from '@/applets/menu/menu.view';
 import ColumnLayout from '../../applets/layout/column.layout';
 import useRedirectToPageOnWideScreens from '../../hooks/use.redirect.to.page.on.wide.screens';
@@ -25,12 +24,7 @@ export default function MenuScreen() {
 
   return (
     <>
-      {Platform.OS === 'web' && (
-        <Head>
-          <title>Дабравесце ~ Крыніцы</title>
-          <meta name="description" content={Web.getDescription(path)} />
-        </Head>
-      )}
+      <WebHead name="Крыніцы" description={Web.getDescription(path)} />
 
       <ColumnLayout title="Крыніцы" subtitle="">
         <MenuView />

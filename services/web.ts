@@ -16,6 +16,8 @@ export default class Web {
         return description + ' ~ Каляндар';
       case '/menu':
         return description + ' ~ Крыніцы';
+      case '/donation':
+        return description + ' ~ Ахвяраванне';
       default:
         return description + ' ~ Змест';
     }
