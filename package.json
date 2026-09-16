@@ -8,6 +8,7 @@
     "node": ">=20"
   },
   "scripts": {
+    "open:code": "opencode",
     "install:latest": "npm install expo@latest",
     "install:check": "npx expo install --check",
     "install:fix": "expo install --fix",

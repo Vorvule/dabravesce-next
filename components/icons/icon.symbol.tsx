@@ -12,6 +12,7 @@ const MAPPING: Record<string, MaterialIconName> = {
   menucard: 'menu',
   'book.pages.fill': 'library-books',
   calendar: 'calendar-month',
+  'volunteer-activism': 'volunteer-activism',
 };
 
 export type IconSymbolName = keyof typeof MAPPING;
