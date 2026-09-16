@@ -1,7 +1,5 @@
 import { useCallback, useContext, useMemo } from 'react';
-import { Platform } from 'react-native';
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
-import Head from 'expo-router/head';
 
 import ColumnLayout from '../../../applets/layout/column.layout';
 import PageView from '../../../applets/page/page.view';
@@ -11,6 +9,7 @@ import { GlobalContext } from '@/contexts/global.context';
 
 import Page from '@/services/page';
 import Web from '@/services/web';
+import WebHead from '@/components/web.head';
 
 export async function generateStaticParams(): Promise<Record<string, string>[]> {
   const slugChains: { slugchain: string }[] = [];
@@ -52,12 +51,7 @@ export default function PageScreen() {
 
   return (
     <>
-      { Platform.OS === 'web' && (
-        <Head>
-          <title>{ Web.getPageTitle(keychain) }</title>
-          <meta name="description" content={ Web.getPageDescription(keychain) } />
-        </Head>
-      ) }
+      <WebHead title={Web.getPageTitle(keychain)} description={Web.getPageDescription(keychain)} />
 
       <ColumnLayout title={ albumName } subtitle={ bookName }>
         <PageView chapter={ chapter } keychain={ keychain }/>

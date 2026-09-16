@@ -1,7 +1,5 @@
-import { Platform } from 'react-native';
-import Head from 'expo-router/head';
-
 import Web from '@/services/web';
+import WebHead from '@/components/web.head';
 import ColumnLayout from '@/applets/layout/column.layout';
 import ThemedView from '@/components/themed/themed.view';
 import Styles from '@/constants/styles/common.styles';
@@ -20,12 +18,7 @@ export default function DonationScreen() {
 
   return (
     <>
-      {Platform.OS === 'web' && (
-        <Head>
-          <title>Дабравесце ~ Ахвяраванне</title>
-          <meta name="description" content={Web.getDescription('/donation')} />
-        </Head>
-      )}
+      <WebHead name="Ахвяраванне" description={Web.getDescription('/donation')} />
 
       <ColumnLayout title="Ахвяраванне" subtitle="На дзейнасць Брацтва">
         <ThemedView style={Styles.paragraph}>
