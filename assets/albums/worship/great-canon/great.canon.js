@@ -1,7 +1,7 @@
-import monday from './monday.json';
-import tuesday from './tuesday.json';
-import wednesday from './wednesday.json';
-import thursday from './thursday.json';
+import monday from './monday.json' with { type: 'json' };
+import tuesday from './tuesday.json' with { type: 'json' };
+import wednesday from './wednesday.json' with { type: 'json' };
+import thursday from './thursday.json' with { type: 'json' };
 
 const greatCanon = [
   {

@@ -1,7 +1,7 @@
-import daily from './daily.json';
-import easter from './easter.json';
-import litia from './litia.json';
-import housel from './housel.json';
+import daily from './daily.json' with { type: 'json' };
+import easter from './easter.json' with { type: 'json' };
+import litia from './litia.json' with { type: 'json' };
+import housel from './housel.json' with { type: 'json' };
 
 const prayers = {
   name: 'Малітоўнік',
