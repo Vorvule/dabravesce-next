@@ -10,11 +10,10 @@ export default function DonationScreen() {
   const paragraph1 = 'Пры мажлівасці і жаданні падтрымаць дзейнасць Брацтва ' +
     'ў гонар святых Віленскіх мучанікаў Антонія, Іаана і Яўстафія вы можаце здзейсніць ' +
     'ахвяраванне паводле наступных рэквізітаў:';
-
-  const paragraph2 = 'Без камісіі плацёж можна здзейсніць у ОАО «АСБ Беларусбанк». ' +
-    'Іншыя банкі могуць узяць за перавод нязначную камісію.';
-
-  const paragraph3 = 'Шчыра будзем удзячны вам і за найменшую лепту.';
+  const paragraph2 = 'Плацёж у мабільным дачыненні АСБ «Беларусбанк» выконваецца праз раздзелы:';
+  const paragraph3 = 'Камісія за плацёж не прадугледжана.';
+  const paragraph4 = 'Іншыя банкі могуць спажыць за плацёж суму каля 1 руб.';
+  const paragraph5 = 'Шчыра будзем удзячны вам і за найменшую лепту.';
 
   return (
     <>
@@ -30,9 +29,12 @@ export default function DonationScreen() {
           <ThemedText> ●  Лічбавы код банка: 795</ThemedText>
           <ThemedText> ●  Атрымальнік: Праваслаўнае Брацтва ў гонар Віленскіх мучанікаў Антонія, Іаана і Яўстафія ў г. Мінску</ThemedText>
           <ThemedText> ●  Код плацяжу: 44201 (альбо 144201) — Бязвыплатная (спонсарская) дапамога, дабравольныя ўзносы</ThemedText>
-          <ThemedText> ●  Прызначэнне плацяжу: Дабравольныя ахвяраванні</ThemedText>
           <ThemedText>{ LAYOUT.TAB + paragraph2 }</ThemedText>
+          <ThemedText> ●  Плацяжы банка</ThemedText>
+          <ThemedText> ●  Плацёж па рэквізітах</ThemedText>
           <ThemedText>{ LAYOUT.TAB + paragraph3 }</ThemedText>
+          <ThemedText>{ LAYOUT.TAB + paragraph4 }</ThemedText>
+          <ThemedText>{ LAYOUT.TAB + paragraph5 }</ThemedText>
         </ThemedView>
       </ColumnLayout>
     </>
