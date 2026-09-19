@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "Charity button",
-    "runtimeVersion": "74",
+    "version": "Charity text augmented",
+    "runtimeVersion": "75",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -18,7 +18,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 74
+      "versionCode": 75
     },
     "web": {
       "bundler": "metro",

@@ -22,7 +22,7 @@ export default function MenuFooterLinks() {
       {Platform.OS === 'android' ? (
         <ExternalLink asChild href="https://dabravesce.by">
           <Pressable style={styles.button}>
-            <Ionicons name="link" size={28} color="#1E90FF" />
+            <Ionicons name="link" size={28} color="#00C853" />
             <ThemedText type="link" style={{ color: linkColor }}>Веб-сайт</ThemedText>
           </Pressable>
         </ExternalLink>
