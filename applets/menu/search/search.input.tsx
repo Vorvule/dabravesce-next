@@ -12,6 +12,7 @@ export default function SearchInput({
   searchText,
   setSearchText,
   onPress,
+  placeholder = 'Пошук па змесце',
 }: any): JSX.Element {
   const theme = useColorScheme() ?? 'dark';
   const textColor = useThemeColor({}, 'text');
@@ -27,7 +28,7 @@ export default function SearchInput({
         autoFocus={Platform.OS === 'web'}
         value={searchText}
         onChangeText={setSearchText}
-        placeholder="Пошук па змесце"
+        placeholder={placeholder}
         placeholderTextColor="grey"
         cursorColor={textColor}
         style={[searchStyles.input, colors]}
