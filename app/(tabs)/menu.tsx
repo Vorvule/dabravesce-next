@@ -8,12 +8,10 @@ import useRedirectToPageOnWideScreens from '../../hooks/use.redirect.to.page.on.
 
 // import mapSources from '../../scripts/source.mapper';
 // import createSiteMap from '../../scripts/site.mapper';
-// import getAppSourcesSearchable from '../../scripts/app-sources/accents.remover';
 
 export default function MenuScreen() {
   // mapSources();
   // createSiteMap();
-  // getAppSourcesSearchable();
 
   const path: string = usePathname();
   const redirectUrl = useRedirectToPageOnWideScreens();
@@ -26,7 +24,7 @@ export default function MenuScreen() {
     <>
       <WebHead name="Крыніцы" description={Web.getDescription(path)} />
 
-      <ColumnLayout title="Крыніцы" subtitle="">
+      <ColumnLayout title="Дабравесце" subtitle="Крыніцы">
         <MenuView />
       </ColumnLayout>
     </>

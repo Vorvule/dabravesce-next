@@ -1,7 +1,7 @@
-import christmas from './christmas.json';
-import easters from './easters.json';
+import christmas from './christmas.json' with { type: 'json' };
+import easters from './easters.json' with { type: 'json' };
 // import  folk  from "./folk.json";
-import prayal from './prayal.json';
+import prayal from './prayal.json' with { type: 'json' };
 
 const songs = {
   slug: 'spiritual',

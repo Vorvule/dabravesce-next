@@ -8,22 +8,20 @@ const searchStyles: StyleProp<any> = {
     borderColor: 'grey',
     borderRadius: 30,
     paddingVertical: 10,
-    paddingLeft: 25,
-    paddingRight: 60, // Месца для кнопкі
+    paddingHorizontal: 25,
+    paddingRight: 60, // Месца для кнопкі ачысткі
     fontFamily: 'Monomakh',
     fontSize: 22,
   },
-  button: {
+  clearButton: {
     position: 'absolute',
-    right: 5,
-    top: 25,
-    width: 50,
-    height: 50,
-    borderColor: 'grey',
-    borderRadius: 30,
+    right: 15,
+    top: 30,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'teal',
   },
   link: {
     paddingVertical: 24,

@@ -1,4 +1,4 @@
-import psalms from './old.testament.json';
+import psalms from './old.testament.json' with { type: 'json' };
 
 const oldTestament = {
   slug: 'old-testament',

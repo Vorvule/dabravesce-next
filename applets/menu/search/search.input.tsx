@@ -11,7 +11,7 @@ import ThemedView from '@/components/themed/themed.view';
 export default function SearchInput({
   searchText,
   setSearchText,
-  onPress,
+  placeholder = 'Пошук па змесце',
 }: any): JSX.Element {
   const theme = useColorScheme() ?? 'dark';
   const textColor = useThemeColor({}, 'text');
@@ -27,15 +27,17 @@ export default function SearchInput({
         autoFocus={Platform.OS === 'web'}
         value={searchText}
         onChangeText={setSearchText}
-        placeholder="Пошук па змесце"
+        placeholder={placeholder}
         placeholderTextColor="grey"
         cursorColor={textColor}
         style={[searchStyles.input, colors]}
       />
 
-      <Pressable style={searchStyles.button} onPress={onPress}>
-        <MaterialIcons name="search" size={30} color="white" />
-      </Pressable>
+      {searchText.length > 0 && (
+        <Pressable style={searchStyles.clearButton} onPress={() => setSearchText('')}>
+          <MaterialIcons name="close" size={28} color="grey" />
+        </Pressable>
+      )}
     </ThemedView>
   );
 }

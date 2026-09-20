@@ -18,6 +18,8 @@ export default class Web {
         return description + ' ~ Крыніцы';
       case '/donation':
         return description + ' ~ Ахвяраванне';
+      case '/saints':
+        return description + ' ~ Звод імёнаў Святых';
       default:
         return description + ' ~ Змест';
     }

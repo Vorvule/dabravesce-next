@@ -1,10 +1,10 @@
-import john from './gospels/john.json';
-import luke from './gospels/luke.json';
-import mark from './gospels/mark.json';
-import matt from './gospels/matt.json';
-import apostlesContent from './apostles/apostles.json';
-import epistlesContent from './apostles/epistles.json';
-import apocalypseContent from './apostles/apocalypse.json';
+import john from './gospels/john.json' with { type: 'json' };
+import luke from './gospels/luke.json' with { type: 'json' };
+import mark from './gospels/mark.json' with { type: 'json' };
+import matt from './gospels/matt.json' with { type: 'json' };
+import apostlesContent from './apostles/apostles.json' with { type: 'json' };
+import epistlesContent from './apostles/epistles.json' with { type: 'json' };
+import apocalypseContent from './apostles/apocalypse.json' with { type: 'json' };
 
 const newTestament = {
   slug: 'new-testament',

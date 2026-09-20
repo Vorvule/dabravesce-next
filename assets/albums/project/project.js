@@ -1,4 +1,4 @@
-import projectContent from './project.content.json';
+import projectContent from './project.content.json' with { type: 'json' };
 
 const project = {
   slug: 'project',

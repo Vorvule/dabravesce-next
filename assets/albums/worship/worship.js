@@ -1,8 +1,8 @@
-import canons from './canons.json';
-import liturgy from './liturgy.json';
-import troparionsSunday from './troparions.sunday.json';
-import troparionsFestive from './troparions.festive.json';
-import acathisti from './acathists.json';
+import canons from './canons.json' with { type: 'json' };
+import liturgy from './liturgy.json' with { type: 'json' };
+import troparionsSunday from './troparions.sunday.json' with { type: 'json' };
+import troparionsFestive from './troparions.festive.json' with { type: 'json' };
+import acathisti from './acathists.json' with { type: 'json' };
 import greatCanon from './great-canon/great.canon.js';
 
 const worship = {
