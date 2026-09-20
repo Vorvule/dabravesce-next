@@ -1,14 +1,12 @@
 import { useMemo, useState } from 'react';
-import { StyleSheet } from 'react-native';
 
 import saintNamesMen from '@/assets/saints/saint.names.men.json';
 import saintNamesWomen from '@/assets/saints/saint.names.women.json';
 import ColumnLayout from '@/applets/layout/column.layout';
+import SaintNames from '@/applets/saints/saint.names';
 import SearchInput from '@/applets/menu/search/search.input';
-import ThemedText from '@/components/themed/themed.text';
 import WebHead from '@/components/web.head';
 import Web from '@/services/web';
-import { LAYOUT } from '@/constants/styles/layout';
 
 export default function SaintsScreen() {
   const [searchText, setSearchText] = useState('');
@@ -36,29 +34,9 @@ export default function SaintsScreen() {
           placeholder="Пошук імён"
         />
 
-        {menNames.length > 0 && (
-          <>
-            <ThemedText type="link" style={style.heading}>Мужчынскія імёны</ThemedText>
-            {menNames.map((name) =>
-              <ThemedText key={name}>{LAYOUT.DOT + name}</ThemedText>)}
-          </>
-        )}
-
-        {womenNames.length > 0 && (
-          <>
-            <ThemedText type="link" style={style.heading}>Жаночыя імёны</ThemedText>
-            {womenNames.map((name) =>
-              <ThemedText key={name}>{LAYOUT.DOT + name}</ThemedText>)}
-          </>
-        )}
+        <SaintNames title="Мужчынскія імёны" names={menNames} />
+        <SaintNames title="Жаночыя імёны" names={womenNames} />
       </ColumnLayout>
     </>
   );
 }
-
-const style = StyleSheet.create({
-  heading: {
-    textAlign: 'center',
-    paddingVertical: 30,
-  },
-});
