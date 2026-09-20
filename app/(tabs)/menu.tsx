@@ -24,7 +24,7 @@ export default function MenuScreen() {
     <>
       <WebHead name="Крыніцы" description={Web.getDescription(path)} />
 
-      <ColumnLayout title="Крыніцы" subtitle="">
+      <ColumnLayout title="Дабравесце" subtitle="Крыніцы">
         <MenuView />
       </ColumnLayout>
     </>
