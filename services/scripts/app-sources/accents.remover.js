@@ -38,5 +38,3 @@ const getAppSourcesSearchable = () => {
 };
 
 getAppSourcesSearchable();
-
-export default getAppSourcesSearchable;
