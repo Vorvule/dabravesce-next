@@ -56,9 +56,10 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={theme}>
       <StatusBar hidden />
-      <Stack>
+      <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="donation" options={{ headerShown: false }} />
+        <Stack.Screen name="saints" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>

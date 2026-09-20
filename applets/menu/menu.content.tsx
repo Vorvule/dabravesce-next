@@ -12,6 +12,7 @@ export default function MenuContent() {
     <>
       <AlbumList albums={appSources} />
       <ThemedLink style={style} href={useDailyGospelUrl()} text="Евангелле дня" />
+      <ThemedLink style={style} href="/saints" text="Звод імёнаў Святых" />
       <MenuFooter />
     </>
   );
