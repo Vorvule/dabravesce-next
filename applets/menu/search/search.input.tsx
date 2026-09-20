@@ -1,10 +1,11 @@
 import { JSX } from 'react';
-import { Platform, TextInput } from 'react-native';
+import { Platform, Pressable, TextInput } from 'react-native';
 
 import searchStyles from './search.styles';
 import { useColorScheme } from '@/hooks/use.color.scheme';
 import { useThemeColor } from '@/hooks/use.theme.color';
 
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import ThemedView from '@/components/themed/themed.view';
 
 export default function SearchInput({
@@ -31,6 +32,12 @@ export default function SearchInput({
         cursorColor={textColor}
         style={[searchStyles.input, colors]}
       />
+
+      {searchText.length > 0 && (
+        <Pressable style={searchStyles.clearButton} onPress={() => setSearchText('')}>
+          <MaterialIcons name="close" size={28} color="grey" />
+        </Pressable>
+      )}
     </ThemedView>
   );
 }
