@@ -8,22 +8,9 @@ const searchStyles: StyleProp<any> = {
     borderColor: 'grey',
     borderRadius: 30,
     paddingVertical: 10,
-    paddingLeft: 25,
-    paddingRight: 60, // Месца для кнопкі
+    paddingHorizontal: 25,
     fontFamily: 'Monomakh',
     fontSize: 22,
-  },
-  button: {
-    position: 'absolute',
-    right: 5,
-    top: 25,
-    width: 50,
-    height: 50,
-    borderColor: 'grey',
-    borderRadius: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'teal',
   },
   link: {
     paddingVertical: 24,

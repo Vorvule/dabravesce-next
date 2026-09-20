@@ -12,11 +12,8 @@ import { LAYOUT } from '@/constants/styles/layout';
 
 export default function SaintsScreen() {
   const [searchText, setSearchText] = useState('');
-  const [query, setQuery] = useState('');
 
-  const handleSearch = () => {
-    setQuery(searchText.trim().replace(/\s+/g, ' ').toLowerCase());
-  };
+  const query = searchText.trim().replace(/\s+/g, ' ').toLowerCase();
 
   const menNames = useMemo(
     () => query ? saintNamesMen.filter((name) => name.toLowerCase().includes(query)) : saintNamesMen,
@@ -36,7 +33,6 @@ export default function SaintsScreen() {
         <SearchInput
           searchText={searchText}
           setSearchText={setSearchText}
-          onPress={handleSearch}
           placeholder="Пошук імён"
         />
 

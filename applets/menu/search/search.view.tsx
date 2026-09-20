@@ -1,29 +1,24 @@
-import { useState } from 'react';
-import { useLocalSearchParams, router } from 'expo-router';
+import { useMemo, useState } from 'react';
+import { useLocalSearchParams } from 'expo-router';
 import SearchInput from './search.input';
 import ThemedText from '@/components/themed/themed.text';
 import SearchResults from './search.results';
-import Search, { SearchResult } from '@/services/search';
+import Search from '@/services/search';
 
 export default function SearchView() {
   const { q } = useLocalSearchParams<{ q?: string }>();
   const [searchText, setSearchText] = useState(q || '');
-  const [searchResults, setSearchResults] = useState<SearchResult[]>(
-    q ? Search.getInSources(q) : [],
-  );
 
-  const handleSearch = () => {
-    const results = Search.getInSources(searchText);
-    setSearchResults(results);
-    router.setParams({ q: searchText || undefined });
-  };
+  const searchResults = useMemo(
+    () => Search.getInSources(searchText),
+    [searchText],
+  );
 
   return (
     <>
       <SearchInput
         searchText={searchText}
         setSearchText={setSearchText}
-        onPress={handleSearch}
       />
 
       <ThemedText style={{ textAlign: 'center', paddingTop: 20 }} type="header">

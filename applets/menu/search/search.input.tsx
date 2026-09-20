@@ -1,17 +1,15 @@
 import { JSX } from 'react';
-import { Platform, Pressable, TextInput } from 'react-native';
+import { Platform, TextInput } from 'react-native';
 
 import searchStyles from './search.styles';
 import { useColorScheme } from '@/hooks/use.color.scheme';
 import { useThemeColor } from '@/hooks/use.theme.color';
 
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import ThemedView from '@/components/themed/themed.view';
 
 export default function SearchInput({
   searchText,
   setSearchText,
-  onPress,
   placeholder = 'Пошук па змесце',
 }: any): JSX.Element {
   const theme = useColorScheme() ?? 'dark';
@@ -33,10 +31,6 @@ export default function SearchInput({
         cursorColor={textColor}
         style={[searchStyles.input, colors]}
       />
-
-      <Pressable style={searchStyles.button} onPress={onPress}>
-        <MaterialIcons name="search" size={30} color="white" />
-      </Pressable>
     </ThemedView>
   );
 }
