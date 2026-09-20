@@ -1,27 +1,16 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 
-import saintNamesMen from '@/assets/saints/saint.names.men.json';
-import saintNamesWomen from '@/assets/saints/saint.names.women.json';
 import ColumnLayout from '@/applets/layout/column.layout';
 import SaintNames from '@/applets/saints/saint.names';
 import SearchInput from '@/applets/menu/search/search.input';
 import WebHead from '@/components/web.head';
+import useSaintNames from '@/hooks/use.saint.names';
 import Web from '@/services/web';
 
 export default function SaintsScreen() {
   const [searchText, setSearchText] = useState('');
 
-  const query = searchText.trim().replace(/\s+/g, ' ').toLowerCase();
-
-  const menNames = useMemo(
-    () => query ? saintNamesMen.filter((name) => name.toLowerCase().includes(query)) : saintNamesMen,
-    [query],
-  );
-
-  const womenNames = useMemo(
-    () => query ? saintNamesWomen.filter((name) => name.toLowerCase().includes(query)) : saintNamesWomen,
-    [query],
-  );
+  const { menNames, womenNames } = useSaintNames(searchText);
 
   return (
     <>
