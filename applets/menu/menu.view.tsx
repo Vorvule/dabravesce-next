@@ -9,15 +9,17 @@ export default function MenuView() {
   const [showSearch, setShowSearch] = useState(false);
 
   const style = { paddingBottom: 24, textAlign: 'center' } as StyleProp<TextStyle>;
-  const text = showSearch ? 'Меню' : 'Пошук па змесце';
 
-  return (
-    <>
-      <Pressable onPress={() => setShowSearch(!showSearch)}>
-        <ThemedText type="link" style={style}>{text}</ThemedText>
-      </Pressable>
+  if (showSearch) {
+    return (
+      <>
+        <Pressable onPress={() => setShowSearch(false)}>
+          <ThemedText type="link" style={style}>Меню</ThemedText>
+        </Pressable>
+        <SearchView />
+      </>
+    );
+  }
 
-      {showSearch ? <SearchView /> : <MenuContent /> }
-    </>
-  );
+  return <MenuContent onSearch={() => setShowSearch(true)} />;
 }
