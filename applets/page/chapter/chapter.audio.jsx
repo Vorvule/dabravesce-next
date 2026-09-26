@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { View } from 'react-native';
 
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
@@ -17,10 +17,16 @@ export default function ChapterAudio({ chapterAudio }) {
     return createClient(supabaseUrl, supabaseKey);
   }, []);
 
-  const [audioSource, setAudioSource] = useState(null);
-  const [buttons, setButtons] = useState(BUTTON_STATES.STOPPED);
+  const audioUrl = useMemo(() => {
+    return supabase
+      .storage
+      .from('audio')
+      .getPublicUrl(chapterAudio)
+      .data
+      .publicUrl;
+  }, [chapterAudio, supabase]);
 
-  const player = useAudioPlayer(audioSource);
+  const player = useAudioPlayer(audioUrl);
   const status = useAudioPlayerStatus(player);
   // console.log('Audio source', player.audioSource);
   // console.log('Player duration', player.duration);
@@ -31,24 +37,45 @@ export default function ChapterAudio({ chapterAudio }) {
   // console.log('Player rate', player.playbackRate);
   // console.log('Player volume', player.volume);
 
-  const audioUrl = useMemo(() => {
-    return supabase.storage.from('audio').getPublicUrl(chapterAudio).data
-      .publicUrl;
-  }, [chapterAudio, supabase]);
+  let buttons = BUTTON_STATES.STOPPED;
+
+  if (status.playing) {
+    buttons = BUTTON_STATES.PLAYING;
+  } else if (status.currentTime > 0) {
+    buttons = BUTTON_STATES.PAUSED;
+  }
+
+  const isAwake = useRef(false);
+
+  const acquireKeepAwake = useCallback(async () => {
+    if (isAwake.current) {
+      return;
+    }
+
+    await activateKeepAwakeAsync();
+    isAwake.current = true;
+  }, []);
+
+  const releaseKeepAwake = useCallback(async () => {
+    if (!isAwake.current) {
+      return;
+    }
+
+    await deactivateKeepAwake();
+    isAwake.current = false;
+  }, []);
 
   const playAudio = async () => {
     if (player.paused) {
       player.play();
-      setButtons(BUTTON_STATES.PLAYING);
-      await activateKeepAwakeAsync();
+      await acquireKeepAwake();
     }
   };
 
   const pauseAudio = async () => {
     if (status.playing) {
       player.pause();
-      setButtons(BUTTON_STATES.PAUSED);
-      await activateKeepAwakeAsync();
+      await releaseKeepAwake();
     }
   };
 
@@ -56,20 +83,17 @@ export default function ChapterAudio({ chapterAudio }) {
     if (player.currentTime > 0) {
       player.pause();
       await player.seekTo(0);
-      setButtons(BUTTON_STATES.STOPPED);
-      await deactivateKeepAwake();
+      await releaseKeepAwake();
     }
-  }, [player]);
+  }, [player, releaseKeepAwake]);
 
   useEffect(() => {
     status.didJustFinish && stopAudio();
-  }, [player.playing, status.didJustFinish, stopAudio]);
+  }, [status.didJustFinish, stopAudio]);
 
   useEffect(() => {
-    stopAudio().then(() => {
-      setAudioSource(audioUrl);
-    });
-  }, [audioUrl, stopAudio]);
+    releaseKeepAwake();
+  }, [audioUrl, releaseKeepAwake]);
 
   return (
     <View style={Styles.buttons}>

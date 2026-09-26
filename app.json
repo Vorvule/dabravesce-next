@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "Enhance menu view",
-    "runtimeVersion": "77",
+    "version": "Improve menu and chapter audio management",
+    "runtimeVersion": "78",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -18,7 +18,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 77
+      "versionCode": 78
     },
     "web": {
       "bundler": "metro",
