@@ -1,37 +1,50 @@
-import { StyleSheet } from 'react-native';
+import { ReactElement, useMemo } from 'react';
+import { SectionList, StyleSheet, View } from 'react-native';
 
 import ThemedText from '@/components/themed/themed.text';
-import ThemedView from '@/components/themed/themed.view';
 import { LAYOUT } from '@/constants/styles/layout';
 
-export default function SaintNames({
-  title,
-  names,
-}: {
-  title: string;
-  names: string[];
-}) {
-  if (names.length === 0) {
-    return null;
-  }
+type Props = {
+  menNames: string[],
+  womenNames: string[],
+  header?: ReactElement,
+};
+
+export default function SaintNames({ menNames, womenNames, header }: Props) {
+  const sections = useMemo(
+    () => [
+      { title: 'Мужчынскія імёны', data: menNames },
+      { title: 'Жаночыя імёны', data: womenNames },
+    ].filter((section) => section.data.length > 0),
+    [menNames, womenNames],
+  );
 
   return (
-    <>
-      <ThemedText type="link" style={style.heading}>{ title }</ThemedText>
-      <ThemedView style={style.names}>
-        {names.map((name) =>
-          <ThemedText key={name}>{LAYOUT.TAB + name}</ThemedText>)}
-      </ThemedView>
-    </>
+    <SectionList
+      style={styles.list}
+      sections={sections}
+      keyExtractor={(name) => name}
+      ListHeaderComponent={header}
+      stickySectionHeadersEnabled={false}
+      renderSectionHeader={({ section }) =>
+        <ThemedText type="link" style={styles.heading}>{ section.title }</ThemedText>}
+      renderItem={({ item }) => <ThemedText>{LAYOUT.TAB + item}</ThemedText>}
+      ItemSeparatorComponent={Separator}
+    />
   );
 }
 
-const style = StyleSheet.create({
+const Separator = () => <View style={styles.separator} />;
+
+const styles = StyleSheet.create({
+  list: {
+    flex: 1,
+  },
   heading: {
     textAlign: 'center',
     paddingVertical: 30,
   },
-  names: {
-    gap: 8,
+  separator: {
+    height: 8,
   },
 });
