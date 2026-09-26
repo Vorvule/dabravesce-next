@@ -16,15 +16,18 @@ export default function SaintsScreen() {
     <>
       <WebHead name="Звод імёнаў Святых" description={Web.getDescription('/saints')} />
 
-      <ColumnLayout title="Звод" subtitle="Імёнаў Святых">
-        <SearchInput
-          searchText={searchText}
-          setSearchText={setSearchText}
-          placeholder="Пошук імён"
+      <ColumnLayout title="Звод" subtitle="Імёнаў Святых" scrollable={false}>
+        <SaintNames
+          menNames={menNames}
+          womenNames={womenNames}
+          header={
+            <SearchInput
+              searchText={searchText}
+              setSearchText={setSearchText}
+              placeholder="Пошук імён"
+            />
+          }
         />
-
-        <SaintNames title="Мужчынскія імёны" names={menNames} />
-        <SaintNames title="Жаночыя імёны" names={womenNames} />
       </ColumnLayout>
     </>
   );

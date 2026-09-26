@@ -1,39 +1,27 @@
-import { useEffect, useState } from 'react';
-import { useColorScheme as useRNColorScheme } from 'react-native';
+import { useSyncExternalStore } from 'react';
+
+const DARK_QUERY = '(prefers-color-scheme: dark)';
+
+function subscribe(onStoreChange: () => void) {
+  const mediaQuery = window.matchMedia(DARK_QUERY);
+  mediaQuery.addEventListener('change', onStoreChange);
+
+  return () => mediaQuery.removeEventListener('change', onStoreChange);
+}
+
+function getSnapshot() {
+  return window.matchMedia(DARK_QUERY).matches;
+}
+
+function getServerSnapshot() {
+  return false;
+}
 
 /**
  * To support static rendering, this value needs to be re-calculated on the client side for web
  */
-export function useColorScheme() {
-  const [hasHydrated, setHasHydrated] = useState(false);
-  const [colorScheme, setColorScheme] = useState<'light' | 'dark' | null>(null);
+export function useColorScheme(): 'light' | 'dark' {
+  const prefersDark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  useEffect(() => {
-    setHasHydrated(true);
-  }, []);
-
-  useEffect(() => {
-    // Listen for system theme changes via prefers-color-scheme
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-    const handleChange = (e: MediaQueryListEvent) => {
-      setColorScheme(e.matches ? 'dark' : 'light');
-    };
-
-    // Set initial value
-    setColorScheme(mediaQuery.matches ? 'dark' : 'light');
-
-    // Listen for changes
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  const rnColorScheme = useRNColorScheme();
-  const finalScheme = colorScheme ?? rnColorScheme;
-
-  if (hasHydrated) {
-    return finalScheme;
-  }
-
-  return 'light';
+  return prefersDark ? 'dark' : 'light';
 }
