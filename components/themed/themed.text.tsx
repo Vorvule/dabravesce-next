@@ -6,55 +6,36 @@ export type ThemedTextProps = TextProps & {
   type?: 'title' | 'subtitle' | 'header' | 'item' | 'link' | 'default' | 'today';
 };
 
-export default function ThemedText({ style, type = 'default', ...rest }: ThemedTextProps) {
-  const { width } = useWindowDimensions();
-  const fontSize = width > WIDTH_LIMIT.MIDDLE_COLUMN ? 22 : 18;
-  const color = useThemeColor({}, 'text');
+type TextType = NonNullable<ThemedTextProps['type']>;
 
-  const styles = StyleSheet.create({
-    title: {
-      fontFamily: 'Monomakh',
-      textAlign: 'center',
-      fontSize: fontSize + 20,
-      color: useThemeColor({}, 'primary'),
-    },
-    subtitle: {
-      fontFamily: 'Monomakh',
-      textAlign: 'center',
-      fontSize: fontSize + 14,
-      color: useThemeColor({}, 'link'),
-    },
-    header: {
-      fontFamily: 'Monomakh',
-      fontSize: fontSize + 6,
-      paddingVertical: 4,
-      color,
-    },
-    link: {
-      fontFamily: 'Monomakh',
-      fontSize: fontSize + 3,
-      lineHeight: 24,
-      color: useThemeColor({}, 'link'),
-    },
-    item: {
-      fontFamily: 'Monomakh',
-      fontSize: fontSize + 3,
-      lineHeight: 24,
-      color,
-    },
-    default: {
-      fontFamily: 'Vollkorn',
-      fontSize: fontSize,
-      lineHeight: 26,
-      color,
-    },
-    today: {
-      fontFamily: 'Vollkorn',
-      fontSize: fontSize,
-      lineHeight: 26,
-      color: useThemeColor({}, 'primary'),
-    },
+const ACCENTS: Record<TextType, 'text' | 'link' | 'primary'> = {
+  title: 'primary',
+  subtitle: 'link',
+  header: 'text',
+  item: 'text',
+  link: 'link',
+  default: 'text',
+  today: 'primary',
+};
+
+const createStyles = (fontSize: number) =>
+  StyleSheet.create({
+    title: { fontFamily: 'Monomakh', textAlign: 'center', fontSize: fontSize + 20 },
+    subtitle: { fontFamily: 'Monomakh', textAlign: 'center', fontSize: fontSize + 14 },
+    header: { fontFamily: 'Monomakh', fontSize: fontSize + 6, paddingVertical: 4 },
+    link: { fontFamily: 'Monomakh', fontSize: fontSize + 3, lineHeight: 24 },
+    item: { fontFamily: 'Monomakh', fontSize: fontSize + 3, lineHeight: 24 },
+    default: { fontFamily: 'Vollkorn', fontSize, lineHeight: 26 },
+    today: { fontFamily: 'Vollkorn', fontSize, lineHeight: 26 },
   });
 
-  return <Text style={[styles[type], style]} {...rest} />;
+const narrowStyles = createStyles(18);
+const wideStyles = createStyles(22);
+
+export default function ThemedText({ style, type = 'default', ...rest }: ThemedTextProps) {
+  const { width } = useWindowDimensions();
+  const color = useThemeColor({}, ACCENTS[type]);
+  const styles = width > WIDTH_LIMIT.MIDDLE_COLUMN ? wideStyles : narrowStyles;
+
+  return <Text style={[styles[type], { color }, style]} {...rest} />;
 }

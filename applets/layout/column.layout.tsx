@@ -9,9 +9,13 @@ import RightColumn from './right.column';
 import ColumnHeader from './column.header';
 import ThemedView from '@/components/themed/themed.view';
 
-type Props = PropsWithChildren<{ title: string, subtitle: string }>;
+type Props = PropsWithChildren<{
+  title: string,
+  subtitle: string,
+  scrollable?: boolean,
+}>;
 
-export default function ColumnLayout({ children, title, subtitle }: Props) {
+export default function ColumnLayout({ children, title, subtitle, scrollable = true }: Props) {
   const { width: windowWidth } = useWindowDimensions();
   const ssrWidth = Platform.OS === 'web' && typeof window !== 'undefined' ? window.innerWidth : 0;
   const width = ssrWidth > windowWidth ? ssrWidth : windowWidth;
@@ -24,6 +28,7 @@ export default function ColumnLayout({ children, title, subtitle }: Props) {
     middleColumn: { width: columnWidth },
     sideColumn: { flex: 1, overflow: 'hidden' },
     content: { flex: 1, padding: 18, paddingBottom: 160, overflow: 'hidden' },
+    listContent: { flex: 1, padding: 18, overflow: 'hidden' },
   });
 
   const scrollRef = useRef<ScrollView>(null);
@@ -34,6 +39,14 @@ export default function ColumnLayout({ children, title, subtitle }: Props) {
     scrollRef.current?.scrollTo({ y: 0, animated: true });
   }, [keychain, scrollRef]);
 
+  const content = (
+    <ThemedView
+      key={colorScheme}
+      style={scrollable ? styles.content : styles.listContent}>
+      {children}
+    </ThemedView>
+  );
+
   return (
     <ThemedView style={styles.container}>
       {viewportIsWide && (
@@ -43,10 +56,17 @@ export default function ColumnLayout({ children, title, subtitle }: Props) {
       )}
 
       <ThemedView style={styles.middleColumn}>
-        <ScrollView ref={scrollRef} showsVerticalScrollIndicator={!columnIsWide}>
-          <ColumnHeader title={title} subtitle={subtitle} />
-          <ThemedView key={colorScheme} style={styles.content}>{children}</ThemedView>
-        </ScrollView>
+        {scrollable ? (
+          <ScrollView ref={scrollRef} showsVerticalScrollIndicator={!columnIsWide}>
+            <ColumnHeader title={title} subtitle={subtitle} />
+            {content}
+          </ScrollView>
+        ) : (
+          <>
+            <ColumnHeader title={title} subtitle={subtitle} />
+            {content}
+          </>
+        )}
       </ThemedView>
 
       {viewportIsWide && (
