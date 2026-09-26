@@ -18,14 +18,19 @@ export default function TabLayout() {
   const viewportIsWide = width > WIDTH_LIMIT.WIDE_COLUMN;
   const dailyKeychain: number[] = React.useMemo(() => Daily.getDailyKeychain(), []);
   const [keychain, setKeychain] = React.useState(dailyKeychain);
+  const [menuKeychain, setMenuKeychain] = React.useState<number[] | null>(null);
 
   const updateKeychain = React.useCallback(
     (newKeychain: number[]) => setKeychain(newKeychain),
     []);
 
+  const updateMenuKeychain = React.useCallback(
+    (newMenuKeychain: number[] | null) => setMenuKeychain(newMenuKeychain),
+    []);
+
   const contextValue = React.useMemo(
-    () => ({ keychain, updateKeychain, dailyKeychain }),
-    [keychain, updateKeychain, dailyKeychain],
+    () => ({ keychain, updateKeychain, dailyKeychain, menuKeychain, updateMenuKeychain }),
+    [keychain, updateKeychain, dailyKeychain, menuKeychain, updateMenuKeychain],
   );
 
   const backgroundColor = useThemeColor({}, 'background');

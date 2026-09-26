@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 
 import ThemedView from '@/components/themed/themed.view';
 
@@ -6,9 +6,8 @@ import AlbumListItem from './album.list.item.jsx';
 import { GlobalContext } from '@/contexts/global.context';
 
 export default function AlbumList({ albums }) {
-  const { keychain } = useContext(GlobalContext);
-  const [unfolded, setUnfolded] = useState(keychain);
-  const folding = [unfolded, setUnfolded];
+  const { menuKeychain, updateMenuKeychain } = useContext(GlobalContext);
+  const folding = [menuKeychain, updateMenuKeychain];
 
   return albums.map((album, key) => {
     return (
