@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "Improve menu and chapter audio management",
-    "runtimeVersion": "78",
+    "version": "Expo SDK58 applied",
+    "runtimeVersion": "79",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -18,7 +18,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 78
+      "versionCode": 79
     },
     "web": {
       "bundler": "metro",
