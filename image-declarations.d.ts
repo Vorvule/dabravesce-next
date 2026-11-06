@@ -17,3 +17,8 @@ declare module '*.gif' {
   const value: number;
   export default value;
 }
+
+declare module '*.css' {
+  const value: void;
+  export default value;
+}
