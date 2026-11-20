@@ -8,6 +8,7 @@ import { createClient } from '@supabase/supabase-js';
 import RoundButton from '@/components/round.button';
 import Styles from '@/constants/styles/common.styles';
 import { BUTTON_STATES } from '@/constants/audio/button.states.js';
+import ChapterAudioProgress from './chapter.audio.progress';
 
 export default function ChapterAudio({ chapterAudio }) {
   const supabase = useMemo(() => {
@@ -87,6 +88,10 @@ export default function ChapterAudio({ chapterAudio }) {
     }
   }, [player, releaseKeepAwake]);
 
+  const seekAudio = useCallback((seconds) => {
+    player.seekTo(seconds);
+  }, [player]);
+
   useEffect(() => {
     status.didJustFinish && stopAudio();
   }, [status.didJustFinish, stopAudio]);
@@ -96,10 +101,18 @@ export default function ChapterAudio({ chapterAudio }) {
   }, [audioUrl, releaseKeepAwake]);
 
   return (
-    <View style={Styles.buttons}>
-      <RoundButton name="play" onPress={playAudio} enabled={buttons.play} />
-      <RoundButton name="pause" onPress={pauseAudio} enabled={buttons.pause} />
-      <RoundButton name="stop" onPress={stopAudio} enabled={buttons.stop} />
+    <View style={Styles.gapped}>
+      <ChapterAudioProgress
+        currentTime={status.currentTime}
+        duration={status.duration}
+        onSeek={seekAudio}
+      />
+
+      <View style={Styles.buttons}>
+        <RoundButton name="play" onPress={playAudio} enabled={buttons.play} />
+        <RoundButton name="pause" onPress={pauseAudio} enabled={buttons.pause} />
+        <RoundButton name="stop" onPress={stopAudio} enabled={buttons.stop} />
+      </View>
     </View>
   );
 }

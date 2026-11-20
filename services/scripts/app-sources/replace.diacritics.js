@@ -11,7 +11,7 @@ const replacements = {
   ј: 'е' ,
   l: 'І' ,
   ѕ: 'і' , // Serbian/Macedonian
-  ѕ: 'і' , // Latin
+  // ѕ: 'і' , // Latin
   ѓ: 'о' ,
   љ: 'у' ,
   '¢': 'ў',
@@ -19,7 +19,7 @@ const replacements = {
   њ: 'э' ,
   Ю́: 'Ю',
   џ: 'ю' ,
-  Ћ: 'Я' ,
+  // Ћ: 'Я' ,
   Ћ: 'Я' , // Serbian
   ћ: 'я' ,
 };
