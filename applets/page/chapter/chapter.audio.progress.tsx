@@ -103,9 +103,14 @@ export default function ChapterAudioProgress({ currentTime, duration, onSeek }: 
 
       <View
         accessible
-        accessibilityRole="slider"
+        accessibilityRole="adjustable"
         accessibilityLabel="Прагрэс прайгравання"
-        accessibilityValue={{ min: 0, max: validDuration, now: shownTime }}
+        accessibilityValue={{
+          min: 0,
+          max: validDuration,
+          now: shownTime,
+          text: formatTime(shownTime),
+        }}
         hitSlop={{ top: 12, bottom: 12 }}
         onLayout={handleLayout}
         onStartShouldSetResponder={() => true}

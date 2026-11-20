@@ -2,8 +2,8 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "Expo SDK58 applied",
-    "runtimeVersion": "79",
+    "version": "Audio progress bar adjustable added",
+    "runtimeVersion": "81",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
@@ -18,7 +18,7 @@
         "backgroundColor": "#fcfaeb"
       },
       "package": "by.dabravesce",
-      "versionCode": 79
+      "versionCode": 81
     },
     "web": {
       "bundler": "metro",
