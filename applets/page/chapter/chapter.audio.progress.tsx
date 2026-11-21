@@ -20,7 +20,7 @@ function formatTime(seconds: number): string {
   const hours = Math.floor(total / 3600);
   const minutes = Math.floor((total % 3600) / 60);
   const secs = total % 60;
-  const mm = hours > 0 ? String(minutes).padStart(2, '0') : String(minutes);
+  const mm = String(minutes).padStart(2, '0');
   const ss = String(secs).padStart(2, '0');
 
   return hours > 0 ? `${hours}:${mm}:${ss}` : `${mm}:${ss}`;
@@ -99,7 +99,7 @@ export default function ChapterAudioProgress({ currentTime, duration, onSeek }: 
 
   return (
     <View style={styles.container}>
-      <ThemedText type="item" style={styles.time}>{formatTime(shownTime)}</ThemedText>
+      <ThemedText type="default" style={styles.timeCurrent}>{formatTime(shownTime)}</ThemedText>
 
       <View
         accessible
@@ -129,7 +129,7 @@ export default function ChapterAudioProgress({ currentTime, duration, onSeek }: 
         />
       </View>
 
-      <ThemedText type="item" style={styles.time}>{formatTime(validDuration)}</ThemedText>
+      <ThemedText type="default" style={styles.timeDuration}>{formatTime(validDuration)}</ThemedText>
     </View>
   );
 }
@@ -139,14 +139,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     gap: 10,
-    paddingHorizontal: 18,
     width: '100%',
   },
-  time: {
+  timeCurrent: {
+    fontVariant: ['tabular-nums'],
     fontSize: 14,
     lineHeight: 18,
-    minWidth: 44,
-    textAlign: 'center',
+    minWidth: 60,
+    textAlign: 'right',
+  },
+  timeDuration: {
+    fontVariant: ['tabular-nums'],
+    fontSize: 14,
+    lineHeight: 18,
+    minWidth: 60,
+    textAlign: 'left',
   },
   track: {
     borderRadius: 3,
