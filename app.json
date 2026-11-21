@@ -2,15 +2,18 @@
   "expo": {
     "name": "Дабравесце",
     "slug": "dabravesce",
-    "version": "Audio progress bar adjustable added",
-    "runtimeVersion": "81",
+    "version": "Audio time position enhanced",
+    "runtimeVersion": {
+      "policy": "fingerprint"
+    },
     "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "dwapp",
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "by.dabravesce"
+      "bundleIdentifier": "by.dabravesce",
+      "buildNumber": "81"
     },
     "android": {
       "adaptiveIcon": {
